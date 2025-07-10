@@ -1,0 +1,38 @@
+{
+  "version": "0.2.0",
+"configurations": [
+    {
+        "cwd": "${workspaceRoot}",
+        "type": "cortex-debug",
+        "request": "launch",
+        "name": "GD_Template-F4xx: OpenOCD",
+        "servertype": "openocd",
+        "executable": "build/GD_Template-F4xx/GD_Template-F4xx.elf",
+        "runToEntryPoint": "main",
+        "configFiles": [
+            "interface/cmsis-dap.cfg",
+            "target/stm32f4x.cfg"
+        ],
+        "toolchainPrefix": "arm-none-eabi",
+    },
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "externalConsole": true,
+      "cwd": "g:/1-VscodeProject/GD-32/1-GD_Template-F4xx/eide",
+      "program": "g:/1-VscodeProject/GD-32/1-GD_Template-F4xx/eide/build/Debug/outDebug",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
+}

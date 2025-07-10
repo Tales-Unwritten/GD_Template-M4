@@ -1,0 +1,287 @@
+Dependencies for Project 'GD32F450', Target 'GD32F450': (DO NOT MODIFY !)
+CompilerVersion: 6160000::V6.16::ARMCLANG
+F (..\User\systick.c)(0x62297359)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Firmware/GD32F4xx_standard_peripheral/Include -I ../Firmware/CMSIS -I ../Firmware/CMSIS/GD/GD32F4xx/Include -I ../User -I ../Hardware/inc-I"D:/KELE5 MDK/Packs/GigaDevice/GD32F4xx_DFP/3.0.3/Device/F4XX/Include"-I"D:/KELE5 MDK/ARM/CMSIS/Include"-D__UVISION_VERSION="536" -DGD32F470 -DUSE_STDPERIPH_DRIVER -DGD32F470-o ./objects/systick.o -MD)
+I (..\Firmware\CMSIS\GD\GD32F4xx\Include\gd32f4xx.h)(0x62297358)
+I (..\Firmware\CMSIS\core_cm4.h)(0x62297358)
+I (D:\KELE5 MDK\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (..\Firmware\CMSIS\core_cmInstr.h)(0x62297359)
+I (..\Firmware\CMSIS\core_cmFunc.h)(0x62297358)
+I (..\Firmware\CMSIS\core_cm4_simd.h)(0x62297359)
+I (..\Firmware\CMSIS\GD\GD32F4xx\Include\system_gd32f4xx.h)(0x62297358)
+I (..\User\gd32f4xx_libopt.h)(0x62297359)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_rcu.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_adc.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_can.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_crc.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_ctc.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_dac.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_dbg.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_dci.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_dma.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_exti.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_fmc.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_fwdgt.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_gpio.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_syscfg.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_i2c.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_iref.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_pmu.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_rtc.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_sdio.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_spi.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_timer.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_trng.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_usart.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_wwdgt.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_misc.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_enet.h)(0x62297358)
+I (D:\KELE5 MDK\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_exmc.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_ipa.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_tli.h)(0x62297358)
+I (..\User\systick.h)(0x62297359)
+F (..\User\main.c)(0x685BEC82)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Firmware/GD32F4xx_standard_peripheral/Include -I ../Firmware/CMSIS -I ../Firmware/CMSIS/GD/GD32F4xx/Include -I ../User -I ../Hardware/inc-I"D:/KELE5 MDK/Packs/GigaDevice/GD32F4xx_DFP/3.0.3/Device/F4XX/Include"-I"D:/KELE5 MDK/ARM/CMSIS/Include"-D__UVISION_VERSION="536" -DGD32F470 -DUSE_STDPERIPH_DRIVER -DGD32F470-o ./objects/main.o -MD)
+I (..\Firmware\CMSIS\GD\GD32F4xx\Include\gd32f4xx.h)(0x62297358)
+I (..\Firmware\CMSIS\core_cm4.h)(0x62297358)
+I (D:\KELE5 MDK\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (..\Firmware\CMSIS\core_cmInstr.h)(0x62297359)
+I (..\Firmware\CMSIS\core_cmFunc.h)(0x62297358)
+I (..\Firmware\CMSIS\core_cm4_simd.h)(0x62297359)
+I (..\Firmware\CMSIS\GD\GD32F4xx\Include\system_gd32f4xx.h)(0x62297358)
+I (..\User\gd32f4xx_libopt.h)(0x62297359)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_rcu.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_adc.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_can.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_crc.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_ctc.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_dac.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_dbg.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_dci.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_dma.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_exti.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_fmc.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_fwdgt.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_gpio.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_syscfg.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_i2c.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_iref.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_pmu.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_rtc.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_sdio.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_spi.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_timer.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_trng.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_usart.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_wwdgt.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_misc.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_enet.h)(0x62297358)
+I (D:\KELE5 MDK\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_exmc.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_ipa.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_tli.h)(0x62297358)
+I (..\User\systick.h)(0x62297359)
+I (D:\KELE5 MDK\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
+I (..\User\main.h)(0x62297359)
+I (..\Hardware\inc\bsp_led.h)(0x62A31281)
+F (..\User\gd32f4xx_it.c)(0x6267A433)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Firmware/GD32F4xx_standard_peripheral/Include -I ../Firmware/CMSIS -I ../Firmware/CMSIS/GD/GD32F4xx/Include -I ../User -I ../Hardware/inc-I"D:/KELE5 MDK/Packs/GigaDevice/GD32F4xx_DFP/3.0.3/Device/F4XX/Include"-I"D:/KELE5 MDK/ARM/CMSIS/Include"-D__UVISION_VERSION="536" -DGD32F470 -DUSE_STDPERIPH_DRIVER -DGD32F470-o ./objects/gd32f4xx_it.o -MD)
+I (..\User\gd32f4xx_it.h)(0x62297359)
+I (..\Firmware\CMSIS\GD\GD32F4xx\Include\gd32f4xx.h)(0x62297358)
+I (..\Firmware\CMSIS\core_cm4.h)(0x62297358)
+I (D:\KELE5 MDK\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (..\Firmware\CMSIS\core_cmInstr.h)(0x62297359)
+I (..\Firmware\CMSIS\core_cmFunc.h)(0x62297358)
+I (..\Firmware\CMSIS\core_cm4_simd.h)(0x62297359)
+I (..\Firmware\CMSIS\GD\GD32F4xx\Include\system_gd32f4xx.h)(0x62297358)
+I (..\User\gd32f4xx_libopt.h)(0x62297359)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_rcu.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_adc.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_can.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_crc.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_ctc.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_dac.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_dbg.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_dci.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_dma.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_exti.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_fmc.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_fwdgt.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_gpio.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_syscfg.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_i2c.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_iref.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_pmu.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_rtc.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_sdio.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_spi.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_timer.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_trng.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_usart.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_wwdgt.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_misc.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_enet.h)(0x62297358)
+I (D:\KELE5 MDK\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_exmc.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_ipa.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_tli.h)(0x62297358)
+I (..\User\main.h)(0x62297359)
+I (..\User\systick.h)(0x62297359)
+F (..\Firmware\CMSIS\GD\GD32F4xx\Source\system_gd32f4xx.c)(0x62297358)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Firmware/GD32F4xx_standard_peripheral/Include -I ../Firmware/CMSIS -I ../Firmware/CMSIS/GD/GD32F4xx/Include -I ../User -I ../Hardware/inc-I"D:/KELE5 MDK/Packs/GigaDevice/GD32F4xx_DFP/3.0.3/Device/F4XX/Include"-I"D:/KELE5 MDK/ARM/CMSIS/Include"-D__UVISION_VERSION="536" -DGD32F470 -DUSE_STDPERIPH_DRIVER -DGD32F470-o ./objects/system_gd32f4xx.o -MD)
+I (..\Firmware\CMSIS\GD\GD32F4xx\Include\gd32f4xx.h)(0x62297358)
+I (..\Firmware\CMSIS\core_cm4.h)(0x62297358)
+I (D:\KELE5 MDK\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (..\Firmware\CMSIS\core_cmInstr.h)(0x62297359)
+I (..\Firmware\CMSIS\core_cmFunc.h)(0x62297358)
+I (..\Firmware\CMSIS\core_cm4_simd.h)(0x62297359)
+I (..\Firmware\CMSIS\GD\GD32F4xx\Include\system_gd32f4xx.h)(0x62297358)
+I (..\User\gd32f4xx_libopt.h)(0x62297359)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_rcu.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_adc.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_can.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_crc.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_ctc.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_dac.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_dbg.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_dci.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_dma.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_exti.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_fmc.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_fwdgt.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_gpio.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_syscfg.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_i2c.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_iref.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_pmu.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_rtc.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_sdio.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_spi.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_timer.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_trng.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_usart.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_wwdgt.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_misc.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_enet.h)(0x62297358)
+I (D:\KELE5 MDK\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_exmc.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_ipa.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_tli.h)(0x62297358)
+F (..\Firmware\CMSIS\GD\GD32F4xx\Source\ARM\startup_gd32f450_470.s)(0x62297358)(--target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -masm=auto -c-gdwarf-4 -Wa,armasm,--pd,"__MICROLIB SETA 1"-I"D:/KELE5 MDK/Packs/GigaDevice/GD32F4xx_DFP/3.0.3/Device/F4XX/Include"-I"D:/KELE5 MDK/ARM/CMSIS/Include"-Wa,armasm,--pd,"__UVISION_VERSION SETA 536" -Wa,armasm,--pd,"GD32F470 SETA 1"-o ./objects/startup_gd32f450_470.o)
+F (..\Hardware\src\bsp_led.c)(0x62A31228)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Firmware/GD32F4xx_standard_peripheral/Include -I ../Firmware/CMSIS -I ../Firmware/CMSIS/GD/GD32F4xx/Include -I ../User -I ../Hardware/inc-I"D:/KELE5 MDK/Packs/GigaDevice/GD32F4xx_DFP/3.0.3/Device/F4XX/Include"-I"D:/KELE5 MDK/ARM/CMSIS/Include"-D__UVISION_VERSION="536" -DGD32F470 -DUSE_STDPERIPH_DRIVER -DGD32F470-o ./objects/bsp_led.o -MD)
+I (..\Hardware\inc\bsp_led.h)(0x62A31281)
+I (..\Firmware\CMSIS\GD\GD32F4xx\Include\gd32f4xx.h)(0x62297358)
+I (..\Firmware\CMSIS\core_cm4.h)(0x62297358)
+I (D:\KELE5 MDK\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (..\Firmware\CMSIS\core_cmInstr.h)(0x62297359)
+I (..\Firmware\CMSIS\core_cmFunc.h)(0x62297358)
+I (..\Firmware\CMSIS\core_cm4_simd.h)(0x62297359)
+I (..\Firmware\CMSIS\GD\GD32F4xx\Include\system_gd32f4xx.h)(0x62297358)
+I (..\User\gd32f4xx_libopt.h)(0x62297359)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_rcu.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_adc.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_can.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_crc.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_ctc.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_dac.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_dbg.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_dci.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_dma.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_exti.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_fmc.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_fwdgt.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_gpio.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_syscfg.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_i2c.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_iref.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_pmu.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_rtc.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_sdio.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_spi.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_timer.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_trng.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_usart.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_wwdgt.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_misc.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_enet.h)(0x62297358)
+I (D:\KELE5 MDK\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_exmc.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_ipa.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_tli.h)(0x62297358)
+I (..\User\systick.h)(0x62297359)
+F (..\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_gpio.c)(0x62297358)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Firmware/GD32F4xx_standard_peripheral/Include -I ../Firmware/CMSIS -I ../Firmware/CMSIS/GD/GD32F4xx/Include -I ../User -I ../Hardware/inc-I"D:/KELE5 MDK/Packs/GigaDevice/GD32F4xx_DFP/3.0.3/Device/F4XX/Include"-I"D:/KELE5 MDK/ARM/CMSIS/Include"-D__UVISION_VERSION="536" -DGD32F470 -DUSE_STDPERIPH_DRIVER -DGD32F470-o ./objects/gd32f4xx_gpio.o -MD)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_gpio.h)(0x62297358)
+I (..\Firmware\CMSIS\GD\GD32F4xx\Include\gd32f4xx.h)(0x62297358)
+I (..\Firmware\CMSIS\core_cm4.h)(0x62297358)
+I (D:\KELE5 MDK\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (..\Firmware\CMSIS\core_cmInstr.h)(0x62297359)
+I (..\Firmware\CMSIS\core_cmFunc.h)(0x62297358)
+I (..\Firmware\CMSIS\core_cm4_simd.h)(0x62297359)
+I (..\Firmware\CMSIS\GD\GD32F4xx\Include\system_gd32f4xx.h)(0x62297358)
+I (..\User\gd32f4xx_libopt.h)(0x62297359)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_rcu.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_adc.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_can.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_crc.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_ctc.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_dac.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_dbg.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_dci.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_dma.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_exti.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_fmc.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_fwdgt.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_syscfg.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_i2c.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_iref.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_pmu.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_rtc.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_sdio.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_spi.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_timer.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_trng.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_usart.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_wwdgt.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_misc.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_enet.h)(0x62297358)
+I (D:\KELE5 MDK\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_exmc.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_ipa.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_tli.h)(0x62297358)
+F (..\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_rcu.c)(0x62297358)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Firmware/GD32F4xx_standard_peripheral/Include -I ../Firmware/CMSIS -I ../Firmware/CMSIS/GD/GD32F4xx/Include -I ../User -I ../Hardware/inc-I"D:/KELE5 MDK/Packs/GigaDevice/GD32F4xx_DFP/3.0.3/Device/F4XX/Include"-I"D:/KELE5 MDK/ARM/CMSIS/Include"-D__UVISION_VERSION="536" -DGD32F470 -DUSE_STDPERIPH_DRIVER -DGD32F470-o ./objects/gd32f4xx_rcu.o -MD)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_rcu.h)(0x62297358)
+I (..\Firmware\CMSIS\GD\GD32F4xx\Include\gd32f4xx.h)(0x62297358)
+I (..\Firmware\CMSIS\core_cm4.h)(0x62297358)
+I (D:\KELE5 MDK\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (..\Firmware\CMSIS\core_cmInstr.h)(0x62297359)
+I (..\Firmware\CMSIS\core_cmFunc.h)(0x62297358)
+I (..\Firmware\CMSIS\core_cm4_simd.h)(0x62297359)
+I (..\Firmware\CMSIS\GD\GD32F4xx\Include\system_gd32f4xx.h)(0x62297358)
+I (..\User\gd32f4xx_libopt.h)(0x62297359)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_adc.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_can.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_crc.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_ctc.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_dac.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_dbg.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_dci.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_dma.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_exti.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_fmc.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_fwdgt.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_gpio.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_syscfg.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_i2c.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_iref.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_pmu.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_rtc.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_sdio.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_spi.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_timer.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_trng.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_usart.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_wwdgt.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_misc.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_enet.h)(0x62297358)
+I (D:\KELE5 MDK\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_exmc.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_ipa.h)(0x62297358)
+I (..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_tli.h)(0x62297358)
+F (..\Doc\readme.txt)(0x62A6A453)()

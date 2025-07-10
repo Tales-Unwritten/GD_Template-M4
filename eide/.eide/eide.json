@@ -1,0 +1,347 @@
+{
+  "name": "GD_Template-F4xx",
+  "type": "ARM",
+  "dependenceList": [],
+  "srcDirs": [],
+  "virtualFolder": {
+    "name": "<virtual_root>",
+    "files": [],
+    "folders": [
+      {
+        "name": "App",
+        "files": [],
+        "folders": []
+      },
+      {
+        "name": "CMSIS",
+        "files": [
+          {
+            "path": "../Firmware/CMSIS/GD/GD32F4xx/Source/system_gd32f4xx.c"
+          },
+          {
+            "path": "../Firmware/CMSIS/GD/GD32F4xx/Source/ARM/startup_gd32f450_470.s"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "Hardware",
+        "files": [
+          {
+            "path": "../Hardware/src/bsp_led.c"
+          },
+          {
+            "path": "../Hardware/src/debug_uart.c"
+          },
+          {
+            "path": "../Hardware/src/rs485.c"
+          },
+          {
+            "path": "../Hardware/src/soft_i2c.c"
+          },
+          {
+            "path": "../Hardware/src/ina226.c"
+          },
+          {
+            "path": "../Hardware/src/bmp280.c"
+          },
+          {
+            "path": "../Hardware/src/key.c"
+          },
+          {
+            "path": "../Hardware/src/bitband.c"
+          },
+          {
+            "path": "../Hardware/src/dip_switch.c"
+          },
+          {
+            "path": "../Hardware/src/can.c"
+          },
+          {
+            "path": "../Hardware/src/eeprom.c"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "Firmware",
+        "files": [
+          {
+            "path": "../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c"
+          },
+          {
+            "path": "../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_rcu.c"
+          },
+          {
+            "path": "../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_adc.c"
+          },
+          {
+            "path": "../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_can.c"
+          },
+          {
+            "path": "../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_dma.c"
+          },
+          {
+            "path": "../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_exti.c"
+          },
+          {
+            "path": "../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_i2c.c"
+          },
+          {
+            "path": "../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_misc.c"
+          },
+          {
+            "path": "../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_rtc.c"
+          },
+          {
+            "path": "../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_sdio.c"
+          },
+          {
+            "path": "../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_spi.c"
+          },
+          {
+            "path": "../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_syscfg.c"
+          },
+          {
+            "path": "../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_timer.c"
+          },
+          {
+            "path": "../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_tli.c"
+          },
+          {
+            "path": "../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_trng.c"
+          },
+          {
+            "path": "../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_usart.c"
+          },
+          {
+            "path": "../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c"
+          },
+          {
+            "path": "../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "User",
+        "files": [
+          {
+            "path": "../User/systick.c"
+          },
+          {
+            "path": "../User/main.c"
+          },
+          {
+            "path": "../User/gd32f4xx_it.c"
+          }
+        ],
+        "folders": []
+      }
+    ]
+  },
+  "outDir": "build",
+  "deviceName": null,
+  "packDir": null,
+  "miscInfo": {
+    "uid": "8cb8d67e70a73821ffd713a0d88e4240"
+  },
+  "targets": {
+    "GD_Template-F4xx": {
+      "excludeList": [],
+      "toolchain": "AC6",
+      "compileConfig": {
+        "cpuType": "Cortex-M4",
+        "floatingPointHardware": "single",
+        "scatterFilePath": "",
+        "useCustomScatterFile": false,
+        "storageLayout": {
+          "RAM": [
+            {
+              "tag": "RAM",
+              "id": 1,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "noInit": false
+            },
+            {
+              "tag": "RAM",
+              "id": 2,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "noInit": false
+            },
+            {
+              "tag": "RAM",
+              "id": 3,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "noInit": false
+            },
+            {
+              "tag": "IRAM",
+              "id": 1,
+              "mem": {
+                "startAddr": "0x20000000",
+                "size": "0xb0000"
+              },
+              "isChecked": true,
+              "noInit": false
+            },
+            {
+              "tag": "IRAM",
+              "id": 2,
+              "mem": {
+                "startAddr": "0x10000000",
+                "size": "0x10000"
+              },
+              "isChecked": false,
+              "noInit": false
+            }
+          ],
+          "ROM": [
+            {
+              "tag": "ROM",
+              "id": 1,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "isStartup": false
+            },
+            {
+              "tag": "ROM",
+              "id": 2,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "isStartup": false
+            },
+            {
+              "tag": "ROM",
+              "id": 3,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "isStartup": false
+            },
+            {
+              "tag": "IROM",
+              "id": 1,
+              "mem": {
+                "startAddr": "0x8000000",
+                "size": "0x200000"
+              },
+              "isChecked": true,
+              "isStartup": true
+            },
+            {
+              "tag": "IROM",
+              "id": 2,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "isStartup": false
+            }
+          ]
+        },
+        "options": "null",
+        "archExtensions": ""
+      },
+      "uploader": "OpenOCD",
+      "uploadConfig": {
+        "bin": "",
+        "target": "stm32f4x",
+        "interface": "cmsis-dap",
+        "baseAddr": "0x08000000"
+      },
+      "uploadConfigMap": {
+        "JLink": {
+          "bin": "",
+          "baseAddr": "",
+          "cpuInfo": {
+            "vendor": "GigaDevice",
+            "cpuName": "GD32F470ZIT6"
+          },
+          "proType": 1,
+          "speed": 8000,
+          "otherCmds": ""
+        },
+        "OpenOCD": {
+          "bin": "",
+          "target": "stm32f1x",
+          "interface": "stlink",
+          "baseAddr": "0x08000000"
+        }
+      },
+      "custom_dep": {
+        "name": "default",
+        "incList": [
+          "../Firmware/GD32F4xx_standard_peripheral/Include",
+          "../Firmware/CMSIS",
+          "../Firmware/CMSIS/GD/GD32F4xx/Include",
+          "../User",
+          "../Hardware/inc",
+          "../App/inc",
+          ".cmsis/include",
+          "RTE/_GD_Template-F4xx"
+        ],
+        "libList": [
+          "../Firmware/GD32F4xx_standard_peripheral/Source",
+          "../Firmware/GD32F4xx_standard_peripheral/Include",
+          "../Hardware/inc",
+          "../Hardware/src"
+        ],
+        "defineList": [
+          "USE_STDPERIPH_DRIVER",
+          "GD32F470"
+        ]
+      },
+      "builderOptions": {
+        "AC6": {
+          "version": 3,
+          "beforeBuildTasks": [],
+          "afterBuildTasks": [],
+          "global": {
+            "use-microLIB": true,
+            "output-debug-info": "enable"
+          },
+          "c/cpp-compiler": {
+            "optimization": "level-2",
+            "language-c": "c99",
+            "language-cpp": "c++11",
+            "one-elf-section-per-function": true,
+            "short-enums#wchar": true,
+            "warnings": "ac5-like-warnings"
+          },
+          "asm-compiler": {
+            "$use": "asm-auto"
+          },
+          "linker": {
+            "output-format": "elf",
+            "misc-controls": "--diag_suppress=L6329",
+            "ro-base": "0x08000000",
+            "rw-base": "0x20000000"
+          }
+        }
+      }
+    }
+  },
+  "version": "3.6"
+}
