@@ -59,6 +59,9 @@
           },
           {
             "path": "../Hardware/src/eeprom.c"
+          },
+          {
+            "path": "../Hardware/src/w25q128.c"
           }
         ],
         "folders": []
