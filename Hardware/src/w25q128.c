@@ -1,22 +1,5 @@
 #include "../Hardware/inc/w25q128.h"
 
-#define CSS_PIN                GPIO_PIN_6
-#define CLOCK_PIN              GPIO_PIN_7
-#define MISO_PIN               GPIO_PIN_8
-#define MOSI_PIN               GPIO_PIN_9
-
-#define W25Qxx_RCU_SPI         RCU_SPI4
-#define W25Qxx_RCU_GPIO        RCU_GPIOF
-#define W25Qxx_RCU_GPIO_CSS    RCU_GPIOF
-
-#define W25Qxx_SPI             SPI4
-#define W25Qxx_PORT            GPIOF
-#define W25Qxx_CSS_PORT        GPIOF
-
-#define W25Qxx_AF_SPI          GPIO_AF_5
-
-
-
 
 static void w25q128_gpio_init(void)
 {
@@ -69,7 +52,7 @@ void w25qxx_css_disable(void)
 }
 
 
-void W25Q64_wait_busy(void)   
+void w25qxx_wait_busy(void)   
 {   
     unsigned char byte = 0;
     do
@@ -82,19 +65,28 @@ void W25Q64_wait_busy(void)
 }  
 
 
-void W25Q64_write_enable(void)   
+void w25qxx_write_enable(void)   
 {
     w25qxx_css_enable();                           
     spi_read_write_byte(0x06);                  
     w25qxx_css_disable(); 
 }                            	      
 
+uint8_t spi_read_write_byte(uint8_t dat)
+{
+	//等待发送缓冲区为空
+	while(RESET == spi_i2s_flag_get(SPI4,  SPI_FLAG_TBE) );
+         spi_i2s_data_transmit(SPI4, dat);
+	//等待接收缓冲区为空
+	while(RESET == spi_i2s_flag_get(SPI4,  SPI_FLAG_RBNE) );
+         return spi_i2s_data_receive(SPI4);
+}
 
-void W25Q64_erase_sector(uint32_t addr)   
+void w25qxx_erase_sector(uint32_t addr)   
 {
 	addr *= 4096;
-	W25Q64_write_enable();  //写使能
-	W25Q64_wait_busy();     //判断忙
+	w25qxx_write_enable();  //写使能
+	w25qxx_wait_busy();     //判断忙
 	w25qxx_css_enable();
 	spi_read_write_byte(0x20);
 	spi_read_write_byte((uint8_t)((addr)>>16));
@@ -102,17 +94,15 @@ void W25Q64_erase_sector(uint32_t addr)
 	spi_read_write_byte((uint8_t)addr);
 	w25qxx_css_disable();
 	//等待擦除完成
-	W25Q64_wait_busy();
-}         				                      	      
+	w25qxx_wait_busy();
+}
 
-
-
-void W25Q64_write(uint8_t* buffer, uint32_t addr, uint16_t numbyte)
+void w25qxx_write(uint8_t* buffer, uint32_t addr, uint16_t numbyte)
 {    //0x02e21
     unsigned int i = 0;
-    W25Q64_erase_sector(addr/4096);//擦除扇区数据
-    W25Q64_write_enable();//写使能    
-    W25Q64_wait_busy(); //忙检测    
+    w25qxx_erase_sector(addr/4096);//擦除扇区数据
+    w25qxx_write_enable();//写使能
+    w25qxx_wait_busy(); //忙检测
     //写入数据
     w25qxx_css_enable();
     spi_read_write_byte(0x02);
@@ -124,11 +114,10 @@ void W25Q64_write(uint8_t* buffer, uint32_t addr, uint16_t numbyte)
         spi_read_write_byte(buffer[i]);  
     }
     w25qxx_css_disable();
-    W25Q64_wait_busy(); //忙检测      
+    w25qxx_wait_busy(); //忙检测      
 }
 
-
-void W25Q64_read(uint8_t* buffer,uint32_t read_addr,uint16_t read_length)   
+void w25qxx_read(uint8_t* buffer,uint32_t read_addr,uint16_t read_length)   
 { 
 	uint16_t i;   		
 	w25qxx_css_enable();            
@@ -144,7 +133,7 @@ void W25Q64_read(uint8_t* buffer,uint32_t read_addr,uint16_t read_length)
 } 
 
 
-void w25q128_spi_config(void)
+void w25qxx_spi_config(void)
 {
 	w25q128_gpio_init(); // 初始化GPIO
 	w25q128_spi_init();  // 初始化SPI

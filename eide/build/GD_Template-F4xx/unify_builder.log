@@ -1,0 +1,145 @@
+[2025-07-22 23:26:28]	[info] incremental build: 35 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\CMSIS\GD\GD32F4xx\Source\ARM\startup_gd32f450_470.s': object (.o) file not exist
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\CMSIS\GD\GD32F4xx\Source\system_gd32f4xx.c': object (.o) file not exist
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_adc.c': object (.o) file not exist
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_can.c': object (.o) file not exist
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_dbg.c': object (.o) file not exist
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_dma.c': object (.o) file not exist
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_exti.c': object (.o) file not exist
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_gpio.c': object (.o) file not exist
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_i2c.c': object (.o) file not exist
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_misc.c': object (.o) file not exist
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_rcu.c': object (.o) file not exist
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_rtc.c': object (.o) file not exist
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_sdio.c': object (.o) file not exist
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_spi.c': object (.o) file not exist
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_syscfg.c': object (.o) file not exist
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_timer.c': object (.o) file not exist
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_tli.c': object (.o) file not exist
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_trng.c': object (.o) file not exist
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_usart.c': object (.o) file not exist
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_wwdgt.c': object (.o) file not exist
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\bitband.c': object (.o) file not exist
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\bmp280.c': object (.o) file not exist
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\bsp_led.c': object (.o) file not exist
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\can.c': object (.o) file not exist
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\debug_uart.c': object (.o) file not exist
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\dip_switch.c': object (.o) file not exist
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\eeprom.c': object (.o) file not exist
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\ina226.c': object (.o) file not exist
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\key.c': object (.o) file not exist
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\rs485.c': object (.o) file not exist
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\soft_i2c.c': object (.o) file not exist
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\w25q128.c': object (.o) file not exist
+'g:\1-VscodeProject\GD-32\GD_Template-M4\User\gd32f4xx_it.c': object (.o) file not exist
+'g:\1-VscodeProject\GD-32\GD_Template-M4\User\main.c': object (.o) file not exist
+'g:\1-VscodeProject\GD-32\GD_Template-M4\User\systick.c': object (.o) file not exist
+
+[2025-07-22 23:26:32]	compilation failed at : "g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\w25q128.c", exit code: 1
+command: 
+  "D:\KELE5 MDK\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc -std=c99 -I../Firmware/GD32F4xx_standard_peripheral/Include -I../Firmware/CMSIS -I../Firmware/CMSIS/GD/GD32F4xx/Include -I../User -I../Hardware/inc -I../App/inc -I.cmsis/include -IRTE/_GD_Template-F4xx -D"USE_STDPERIPH_DRIVER" -D"GD32F470" -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -D__MICROLIB -O2 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/GD_Template-F4xx/.obj/__/Hardware/src/w25q128.o -MMD ./../Hardware/src/w25q128.c
+   at unify_builder.Program.compileByMulThread(Int32 thrNum, CmdInfo[] cmds_, List`1 errLogs)
+   at unify_builder.Program.Main(String[] args_)
+---
+./../Hardware/src/w25q128.c:41:2: warning: implicit declaration of function 'w25qxx_css_disable' is invalid in C99 [-Wimplicit-function-declaration]
+        w25qxx_css_disable(); // 确保CSS引脚初始状态为高电平
+        ^
+./../Hardware/src/w25q128.c:66:6: error: conflicting types for 'w25qxx_css_disable'
+void w25qxx_css_disable(void)
+     ^
+./../Hardware/src/w25q128.c:41:2: note: previous implicit declaration is here
+        w25qxx_css_disable(); // 确保CSS引脚初始状态为高电平
+        ^
+./../Hardware/src/w25q128.c:78:9: warning: implicit declaration of function 'spi_read_write_byte' is invalid in C99 [-Wimplicit-function-declaration]
+        spi_read_write_byte(0x05);                 
+        ^
+./../Hardware/src/w25q128.c:88:5: warning: implicit declaration of function 'spi_read_write_byte' is invalid in C99 [-Wimplicit-function-declaration]
+    spi_read_write_byte(0x06);                  
+    ^
+./../Hardware/src/w25q128.c:92:9: error: conflicting types for 'spi_read_write_byte'
+uint8_t spi_read_write_byte(uint8_t dat)
+        ^
+./../Hardware/src/w25q128.c:78:9: note: previous implicit declaration is here
+        spi_read_write_byte(0x05);                 
+        ^
+./../Hardware/src/w25q128.c:95:56: warning: while loop has empty body [-Wempty-body]
+        while(RESET == spi_i2s_flag_get(SPI4,  SPI_FLAG_TBE) );
+                                                              ^
+./../Hardware/src/w25q128.c:95:56: note: put the semicolon on a separate line to silence this warning
+./../Hardware/src/w25q128.c:98:57: warning: while loop has empty body [-Wempty-body]
+        while(RESET == spi_i2s_flag_get(SPI4,  SPI_FLAG_RBNE) );
+                                                               ^
+./../Hardware/src/w25q128.c:98:57: note: put the semicolon on a separate line to silence this warning
+5 warnings and 2 errors generated.
+
+[2025-07-22 23:30:08]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\w25q128.c': object (.o) file not exist
+
+[2025-07-22 23:30:09]	[done]
+	build successfully !
+
+[2025-07-22 23:33:32]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\w25q128.c': source file has been changed.
+
+[2025-07-22 23:33:32]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Error: L6218E: Undefined symbol W25Q64_wait_busy (referred from w25q128.o).
+Error: L6218E: Undefined symbol W25qxx_erase_sector (referred from w25q128.o).
+Error: L6218E: Undefined symbol W25qxx_wait_busy (referred from w25q128.o).
+Error: L6218E: Undefined symbol W25qxx_write_enable (referred from w25q128.o).
+Error: L6218E: Undefined symbol w25qxx_gpio_init (referred from w25q128.o).
+Error: L6218E: Undefined symbol w25qxx_spi_init (referred from w25q128.o).
+Not enough information to list image symbols.
+Finished: 1 information, 0 warning and 6 error messages.
+
+
+[2025-07-22 23:33:44]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\w25q128.c': source file has been changed.
+
+[2025-07-22 23:33:44]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Error: L6218E: Undefined symbol W25Q64_wait_busy (referred from w25q128.o).
+Error: L6218E: Undefined symbol W25qxx_erase_sector (referred from w25q128.o).
+Error: L6218E: Undefined symbol W25qxx_wait_busy (referred from w25q128.o).
+Error: L6218E: Undefined symbol W25qxx_write_enable (referred from w25q128.o).
+Error: L6218E: Undefined symbol w25qxx_gpio_init (referred from w25q128.o).
+Error: L6218E: Undefined symbol w25qxx_spi_init (referred from w25q128.o).
+Not enough information to list image symbols.
+Finished: 1 information, 0 warning and 6 error messages.
+
+
+[2025-07-22 23:34:45]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\w25q128.c': source file has been changed.
+
+[2025-07-22 23:34:45]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Error: L6218E: Undefined symbol w25qxx_gpio_init (referred from w25q128.o).
+Error: L6218E: Undefined symbol w25qxx_spi_init (referred from w25q128.o).
+Not enough information to list image symbols.
+Finished: 1 information, 0 warning and 2 error messages.
+
+
+[2025-07-22 23:35:41]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\w25q128.c': source file has been changed.
+
+[2025-07-22 23:35:42]	[done]
+	build successfully !
+
+[2025-07-22 23:37:53]	[done]
+	build successfully !
+

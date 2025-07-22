@@ -1,0 +1,37 @@
+--cpu Cortex-M4.fp --library_type=microlib --scatter g:/1-VscodeProject/GD-32/GD_Template-M4/eide/build/GD_Template-F4xx/GD_Template-F4xx.sct --diag_suppress=L6329 --strict --summary_stderr --info summarysizes --map --xref --callgraph --symbols --info sizes --info totals --info unused --info veneers
+--list ./build/GD_Template-F4xx/GD_Template-F4xx.map
+./build/GD_Template-F4xx/.obj/__/Firmware/CMSIS/GD/GD32F4xx/Source/ARM/startup_gd32f450_470.o
+./build/GD_Template-F4xx/.obj/__/Firmware/CMSIS/GD/GD32F4xx/Source/system_gd32f4xx.o
+./build/GD_Template-F4xx/.obj/__/Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_adc.o
+./build/GD_Template-F4xx/.obj/__/Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_can.o
+./build/GD_Template-F4xx/.obj/__/Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.o
+./build/GD_Template-F4xx/.obj/__/Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_dma.o
+./build/GD_Template-F4xx/.obj/__/Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_exti.o
+./build/GD_Template-F4xx/.obj/__/Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.o
+./build/GD_Template-F4xx/.obj/__/Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_i2c.o
+./build/GD_Template-F4xx/.obj/__/Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_misc.o
+./build/GD_Template-F4xx/.obj/__/Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_rcu.o
+./build/GD_Template-F4xx/.obj/__/Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_rtc.o
+./build/GD_Template-F4xx/.obj/__/Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_sdio.o
+./build/GD_Template-F4xx/.obj/__/Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_spi.o
+./build/GD_Template-F4xx/.obj/__/Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_syscfg.o
+./build/GD_Template-F4xx/.obj/__/Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_timer.o
+./build/GD_Template-F4xx/.obj/__/Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_tli.o
+./build/GD_Template-F4xx/.obj/__/Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_trng.o
+./build/GD_Template-F4xx/.obj/__/Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_usart.o
+./build/GD_Template-F4xx/.obj/__/Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.o
+./build/GD_Template-F4xx/.obj/__/Hardware/src/bitband.o
+./build/GD_Template-F4xx/.obj/__/Hardware/src/bmp280.o
+./build/GD_Template-F4xx/.obj/__/Hardware/src/bsp_led.o
+./build/GD_Template-F4xx/.obj/__/Hardware/src/can.o
+./build/GD_Template-F4xx/.obj/__/Hardware/src/debug_uart.o
+./build/GD_Template-F4xx/.obj/__/Hardware/src/dip_switch.o
+./build/GD_Template-F4xx/.obj/__/Hardware/src/eeprom.o
+./build/GD_Template-F4xx/.obj/__/Hardware/src/ina226.o
+./build/GD_Template-F4xx/.obj/__/Hardware/src/key.o
+./build/GD_Template-F4xx/.obj/__/Hardware/src/rs485.o
+./build/GD_Template-F4xx/.obj/__/Hardware/src/soft_i2c.o
+./build/GD_Template-F4xx/.obj/__/Hardware/src/w25q128.o
+./build/GD_Template-F4xx/.obj/__/User/gd32f4xx_it.o
+./build/GD_Template-F4xx/.obj/__/User/main.o
+./build/GD_Template-F4xx/.obj/__/User/systick.o -o ./build/GD_Template-F4xx/GD_Template-F4xx.axf
