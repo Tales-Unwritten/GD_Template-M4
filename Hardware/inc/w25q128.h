@@ -27,6 +27,7 @@ void    w25qxx_css_disable(void);
 void    w25qxx_wait_busy(void);
 void    w25qxx_erase_sector(uint32_t addr);
 void    w25qxx_write_enable(void);
+uint8_t spi_read_write_byte(uint8_t dat);
 void    w25qxx_write(uint8_t* buffer, uint32_t addr, uint16_t numbyte);
 void    w25qxx_read(uint8_t* buffer, uint32_t addr, uint16_t numbyte);
 

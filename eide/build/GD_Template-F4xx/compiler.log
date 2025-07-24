@@ -1,97 +1,15 @@
 >>> cc
 
-./../Hardware/src/can.c:125:9: warning: implicitly declaring library function 'printf' with type 'int (const char *, ...)' [-Wimplicit-function-declaration]
-        printf( "CAN transmit timeout!\n");
-        ^
-./../Hardware/src/can.c:125:9: note: include the header <stdio.h> or explicitly provide a declaration for 'printf'
-1 warning generated.
-./../Hardware/src/rs485.c:97:39: warning: implicit conversion from enumeration type 'usart_flag_enum' to different enumeration type 'usart_interrupt_enum' [-Wenum-conversion]
-        usart_interrupt_disable(RS485_USART, USART_FLAG_TBE); // 禁止发送中断
-        ~~~~~~~~~~~~~~~~~~~~~~~              ^~~~~~~~~~~~~~
-./../Hardware/src/rs485.c:98:39: warning: implicit conversion from enumeration type 'usart_flag_enum' to different enumeration type 'usart_interrupt_enum' [-Wenum-conversion]
-        usart_interrupt_disable(RS485_USART, USART_FLAG_TC);  // 禁止发送完成中断
-        ~~~~~~~~~~~~~~~~~~~~~~~              ^~~~~~~~~~~~~
-./../Hardware/src/rs485.c:163:63: warning: multi-character character constant [-Wmultichar]
-                if (Temp_Recevice_Count > 0 && memchr(Temp_Recevice_Buffer, '\r\n', Temp_Recevice_Count) != NULL)
-                                                                            ^
-3 warnings generated.
-./../Hardware/src/dip_switch.c:91:2: warning: implicitly declaring library function 'printf' with type 'int (const char *, ...)' [-Wimplicit-function-declaration]
-        printf("DIP Switch Value: 0x%02X\n", switch_value);
-        ^
-./../Hardware/src/dip_switch.c:91:2: note: include the header <stdio.h> or explicitly provide a declaration for 'printf'
-1 warning generated.
-./../Hardware/src/eeprom.c:123:25: warning: result of comparison of constant 256 with expression of type 'uint8_t' (aka 'unsigned char') is always true [-Wtautological-constant-out-of-range-compare]
-        for (uint8_t i = 10; i < sizeof(read_data); i++)
-                             ~ ^ ~~~~~~~~~~~~~~~~~
-./../Hardware/src/eeprom.c:165:24: warning: result of comparison of constant 256 with expression of type 'uint8_t' (aka 'unsigned char') is always true [-Wtautological-constant-out-of-range-compare]
-        for (uint8_t i = 0; i < sizeof(read_data); i++)
-                            ~ ^ ~~~~~~~~~~~~~~~~~
+./../Hardware/src/w25q128.c:95:56: warning: while loop has empty body [-Wempty-body]
+        while(RESET == spi_i2s_flag_get(SPI4,  SPI_FLAG_TBE) );
+                                                              ^
+./../Hardware/src/w25q128.c:95:56: note: put the semicolon on a separate line to silence this warning
+./../Hardware/src/w25q128.c:98:57: warning: while loop has empty body [-Wempty-body]
+        while(RESET == spi_i2s_flag_get(SPI4,  SPI_FLAG_RBNE) );
+                                                               ^
+./../Hardware/src/w25q128.c:98:57: note: put the semicolon on a separate line to silence this warning
 2 warnings generated.
-./../Hardware/src/debug_uart.c:94:39: warning: implicit conversion from enumeration type 'usart_flag_enum' to different enumeration type 'usart_interrupt_enum' [-Wenum-conversion]
-        usart_interrupt_disable(DEBUG_USART, USART_FLAG_TBE); // 禁止发送中断
-        ~~~~~~~~~~~~~~~~~~~~~~~              ^~~~~~~~~~~~~~
-./../Hardware/src/debug_uart.c:95:39: warning: implicit conversion from enumeration type 'usart_flag_enum' to different enumeration type 'usart_interrupt_enum' [-Wenum-conversion]
-        usart_interrupt_disable(DEBUG_USART, USART_FLAG_TC);  // 禁止发送完成中断
-        ~~~~~~~~~~~~~~~~~~~~~~~              ^~~~~~~~~~~~~
-./../Hardware/src/debug_uart.c:152:63: warning: multi-character character constant [-Wmultichar]
-                if (Temp_Recevice_Count > 0 && memchr(Temp_Recevice_Buffer, '\r\n', Temp_Recevice_Count) != NULL)
-                                                                            ^
-3 warnings generated.
-In file included from ./../User/gd32f4xx_it.c:39:
-In file included from ../User/main.h:7:
-../User/../Hardware/inc/rs485.h:3:9: warning: 'CHCHE_COUNT' macro redefined [-Wmacro-redefined]
-#define CHCHE_COUNT 8
-        ^
-../User/../Hardware/inc/debug_uart.h:13:9: note: previous definition is here
-#define CHCHE_COUNT 4
-        ^
-1 warning generated.
-In file included from ./../User/main.c:1:
-In file included from ../User/main.h:7:
-../User/../Hardware/inc/rs485.h:3:9: warning: 'CHCHE_COUNT' macro redefined [-Wmacro-redefined]
-#define CHCHE_COUNT 8
-        ^
-../User/../Hardware/inc/debug_uart.h:13:9: note: previous definition is here
-#define CHCHE_COUNT 4
-        ^
-1 warning generated.
-./../Hardware/src/w25q128.c:62:9: warning: implicit declaration of function 'spi_read_write_byte' is invalid in C99 [-Wimplicit-function-declaration]
-        spi_read_write_byte(0x05);                 
-        ^
-./../Hardware/src/w25q128.c:72:5: warning: implicit declaration of function 'spi_read_write_byte' is invalid in C99 [-Wimplicit-function-declaration]
-    spi_read_write_byte(0x06);                  
-    ^
-./../Hardware/src/w25q128.c:80:2: warning: implicit declaration of function 'W25Q64_write_enable' is invalid in C99 [-Wimplicit-function-declaration]
-        W25Q64_write_enable();  //写使能
-        ^
-./../Hardware/src/w25q128.c:81:2: warning: implicit declaration of function 'W25Q64_wait_busy' is invalid in C99 [-Wimplicit-function-declaration]
-        W25Q64_wait_busy();     //判断忙
-        ^
-./../Hardware/src/w25q128.c:83:2: warning: implicit declaration of function 'spi_read_write_byte' is invalid in C99 [-Wimplicit-function-declaration]
-        spi_read_write_byte(0x20);
-        ^
-./../Hardware/src/w25q128.c:97:5: warning: implicit declaration of function 'W25Q64_erase_sector' is invalid in C99 [-Wimplicit-function-declaration]
-    W25Q64_erase_sector(addr/4096);//擦除扇区数据
-    ^
-./../Hardware/src/w25q128.c:98:5: warning: implicit declaration of function 'W25Q64_write_enable' is invalid in C99 [-Wimplicit-function-declaration]
-    W25Q64_write_enable();//写使能    
-    ^
-./../Hardware/src/w25q128.c:99:5: warning: implicit declaration of function 'W25Q64_wait_busy' is invalid in C99 [-Wimplicit-function-declaration]
-    W25Q64_wait_busy(); //忙检测    
-    ^
-./../Hardware/src/w25q128.c:102:5: warning: implicit declaration of function 'spi_read_write_byte' is invalid in C99 [-Wimplicit-function-declaration]
-    spi_read_write_byte(0x02);
-    ^
-./../Hardware/src/w25q128.c:119:2: warning: implicit declaration of function 'spi_read_write_byte' is invalid in C99 [-Wimplicit-function-declaration]
-        spi_read_write_byte(0x03);                           
-        ^
-10 warnings generated.
 
 >>> ld
 
-Error: L6218E: Undefined symbol W25Q64_erase_sector (referred from w25q128.o).
-Error: L6218E: Undefined symbol W25Q64_wait_busy (referred from w25q128.o).
-Error: L6218E: Undefined symbol W25Q64_write_enable (referred from w25q128.o).
-Error: L6218E: Undefined symbol spi_read_write_byte (referred from w25q128.o).
-Not enough information to list image symbols.
-Finished: 1 information, 0 warning and 4 error messages.
+Program Size: Code=8552 RO-data=496 RW-data=8 ZI-data=4840  
