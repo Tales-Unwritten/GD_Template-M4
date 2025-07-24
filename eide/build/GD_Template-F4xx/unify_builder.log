@@ -113,3 +113,139 @@ These source files will be recompiled
 [2025-07-24 09:21:41]	[done]
 	build successfully !
 
+[2025-07-24 22:14:28]	[info] incremental build: 35 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\CMSIS\GD\GD32F4xx\Source\ARM\startup_gd32f450_470.s': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\CMSIS\GD\GD32F4xx\Source\system_gd32f4xx.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_adc.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_can.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_dbg.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_dma.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_exti.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_gpio.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_i2c.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_misc.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_rcu.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_rtc.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_sdio.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_spi.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_syscfg.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_timer.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_tli.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_trng.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_usart.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_wwdgt.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\bitband.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\bmp280.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\bsp_led.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\can.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\debug_uart.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\dip_switch.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\eeprom.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\ina226.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\key.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\rs485.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\soft_i2c.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\w25q128.c': source file has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\User\gd32f4xx_it.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\User\main.c': source file has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\User\systick.c': compiler options has been changed.
+
+[2025-07-24 22:14:35]	[done]
+	build successfully !
+
+[2025-07-24 22:15:01]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\User\gd32f4xx_it.c': dependence 'g:\1-VscodeProject\GD-32\GD_Template-M4\eide\..\User\main.h' has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\User\main.c': source file has been changed.
+
+[2025-07-24 22:15:03]	[done]
+	build successfully !
+
+[2025-07-24 22:16:08]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\User\main.c': source file has been changed.
+
+[2025-07-24 22:16:09]	[done]
+	build successfully !
+
+[2025-07-24 22:19:25]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\w25q128.c': source file has been changed.
+
+[2025-07-24 22:19:26]	[done]
+	build successfully !
+
+[2025-07-24 22:39:47]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\User\main.c': source file has been changed.
+
+[2025-07-24 22:39:48]	[done]
+	build successfully !
+
+[2025-07-24 23:03:40]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\User\main.c': source file has been changed.
+
+[2025-07-24 23:03:40]	compilation failed at : "g:\1-VscodeProject\GD-32\GD_Template-M4\User\main.c", exit code: 1
+command: 
+  "D:\KELE5 MDK\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc -std=c99 -I../Firmware/GD32F4xx_standard_peripheral/Include -I../Firmware/CMSIS -I../Firmware/CMSIS/GD/GD32F4xx/Include -I../User -I../Hardware/inc -I../App/inc -I.cmsis/include -IRTE/_GD_Template-F4xx -D"USE_STDPERIPH_DRIVER" -D"GD32F470" -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -D__MICROLIB -O2 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/GD_Template-F4xx/.obj/__/User/main.o -MMD ./../User/main.c
+   at unify_builder.Program.Main(String[] args_)
+---
+In file included from ./../User/main.c:1:
+In file included from ../User/main.h:7:
+../User/../Hardware/inc/rs485.h:3:9: warning: 'CHCHE_COUNT' macro redefined [-Wmacro-redefined]
+#define CHCHE_COUNT 8
+        ^
+../User/../Hardware/inc/debug_uart.h:13:9: note: previous definition is here
+#define CHCHE_COUNT 4
+        ^
+./../User/main.c:23:11: error: definition of variable with array type needs an explicit size or an initializer
+  uint8_t rx_page[];                                                    // <B6><A8><D2><E5><BD><D3><CA><D5><CA><FD><BE><DD>
+          ^
+./../User/main.c:99:16: warning: illegal character encoding in string literal [-Winvalid-source-encoding]
+    printf("   <B4>?<D8>? 0x%06X <B6><C1>?<D7>?<FB><B4><AE>: %s\r\n", 0x000004, (char*)rx_page);
+               ^~~~ ~~~~        ~~~~~~~~ ~~~~~~~~~~~~~~~~
+2 warnings and 1 error generated.
+
+[2025-07-24 23:03:54]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\User\main.c': object (.o) file not exist
+
+[2025-07-24 23:03:55]	[done]
+	build successfully !
+
+[2025-07-24 23:04:07]	[done]
+	build successfully !
+
+[2025-07-24 23:05:30]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\User\main.c': source file has been changed.
+
+[2025-07-24 23:05:31]	[done]
+	build successfully !
+
+[2025-07-24 23:05:52]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\User\main.c': source file has been changed.
+
+[2025-07-24 23:05:53]	[done]
+	build successfully !
+
+[2025-07-24 23:08:34]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\User\main.c': source file has been changed.
+
+[2025-07-24 23:08:35]	[done]
+	build successfully !
+
