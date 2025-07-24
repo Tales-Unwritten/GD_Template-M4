@@ -12,74 +12,66 @@ static void can_gpio_init(void)
     rcu_periph_clock_enable(RCU_GPIOB); // 使能GPIOB端口时钟
 
 #ifdef DEV_CAN0_USED
-    /* configure CAN0 GPIO */
-    rcu_periph_clock_enable(RCU_CAN0);  // 使能CAN0外设时钟
-
-    gpio_output_options_set(GPIOB, GPIO_OTYPE_PP, GPIO_OSPEED_50MHZ, GPIO_PIN_8); // 配置PB8推挽输出，50MHz速率
-    gpio_mode_set(GPIOB, GPIO_MODE_AF, GPIO_PUPD_NONE, GPIO_PIN_8);               // 配置PB8为复用功能模式，无上下拉
-    gpio_af_set(GPIOB, GPIO_AF_9, GPIO_PIN_8);                                    // 设置PB8复用为CAN0_RX功能
-
-    gpio_output_options_set(GPIOB, GPIO_OTYPE_PP, GPIO_OSPEED_50MHZ, GPIO_PIN_9); // 配置PB9推挽输出，50MHz速率
-    gpio_mode_set(GPIOB, GPIO_MODE_AF, GPIO_PUPD_NONE, GPIO_PIN_9);               // 配置PB9为复用功能模式，无上下拉
-    gpio_af_set(GPIOB, GPIO_AF_9, GPIO_PIN_9);                                    // 设置PB9复用为CAN0_TX功能
+    rcu_periph_clock_enable(RCU_CAN0);
+    gpio_output_options_set(GPIOB, GPIO_OTYPE_PP, GPIO_OSPEED_50MHZ, GPIO_PIN_8 | GPIO_PIN_9);
+    gpio_mode_set(GPIOB, GPIO_MODE_AF, GPIO_PUPD_NONE, GPIO_PIN_8 | GPIO_PIN_9);
+    gpio_af_set(GPIOB, GPIO_AF_9, GPIO_PIN_8 | GPIO_PIN_9);
 #else
-    /* configure CAN1 GPIO */
-    rcu_periph_clock_enable(RCU_CAN1);  // 使能CAN1外设时钟
-
-    gpio_output_options_set(GPIOB, GPIO_OTYPE_PP, GPIO_OSPEED_50MHZ, GPIO_PIN_12); // 配置PB5推挽输出，50MHz速率
-    gpio_mode_set(GPIOB, GPIO_MODE_AF, GPIO_PUPD_NONE, GPIO_PIN_12);               // 配置PB5为复用功能模式，无上下拉
-    gpio_af_set(GPIOB, GPIO_AF_9, GPIO_PIN_12);                                    // 设置PB5复用为CAN1_RX功能
-
-    gpio_output_options_set(GPIOB, GPIO_OTYPE_PP, GPIO_OSPEED_50MHZ, GPIO_PIN_13); // 配置PB6推挽输出，50MHz速率
-    gpio_mode_set(GPIOB, GPIO_MODE_AF, GPIO_PUPD_NONE, GPIO_PIN_13);               // 配置PB6为复用功能模式，无上下拉
-    gpio_af_set(GPIOB, GPIO_AF_9, GPIO_PIN_13);                                    // 设置PB6复用为CAN1_TX功能
+    rcu_periph_clock_enable(RCU_CAN1);
+    gpio_output_options_set(GPIOB, GPIO_OTYPE_PP, GPIO_OSPEED_50MHZ, GPIO_PIN_12 | GPIO_PIN_13);
+    gpio_mode_set(GPIOB, GPIO_MODE_AF, GPIO_PUPD_NONE, GPIO_PIN_12 | GPIO_PIN_13);
+    gpio_af_set(GPIOB, GPIO_AF_9, GPIO_PIN_12 | GPIO_PIN_13);
 #endif
 }
 
 static void can_networking_init(void)
 {
-    can_parameter_struct can_parameter;     // CAN参数配置结构体
-    can_filter_parameter_struct can_filter; // CAN过滤器参数配置结构体
+    can_parameter_struct can_parameter;
+    can_filter_parameter_struct can_filter;
 
-    can_struct_para_init(CAN_INIT_STRUCT, &can_parameter); // 初始化CAN参数结构体为默认值
-    can_struct_para_init(CAN_FILTER_STRUCT, &can_filter);  // 初始化CAN过滤器结构体为默认值
+    can_struct_para_init(CAN_INIT_STRUCT, &can_parameter);
+    can_struct_para_init(CAN_FILTER_STRUCT, &can_filter);
 
-    /* initialize CAN register */
-    can_deinit(CANX); // 复位CAN寄存器到默认状态
+    can_deinit(CANX);
 
-    /* initialize CAN */
-    can_parameter.time_triggered = DISABLE;           // 禁用时间触发通信模式
-    can_parameter.auto_bus_off_recovery = ENABLE;     // 启用自动离线恢复功能
-    can_parameter.auto_wake_up = DISABLE;             // 禁用自动唤醒功能
-    can_parameter.auto_retrans = ENABLE;              // 启用自动重传功能
-    can_parameter.rec_fifo_overwrite = DISABLE;       // 禁用接收FIFO覆盖模式
-    can_parameter.trans_fifo_order = DISABLE;         // 禁用发送FIFO按顺序发送
-    can_parameter.working_mode = CAN_NORMAL_MODE;     // 设置为正常工作模式
-    can_parameter.resync_jump_width = CAN_BT_SJW_1TQ; // 重同步跳跃宽度为1个时间量子
-    can_parameter.time_segment_1 = CAN_BT_BS1_7TQ;    // 时间段1为7个时间量子
-    can_parameter.time_segment_2 = CAN_BT_BS2_2TQ;    // 时间段2为2个时间量子
-    /* baudrate 1Mbps */
-    can_parameter.prescaler = 5;    // 预分频器设置为5，配合时间段设置实现1Mbps波特率
-    can_init(CANX, &can_parameter); // 应用CAN参数配置
+    // CAN参数配置
+    can_parameter.time_triggered = DISABLE;
+    can_parameter.auto_bus_off_recovery = ENABLE;
+    can_parameter.auto_wake_up = DISABLE;
+    can_parameter.auto_retrans = ENABLE;
+    can_parameter.rec_fifo_overwrite = DISABLE;
+    can_parameter.trans_fifo_order = DISABLE;
+    can_parameter.working_mode = CAN_NORMAL_MODE;
+    can_parameter.resync_jump_width = CAN_BT_SJW_1TQ;  // 同步跳跃宽度1TQ
+    can_parameter.time_segment_1 = CAN_BT_BS1_7TQ;     // 时间段1为7TQ
+    can_parameter.time_segment_2 = CAN_BT_BS2_2TQ;     // 时间段2为2TQ
+    
+    // 1Mbps波特率配置 (240MHz系统时钟)
+    can_parameter.prescaler = 24;  // 预分频器24
+    
+    /*
+    // 500Kbps波特率配置 (如果需要)
+    can_parameter.prescaler = 48;  // 预分频器48
+    */
+    
+    can_init(CANX, &can_parameter);
 
-    /* initialize filter */
+    // 过滤器配置
 #ifdef DEV_CAN0_USED
-    /* CAN0 filter number */
-    can_filter.filter_number = 0; // CAN0使用过滤器0
+    can_filter.filter_number = 0;
 #else
-    /* CAN1 filter number */
-    can_filter.filter_number = 15; // CAN1使用过滤器15
+    can_filter.filter_number = 15;
 #endif
-    /* initialize filter */
-    can_filter.filter_mode = CAN_FILTERMODE_MASK;  // 设置过滤器为掩码模式
-    can_filter.filter_bits = CAN_FILTERBITS_32BIT; // 设置过滤器为32位模式
-    can_filter.filter_list_high = 0x0000;          // 过滤器标识符高16位（接受所有ID）
-    can_filter.filter_list_low = 0x0000;           // 过滤器标识符低16位（接受所有ID）
-    can_filter.filter_mask_high = 0x0000;          // 过滤器掩码高16位（不关心任何位）
-    can_filter.filter_mask_low = 0x0000;           // 过滤器掩码低16位（不关心任何位）
-    can_filter.filter_fifo_number = CAN_FIFO1;     // 过滤后的消息存储到FIFO1
-    can_filter.filter_enable = ENABLE;             // 启用过滤器
-    can_filter_init(&can_filter);                  // 应用过滤器配置
+    
+    can_filter.filter_mode = CAN_FILTERMODE_MASK;
+    can_filter.filter_bits = CAN_FILTERBITS_32BIT;
+    can_filter.filter_list_high = 0x0000;
+    can_filter.filter_list_low = 0x0000;
+    can_filter.filter_mask_high = 0x0000;
+    can_filter.filter_mask_low = 0x0000;
+    can_filter.filter_fifo_number = CAN_FIFO1;
+    can_filter.filter_enable = ENABLE;
+    can_filter_init(&can_filter);
 }
 
 static void nvic_config(void)
@@ -103,25 +95,36 @@ static void nvic_config(void)
  */
 void can_transmit_data(uint8_t *data, uint8_t len)
 {
-    /* 检查数据长度是否超过8字节 */
     if (data == NULL || len > 8)
     {
-        return; // 数据长度超过CAN帧限制，直接返回
+        return;
     }
 
-    /* 填充发送消息结构体 */
-    transmit_message.tx_sfid = 0x0000;        // 标准帧ID
-    transmit_message.tx_efid = 0x00000000;    // 扩展帧ID
-    transmit_message.tx_ff = CAN_FF_STANDARD; // 标准帧格式
-    transmit_message.tx_ft = CAN_FT_DATA;     // 数据帧类型
-    transmit_message.tx_dlen = len;           // 数据长度
+    // 建议设置一个有效的ID
+    transmit_message.tx_sfid = 0x123; // 标准帧ID
+    transmit_message.tx_efid = 0x00000000;
+    transmit_message.tx_ff = CAN_FF_STANDARD;
+    transmit_message.tx_ft = CAN_FT_DATA;
+    transmit_message.tx_dlen = len;
+
     for (uint8_t i = 0; i < len; i++)
     {
-        transmit_message.tx_data[i] = data[i]; // 填充数据
+        transmit_message.tx_data[i] = data[i];
     }
 
-    /* 发送CAN消息 */
-    can_message_transmit(CANX, &transmit_message);
+    // 发送消息
+    uint8_t mailbox = can_message_transmit(CANX, &transmit_message);
+
+    // 可选：检查发送状态
+    
+    uint32_t timeout = 0xFFFF;
+    while((can_transmit_states(CANX, mailbox) != CAN_TRANSMIT_OK) && (timeout != 0)) {
+        timeout--;
+    }
+    if(timeout == 0) {
+        printf( "CAN transmit timeout!\n");
+    }
+    
 }
 
 /**
@@ -144,7 +147,7 @@ uint8_t can_receive_data(uint8_t *out_data)
 
     if (out_data == NULL)
     {
-        return 0; // 输出缓冲区无效，直接返回
+        return 0;
     }
 
     if (receive_flag)
@@ -152,18 +155,20 @@ uint8_t can_receive_data(uint8_t *out_data)
         receive_flag = RESET;
         can_message_receive(CANX, CAN_FIFO1, &receive_message);
 
-        // 检查接收长度是否合法（CAN最大8字节）
         uint8_t len = receive_message.rx_dlen;
         if (len > 8)
         {
             len = 8;
         }
-        memcpy(out_data, receive_message.rx_data, len);
+        for (uint8_t i = 0; i < len; i++)
+        {
+            out_data[i] = receive_message.rx_data[i];
+        }
         return len;
     }
     else
     {
-        return 0; // 无新数据可接收，返回0字节
+        return 0;
     }
 }
 
@@ -212,14 +217,14 @@ void can_config(void)
 
 
 #ifdef DEV_CAN0_USED
-void CAN0_RX_IRQHandler(void)
+void CAN0_RX1_IRQHandler(void)  // 正确的函数名
 {
-    CANx_RX_IRQHandler(); // 调用通用的接收中断处理函数
+    CANx_RX_IRQHandler();
 }
 #else
-void CAN1_RX_IRQHandler(void)
+void CAN1_RX1_IRQHandler(void)  // 正确的函数名
 {
-    CANx_RX_IRQHandler(); // 调用通用的接收中断处理函数
+    CANx_RX_IRQHandler();
 }
 #endif
 

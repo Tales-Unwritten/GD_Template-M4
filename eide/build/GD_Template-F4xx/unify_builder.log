@@ -1,0 +1,50 @@
+[2025-07-24 08:43:43]	[info] incremental build: 35 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\CMSIS\GD\GD32F4xx\Source\ARM\startup_gd32f450_470.s': object (.o) file not exist
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\CMSIS\GD\GD32F4xx\Source\system_gd32f4xx.c': object (.o) file not exist
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_adc.c': object (.o) file not exist
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_can.c': object (.o) file not exist
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_dbg.c': object (.o) file not exist
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_dma.c': object (.o) file not exist
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_exti.c': object (.o) file not exist
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_gpio.c': object (.o) file not exist
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_i2c.c': object (.o) file not exist
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_misc.c': object (.o) file not exist
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_rcu.c': object (.o) file not exist
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_rtc.c': object (.o) file not exist
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_sdio.c': object (.o) file not exist
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_spi.c': object (.o) file not exist
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_syscfg.c': object (.o) file not exist
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_timer.c': object (.o) file not exist
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_tli.c': object (.o) file not exist
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_trng.c': object (.o) file not exist
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_usart.c': object (.o) file not exist
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_wwdgt.c': object (.o) file not exist
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\bitband.c': object (.o) file not exist
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\bmp280.c': object (.o) file not exist
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\bsp_led.c': object (.o) file not exist
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\can.c': object (.o) file not exist
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\debug_uart.c': object (.o) file not exist
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\dip_switch.c': object (.o) file not exist
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\eeprom.c': object (.o) file not exist
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\ina226.c': object (.o) file not exist
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\key.c': object (.o) file not exist
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\rs485.c': object (.o) file not exist
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\soft_i2c.c': object (.o) file not exist
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\w25q128.c': object (.o) file not exist
+'g:\VscodeProject\GitProject\GD_Template-M4\User\gd32f4xx_it.c': object (.o) file not exist
+'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': object (.o) file not exist
+'g:\VscodeProject\GitProject\GD_Template-M4\User\systick.c': object (.o) file not exist
+
+[2025-07-24 08:43:45]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Error: L6218E: Undefined symbol W25Q64_erase_sector (referred from w25q128.o).
+Error: L6218E: Undefined symbol W25Q64_wait_busy (referred from w25q128.o).
+Error: L6218E: Undefined symbol W25Q64_write_enable (referred from w25q128.o).
+Error: L6218E: Undefined symbol spi_read_write_byte (referred from w25q128.o).
+Not enough information to list image symbols.
+Finished: 1 information, 0 warning and 4 error messages.
+
+

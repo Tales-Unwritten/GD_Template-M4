@@ -1,0 +1,5 @@
+tool: AC6
+fileName: 'GD_Template-F4xx.map'
+elfName: 'GD_Template-F4xx.axf'
+compilerName: 'ARM Compiler'
+compilerFullName: 'Component: ARM Compiler 6.16'
