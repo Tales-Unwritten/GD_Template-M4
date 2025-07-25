@@ -42,4 +42,4 @@
   ..\User\..\Hardware\inc\debug_uart.h ..\User\..\Hardware\inc\bitband.h \
   ..\User\..\Hardware\inc\can.h \
   ..\Firmware\CMSIS\GD\GD32F4xx\Include\GD32F4xx.h \
-  ..\User\..\Hardware\inc\eeprom.h
+  ..\User\..\Hardware\inc\eeprom.h ..\User\..\Hardware\inc\w25q128.h

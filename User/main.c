@@ -14,16 +14,18 @@ int main(void)
   // Key_Configuration(); // 按键初始化
   // INA226_Device_Info.CHG_Ina226_Unlock_Alert();            // 解锁INA226的警报功能
 
-  Key_Configuration();                                                             // 按键初始化
+  Key_Configuration(); // 按键初始化
+  w25qxx_spi_config(); // W25Q128 SPI配置
   // uint8_t read_data0 = 0;                                                           // 定义读取数据变量
   // uint8_t read_data1 = 0;
   // uint8_t read_data2 = 0;
   uint8_t tx_page[8] = {0x60, 0x31, 0x32, 0x03, 0x94, 0x55, 0x66, 0x65}; // 定义发送数据
-  uint8_t rx_page[8]; // 定义接收数据
+  uint8_t rx_page[32];                                                    // 定义接收数据
   // ee_Write_Byte(0x00, 0x85); // 写入测试数据到地址0x00
   // ee_Write_Byte(0x01, 0xF0); // 写入测试数据到地址0x01
   // ee_Write_Byte(0x02, 0x99); // 写入测试数据到地址0x02
   // ee_erase_All();
+  My_W25Q28_TEXT(); // 调用W25Q128测试函数
   while (1)
   {
     // Key_Scan(); // 扫描按键状态
@@ -78,22 +80,28 @@ int main(void)
     // read_data1 = ee_Read_Byte(0x01); // 从地址0x01读取数据
     // read_data2 = ee_Read_Byte(0x02); // 从地址0x02读取数据
 
-
-      // printf("read data from address 0x00: 0x%02X\r\n", read_data0);
-      // printf("read data from address 0x02: 0x%02X\r\n", read_data1);
-      // printf("read data from address 0x02: 0x%02X\r\n", read_data2);
+    // printf("read data from address 0x00: 0x%02X\r\n", read_data0);
+    // printf("read data from address 0x02: 0x%02X\r\n", read_data1);
+    // printf("read data from address 0x02: 0x%02X\r\n", read_data2);
     // ee_Test_Read_Write_Multi_Byte(); // 测试读写多字节数据
     // ee_Test_Read_Write_Page(); // 测试读写页面数据
     // ee_Write_Page_Byte(1, tx_page, sizeof(tx_page)); // 写入页面数据
-    delay_ms(10); // 延时10ms
-    ee_Read_Page_Byte(1, rx_page, sizeof(rx_page)); // 读取页面数据
-    printf("Read Page Data: \r\n");
-    for (uint8_t i = 0; i < sizeof(rx_page); i++)
+    // delay_ms(1000);                                   // 延时1秒
+    // ee_Read_Page_Byte(1, rx_page, sizeof(rx_page)); // 读取页面数据
+    // printf("Read Page Data: \r\n");
+    // for (uint8_t i = 0; i < sizeof(rx_page); i++)
+    // {
+    //   printf("0x%02X \r\n", rx_page[i]); // 打印读取的数据
+    //   delay_ms(1000);                      // 延时1秒
+    // }
+    // ee_Test_Read_Multi_Byte(); // 测试读取多字节数据
+    w25qxx_read(rx_page, 0x000004, 32);
+    for (size_t i = 0; i < sizeof(rx_page); i++)
     {
-      printf("0x%02X \r\n", rx_page[i]); // 打印读取的数据
-      delay_ms(10); // 延时10ms
+      printf("0x%02X ", rx_page[i]);
     }
-    ee_Test_Read_Multi_Byte(); // 测试读取多字节数据
-  delay_ms(1000); // 延时1秒
-}
+    printf("\r\n");
+
+    delay_ms(1000);            // 延时1秒
+  }
 }

@@ -14,3 +14,4 @@
 #include "../Hardware/inc/bitband.h"
 #include "../Hardware/inc/can.h"
 #include "../Hardware/inc/eeprom.h"
+#include "../Hardware/inc/w25q128.h"
