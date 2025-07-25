@@ -1,7 +1,6 @@
 #include "../Hardware/inc/can.h"
 
-
-FlagStatus receive_flag;                      // CAN接收标志位，用于指示是否有新的CAN消息接收
+FlagStatus receive_flag = RESET;              // CAN接收标志位，用于指示是否有新的CAN消息接收
 uint8_t transmit_number = 0x0;                // CAN发送计数器，用于跟踪发送的消息数量
 can_trasnmit_message_struct transmit_message; // CAN发送消息结构体，用于存储待发送的CAN帧数据
 
@@ -128,51 +127,6 @@ void can_transmit_data(uint8_t *data, uint8_t len)
 }
 
 /**
- * @brief CAN接收数据处理函数
- *
- * @param out_data 输出缓冲区，长度至少为8字节
- * @return 实际接收到的数据字节数，若无数据则返回0
- *
- *    使用示例：
- *    uint8_t buffer[8];
- *    uint8_t len = can_receive_data(buffer);
- *    if (len > 0)
- *   {
- *         // 处理 buffer 中的 len 字节数据
- *   }
- */
-uint8_t can_receive_data(uint8_t *out_data)
-{
-    can_receive_message_struct receive_message;
-
-    if (out_data == NULL)
-    {
-        return 0;
-    }
-
-    if (receive_flag)
-    {
-        receive_flag = RESET;
-        can_message_receive(CANX, CAN_FIFO1, &receive_message);
-
-        uint8_t len = receive_message.rx_dlen;
-        if (len > 8)
-        {
-            len = 8;
-        }
-        for (uint8_t i = 0; i < len; i++)
-        {
-            out_data[i] = receive_message.rx_data[i];
-        }
-        return len;
-    }
-    else
-    {
-        return 0;
-    }
-}
-
-/**
  * @brief 通用CAN接收FIFO1中断处理函数
  *
  * 该函数用于处理CAN接收FIFO1非空中断，设置接收标志位，并可扩展为错误处理等功能。
@@ -180,24 +134,27 @@ uint8_t can_receive_data(uint8_t *out_data)
  */
 static void CANx_RX_IRQHandler(void)
 {
-    /* 检查接收FIFO1非空中断标志 */
-    if (can_interrupt_flag_get(CANX, CAN_INT_FLAG_RFL1) == SET) 
-    {
-        /* 可选：检查FIFO溢出错误 */
-        if (can_interrupt_flag_get(CANX, CAN_INT_FLAG_RFO1) == SET)
-        {
-            can_interrupt_flag_clear(CANX, CAN_INT_FLAG_RFO1); // 清除FIFO溢出标志
-            // 可在此处添加错误处理或日志记录
+    // 检查接收FIFO1非空中断标志
+    if (can_interrupt_flag_get(CANX, CAN_INT_FLAG_RFL1) == SET) {
+        // 检查FIFO溢出错误
+        if (can_interrupt_flag_get(CANX, CAN_INT_FLAG_RFO1) == SET) {
+            can_interrupt_flag_clear(CANX, CAN_INT_FLAG_RFO1);
+            printf("CAN FIFO1 overflow!\n");  // 可选：添加错误提示
         }
 
-        /* 可选：检查错误警告标志 */
-        if (can_flag_get(CANX, CAN_FLAG_WERR) == SET)
-        {
-            // 可在此处添加错误处理或报警
+        // 检查错误警告标志
+        if (can_flag_get(CANX, CAN_FLAG_WERR) == SET) {
+            printf("CAN warning error!\n");   // 可选：添加错误提示
         }
 
-        can_interrupt_flag_clear(CANX, CAN_INT_FLAG_RFL1); // 清除接收FIFO1非空中断标志
-        receive_flag = SET; // 设置接收标志位，表示有新数据可用
+        can_interrupt_flag_clear(CANX, CAN_INT_FLAG_RFL1);
+        receive_flag = SET;
+    }
+    
+    // 可选：添加其他中断标志检查
+    if (can_interrupt_flag_get(CANX, CAN_INT_FLAG_BOERR) == SET) {
+        can_interrupt_flag_clear(CANX, CAN_INT_FLAG_BOERR);
+        printf("CAN bus off!\n");
     }
 }
 
@@ -207,12 +164,13 @@ static void CANx_RX_IRQHandler(void)
  *
  * 该函数用于初始化CAN模块，包括GPIO引脚配置、CAN网络配置和中断向量配置。
  */
+// 在can_config函数中添加：
 void can_config(void)
 {
-    can_gpio_init();                           // 配置GPIO引脚
-    can_networking_init();                     // 初始化CAN网络配置
-    nvic_config();                             // 配置中断向量
-    can_interrupt_enable(CANX, CAN_INT_RFNE1); // 启用接收FIFO1非空中断
+    can_gpio_init();
+    can_networking_init();
+    nvic_config();
+    can_interrupt_enable(CANX, CAN_INT_RFNE1);
 }
 
 
@@ -228,3 +186,9 @@ void CAN1_RX1_IRQHandler(void)  // 正确的函数名
 }
 #endif
 
+void can_transmit_text(void)
+{
+    // 发送测试数据
+    uint8_t test_data[8] = { 0x11, 0x90, 0x77, 0x67, 0x23, 0x70, 0x55, 0x99 };
+    can_transmit_data(test_data, sizeof(test_data));
+}

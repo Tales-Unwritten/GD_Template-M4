@@ -113,3 +113,171 @@ These source files will be recompiled
 [2025-07-24 09:21:41]	[done]
 	build successfully !
 
+[2025-07-24 09:34:07]	[info] incremental build: 3 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\can.c': source file has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\User\gd32f4xx_it.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\..\Hardware\inc\can.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\..\Hardware\inc\can.h' has been changed.
+
+[2025-07-24 09:34:08]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Error: L6218E: Undefined symbol can_enable (referred from can.o).
+Not enough information to list image symbols.
+Finished: 1 information, 0 warning and 1 error messages.
+
+
+[2025-07-24 09:44:22]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\can.c': source file has been changed.
+
+[2025-07-24 09:44:23]	[done]
+	build successfully !
+
+[2025-07-24 09:48:26]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\can.c': source file has been changed.
+
+[2025-07-24 09:48:26]	compilation failed at : "g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\can.c", exit code: 1
+command: 
+  "D:\Keil MDK\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc -std=c99 -I../Firmware/GD32F4xx_standard_peripheral/Include -I../Firmware/CMSIS -I../Firmware/CMSIS/GD/GD32F4xx/Include -I../User -I../Hardware/inc -I../App/inc -I.cmsis/include -IRTE/_GD_Template-F4xx -D"USE_STDPERIPH_DRIVER" -D"GD32F470" -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -D__MICROLIB -O2 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/GD_Template-F4xx/.obj/__/Hardware/src/can.o -MMD ./../Hardware/src/can.c
+   at unify_builder.Program.Main(String[] args_)
+---
+./../Hardware/src/can.c:123:50: error: use of undeclared identifier 'CAN_TRANSMIT_ERROR'; did you mean 'CAN_TRANSMIT_OK'?
+        if(can_transmit_states(CANX, mailbox) == CAN_TRANSMIT_ERROR) {
+                                                 ^~~~~~~~~~~~~~~~~~
+                                                 CAN_TRANSMIT_OK
+../Firmware/GD32F4xx_standard_peripheral/Include\gd32f4xx_can.h:464:5: note: 'CAN_TRANSMIT_OK' declared here
+    CAN_TRANSMIT_OK = 1U,                                               /*!< CAN transmitted success */
+    ^
+./../Hardware/src/can.c:124:13: warning: implicitly declaring library function 'printf' with type 'int (const char *, ...)' [-Wimplicit-function-declaration]
+            printf("CAN transmit error!\n");
+            ^
+./../Hardware/src/can.c:124:13: note: include the header <stdio.h> or explicitly provide a declaration for 'printf'
+./../Hardware/src/can.c:157:12: warning: implicit declaration of function 'can_message_pending' is invalid in C99 [-Wimplicit-function-declaration]
+        if(can_message_pending(CANX, CAN_FIFO1) > 0) {
+           ^
+./../Hardware/src/can.c:204:38: error: use of undeclared identifier 'CAN_INT_FLAG_BOFF'
+    if (can_interrupt_flag_get(CANX, CAN_INT_FLAG_BOFF) == SET) {
+                                     ^
+./../Hardware/src/can.c:205:40: error: use of undeclared identifier 'CAN_INT_FLAG_BOFF'
+        can_interrupt_flag_clear(CANX, CAN_INT_FLAG_BOFF);
+                                       ^
+2 warnings and 3 errors generated.
+
+[2025-07-24 09:48:34]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\can.c': object (.o) file not exist
+
+[2025-07-24 09:48:34]	compilation failed at : "g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\can.c", exit code: 1
+command: 
+  "D:\Keil MDK\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc -std=c99 -I../Firmware/GD32F4xx_standard_peripheral/Include -I../Firmware/CMSIS -I../Firmware/CMSIS/GD/GD32F4xx/Include -I../User -I../Hardware/inc -I../App/inc -I.cmsis/include -IRTE/_GD_Template-F4xx -D"USE_STDPERIPH_DRIVER" -D"GD32F470" -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -D__MICROLIB -O2 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/GD_Template-F4xx/.obj/__/Hardware/src/can.o -MMD ./../Hardware/src/can.c
+   at unify_builder.Program.Main(String[] args_)
+---
+./../Hardware/src/can.c:125:9: warning: implicitly declaring library function 'printf' with type 'int (const char *, ...)' [-Wimplicit-function-declaration]
+        printf( "CAN transmit timeout!\n");
+        ^
+./../Hardware/src/can.c:125:9: note: include the header <stdio.h> or explicitly provide a declaration for 'printf'
+./../Hardware/src/can.c:156:12: warning: implicit declaration of function 'can_message_pending' is invalid in C99 [-Wimplicit-function-declaration]
+        if(can_message_pending(CANX, CAN_FIFO1) > 0) {
+           ^
+./../Hardware/src/can.c:203:38: error: use of undeclared identifier 'CAN_INT_FLAG_BOFF'
+    if (can_interrupt_flag_get(CANX, CAN_INT_FLAG_BOFF) == SET) {
+                                     ^
+./../Hardware/src/can.c:204:40: error: use of undeclared identifier 'CAN_INT_FLAG_BOFF'
+        can_interrupt_flag_clear(CANX, CAN_INT_FLAG_BOFF);
+                                       ^
+2 warnings and 2 errors generated.
+
+[2025-07-24 09:49:19]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\can.c': object (.o) file not exist
+
+[2025-07-24 09:49:20]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Error: L6218E: Undefined symbol can_message_pending (referred from can.o).
+Not enough information to list image symbols.
+Finished: 1 information, 0 warning and 1 error messages.
+
+
+[2025-07-24 09:50:20]	[info] incremental build: 3 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\can.c': source file has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\User\gd32f4xx_it.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\..\Hardware\inc\can.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\..\Hardware\inc\can.h' has been changed.
+
+[2025-07-24 09:50:21]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Error: L6218E: Undefined symbol can_message_pending (referred from can.o).
+Not enough information to list image symbols.
+Finished: 1 information, 0 warning and 1 error messages.
+
+
+[2025-07-24 09:52:35]	[info] incremental build: 4 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\can.c': source file has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\rs485.c': source file has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\User\gd32f4xx_it.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\..\Hardware\inc\rs485.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\..\Hardware\inc\rs485.h' has been changed.
+
+[2025-07-24 09:52:36]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Error: L6218E: Undefined symbol can_message_pending (referred from can.o).
+Not enough information to list image symbols.
+Finished: 1 information, 0 warning and 1 error messages.
+
+
+[2025-07-24 09:53:50]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Error: L6218E: Undefined symbol can_message_pending (referred from can.o).
+Not enough information to list image symbols.
+Finished: 1 information, 0 warning and 1 error messages.
+
+
+[2025-07-24 09:53:56]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Error: L6218E: Undefined symbol can_message_pending (referred from can.o).
+Not enough information to list image symbols.
+Finished: 1 information, 0 warning and 1 error messages.
+
+
+[2025-07-24 09:58:20]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\can.c': source file has been changed.
+
+[2025-07-24 09:58:20]	[done]
+	build successfully !
+
+[2025-07-24 10:24:06]	[info] incremental build: 3 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\can.c': source file has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\User\gd32f4xx_it.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\..\Hardware\inc\can.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\..\Hardware\inc\can.h' has been changed.
+
+[2025-07-24 10:24:06]	[done]
+	build successfully !
+
+[2025-07-24 10:24:20]	[info] incremental build: 3 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\can.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\..\Hardware\inc\can.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\User\gd32f4xx_it.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\..\Hardware\inc\can.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\..\Hardware\inc\can.h' has been changed.
+
+[2025-07-24 10:24:21]	[done]
+	build successfully !
+

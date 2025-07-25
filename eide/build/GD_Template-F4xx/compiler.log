@@ -1,15 +1,9 @@
 >>> cc
 
-./../Hardware/src/w25q128.c:95:56: warning: while loop has empty body [-Wempty-body]
-        while(RESET == spi_i2s_flag_get(SPI4,  SPI_FLAG_TBE) );
-                                                              ^
-./../Hardware/src/w25q128.c:95:56: note: put the semicolon on a separate line to silence this warning
-./../Hardware/src/w25q128.c:98:57: warning: while loop has empty body [-Wempty-body]
-        while(RESET == spi_i2s_flag_get(SPI4,  SPI_FLAG_RBNE) );
-                                                               ^
-./../Hardware/src/w25q128.c:98:57: note: put the semicolon on a separate line to silence this warning
-2 warnings generated.
+
+
+
 
 >>> ld
 
-Program Size: Code=8552 RO-data=496 RW-data=8 ZI-data=4840  
+Program Size: Code=8660 RO-data=496 RW-data=8 ZI-data=4840  

@@ -1,6 +1,6 @@
 #include "../Hardware/inc/rs485.h"
 
-PC_Transmit_Buffer_t Rs485_Receive_Buffer[CHCHE_COUNT];
+PC_Transmit_Buffer_t Rs485_Receive_Buffer[CHCHE_COUNT_485];
 
 static struct
 {
@@ -163,7 +163,7 @@ void USART1_IRQHandler(void)
 		if (Temp_Recevice_Count > 0 && memchr(Temp_Recevice_Buffer, '\r\n', Temp_Recevice_Count) != NULL)
 		{
 			/* 查找空闲缓冲区并存储数据 */
-			for (size_t i = 0; i < CHCHE_COUNT; i++)
+			for (size_t i = 0; i < CHCHE_COUNT_485; i++)
 			{
 				if (Rs485_Receive_Buffer[i].Buffer_Status == 0)
 				{
