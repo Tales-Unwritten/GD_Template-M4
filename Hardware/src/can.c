@@ -46,14 +46,13 @@ static void can_networking_init(void)
     can_parameter.time_segment_2 = CAN_BT_BS2_2TQ;     // 时间段2为2TQ
     
     // 1Mbps波特率配置 (240MHz系统时钟)
-    can_parameter.prescaler = 24;  // 预分频器24
+    can_parameter.prescaler = 5;  // 预分频器24
     
     /*
     // 500Kbps波特率配置 (如果需要)
     can_parameter.prescaler = 48;  // 预分频器48
     */
     
-    can_init(CANX, &can_parameter);
 
     // 过滤器配置
 #ifdef DEV_CAN0_USED
@@ -71,6 +70,15 @@ static void can_networking_init(void)
     can_filter.filter_fifo_number = CAN_FIFO1;
     can_filter.filter_enable = ENABLE;
     can_filter_init(&can_filter);
+
+    can_init(CANX, &can_parameter);
+
+    // 检查初始化结果
+    if (can_flag_get(CANX, CAN_FLAG_IWS) != SET) {
+        printf("CAN initialization may have failed!\n");
+    } else {
+        printf("CAN controller initialized successfully\n");
+    }
 }
 
 static void nvic_config(void)
@@ -92,38 +100,118 @@ static void nvic_config(void)
  * @param data 指向要发送的数据缓冲区的指针
  * @param len 数据长度，最大为8字节
  */
+// void can_transmit_data(uint8_t *data, uint8_t len)
+// {
+//     if (data == NULL || len > 8)
+//     {
+//         return;
+//     }
+
+//     // 建议设置一个有效的ID
+//     transmit_message.tx_sfid = 0x123; // 标准帧ID
+//     transmit_message.tx_efid = 0x00000000;
+//     transmit_message.tx_ff = CAN_FF_STANDARD;
+//     transmit_message.tx_ft = CAN_FT_DATA;
+//     transmit_message.tx_dlen = len;
+
+//     for (uint8_t i = 0; i < len; i++)
+//     {
+//         transmit_message.tx_data[i] = data[i];
+//     }
+
+//     // // 发送消息
+//     uint8_t mailbox = can_message_transmit(CANX, &transmit_message);
+
+//     // 可选：检查发送状态
+    
+//     uint32_t timeout = 0xFFFF;
+//     while((can_transmit_states(CANX, mailbox) != CAN_TRANSMIT_OK) && (timeout != 0)) {
+//         timeout--;
+//     }
+//     if(timeout == 0) {
+//         printf( "CAN transmit timeout!\n");
+//     }
+    
+// }
+
 void can_transmit_data(uint8_t *data, uint8_t len)
 {
-    if (data == NULL || len > 8)
-    {
+    if (data == NULL || len > 8) {
+        printf("Invalid data or length\n");
         return;
     }
 
-    // 建议设置一个有效的ID
-    transmit_message.tx_sfid = 0x123; // 标准帧ID
+    // 检查CAN控制器状态
+    if (can_flag_get(CANX, CAN_FLAG_BOERR) == SET) {
+        printf("CAN Bus Off Error!\n");
+        can_flag_clear(CANX, CAN_FLAG_BOERR);  // 尝试清除
+        return;
+    }
+    
+    if (can_flag_get(CANX, CAN_FLAG_PERR) == SET) {
+        printf("CAN Passive Error!\n");
+        return;
+    }
+
+    // 检查邮箱状态
+    printf("Before transmit - Mailbox states:\n");
+    printf("Mailbox 0: %d\n", can_transmit_states(CANX, 0));
+    printf("Mailbox 1: %d\n", can_transmit_states(CANX, 1));
+    printf("Mailbox 2: %d\n", can_transmit_states(CANX, 2));
+
+    // 填充发送消息
+    transmit_message.tx_sfid = 0x123;
     transmit_message.tx_efid = 0x00000000;
     transmit_message.tx_ff = CAN_FF_STANDARD;
     transmit_message.tx_ft = CAN_FT_DATA;
     transmit_message.tx_dlen = len;
 
-    for (uint8_t i = 0; i < len; i++)
-    {
+    for (uint8_t i = 0; i < len; i++) {
         transmit_message.tx_data[i] = data[i];
     }
 
-    // 发送消息
+    // 尝试发送
     uint8_t mailbox = can_message_transmit(CANX, &transmit_message);
+    
+    printf("can_message_transmit returned mailbox: %d\n", mailbox);
+    
+    if (mailbox == CAN_NOMAILBOX) {
+        printf("No mailbox available!\n");
+        
+        // 检查CAN控制器是否使能
+        if (can_flag_get(CANX, CAN_FLAG_IWS) != SET) {
+            printf("CAN controller not initialized properly!\n");
+        }
+        
+        // 强制检查邮箱状态
+        FlagStatus tx_empty0 = can_flag_get(CANX, CAN_FLAG_TME0);
+        FlagStatus tx_empty1 = can_flag_get(CANX, CAN_FLAG_TME1);
+        FlagStatus tx_empty2 = can_flag_get(CANX, CAN_FLAG_TME2);
+        
+        printf("TX Mailbox Empty Flags - 0:%d, 1:%d, 2:%d\n", 
+               tx_empty0, tx_empty1, tx_empty2);
+        
+        return;
+    }
 
-    // 可选：检查发送状态
+    printf("Using mailbox %d for transmission\n", mailbox);
     
+    // 等待发送完成
     uint32_t timeout = 0xFFFF;
-    while((can_transmit_states(CANX, mailbox) != CAN_TRANSMIT_OK) && (timeout != 0)) {
-        timeout--;
-    }
-    if(timeout == 0) {
-        printf( "CAN transmit timeout!\n");
-    }
+    can_transmit_state_enum state;
     
+    do {
+        state = can_transmit_states(CANX, mailbox);
+        timeout--;
+    } while ((state == CAN_TRANSMIT_PENDING) && (timeout != 0));
+    
+    if (state == CAN_TRANSMIT_OK) {
+        printf("CAN transmit success!\n");
+    } else if (state == CAN_TRANSMIT_FAILED) {
+        printf("CAN transmit failed! State: %d\n", state);
+    } else {
+        printf("CAN transmit timeout! Final state: %d\n", state);
+    }
 }
 
 /**

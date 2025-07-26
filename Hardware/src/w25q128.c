@@ -171,103 +171,111 @@ uint32_t w25qxx_read_id(void)
 	return id;
 }
 
-#include <stdio.h>
-#include <string.h>
-#include "../Hardware/inc/w25q128.h"
-
 void My_W25Q28_TEXT(void)
 {
-    uint8_t write_buffer[256];
-    uint8_t read_buffer[256];
-    uint32_t flash_id;
-    uint32_t test_addr = 0x000000;  // 测试地址
-    uint16_t test_length = 32;
-    uint16_t i;
-    
-    printf("=====================================\r\n");
-    printf("W25Q128 测试程序开始\r\n");
-    printf("=====================================\r\n");
-    
-    // 1. 初始化 SPI
-    printf("1. 初始化 W25Q128 SPI...\r\n");
-    w25qxx_spi_config();
-    printf("   SPI 初始化完成\r\n");
-    
-    // 2. 读取 Flash ID
-    printf("2. 读取 Flash ID...\r\n");
-    flash_id = w25qxx_read_id();
-    printf("   Flash ID: 0x%06X\r\n", (unsigned int)flash_id);
-    
-    if(flash_id == 0xEF7018) {
-        printf("   ID 校验成功 - 检测到 W25Q128\r\n");
-    } else {
-        printf("   ID 校验失败 - 未检测到正确的 Flash\r\n");
-        return;
-    }
-    
-    // 3. 准备测试数据
-    printf("3. 准备测试数据...\r\n");
-    for(i = 0; i < test_length; i++) {
-        write_buffer[i] = 0x55 + i;  // 生成测试数据
-    }
-    write_buffer[test_length-1] = '\0';  // 字符串结束符
-    
-    printf("   写入数据: ");
-    for(i = 0; i < test_length-1; i++) {
-        printf("0x%02X ", write_buffer[i]);
-    }
-    printf("\r\n");
-    
-    // 4. 写入数据到 Flash
-    printf("4. 写入数据到 Flash (地址: 0x%06X)...\r\n", (unsigned int)test_addr);
-    w25qxx_write(write_buffer, test_addr, test_length);
-    printf("   数据写入完成\r\n");
-    
-    // 5. 从 Flash 读取数据
-    printf("5. 从 Flash 读取数据 (地址: 0x%06X)...\r\n", (unsigned int)test_addr);
-    memset(read_buffer, 0, sizeof(read_buffer));
-    w25qxx_read(read_buffer, test_addr, test_length);
-    
-    printf("   读取数据: ");
-    for(i = 0; i < test_length-1; i++) {
-        printf("0x%02X ", read_buffer[i]);
-    }
-    printf("\r\n");
-    
-    // 6. 验证数据
-    printf("6. 验证数据...\r\n");
-    if(memcmp(write_buffer, read_buffer, test_length) == 0) {
-        printf("   数据验证成功 - 读写功能正常\r\n");
-        printf("   读取的字符串: %s\r\n", (char*)read_buffer);
-    } else {
-        printf("   数据验证失败 - 读写功能异常\r\n");
-        printf("   写入字符串: %s\r\n", (char*)write_buffer);
-        printf("   读取字符串: %s\r\n", (char*)read_buffer);
-    }
-    
-    // 7. 测试不同地址的读写
-    printf("7. 测试不同地址读写...\r\n");
-    test_addr = 0x1000;  // 测试另一个地址
-    char test_string[] = "Hello W25Q128!";
-    strcpy((char*)write_buffer, test_string);
-    test_length = strlen(test_string) + 1;
-    
-    printf("   在地址 0x%06X 写入字符串: %s\r\n", (unsigned int)test_addr, test_string);
-    w25qxx_write(write_buffer, test_addr, test_length);
-    
-    memset(read_buffer, 0, sizeof(read_buffer));
-    w25qxx_read(read_buffer, test_addr, test_length);
-    printf("   从地址 0x%06X 读取字符串: %s\r\n", (unsigned int)test_addr, (char*)read_buffer);
-    
-    if(strcmp((char*)write_buffer, (char*)read_buffer) == 0) {
-        printf("   不同地址读写测试成功\r\n");
-    } else {
-        printf("   不同地址读写测试失败\r\n");
-    }
-    
-    printf("=====================================\r\n");
-    printf("W25Q128 测试程序结束\r\n");
-    printf("=====================================\r\n");
+	uint8_t write_buffer[256];
+	uint8_t read_buffer[256];
+	uint32_t flash_id;
+	uint32_t test_addr = 0x000000; // 测试地址
+	uint16_t test_length = 32;
+	uint16_t i;
+
+	printf("=====================================\r\n");
+	printf("W25Q128 测试程序开始\r\n");
+	printf("=====================================\r\n");
+
+	// 1. 初始化 SPI
+	printf("1. 初始化 W25Q128 SPI...\r\n");
+	w25qxx_spi_config();
+	printf("   SPI 初始化完成\r\n");
+
+	// 2. 读取 Flash ID
+	printf("2. 读取 Flash ID...\r\n");
+	flash_id = w25qxx_read_id();
+	printf("   Flash ID: 0x%06X\r\n", (unsigned int)flash_id);
+
+	if (flash_id == 0xEF7018)
+	{
+		printf("   ID 校验成功 - 检测到 W25Q128\r\n");
+	}
+	else
+	{
+		printf("   ID 校验失败 - 未检测到正确的 Flash\r\n");
+		return;
+	}
+
+	// 3. 准备测试数据
+	printf("3. 准备测试数据...\r\n");
+	for (i = 0; i < test_length; i++)
+	{
+		write_buffer[i] = 0x55 + i; // 生成测试数据
+	}
+	write_buffer[test_length - 1] = '\0'; // 字符串结束符
+
+	printf("   写入数据: ");
+	for (i = 0; i < test_length - 1; i++)
+	{
+		printf("0x%02X ", write_buffer[i]);
+	}
+	printf("\r\n");
+
+	// 4. 写入数据到 Flash
+	printf("4. 写入数据到 Flash (地址: 0x%06X)...\r\n", (unsigned int)test_addr);
+	w25qxx_write(write_buffer, test_addr, test_length);
+	printf("   数据写入完成\r\n");
+
+	// 5. 从 Flash 读取数据
+	printf("5. 从 Flash 读取数据 (地址: 0x%06X)...\r\n", (unsigned int)test_addr);
+	memset(read_buffer, 0, sizeof(read_buffer));
+	w25qxx_read(read_buffer, test_addr, test_length);
+
+	printf("   读取数据: ");
+	for (i = 0; i < test_length - 1; i++)
+	{
+		printf("0x%02X ", read_buffer[i]);
+	}
+	printf("\r\n");
+
+	// 6. 验证数据
+	printf("6. 验证数据...\r\n");
+	if (memcmp(write_buffer, read_buffer, test_length) == 0)
+	{
+		printf("   数据验证成功 - 读写功能正常\r\n");
+		printf("   读取的字符串: %s\r\n", (char *)read_buffer);
+	}
+	else
+	{
+		printf("   数据验证失败 - 读写功能异常\r\n");
+		printf("   写入字符串: %s\r\n", (char *)write_buffer);
+		printf("   读取字符串: %s\r\n", (char *)read_buffer);
+	}
+
+	// 7. 测试不同地址的读写
+	printf("7. 测试不同地址读写...\r\n");
+	test_addr = 0x1000; // 测试另一个地址
+	char test_string[] = "Hello W25Q128!";
+	strcpy((char *)write_buffer, test_string);
+	test_length = strlen(test_string) + 1;
+
+	printf("   在地址 0x%06X 写入字符串: %s\r\n", (unsigned int)test_addr, test_string);
+	w25qxx_write(write_buffer, test_addr, test_length);
+
+	memset(read_buffer, 0, sizeof(read_buffer));
+	w25qxx_read(read_buffer, test_addr, test_length);
+	printf("   从地址 0x%06X 读取字符串: %s\r\n", (unsigned int)test_addr, (char *)read_buffer);
+
+	if (strcmp((char *)write_buffer, (char *)read_buffer) == 0)
+	{
+		printf("   不同地址读写测试成功\r\n");
+	}
+	else
+	{
+		printf("   不同地址读写测试失败\r\n");
+	}
+
+	printf("=====================================\r\n");
+	printf("W25Q128 测试程序结束\r\n");
+	printf("=====================================\r\n");
 }
 
 void w25qxx_spi_config(void)

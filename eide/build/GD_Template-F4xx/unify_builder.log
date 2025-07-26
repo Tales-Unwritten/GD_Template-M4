@@ -418,3 +418,215 @@ These source files will be recompiled
 >>>>>>> 600edf56b1e098892cba893fe0b4040c5ecf9dd0
 	build successfully !
 
+[2025-07-26 15:42:47]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\can.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\..\Hardware\inc\can.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\w25q128.c': source file has been changed.
+
+[2025-07-26 15:42:48]	[done]
+	build successfully !
+
+[2025-07-26 15:43:34]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\can.c': source file has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': source file has been changed.
+
+[2025-07-26 15:43:34]	compilation failed at : "g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\can.c", exit code: 1
+command: 
+  "D:\Keil MDK\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc -std=c99 -I../Firmware/GD32F4xx_standard_peripheral/Include -I../Firmware/CMSIS -I../Firmware/CMSIS/GD/GD32F4xx/Include -I../User -I../Hardware/inc -I../App/inc -I.cmsis/include -IRTE/_GD_Template-F4xx -D"USE_STDPERIPH_DRIVER" -D"GD32F470" -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -D__MICROLIB -O2 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/GD_Template-F4xx/.obj/__/Hardware/src/can.o -MMD ./../Hardware/src/can.c
+   at unify_builder.Program.Main(String[] args_)
+---
+./../Hardware/src/can.c:189:1: error: expected identifier or '('
+{
+^
+1 error generated.
+
+[2025-07-26 15:43:44]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\can.c': object (.o) file not exist
+'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': source file has been changed.
+
+[2025-07-26 15:43:45]	[done]
+	build successfully !
+
+[2025-07-26 15:59:38]	[done]
+	build successfully !
+
+[2025-07-26 16:05:28]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\can.c': source file has been changed.
+
+[2025-07-26 16:05:28]	[done]
+	build successfully !
+
+[2025-07-26 16:06:22]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\can.c': source file has been changed.
+
+[2025-07-26 16:06:22]	[done]
+	build successfully !
+
+[2025-07-26 16:30:48]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\can.c': source file has been changed.
+
+[2025-07-26 16:30:49]	[done]
+	build successfully !
+
+[2025-07-26 16:32:59]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\can.c': source file has been changed.
+
+[2025-07-26 16:32:59]	[done]
+	build successfully !
+
+[2025-07-26 16:37:24]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\can.c': source file has been changed.
+
+[2025-07-26 16:37:24]	compilation failed at : "g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\can.c", exit code: 1
+command: 
+  "D:\Keil MDK\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc -std=c99 -I../Firmware/GD32F4xx_standard_peripheral/Include -I../Firmware/CMSIS -I../Firmware/CMSIS/GD/GD32F4xx/Include -I../User -I../Hardware/inc -I../App/inc -I.cmsis/include -IRTE/_GD_Template-F4xx -D"USE_STDPERIPH_DRIVER" -D"GD32F470" -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -D__MICROLIB -O2 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/GD_Template-F4xx/.obj/__/Hardware/src/can.o -MMD ./../Hardware/src/can.c
+   at unify_builder.Program.Main(String[] args_)
+---
+./../Hardware/src/can.c:77:28: error: use of undeclared identifier 'CAN_FLAG_INR'; did you mean 'CAN_FLAG_IWS'?
+    if (can_flag_get(CANX, CAN_FLAG_INR) != SET) {
+                           ^~~~~~~~~~~~
+                           CAN_FLAG_IWS
+../Firmware/GD32F4xx_standard_peripheral/Include\gd32f4xx_can.h:343:5: note: 'CAN_FLAG_IWS' declared here
+    CAN_FLAG_IWS      = CAN_REGIDX_BIT(STAT_REG_OFFSET, 0U),            /*!< initial working state */
+    ^
+./../Hardware/src/can.c:182:32: error: use of undeclared identifier 'CAN_FLAG_INR'; did you mean 'CAN_FLAG_IWS'?
+        if (can_flag_get(CANX, CAN_FLAG_INR) != SET) {
+                               ^~~~~~~~~~~~
+                               CAN_FLAG_IWS
+../Firmware/GD32F4xx_standard_peripheral/Include\gd32f4xx_can.h:343:5: note: 'CAN_FLAG_IWS' declared here
+    CAN_FLAG_IWS      = CAN_REGIDX_BIT(STAT_REG_OFFSET, 0U),            /*!< initial working state */
+    ^
+2 errors generated.
+
+[2025-07-26 16:38:54]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\can.c': object (.o) file not exist
+
+[2025-07-26 16:38:54]	compilation failed at : "g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\can.c", exit code: 1
+command: 
+  "D:\Keil MDK\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc -std=c99 -I../Firmware/GD32F4xx_standard_peripheral/Include -I../Firmware/CMSIS -I../Firmware/CMSIS/GD/GD32F4xx/Include -I../User -I../Hardware/inc -I../App/inc -I.cmsis/include -IRTE/_GD_Template-F4xx -D"USE_STDPERIPH_DRIVER" -D"GD32F470" -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -D__MICROLIB -O2 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/GD_Template-F4xx/.obj/__/Hardware/src/can.o -MMD ./../Hardware/src/can.c
+   at unify_builder.Program.Main(String[] args_)
+---
+./../Hardware/src/can.c:182:32: error: use of undeclared identifier 'CAN_FLAG_INR'; did you mean 'CAN_FLAG_IWS'?
+        if (can_flag_get(CANX, CAN_FLAG_INR) != SET) {
+                               ^~~~~~~~~~~~
+                               CAN_FLAG_IWS
+../Firmware/GD32F4xx_standard_peripheral/Include\gd32f4xx_can.h:343:5: note: 'CAN_FLAG_IWS' declared here
+    CAN_FLAG_IWS      = CAN_REGIDX_BIT(STAT_REG_OFFSET, 0U),            /*!< initial working state */
+    ^
+1 error generated.
+
+[2025-07-26 16:39:13]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\can.c': object (.o) file not exist
+
+[2025-07-26 16:39:13]	[done]
+	build successfully !
+
+[2025-07-26 16:43:26]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\can.c': source file has been changed.
+
+[2025-07-26 16:43:27]	[done]
+	build successfully !
+
+[2025-07-26 17:01:22]	[info] incremental build: 3 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\can.c': source file has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\User\gd32f4xx_it.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\..\Hardware\inc\can.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': source file has been changed.
+
+[2025-07-26 17:01:23]	compilation failed at : "g:\VscodeProject\GitProject\GD_Template-M4\User\main.c", exit code: 1
+command: 
+  "D:\Keil MDK\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc -std=c99 -I../Firmware/GD32F4xx_standard_peripheral/Include -I../Firmware/CMSIS -I../Firmware/CMSIS/GD/GD32F4xx/Include -I../User -I../Hardware/inc -I../App/inc -I.cmsis/include -IRTE/_GD_Template-F4xx -D"USE_STDPERIPH_DRIVER" -D"GD32F470" -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -D__MICROLIB -O2 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/GD_Template-F4xx/.obj/__/User/main.o -MMD ./../User/main.c
+   at unify_builder.Program.Main(String[] args_)
+---
+./../User/main.c:246:5: warning: implicit declaration of function 'gd_eval_led_toggle' is invalid in C99 [-Wimplicit-function-declaration]
+    gd_eval_led_toggle(LED2);
+    ^
+./../User/main.c:246:24: error: use of undeclared identifier 'LED2'
+    gd_eval_led_toggle(LED2);
+                       ^
+./../User/main.c:328:5: warning: implicit declaration of function 'gd_eval_led_init' is invalid in C99 [-Wimplicit-function-declaration]
+    gd_eval_led_init(LED1);
+    ^
+./../User/main.c:328:22: error: use of undeclared identifier 'LED1'
+    gd_eval_led_init(LED1);
+                     ^
+./../User/main.c:329:22: error: use of undeclared identifier 'LED2'
+    gd_eval_led_init(LED2);
+                     ^
+2 warnings and 3 errors generated.
+
+[2025-07-26 17:01:34]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': object (.o) file not exist
+
+[2025-07-26 17:01:34]	compilation failed at : "g:\VscodeProject\GitProject\GD_Template-M4\User\main.c", exit code: 1
+command: 
+  "D:\Keil MDK\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc -std=c99 -I../Firmware/GD32F4xx_standard_peripheral/Include -I../Firmware/CMSIS -I../Firmware/CMSIS/GD/GD32F4xx/Include -I../User -I../Hardware/inc -I../App/inc -I.cmsis/include -IRTE/_GD_Template-F4xx -D"USE_STDPERIPH_DRIVER" -D"GD32F470" -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -D__MICROLIB -O2 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/GD_Template-F4xx/.obj/__/User/main.o -MMD ./../User/main.c
+   at unify_builder.Program.Main(String[] args_)
+---
+./../User/main.c:327:5: warning: implicit declaration of function 'gd_eval_led_init' is invalid in C99 [-Wimplicit-function-declaration]
+    gd_eval_led_init(LED1);
+    ^
+./../User/main.c:327:22: error: use of undeclared identifier 'LED1'
+    gd_eval_led_init(LED1);
+                     ^
+./../User/main.c:328:22: error: use of undeclared identifier 'LED2'
+    gd_eval_led_init(LED2);
+                     ^
+1 warning and 2 errors generated.
+
+[2025-07-26 17:01:52]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': object (.o) file not exist
+
+[2025-07-26 17:01:52]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Error: L6200E: Symbol transmit_number multiply defined (by main.o and can.o).
+Error: L6200E: Symbol receive_flag multiply defined (by main.o and can.o).
+Error: L6200E: Symbol transmit_message multiply defined (by main.o and can.o).
+Not enough information to list image symbols.
+Not enough information to list the image map.
+Finished: 2 information, 0 warning and 3 error messages.
+
+
+[2025-07-26 17:03:29]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': source file has been changed.
+
+[2025-07-26 17:03:29]	[done]
+	build successfully !
+
+[2025-07-26 17:03:40]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': source file has been changed.
+
+[2025-07-26 17:03:40]	[done]
+	build successfully !
+

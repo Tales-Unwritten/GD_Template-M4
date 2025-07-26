@@ -4,6 +4,7 @@
 #include "stdint.h"
 #include "string.h"
 #include <stdio.h>
+#include "gd32f4xx_can.h"
 
 /* select can */
 // #define DEV_CAN0_USED
