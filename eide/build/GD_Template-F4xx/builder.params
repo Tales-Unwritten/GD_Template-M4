@@ -3,7 +3,7 @@
     "target": "GD_Template-F4xx",
     "toolchain": "AC6",
     "toolchainLocation": "D:\\Keil MDK\\ARM\\ARMCLANG",
-    "toolchainCfgFile": "c:\\Users\\Administrator\\.vscode\\extensions\\cl.eide-3.23.7\\res\\data\\models/arm.v6.model.json",
+    "toolchainCfgFile": "c:\\Users\\Administrator\\.vscode\\extensions\\cl.eide-3.23.14\\res\\data\\models/arm.v6.model.json",
     "buildMode": "fast|multhread",
     "showRepathOnLog": true,
     "threadNum": 12,
@@ -77,7 +77,7 @@
         "afterBuildTasks": [
             {
                 "name": "axf to elf",
-                "command": "axf2elf -d \"D:\\Keil MDK\\ARM\\ARMCLANG\" -i \"${outDir}\\GD_Template-F4xx.axf\" -o \"${outDir}\\GD_Template-F4xx.elf\" > \"${outDir}\\axf2elf.log\""
+                "command": "axf2elf -d \"${ToolchainRoot}\" -i \"${OutDir}/${ProjectName}.axf\" -o \"${OutDir}/${ProjectName}.elf\" > \"${OutDir}/axf2elf.log\""
             }
         ],
         "global": {
@@ -131,9 +131,10 @@
         "SYS_PathSep": ";",
         "SYS_PathSeparator": ";",
         "SYS_EOL": "\r\n",
-        "EIDE_BUILDER_DIR": "c:\\Users\\Administrator\\.vscode\\extensions\\cl.eide-3.23.7\\res\\tools\\win32\\unify_builder",
-        "EIDE_BINARIES_VER": "12.0.1",
+        "EIDE_BUILDER_DIR": "c:\\Users\\Administrator\\.vscode\\extensions\\cl.eide-3.23.14\\res\\tools\\win32\\unify_builder",
+        "EIDE_BINARIES_VER": "12.1.1",
         "EIDE_MSYS": "C:\\Users\\Administrator\\.eide\\bin\\builder\\msys\\bin",
+        "EIDE_PY3_CMD": "C:\\Users\\Administrator\\.eide\\bin\\python36\\python3.exe",
         "ToolchainRoot": "D:\\Keil MDK\\ARM\\ARMCLANG"
     },
     "sysPaths": []

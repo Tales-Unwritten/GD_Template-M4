@@ -27,6 +27,11 @@ void bitband_gpio_write(uint32_t gpio_periph, uint32_t pin, bool value);
 // 读取 GPIO 输入位状态（高电平返回 true）
 bool bitband_gpio_read(uint32_t gpio_periph, uint32_t pin);
 
+void bitband_gpio_toggle(uint32_t gpio_periph, uint32_t pin);
+
+//测试编写的函数是否正确
+void test_bitband_gpio_functions(void);
+
 #ifdef __cplusplus
 }
 #endif

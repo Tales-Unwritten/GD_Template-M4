@@ -630,3 +630,94 @@ These source files will be recompiled
 [2025-07-26 17:03:40]	[done]
 	build successfully !
 
+[2025-08-22 11:18:01]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\CMSIS\GD\GD32F4xx\Source\ARM\startup_gd32f450_470.s': compiler options has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': source file has been changed.
+
+[2025-08-22 11:18:03]	[done]
+	build successfully !
+
+[2025-08-22 11:20:34]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\bsp_led.c': source file has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': source file has been changed.
+
+[2025-08-22 11:20:35]	[done]
+	build successfully !
+
+[2025-08-22 11:20:41]	[done]
+	build successfully !
+
+[2025-08-22 11:24:29]	[info] incremental build: 3 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\bitband.c': source file has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\User\gd32f4xx_it.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\..\Hardware\inc\bitband.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': source file has been changed.
+
+[2025-08-22 11:24:30]	[done]
+	build successfully !
+
+[2025-08-22 11:49:27]	[info] incremental build: 4 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\bitband.c': source file has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\soft_i2c.c': source file has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\User\gd32f4xx_it.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\..\Hardware\inc\bitband.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': source file has been changed.
+
+[2025-08-22 11:49:29]	[done]
+	build successfully !
+
+[2025-08-22 11:49:53]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': source file has been changed.
+
+[2025-08-22 11:49:54]	[done]
+	build successfully !
+
+[2025-08-22 11:50:28]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\bitband.c': source file has been changed.
+
+[2025-08-22 11:50:29]	[done]
+	build successfully !
+
+[2025-08-22 15:31:23]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\bitband.c': source file has been changed.
+
+[2025-08-22 15:31:23]	[done]
+	build successfully !
+
+[2025-08-22 15:32:06]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\bitband.c': source file has been changed.
+
+[2025-08-22 15:32:07]	[done]
+	build successfully !
+
+[2025-08-22 15:36:37]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\bsp_led.c': source file has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': source file has been changed.
+
+[2025-08-22 15:36:38]	[done]
+	build successfully !
+
+[2025-08-22 15:36:50]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': source file has been changed.
+
+[2025-08-22 15:36:50]	[done]
+	build successfully !
+

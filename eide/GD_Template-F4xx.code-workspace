@@ -31,7 +31,8 @@
             "*.cpp": "cpp",
             "*.cxx": "cpp",
             "*.cc": "cpp",
-            "cstdio": "c"
+            "cstdio": "c",
+            "initializer_list": "c"
         },
         "[yaml]": {
             "editor.insertSpaces": true,
