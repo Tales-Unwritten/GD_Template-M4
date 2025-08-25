@@ -15,6 +15,11 @@ void led_gpio_config(void)
 	gpio_output_options_set(PORT_LED1,GPIO_OTYPE_PP,GPIO_OSPEED_50MHZ,PIN_LED1);
 	gpio_output_options_set(PORT_LED2,GPIO_OTYPE_PP,GPIO_OSPEED_50MHZ,PIN_LED2);
 	gpio_output_options_set(PORT_LED3,GPIO_OTYPE_PP,GPIO_OSPEED_50MHZ,PIN_LED3);
+
+	gpio_bit_write(PORT_LED1, PIN_LED1, SET); // LED1Ãð
+	gpio_bit_write(PORT_LED2, PIN_LED2, SET); // LED2Ãð
+	gpio_bit_write(PORT_LED3, PIN_LED3, SET); // LED3Ãð
+
 }
 
 

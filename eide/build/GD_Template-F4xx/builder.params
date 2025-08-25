@@ -2,8 +2,13 @@
     "name": "GD_Template-F4xx",
     "target": "GD_Template-F4xx",
     "toolchain": "AC6",
+<<<<<<< HEAD
     "toolchainLocation": "D:\\KELE5 MDK\\ARM\\ARMCLANG",
     "toolchainCfgFile": "c:\\Users\\31184\\.vscode\\extensions\\cl.eide-3.23.14\\res\\data\\models/arm.v6.model.json",
+=======
+    "toolchainLocation": "D:\\Keil MDK\\ARM\\ARMCLANG",
+    "toolchainCfgFile": "c:\\Users\\Administrator\\.vscode\\extensions\\cl.eide-3.23.14\\res\\data\\models/arm.v6.model.json",
+>>>>>>> ac61ab2b118333534425cbd19ce8b3f509878d72
     "buildMode": "fast|multhread",
     "showRepathOnLog": true,
     "threadNum": 16,
@@ -131,11 +136,19 @@
         "SYS_PathSep": ";",
         "SYS_PathSeparator": ";",
         "SYS_EOL": "\r\n",
+<<<<<<< HEAD
         "EIDE_BUILDER_DIR": "c:\\Users\\31184\\.vscode\\extensions\\cl.eide-3.23.14\\res\\tools\\win32\\unify_builder",
         "EIDE_BINARIES_VER": "12.1.1",
         "EIDE_MSYS": "C:\\Users\\31184\\.eide\\bin\\builder\\msys\\bin",
         "EIDE_PY3_CMD": "C:\\Users\\31184\\.eide\\bin\\python36\\python3.exe",
         "ToolchainRoot": "D:\\KELE5 MDK\\ARM\\ARMCLANG"
+=======
+        "EIDE_BUILDER_DIR": "c:\\Users\\Administrator\\.vscode\\extensions\\cl.eide-3.23.14\\res\\tools\\win32\\unify_builder",
+        "EIDE_BINARIES_VER": "12.1.1",
+        "EIDE_MSYS": "C:\\Users\\Administrator\\.eide\\bin\\builder\\msys\\bin",
+        "EIDE_PY3_CMD": "C:\\Users\\Administrator\\.eide\\bin\\python36\\python3.exe",
+        "ToolchainRoot": "D:\\Keil MDK\\ARM\\ARMCLANG"
+>>>>>>> ac61ab2b118333534425cbd19ce8b3f509878d72
     },
     "sysPaths": []
 }
