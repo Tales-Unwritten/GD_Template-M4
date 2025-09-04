@@ -11,6 +11,7 @@ static void systick_task_config(void)
   INA226_Device_Info.CHG_Ina226_Unlock_Alert();            // 解锁INA226的警报功能
   Key_Configuration(); // 按键初始化
   w25qxx_spi_config(); // W25Q128 SPI配置
+  check_status(); // 检查状态
   
 }
 
@@ -19,7 +20,7 @@ int main(void)
   systick_task_config(); // 初始化所有外设
   while (1)
   {
-    test_bitband_gpio_functions(); // 测试bitband GPIO函数
-    delay_ms(1000); // 延时1秒
+    // test_bitband_gpio_functions(); // 测试bitband GPIO函数
+    // delay_ms(1000); // 延时1秒
   }
 }

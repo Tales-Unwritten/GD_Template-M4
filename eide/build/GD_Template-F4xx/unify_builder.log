@@ -721,3 +721,69 @@ These source files will be recompiled
 [2025-08-22 15:36:50]	[done]
 	build successfully !
 
+[2025-09-04 16:10:14]	[info] incremental build: 4 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\bitband.c': source file has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\rs485.c': source file has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\User\gd32f4xx_it.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\..\Hardware\inc\bitband.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': source file has been changed.
+
+[2025-09-04 16:10:16]	[done]
+	build successfully !
+
+[2025-09-04 16:10:43]	[done]
+	build successfully !
+
+[2025-09-04 16:12:39]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': source file has been changed.
+
+[2025-09-04 16:12:40]	[done]
+	build successfully !
+
+[2025-09-04 16:12:44]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': source file has been changed.
+
+[2025-09-04 16:12:45]	[done]
+	build successfully !
+
+[2025-09-04 16:14:06]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\debug_uart.c': source file has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\rs485.c': source file has been changed.
+
+[2025-09-04 16:14:07]	[done]
+	build successfully !
+
+[2025-09-04 16:14:36]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\debug_uart.c': source file has been changed.
+
+[2025-09-04 16:14:37]	[done]
+	build successfully !
+
+[2025-09-04 16:28:55]	[info] incremental build: 4 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\debug_uart.c': source file has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\key.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\..\Hardware\inc\debug_uart.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\User\gd32f4xx_it.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\..\Hardware\inc\debug_uart.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\..\Hardware\inc\debug_uart.h' has been changed.
+
+[2025-09-04 16:28:56]	[done]
+	build successfully !
+
+[2025-09-04 16:29:31]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': source file has been changed.
+
+[2025-09-04 16:29:32]	[done]
+	build successfully !
+

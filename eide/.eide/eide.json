@@ -9,7 +9,14 @@
     "folders": [
       {
         "name": "App",
-        "files": [],
+        "files": [
+          {
+            "path": "../App/src/command_parsing.c"
+          },
+          {
+            "path": "../App/src/pc_task.c"
+          }
+        ],
         "folders": []
       },
       {

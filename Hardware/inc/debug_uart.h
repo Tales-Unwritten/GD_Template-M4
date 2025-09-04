@@ -35,7 +35,7 @@ typedef struct
 } PC_Transmit_Buffer_t;
 
 #endif // !__PC_Transmit_Buffer_t__
-
+void check_status(void);
 void debug_init_config(uint32_t band_rate);				  // 配置串口
 void debug_send_it_data(uint8_t *buffer, uint8_t length); // 发送数据
 void debug_send_data(uint8_t *buffer, uint8_t length);	  // 发送数据

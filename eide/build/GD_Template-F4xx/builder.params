@@ -3,7 +3,7 @@
     "target": "GD_Template-F4xx",
     "toolchain": "AC6",
     "toolchainLocation": "D:\\Keil MDK\\ARM\\ARMCLANG",
-    "toolchainCfgFile": "c:\\Users\\Administrator\\.vscode\\extensions\\cl.eide-3.23.14\\res\\data\\models/arm.v6.model.json",
+    "toolchainCfgFile": "c:\\Users\\Administrator\\.vscode\\extensions\\cl.eide-3.25.0\\res\\data\\models/arm.v6.model.json",
     "buildMode": "fast|multhread",
     "showRepathOnLog": true,
     "threadNum": 12,
@@ -33,6 +33,8 @@
         "GD32F470"
     ],
     "sourceList": [
+        "../App/src/command_parsing.c",
+        "../App/src/pc_task.c",
         "../Firmware/CMSIS/GD/GD32F4xx/Source/ARM/startup_gd32f450_470.s",
         "../Firmware/CMSIS/GD/GD32F4xx/Source/system_gd32f4xx.c",
         "../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_adc.c",
@@ -131,7 +133,7 @@
         "SYS_PathSep": ";",
         "SYS_PathSeparator": ";",
         "SYS_EOL": "\r\n",
-        "EIDE_BUILDER_DIR": "c:\\Users\\Administrator\\.vscode\\extensions\\cl.eide-3.23.14\\res\\tools\\win32\\unify_builder",
+        "EIDE_BUILDER_DIR": "c:\\Users\\Administrator\\.vscode\\extensions\\cl.eide-3.25.0\\res\\tools\\win32\\unify_builder",
         "EIDE_BINARIES_VER": "12.1.1",
         "EIDE_MSYS": "C:\\Users\\Administrator\\.eide\\bin\\builder\\msys\\bin",
         "EIDE_PY3_CMD": "C:\\Users\\Administrator\\.eide\\bin\\python36\\python3.exe",

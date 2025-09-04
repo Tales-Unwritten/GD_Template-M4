@@ -1,0 +1,52 @@
+#pragma ocne
+#include <stdint.h>
+#include <string.h>
+#include <stdio.h>
+#include "../Hardware/inc/debug_uart.h"
+#include "../Hardware/inc/rs485.h"
+
+typedef struct
+{
+    char *rese_mess;
+    char *send_mess;
+} ChannelCmdDef;
+static const ChannelCmdDef channel_allstates[2] = {
+    {"Channel_all_open\r\n", "Channel_is_all_open\r\n"},
+    {"Channel_all_close\r\n", "Channel_is_all_close\r\n"},
+};
+
+static const ChannelCmdDef channel_open[16] = {
+    {"Channel01_open\r\n", "Channel01_is_open\r\n"},
+    {"Channel02_open\r\n", "Channel02_is_open\r\n"},
+    {"Channel03_open\r\n", "Channel03_is_open\r\n"},
+    {"Channel04_open\r\n", "Channel04_is_open\r\n"},
+    {"Channel05_open\r\n", "Channel05_is_open\r\n"},
+    {"Channel06_open\r\n", "Channel06_is_open\r\n"},
+    {"Channel07_open\r\n", "Channel07_is_open\r\n"},
+    {"Channel08_open\r\n", "Channel08_is_open\r\n"},
+    {"Channel09_open\r\n", "Channel09_is_open\r\n"},
+    {"Channel10_open\r\n", "Channel10_is_open\r\n"},
+    {"Channel11_open\r\n", "Channel11_is_open\r\n"},
+    {"Channel12_open\r\n", "Channel12_is_open\r\n"},
+    {"Channel13_open\r\n", "Channel13_is_open\r\n"},
+    {"Channel14_open\r\n", "Channel14_is_open\r\n"},
+    {"Channel15_open\r\n", "Channel15_is_open\r\n"},
+    {"Channel16_open\r\n", "Channel16_is_open\r\n"}};
+
+static const ChannelCmdDef channel_close[16] = {
+    {"Channel01_close\r\n", "Channel01_is_close\r\n"},
+    {"Channel02_close\r\n", "Channel02_is_close\r\n"},
+    {"Channel03_close\r\n", "Channel03_is_close\r\n"},
+    {"Channel04_close\r\n", "Channel04_is_close\r\n"},
+    {"Channel05_close\r\n", "Channel05_is_close\r\n"},
+    {"Channel06_close\r\n", "Channel06_is_close\r\n"},
+    {"Channel07_close\r\n", "Channel07_is_close\r\n"},
+    {"Channel08_close\r\n", "Channel08_is_close\r\n"},
+    {"Channel09_close\r\n", "Channel09_is_close\r\n"},
+    {"Channel10_close\r\n", "Channel10_is_close\r\n"},
+    {"Channel11_close\r\n", "Channel11_is_close\r\n"},
+    {"Channel12_close\r\n", "Channel12_is_close\r\n"},
+    {"Channel13_close\r\n", "Channel13_is_close\r\n"},
+    {"Channel14_close\r\n", "Channel14_is_close\r\n"},
+    {"Channel15_close\r\n", "Channel15_is_close\r\n"},
+    {"Channel16_close\r\n", "Channel16_is_close\r\n"}};
