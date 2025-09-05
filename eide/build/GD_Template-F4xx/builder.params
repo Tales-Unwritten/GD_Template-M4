@@ -2,21 +2,12 @@
     "name": "GD_Template-F4xx",
     "target": "GD_Template-F4xx",
     "toolchain": "AC6",
-<<<<<<< HEAD
-    "toolchainLocation": "D:\\KELE5 MDK\\ARM\\ARMCLANG",
-    "toolchainCfgFile": "c:\\Users\\31184\\.vscode\\extensions\\cl.eide-3.23.14\\res\\data\\models/arm.v6.model.json",
-=======
     "toolchainLocation": "D:\\Keil MDK\\ARM\\ARMCLANG",
-<<<<<<< HEAD
     "toolchainCfgFile": "c:\\Users\\Administrator\\.vscode\\extensions\\cl.eide-3.25.0\\res\\data\\models/arm.v6.model.json",
-=======
-    "toolchainCfgFile": "c:\\Users\\Administrator\\.vscode\\extensions\\cl.eide-3.23.14\\res\\data\\models/arm.v6.model.json",
->>>>>>> ac61ab2b118333534425cbd19ce8b3f509878d72
->>>>>>> fbd961172520e0831206a1a8ce734609f2e42c35
     "buildMode": "fast|multhread",
     "showRepathOnLog": true,
-    "threadNum": 16,
-    "rootDir": "g:\\1-VscodeProject\\GD-32\\GD_Template-M4\\eide",
+    "threadNum": 12,
+    "rootDir": "g:\\VscodeProject\\GitProject\\GD_Template-M4\\eide",
     "dumpPath": "build\\GD_Template-F4xx",
     "outDir": "build\\GD_Template-F4xx",
     "ram": 720896,
@@ -103,7 +94,7 @@
         },
         "c/cpp-compiler": {
             "optimization": "level-2",
-            "language-c": "c99",
+            "language-c": "c11",
             "language-cpp": "c++11",
             "one-elf-section-per-function": true,
             "short-enums#wchar": true,
@@ -118,22 +109,22 @@
             "ro-base": "0x08000000",
             "rw-base": "0x20000000",
             "link-scatter": [
-                "g:/1-VscodeProject/GD-32/GD_Template-M4/eide/build/GD_Template-F4xx/GD_Template-F4xx.sct"
+                "g:/VscodeProject/GitProject/GD_Template-M4/eide/build/GD_Template-F4xx/GD_Template-F4xx.sct"
             ]
         }
     },
     "env": {
         "KEIL_OUTPUT_DIR": "Objects",
         "KEIL_OUTPUT_NAME": "GD32F450",
-        "workspaceFolder": "g:\\1-VscodeProject\\GD-32\\GD_Template-M4\\eide",
+        "workspaceFolder": "g:\\VscodeProject\\GitProject\\GD_Template-M4\\eide",
         "workspaceFolderBasename": "eide",
-        "OutDir": "g:\\1-VscodeProject\\GD-32\\GD_Template-M4\\eide\\build\\GD_Template-F4xx",
+        "OutDir": "g:\\VscodeProject\\GitProject\\GD_Template-M4\\eide\\build\\GD_Template-F4xx",
         "OutDirRoot": "build",
         "OutDirBase": "build\\GD_Template-F4xx",
         "ProjectName": "GD_Template-F4xx",
         "ConfigName": "GD_Template-F4xx",
-        "ProjectRoot": "g:\\1-VscodeProject\\GD-32\\GD_Template-M4\\eide",
-        "ExecutableName": "g:\\1-VscodeProject\\GD-32\\GD_Template-M4\\eide\\build\\GD_Template-F4xx\\GD_Template-F4xx",
+        "ProjectRoot": "g:\\VscodeProject\\GitProject\\GD_Template-M4\\eide",
+        "ExecutableName": "g:\\VscodeProject\\GitProject\\GD_Template-M4\\eide\\build\\GD_Template-F4xx\\GD_Template-F4xx",
         "ChipPackDir": "",
         "ChipName": "",
         "SYS_Platform": "win32",
@@ -142,23 +133,11 @@
         "SYS_PathSep": ";",
         "SYS_PathSeparator": ";",
         "SYS_EOL": "\r\n",
-<<<<<<< HEAD
         "EIDE_BUILDER_DIR": "c:\\Users\\Administrator\\.vscode\\extensions\\cl.eide-3.25.0\\res\\tools\\win32\\unify_builder",
-=======
-<<<<<<< HEAD
-        "EIDE_BUILDER_DIR": "c:\\Users\\31184\\.vscode\\extensions\\cl.eide-3.23.14\\res\\tools\\win32\\unify_builder",
-        "EIDE_BINARIES_VER": "12.1.1",
-        "EIDE_MSYS": "C:\\Users\\31184\\.eide\\bin\\builder\\msys\\bin",
-        "EIDE_PY3_CMD": "C:\\Users\\31184\\.eide\\bin\\python36\\python3.exe",
-        "ToolchainRoot": "D:\\KELE5 MDK\\ARM\\ARMCLANG"
-=======
-        "EIDE_BUILDER_DIR": "c:\\Users\\Administrator\\.vscode\\extensions\\cl.eide-3.23.14\\res\\tools\\win32\\unify_builder",
->>>>>>> fbd961172520e0831206a1a8ce734609f2e42c35
         "EIDE_BINARIES_VER": "12.1.1",
         "EIDE_MSYS": "C:\\Users\\Administrator\\.eide\\bin\\builder\\msys\\bin",
         "EIDE_PY3_CMD": "C:\\Users\\Administrator\\.eide\\bin\\python36\\python3.exe",
         "ToolchainRoot": "D:\\Keil MDK\\ARM\\ARMCLANG"
->>>>>>> ac61ab2b118333534425cbd19ce8b3f509878d72
     },
     "sysPaths": []
 }

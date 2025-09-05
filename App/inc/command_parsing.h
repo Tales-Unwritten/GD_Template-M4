@@ -2,8 +2,10 @@
 #include <stdint.h>
 #include <string.h>
 #include <stdio.h>
+#include <stdbool.h>
 #include "../Hardware/inc/debug_uart.h"
 #include "../Hardware/inc/rs485.h"
+#include "../Hardware/inc/ina226.h"
 
 typedef struct
 {
@@ -50,3 +52,5 @@ static const ChannelCmdDef channel_close[16] = {
     {"Channel14_close\r\n", "Channel14_is_close\r\n"},
     {"Channel15_close\r\n", "Channel15_is_close\r\n"},
     {"Channel16_close\r\n", "Channel16_is_close\r\n"}};
+
+void command_parsing(void);

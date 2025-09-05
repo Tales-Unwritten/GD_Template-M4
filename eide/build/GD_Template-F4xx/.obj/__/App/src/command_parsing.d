@@ -1,5 +1,7 @@
-./build/GD_Template-F4xx/.obj/__/User/main.o: ..\User\main.c \
-  ..\User\main.h ..\Firmware\CMSIS\GD\GD32F4xx\Include\gd32f4xx.h \
+./build/GD_Template-F4xx/.obj/__/App/src/command_parsing.o: \
+  ..\App\src\command_parsing.c ..\User\..\App\inc\command_parsing.h \
+  ..\User\..\Hardware\inc\debug_uart.h \
+  ..\Firmware\CMSIS\GD\GD32F4xx\Include\gd32f4xx.h \
   ..\Firmware\CMSIS\core_cm4.h ..\Firmware\CMSIS\core_cmInstr.h \
   ..\Firmware\CMSIS\core_cmFunc.h ..\Firmware\CMSIS\core_cm4_simd.h \
   ..\Firmware\CMSIS\GD\GD32F4xx\Include\system_gd32f4xx.h \
@@ -33,14 +35,6 @@
   ..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_exmc.h \
   ..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_ipa.h \
   ..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_tli.h \
-  ..\User\systick.h ..\User\..\Hardware\inc\debug_uart.h \
   ..\User\systick.h ..\User\..\Hardware\inc\bsp_led.h \
-  ..\User\..\Hardware\inc\rs485.h ..\User\..\Hardware\inc\bsp_led.h \
-  ..\User\..\Hardware\inc\ina226.h ..\User\..\Hardware\inc\soft_i2c.h \
-  ..\User\..\Hardware\inc\bmp280.h ..\User\..\Hardware\inc\key.h \
-  ..\User\..\Hardware\inc\debug_uart.h ..\User\..\Hardware\inc\bitband.h \
-  ..\User\..\Hardware\inc\can.h \
-  ..\Firmware\CMSIS\GD\GD32F4xx\Include\GD32F4xx.h \
-  ..\User\..\Hardware\inc\eeprom.h ..\User\..\Hardware\inc\w25q128.h \
-  ..\User\..\App\inc\command_parsing.h ..\User\..\Hardware\inc\rs485.h \
-  ..\User\..\Hardware\inc\ina226.h
+  ..\User\..\Hardware\inc\rs485.h ..\User\..\Hardware\inc\ina226.h \
+  ..\User\..\Hardware\inc\soft_i2c.h

@@ -74,7 +74,6 @@ int fputc(int ch, FILE *f)
 
 void debug_send_it_data(uint8_t *buffer, uint8_t length)
 {
-	led_on(1);
 	if (length > sizeof(Debug_IT_Secd_Buffer.Buffer))
 	{
 		length = sizeof(Debug_IT_Secd_Buffer.Buffer); // 限制长度
@@ -108,26 +107,11 @@ void debug_send_data(uint8_t *buffer, uint8_t length)
 	}
 }
 
-void check_status(void)
-{
-	for (size_t i = 0; i < CHCHE_COUNT; i++)
-	{
-		if (Debug_Receive_Buffer[i].Buffer_Status == 1)
-		{
-			led_on(1); // 切换LED1状态
-		}
-		else
-		{
-			led_off(1); // 关闭LED1状态指示
-		}
-	}
-}
-
 void USART0_IRQHandler(void)
 {
 
 	static uint8_t Temp_Recevice_Buffer[sizeof(Debug_Receive_Buffer[0].Buffer)];
-	static uint8_t Temp_Recevice_Count = 0;
+	static uint16_t Temp_Recevice_Count = 0;
 	static uint8_t Send_Count = 0;
 
 	/* 处理错误中断 - 优先处理错误 */
@@ -161,7 +145,7 @@ void USART0_IRQHandler(void)
 	}
 
 	/* 空闲中断 - 接收完成 */
-	if (usart_interrupt_flag_get(DEBUG_USART, USART_INT_FLAG_IDLE) == SET)
+	else if (usart_interrupt_flag_get(DEBUG_USART, USART_INT_FLAG_IDLE) == SET)
 	{
 		usart_data_receive(DEBUG_USART); // 清除空闲标志
 		if (Temp_Recevice_Count > 0 && memchr(Temp_Recevice_Buffer, '\r\n', Temp_Recevice_Count) != NULL)
@@ -174,9 +158,28 @@ void USART0_IRQHandler(void)
 					Debug_Receive_Buffer[i].Buffer_Length = Temp_Recevice_Count;
 					memcpy(Debug_Receive_Buffer[i].Buffer, Temp_Recevice_Buffer, Temp_Recevice_Count);
 					Debug_Receive_Buffer[i].Buffer_Status = 1; // 标记为已接收
+					// if (Debug_Receive_Buffer[i].Buffer_Status = 1)
+					// {
+					// 	if (memcmp(Debug_Receive_Buffer[i].Buffer, "MEAS12VVOLT\r\n", Debug_Receive_Buffer[i].Buffer_Length) == 0)
+					// 	{
+					// 		led_on(3);
+					// 		Debug_Receive_Buffer[i].Buffer_Status = 0;
+					// 		Debug_Receive_Buffer[i].Buffer_Length=0;
+					// 	}
+					// 	else if (memcmp(Debug_Receive_Buffer[i].Buffer, "Read12VCURR\r\n", Debug_Receive_Buffer[i].Buffer_Length) == 0)
+					// 	{
+					// 		led_off(3);
+					// 		Debug_Receive_Buffer[i].Buffer_Status = 0;
+					// 		Debug_Receive_Buffer[i].Buffer_Length=0;
+					// 	}
+					// }
 					break;
 				}
 			}
+		}
+		else
+		{
+			printf("data is error\r\n");
 		}
 
 		/* 清空临时接收缓冲区 */
@@ -202,6 +205,6 @@ void USART0_IRQHandler(void)
 		usart_interrupt_disable(DEBUG_USART, USART_INT_TC); // 禁止发送完成中断
 		Debug_IT_Secd_Buffer.Finish_Flag = SET;				// 设置完成标志
 		Send_Count = 0;										// 重置发送计数器
-		led_off(1);											// 关闭LED1状态指示
 	}
 }
+

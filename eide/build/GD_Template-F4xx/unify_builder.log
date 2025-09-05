@@ -1,6 +1,8 @@
-[2025-07-24 09:18:23]	[info] incremental build: 35 source files changed
+[2025-09-05 10:39:15]	[info] incremental build: 37 source files changed
 These source files will be recompiled
 ---
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': object (.o) file not exist
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\pc_task.c': object (.o) file not exist
 'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\CMSIS\GD\GD32F4xx\Source\ARM\startup_gd32f450_470.s': object (.o) file not exist
 'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\CMSIS\GD\GD32F4xx\Source\system_gd32f4xx.c': object (.o) file not exist
 'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_adc.c': object (.o) file not exist
@@ -37,753 +39,611 @@ These source files will be recompiled
 'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': object (.o) file not exist
 'g:\VscodeProject\GitProject\GD_Template-M4\User\systick.c': object (.o) file not exist
 
-[2025-07-24 09:18:24]	compilation failed at : "g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\w25q128.c", exit code: 1
-command: 
-  "D:\Keil MDK\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc -std=c99 -I../Firmware/GD32F4xx_standard_peripheral/Include -I../Firmware/CMSIS -I../Firmware/CMSIS/GD/GD32F4xx/Include -I../User -I../Hardware/inc -I../App/inc -I.cmsis/include -IRTE/_GD_Template-F4xx -D"USE_STDPERIPH_DRIVER" -D"GD32F470" -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -D__MICROLIB -O2 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/GD_Template-F4xx/.obj/__/Hardware/src/w25q128.o -MMD ./../Hardware/src/w25q128.c
-   at unify_builder.Program.compileByMulThread(Int32 thrNum, CmdInfo[] cmds_, List`1 errLogs)
+[2025-09-05 10:39:19]	link failed !, exit code: 1
    at unify_builder.Program.Main(String[] args_)
 ---
-In file included from ./../Hardware/src/w25q128.c:1:
-../User\../Hardware/inc/w25q128.h:8:1: error: version control conflict marker in file
-<<<<<<< HEAD
-^
-../User\../Hardware/inc/w25q128.h:25:1: error: version control conflict marker in file
-<<<<<<< HEAD
-^
-./../Hardware/src/w25q128.c:78:9: warning: implicit declaration of function 'spi_read_write_byte' is invalid in C99 [-Wimplicit-function-declaration]
-        spi_read_write_byte(0x05);                 
-        ^
-./../Hardware/src/w25q128.c:88:5: warning: implicit declaration of function 'spi_read_write_byte' is invalid in C99 [-Wimplicit-function-declaration]
-    spi_read_write_byte(0x06);                  
-    ^
-./../Hardware/src/w25q128.c:92:9: error: conflicting types for 'spi_read_write_byte'
-uint8_t spi_read_write_byte(uint8_t dat)
-        ^
-./../Hardware/src/w25q128.c:78:9: note: previous implicit declaration is here
-        spi_read_write_byte(0x05);                 
-        ^
-./../Hardware/src/w25q128.c:95:56: warning: while loop has empty body [-Wempty-body]
-        while(RESET == spi_i2s_flag_get(SPI4,  SPI_FLAG_TBE) );
-                                                              ^
-./../Hardware/src/w25q128.c:95:56: note: put the semicolon on a separate line to silence this warning
-./../Hardware/src/w25q128.c:98:57: warning: while loop has empty body [-Wempty-body]
-        while(RESET == spi_i2s_flag_get(SPI4,  SPI_FLAG_RBNE) );
-                                                               ^
-./../Hardware/src/w25q128.c:98:57: note: put the semicolon on a separate line to silence this warning
-4 warnings and 3 errors generated.
+Error: L6218E: Undefined symbol RS485_Receive_Buffer (referred from pc_task.o).
+Not enough information to list image symbols.
+Finished: 1 information, 0 warning and 1 error messages.
 
-[2025-07-24 09:20:32]	[info] incremental build: 2 source files changed
+
+[2025-09-05 10:40:41]	[info] incremental build: 1 source files changed
 These source files will be recompiled
 ---
 'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\debug_uart.c': source file has been changed.
-'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\w25q128.c': object (.o) file not exist
 
-[2025-07-24 09:20:32]	compilation failed at : "g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\w25q128.c", exit code: 1
-command: 
-  "D:\Keil MDK\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc -std=c99 -I../Firmware/GD32F4xx_standard_peripheral/Include -I../Firmware/CMSIS -I../Firmware/CMSIS/GD/GD32F4xx/Include -I../User -I../Hardware/inc -I../App/inc -I.cmsis/include -IRTE/_GD_Template-F4xx -D"USE_STDPERIPH_DRIVER" -D"GD32F470" -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -D__MICROLIB -O2 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/GD_Template-F4xx/.obj/__/Hardware/src/w25q128.o -MMD ./../Hardware/src/w25q128.c
+[2025-09-05 10:40:42]	link failed !, exit code: 1
    at unify_builder.Program.Main(String[] args_)
 ---
-./../Hardware/src/w25q128.c:78:9: warning: implicit declaration of function 'spi_read_write_byte' is invalid in C99 [-Wimplicit-function-declaration]
-        spi_read_write_byte(0x05);                 
-        ^
-./../Hardware/src/w25q128.c:88:5: warning: implicit declaration of function 'spi_read_write_byte' is invalid in C99 [-Wimplicit-function-declaration]
-    spi_read_write_byte(0x06);                  
-    ^
-./../Hardware/src/w25q128.c:92:9: error: conflicting types for 'spi_read_write_byte'
-uint8_t spi_read_write_byte(uint8_t dat)
-        ^
-./../Hardware/src/w25q128.c:78:9: note: previous implicit declaration is here
-        spi_read_write_byte(0x05);                 
-        ^
-./../Hardware/src/w25q128.c:95:56: warning: while loop has empty body [-Wempty-body]
-        while(RESET == spi_i2s_flag_get(SPI4,  SPI_FLAG_TBE) );
-                                                              ^
-./../Hardware/src/w25q128.c:95:56: note: put the semicolon on a separate line to silence this warning
-./../Hardware/src/w25q128.c:98:57: warning: while loop has empty body [-Wempty-body]
-        while(RESET == spi_i2s_flag_get(SPI4,  SPI_FLAG_RBNE) );
-                                                               ^
-./../Hardware/src/w25q128.c:98:57: note: put the semicolon on a separate line to silence this warning
+Error: L6218E: Undefined symbol RS485_Receive_Buffer (referred from pc_task.o).
+Not enough information to list image symbols.
+Finished: 1 information, 0 warning and 1 error messages.
+
+
+[2025-09-05 10:41:10]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\pc_task.c': source file has been changed.
+
+[2025-09-05 10:41:11]	[done]
+	build successfully !
+
+[2025-09-05 10:48:06]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\debug_uart.c': source file has been changed.
+
+[2025-09-05 10:48:07]	[done]
+	build successfully !
+
+[2025-09-05 10:49:24]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\debug_uart.c': source file has been changed.
+
+[2025-09-05 10:49:25]	[done]
+	build successfully !
+
+[2025-09-05 10:56:18]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\debug_uart.c': source file has been changed.
+
+[2025-09-05 10:56:19]	[done]
+	build successfully !
+
+[2025-09-05 10:57:07]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\debug_uart.c': source file has been changed.
+
+[2025-09-05 10:57:08]	[done]
+	build successfully !
+
+[2025-09-05 10:58:04]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\debug_uart.c': source file has been changed.
+
+[2025-09-05 10:58:05]	[done]
+	build successfully !
+
+[2025-09-05 10:58:54]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\debug_uart.c': source file has been changed.
+
+[2025-09-05 10:58:54]	[done]
+	build successfully !
+
+[2025-09-05 11:03:01]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\debug_uart.c': source file has been changed.
+
+[2025-09-05 11:03:01]	compilation failed at : "g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\debug_uart.c", exit code: 1
+command: 
+  "D:\Keil MDK\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc -std=c11 -I../Firmware/GD32F4xx_standard_peripheral/Include -I../Firmware/CMSIS -I../Firmware/CMSIS/GD/GD32F4xx/Include -I../User -I../Hardware/inc -I../App/inc -I.cmsis/include -IRTE/_GD_Template-F4xx -D"USE_STDPERIPH_DRIVER" -D"GD32F470" -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -D__MICROLIB -O2 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/GD_Template-F4xx/.obj/__/Hardware/src/debug_uart.o -MMD ./../Hardware/src/debug_uart.c
+   at unify_builder.Program.Main(String[] args_)
+---
+./../Hardware/src/debug_uart.c:93:39: warning: implicit conversion from enumeration type 'usart_flag_enum' to different enumeration type 'usart_interrupt_enum' [-Wenum-conversion]
+        usart_interrupt_disable(DEBUG_USART, USART_FLAG_TBE); // 禁止发送中断
+        ~~~~~~~~~~~~~~~~~~~~~~~              ^~~~~~~~~~~~~~
+./../Hardware/src/debug_uart.c:94:39: warning: implicit conversion from enumeration type 'usart_flag_enum' to different enumeration type 'usart_interrupt_enum' [-Wenum-conversion]
+        usart_interrupt_disable(DEBUG_USART, USART_FLAG_TC);  // 禁止发送完成中断
+        ~~~~~~~~~~~~~~~~~~~~~~~              ^~~~~~~~~~~~~
+./../Hardware/src/debug_uart.c:151:63: warning: multi-character character constant [-Wmultichar]
+                if (Temp_Recevice_Count > 0 && memchr(Temp_Recevice_Buffer, '\r\n', Temp_Recevice_Count) != NULL)
+                                                                            ^
+./../Hardware/src/debug_uart.c:164:16: error: expected ';' after expression
+                                                led_on(3)
+                                                         ^
+                                                         ;
+./../Hardware/src/debug_uart.c:169:17: error: expected ';' after expression
+                                                led_off(3)
+                                                          ^
+                                                          ;
+3 warnings and 2 errors generated.
+
+[2025-09-05 11:03:07]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\debug_uart.c': object (.o) file not exist
+
+[2025-09-05 11:03:08]	[done]
+	build successfully !
+
+[2025-09-05 11:06:33]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\debug_uart.c': source file has been changed.
+
+[2025-09-05 11:06:34]	[done]
+	build successfully !
+
+[2025-09-05 11:07:23]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\debug_uart.c': source file has been changed.
+
+[2025-09-05 11:07:24]	[done]
+	build successfully !
+
+[2025-09-05 11:07:49]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\debug_uart.c': source file has been changed.
+
+[2025-09-05 11:07:50]	[done]
+	build successfully !
+
+[2025-09-05 11:09:33]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\debug_uart.c': source file has been changed.
+
+[2025-09-05 11:09:34]	[done]
+	build successfully !
+
+[2025-09-05 11:10:08]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\debug_uart.c': source file has been changed.
+
+[2025-09-05 11:10:08]	compilation failed at : "g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\debug_uart.c", exit code: 1
+command: 
+  "D:\Keil MDK\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc -std=c11 -I../Firmware/GD32F4xx_standard_peripheral/Include -I../Firmware/CMSIS -I../Firmware/CMSIS/GD/GD32F4xx/Include -I../User -I../Hardware/inc -I../App/inc -I.cmsis/include -IRTE/_GD_Template-F4xx -D"USE_STDPERIPH_DRIVER" -D"GD32F470" -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -D__MICROLIB -O2 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/GD_Template-F4xx/.obj/__/Hardware/src/debug_uart.o -MMD ./../Hardware/src/debug_uart.c
+   at unify_builder.Program.Main(String[] args_)
+---
+./../Hardware/src/debug_uart.c:93:39: warning: implicit conversion from enumeration type 'usart_flag_enum' to different enumeration type 'usart_interrupt_enum' [-Wenum-conversion]
+        usart_interrupt_disable(DEBUG_USART, USART_FLAG_TBE); // 禁止发送中断
+        ~~~~~~~~~~~~~~~~~~~~~~~              ^~~~~~~~~~~~~~
+./../Hardware/src/debug_uart.c:94:39: warning: implicit conversion from enumeration type 'usart_flag_enum' to different enumeration type 'usart_interrupt_enum' [-Wenum-conversion]
+        usart_interrupt_disable(DEBUG_USART, USART_FLAG_TC);  // 禁止发送完成中断
+        ~~~~~~~~~~~~~~~~~~~~~~~              ^~~~~~~~~~~~~
+./../Hardware/src/debug_uart.c:151:63: warning: multi-character character constant [-Wmultichar]
+                if (Temp_Recevice_Count > 0 && memchr(Temp_Recevice_Buffer, '\r\n', Temp_Recevice_Count) != NULL)
+                                                                            ^
+./../Hardware/src/debug_uart.c:172:6: error: expected '(' after 'if'
+                                        {
+                                        ^
+3 warnings and 1 error generated.
+
+[2025-09-05 11:10:30]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\debug_uart.c': object (.o) file not exist
+
+[2025-09-05 11:10:31]	[done]
+	build successfully !
+
+[2025-09-05 11:11:25]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\debug_uart.c': source file has been changed.
+
+[2025-09-05 11:11:26]	[done]
+	build successfully !
+
+[2025-09-05 11:14:14]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\debug_uart.c': source file has been changed.
+
+[2025-09-05 11:14:15]	[done]
+	build successfully !
+
+[2025-09-05 11:17:57]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\debug_uart.c': source file has been changed.
+
+[2025-09-05 11:17:57]	compilation failed at : "g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\debug_uart.c", exit code: 1
+command: 
+  "D:\Keil MDK\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc -std=c11 -I../Firmware/GD32F4xx_standard_peripheral/Include -I../Firmware/CMSIS -I../Firmware/CMSIS/GD/GD32F4xx/Include -I../User -I../Hardware/inc -I../App/inc -I.cmsis/include -IRTE/_GD_Template-F4xx -D"USE_STDPERIPH_DRIVER" -D"GD32F470" -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -D__MICROLIB -O2 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/GD_Template-F4xx/.obj/__/Hardware/src/debug_uart.o -MMD ./../Hardware/src/debug_uart.c
+   at unify_builder.Program.Main(String[] args_)
+---
+./../Hardware/src/debug_uart.c:93:39: warning: implicit conversion from enumeration type 'usart_flag_enum' to different enumeration type 'usart_interrupt_enum' [-Wenum-conversion]
+        usart_interrupt_disable(DEBUG_USART, USART_FLAG_TBE); // 禁止发送中断
+        ~~~~~~~~~~~~~~~~~~~~~~~              ^~~~~~~~~~~~~~
+./../Hardware/src/debug_uart.c:94:39: warning: implicit conversion from enumeration type 'usart_flag_enum' to different enumeration type 'usart_interrupt_enum' [-Wenum-conversion]
+        usart_interrupt_disable(DEBUG_USART, USART_FLAG_TC);  // 禁止发送完成中断
+        ~~~~~~~~~~~~~~~~~~~~~~~              ^~~~~~~~~~~~~
+./../Hardware/src/debug_uart.c:151:63: warning: multi-character character constant [-Wmultichar]
+                if (Temp_Recevice_Count > 0 && memchr(Temp_Recevice_Buffer, '\r\n', Temp_Recevice_Count) != NULL)
+                                                                            ^
+./../Hardware/src/debug_uart.c:161:48: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+                                        if (Debug_Receive_Buffer[i].Buffer_Status = 1)
+                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~
+./../Hardware/src/debug_uart.c:161:48: note: place parentheses around the assignment to silence this warning
+                                        if (Debug_Receive_Buffer[i].Buffer_Status = 1)
+                                                                                  ^
+                                            (                                        )
+./../Hardware/src/debug_uart.c:161:48: note: use '==' to turn this assignment into an equality comparison
+                                        if (Debug_Receive_Buffer[i].Buffer_Status = 1)
+                                                                                  ^
+                                                                                  ==
+./../Hardware/src/debug_uart.c:173:47: error: expected ';' after expression
+                                                        Debug_Receive_Buffer[i].Buffer_Length=0
+                                                                                               ^
+                                                                                               ;
 4 warnings and 1 error generated.
 
-[2025-07-24 09:21:41]	[info] incremental build: 1 source files changed
+[2025-09-05 11:18:01]	[info] incremental build: 1 source files changed
 These source files will be recompiled
 ---
-'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\w25q128.c': object (.o) file not exist
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\debug_uart.c': object (.o) file not exist
 
-[2025-07-24 09:21:41]	[done]
+[2025-09-05 11:18:02]	[done]
 	build successfully !
 
-<<<<<<< HEAD
-[2025-07-24 09:34:07]	[info] incremental build: 3 source files changed
+[2025-09-05 11:43:58]	[info] incremental build: 4 source files changed
 These source files will be recompiled
 ---
-'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\can.c': source file has been changed.
-'g:\VscodeProject\GitProject\GD_Template-M4\User\gd32f4xx_it.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\..\Hardware\inc\can.h' has been changed.
-'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\..\Hardware\inc\can.h' has been changed.
-
-[2025-07-24 09:34:08]	link failed !, exit code: 1
-   at unify_builder.Program.Main(String[] args_)
----
-Error: L6218E: Undefined symbol can_enable (referred from can.o).
-Not enough information to list image symbols.
-Finished: 1 information, 0 warning and 1 error messages.
-
-
-[2025-07-24 09:44:22]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\can.c': source file has been changed.
-
-[2025-07-24 09:44:23]	[done]
-	build successfully !
-
-[2025-07-24 09:48:26]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\can.c': source file has been changed.
-
-[2025-07-24 09:48:26]	compilation failed at : "g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\can.c", exit code: 1
-command: 
-  "D:\Keil MDK\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc -std=c99 -I../Firmware/GD32F4xx_standard_peripheral/Include -I../Firmware/CMSIS -I../Firmware/CMSIS/GD/GD32F4xx/Include -I../User -I../Hardware/inc -I../App/inc -I.cmsis/include -IRTE/_GD_Template-F4xx -D"USE_STDPERIPH_DRIVER" -D"GD32F470" -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -D__MICROLIB -O2 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/GD_Template-F4xx/.obj/__/Hardware/src/can.o -MMD ./../Hardware/src/can.c
-   at unify_builder.Program.Main(String[] args_)
----
-./../Hardware/src/can.c:123:50: error: use of undeclared identifier 'CAN_TRANSMIT_ERROR'; did you mean 'CAN_TRANSMIT_OK'?
-        if(can_transmit_states(CANX, mailbox) == CAN_TRANSMIT_ERROR) {
-                                                 ^~~~~~~~~~~~~~~~~~
-                                                 CAN_TRANSMIT_OK
-../Firmware/GD32F4xx_standard_peripheral/Include\gd32f4xx_can.h:464:5: note: 'CAN_TRANSMIT_OK' declared here
-    CAN_TRANSMIT_OK = 1U,                                               /*!< CAN transmitted success */
-    ^
-./../Hardware/src/can.c:124:13: warning: implicitly declaring library function 'printf' with type 'int (const char *, ...)' [-Wimplicit-function-declaration]
-            printf("CAN transmit error!\n");
-            ^
-./../Hardware/src/can.c:124:13: note: include the header <stdio.h> or explicitly provide a declaration for 'printf'
-./../Hardware/src/can.c:157:12: warning: implicit declaration of function 'can_message_pending' is invalid in C99 [-Wimplicit-function-declaration]
-        if(can_message_pending(CANX, CAN_FIFO1) > 0) {
-           ^
-./../Hardware/src/can.c:204:38: error: use of undeclared identifier 'CAN_INT_FLAG_BOFF'
-    if (can_interrupt_flag_get(CANX, CAN_INT_FLAG_BOFF) == SET) {
-                                     ^
-./../Hardware/src/can.c:205:40: error: use of undeclared identifier 'CAN_INT_FLAG_BOFF'
-        can_interrupt_flag_clear(CANX, CAN_INT_FLAG_BOFF);
-                                       ^
-2 warnings and 3 errors generated.
-
-[2025-07-24 09:48:34]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\can.c': object (.o) file not exist
-
-[2025-07-24 09:48:34]	compilation failed at : "g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\can.c", exit code: 1
-command: 
-  "D:\Keil MDK\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc -std=c99 -I../Firmware/GD32F4xx_standard_peripheral/Include -I../Firmware/CMSIS -I../Firmware/CMSIS/GD/GD32F4xx/Include -I../User -I../Hardware/inc -I../App/inc -I.cmsis/include -IRTE/_GD_Template-F4xx -D"USE_STDPERIPH_DRIVER" -D"GD32F470" -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -D__MICROLIB -O2 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/GD_Template-F4xx/.obj/__/Hardware/src/can.o -MMD ./../Hardware/src/can.c
-   at unify_builder.Program.Main(String[] args_)
----
-./../Hardware/src/can.c:125:9: warning: implicitly declaring library function 'printf' with type 'int (const char *, ...)' [-Wimplicit-function-declaration]
-        printf( "CAN transmit timeout!\n");
-        ^
-./../Hardware/src/can.c:125:9: note: include the header <stdio.h> or explicitly provide a declaration for 'printf'
-./../Hardware/src/can.c:156:12: warning: implicit declaration of function 'can_message_pending' is invalid in C99 [-Wimplicit-function-declaration]
-        if(can_message_pending(CANX, CAN_FIFO1) > 0) {
-           ^
-./../Hardware/src/can.c:203:38: error: use of undeclared identifier 'CAN_INT_FLAG_BOFF'
-    if (can_interrupt_flag_get(CANX, CAN_INT_FLAG_BOFF) == SET) {
-                                     ^
-./../Hardware/src/can.c:204:40: error: use of undeclared identifier 'CAN_INT_FLAG_BOFF'
-        can_interrupt_flag_clear(CANX, CAN_INT_FLAG_BOFF);
-                                       ^
-2 warnings and 2 errors generated.
-
-[2025-07-24 09:49:19]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\can.c': object (.o) file not exist
-
-[2025-07-24 09:49:20]	link failed !, exit code: 1
-   at unify_builder.Program.Main(String[] args_)
----
-Error: L6218E: Undefined symbol can_message_pending (referred from can.o).
-Not enough information to list image symbols.
-Finished: 1 information, 0 warning and 1 error messages.
-
-
-[2025-07-24 09:50:20]	[info] incremental build: 3 source files changed
-These source files will be recompiled
----
-'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\can.c': source file has been changed.
-'g:\VscodeProject\GitProject\GD_Template-M4\User\gd32f4xx_it.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\..\Hardware\inc\can.h' has been changed.
-'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\..\Hardware\inc\can.h' has been changed.
-
-[2025-07-24 09:50:21]	link failed !, exit code: 1
-   at unify_builder.Program.Main(String[] args_)
----
-Error: L6218E: Undefined symbol can_message_pending (referred from can.o).
-Not enough information to list image symbols.
-Finished: 1 information, 0 warning and 1 error messages.
-
-
-[2025-07-24 09:52:35]	[info] incremental build: 4 source files changed
-These source files will be recompiled
----
-'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\can.c': source file has been changed.
-'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\rs485.c': source file has been changed.
-'g:\VscodeProject\GitProject\GD_Template-M4\User\gd32f4xx_it.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\..\Hardware\inc\rs485.h' has been changed.
-'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\..\Hardware\inc\rs485.h' has been changed.
-
-[2025-07-24 09:52:36]	link failed !, exit code: 1
-   at unify_builder.Program.Main(String[] args_)
----
-Error: L6218E: Undefined symbol can_message_pending (referred from can.o).
-Not enough information to list image symbols.
-Finished: 1 information, 0 warning and 1 error messages.
-
-
-[2025-07-24 09:53:50]	link failed !, exit code: 1
-   at unify_builder.Program.Main(String[] args_)
----
-Error: L6218E: Undefined symbol can_message_pending (referred from can.o).
-Not enough information to list image symbols.
-Finished: 1 information, 0 warning and 1 error messages.
-
-
-[2025-07-24 09:53:56]	link failed !, exit code: 1
-   at unify_builder.Program.Main(String[] args_)
----
-Error: L6218E: Undefined symbol can_message_pending (referred from can.o).
-Not enough information to list image symbols.
-Finished: 1 information, 0 warning and 1 error messages.
-
-
-[2025-07-24 09:58:20]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\can.c': source file has been changed.
-
-[2025-07-24 09:58:20]	[done]
-	build successfully !
-
-[2025-07-24 10:24:06]	[info] incremental build: 3 source files changed
-These source files will be recompiled
----
-'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\can.c': source file has been changed.
-'g:\VscodeProject\GitProject\GD_Template-M4\User\gd32f4xx_it.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\..\Hardware\inc\can.h' has been changed.
-'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\..\Hardware\inc\can.h' has been changed.
-
-[2025-07-24 10:24:06]	[done]
-	build successfully !
-
-[2025-07-24 10:24:20]	[info] incremental build: 3 source files changed
-These source files will be recompiled
----
-'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\can.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\..\Hardware\inc\can.h' has been changed.
-'g:\VscodeProject\GitProject\GD_Template-M4\User\gd32f4xx_it.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\..\Hardware\inc\can.h' has been changed.
-'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\..\Hardware\inc\can.h' has been changed.
-
-[2025-07-24 10:24:21]	[done]
-=======
-[2025-07-24 22:14:28]	[info] incremental build: 35 source files changed
-These source files will be recompiled
----
-'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\CMSIS\GD\GD32F4xx\Source\ARM\startup_gd32f450_470.s': compiler options has been changed.
-'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\CMSIS\GD\GD32F4xx\Source\system_gd32f4xx.c': compiler options has been changed.
-'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_adc.c': compiler options has been changed.
-'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_can.c': compiler options has been changed.
-'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_dbg.c': compiler options has been changed.
-'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_dma.c': compiler options has been changed.
-'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_exti.c': compiler options has been changed.
-'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_gpio.c': compiler options has been changed.
-'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_i2c.c': compiler options has been changed.
-'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_misc.c': compiler options has been changed.
-'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_rcu.c': compiler options has been changed.
-'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_rtc.c': compiler options has been changed.
-'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_sdio.c': compiler options has been changed.
-'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_spi.c': compiler options has been changed.
-'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_syscfg.c': compiler options has been changed.
-'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_timer.c': compiler options has been changed.
-'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_tli.c': compiler options has been changed.
-'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_trng.c': compiler options has been changed.
-'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_usart.c': compiler options has been changed.
-'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_wwdgt.c': compiler options has been changed.
-'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\bitband.c': compiler options has been changed.
-'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\bmp280.c': compiler options has been changed.
-'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\bsp_led.c': compiler options has been changed.
-'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\can.c': compiler options has been changed.
-'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\debug_uart.c': compiler options has been changed.
-'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\dip_switch.c': compiler options has been changed.
-'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\eeprom.c': compiler options has been changed.
-'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\ina226.c': compiler options has been changed.
-'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\key.c': compiler options has been changed.
-'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\rs485.c': compiler options has been changed.
-'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\soft_i2c.c': compiler options has been changed.
-'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\w25q128.c': source file has been changed.
-'g:\1-VscodeProject\GD-32\GD_Template-M4\User\gd32f4xx_it.c': compiler options has been changed.
-'g:\1-VscodeProject\GD-32\GD_Template-M4\User\main.c': source file has been changed.
-'g:\1-VscodeProject\GD-32\GD_Template-M4\User\systick.c': compiler options has been changed.
-
-[2025-07-24 22:14:35]	[done]
-	build successfully !
-
-[2025-07-24 22:15:01]	[info] incremental build: 2 source files changed
-These source files will be recompiled
----
-'g:\1-VscodeProject\GD-32\GD_Template-M4\User\gd32f4xx_it.c': dependence 'g:\1-VscodeProject\GD-32\GD_Template-M4\eide\..\User\main.h' has been changed.
-'g:\1-VscodeProject\GD-32\GD_Template-M4\User\main.c': source file has been changed.
-
-[2025-07-24 22:15:03]	[done]
-	build successfully !
-
-[2025-07-24 22:16:08]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'g:\1-VscodeProject\GD-32\GD_Template-M4\User\main.c': source file has been changed.
-
-[2025-07-24 22:16:09]	[done]
-	build successfully !
-
-[2025-07-24 22:19:25]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\w25q128.c': source file has been changed.
-
-[2025-07-24 22:19:26]	[done]
-	build successfully !
-
-[2025-07-24 22:39:47]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'g:\1-VscodeProject\GD-32\GD_Template-M4\User\main.c': source file has been changed.
-
-[2025-07-24 22:39:48]	[done]
-	build successfully !
-
-[2025-07-24 23:03:40]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'g:\1-VscodeProject\GD-32\GD_Template-M4\User\main.c': source file has been changed.
-
-[2025-07-24 23:03:40]	compilation failed at : "g:\1-VscodeProject\GD-32\GD_Template-M4\User\main.c", exit code: 1
-command: 
-  "D:\KELE5 MDK\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc -std=c99 -I../Firmware/GD32F4xx_standard_peripheral/Include -I../Firmware/CMSIS -I../Firmware/CMSIS/GD/GD32F4xx/Include -I../User -I../Hardware/inc -I../App/inc -I.cmsis/include -IRTE/_GD_Template-F4xx -D"USE_STDPERIPH_DRIVER" -D"GD32F470" -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -D__MICROLIB -O2 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/GD_Template-F4xx/.obj/__/User/main.o -MMD ./../User/main.c
-   at unify_builder.Program.Main(String[] args_)
----
-In file included from ./../User/main.c:1:
-In file included from ../User/main.h:7:
-../User/../Hardware/inc/rs485.h:3:9: warning: 'CHCHE_COUNT' macro redefined [-Wmacro-redefined]
-#define CHCHE_COUNT 8
-        ^
-../User/../Hardware/inc/debug_uart.h:13:9: note: previous definition is here
-#define CHCHE_COUNT 4
-        ^
-./../User/main.c:23:11: error: definition of variable with array type needs an explicit size or an initializer
-  uint8_t rx_page[];                                                    // <B6><A8><D2><E5><BD><D3><CA><D5><CA><FD><BE><DD>
-          ^
-./../User/main.c:99:16: warning: illegal character encoding in string literal [-Winvalid-source-encoding]
-    printf("   <B4>?<D8>? 0x%06X <B6><C1>?<D7>?<FB><B4><AE>: %s\r\n", 0x000004, (char*)rx_page);
-               ^~~~ ~~~~        ~~~~~~~~ ~~~~~~~~~~~~~~~~
-2 warnings and 1 error generated.
-
-[2025-07-24 23:03:54]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'g:\1-VscodeProject\GD-32\GD_Template-M4\User\main.c': object (.o) file not exist
-
-[2025-07-24 23:03:55]	[done]
-	build successfully !
-
-[2025-07-24 23:04:07]	[done]
-	build successfully !
-
-[2025-07-24 23:05:30]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'g:\1-VscodeProject\GD-32\GD_Template-M4\User\main.c': source file has been changed.
-
-[2025-07-24 23:05:31]	[done]
-	build successfully !
-
-[2025-07-24 23:05:52]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'g:\1-VscodeProject\GD-32\GD_Template-M4\User\main.c': source file has been changed.
-
-[2025-07-24 23:05:53]	[done]
-	build successfully !
-
-[2025-07-24 23:08:34]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'g:\1-VscodeProject\GD-32\GD_Template-M4\User\main.c': source file has been changed.
-
-[2025-07-24 23:08:35]	[done]
->>>>>>> 600edf56b1e098892cba893fe0b4040c5ecf9dd0
-	build successfully !
-
-[2025-07-26 15:42:47]	[info] incremental build: 2 source files changed
-These source files will be recompiled
----
-'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\can.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\..\Hardware\inc\can.h' has been changed.
-'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\w25q128.c': source file has been changed.
-
-[2025-07-26 15:42:48]	[done]
-	build successfully !
-
-[2025-07-26 15:43:34]	[info] incremental build: 2 source files changed
-These source files will be recompiled
----
-'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\can.c': source file has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\pc_task.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\..\App\inc\command_parsing.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\debug_uart.c': source file has been changed.
 'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': source file has been changed.
 
-[2025-07-26 15:43:34]	compilation failed at : "g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\can.c", exit code: 1
+[2025-09-05 11:43:58]	compilation failed at : "g:\VscodeProject\GitProject\GD_Template-M4\App\src\pc_task.c", exit code: 1
 command: 
-  "D:\Keil MDK\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc -std=c99 -I../Firmware/GD32F4xx_standard_peripheral/Include -I../Firmware/CMSIS -I../Firmware/CMSIS/GD/GD32F4xx/Include -I../User -I../Hardware/inc -I../App/inc -I.cmsis/include -IRTE/_GD_Template-F4xx -D"USE_STDPERIPH_DRIVER" -D"GD32F470" -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -D__MICROLIB -O2 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/GD_Template-F4xx/.obj/__/Hardware/src/can.o -MMD ./../Hardware/src/can.c
+  "D:\Keil MDK\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc -std=c11 -I../Firmware/GD32F4xx_standard_peripheral/Include -I../Firmware/CMSIS -I../Firmware/CMSIS/GD/GD32F4xx/Include -I../User -I../Hardware/inc -I../App/inc -I.cmsis/include -IRTE/_GD_Template-F4xx -D"USE_STDPERIPH_DRIVER" -D"GD32F470" -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -D__MICROLIB -O2 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/GD_Template-F4xx/.obj/__/App/src/pc_task.o -MMD ./../App/src/pc_task.c
    at unify_builder.Program.Main(String[] args_)
 ---
-./../Hardware/src/can.c:189:1: error: expected identifier or '('
-{
-^
+./../App/src/pc_task.c:64:25: error: too many arguments to function call, expected 0, have 2
+        command_parsing(PC_Transmit_Buffer, Usart_Send_Data);
+        ~~~~~~~~~~~~~~~ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../User\../App/inc/command_parsing.h:54:6: note: 'command_parsing' declared here
+void command_parsing(void);
+     ^
 1 error generated.
 
-[2025-07-26 15:43:44]	[info] incremental build: 2 source files changed
+[2025-09-05 11:44:11]	[info] incremental build: 3 source files changed
 These source files will be recompiled
 ---
-'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\can.c': object (.o) file not exist
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\pc_task.c': object (.o) file not exist
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\debug_uart.c': source file has been changed.
 'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': source file has been changed.
 
-[2025-07-26 15:43:45]	[done]
+[2025-09-05 11:44:12]	[done]
 	build successfully !
 
-[2025-07-26 15:59:38]	[done]
-	build successfully !
-
-[2025-07-26 16:05:28]	[info] incremental build: 1 source files changed
+[2025-09-05 11:48:46]	[info] incremental build: 1 source files changed
 These source files will be recompiled
 ---
-'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\can.c': source file has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
 
-[2025-07-26 16:05:28]	[done]
-	build successfully !
-
-[2025-07-26 16:06:22]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\can.c': source file has been changed.
-
-[2025-07-26 16:06:22]	[done]
-	build successfully !
-
-[2025-07-26 16:30:48]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\can.c': source file has been changed.
-
-[2025-07-26 16:30:49]	[done]
-	build successfully !
-
-[2025-07-26 16:32:59]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\can.c': source file has been changed.
-
-[2025-07-26 16:32:59]	[done]
-	build successfully !
-
-[2025-07-26 16:37:24]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\can.c': source file has been changed.
-
-[2025-07-26 16:37:24]	compilation failed at : "g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\can.c", exit code: 1
+[2025-09-05 11:48:46]	compilation failed at : "g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c", exit code: 1
 command: 
-  "D:\Keil MDK\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc -std=c99 -I../Firmware/GD32F4xx_standard_peripheral/Include -I../Firmware/CMSIS -I../Firmware/CMSIS/GD/GD32F4xx/Include -I../User -I../Hardware/inc -I../App/inc -I.cmsis/include -IRTE/_GD_Template-F4xx -D"USE_STDPERIPH_DRIVER" -D"GD32F470" -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -D__MICROLIB -O2 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/GD_Template-F4xx/.obj/__/Hardware/src/can.o -MMD ./../Hardware/src/can.c
+  "D:\Keil MDK\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc -std=c11 -I../Firmware/GD32F4xx_standard_peripheral/Include -I../Firmware/CMSIS -I../Firmware/CMSIS/GD/GD32F4xx/Include -I../User -I../Hardware/inc -I../App/inc -I.cmsis/include -IRTE/_GD_Template-F4xx -D"USE_STDPERIPH_DRIVER" -D"GD32F470" -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -D__MICROLIB -O2 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/GD_Template-F4xx/.obj/__/App/src/command_parsing.o -MMD ./../App/src/command_parsing.c
    at unify_builder.Program.Main(String[] args_)
 ---
-./../Hardware/src/can.c:77:28: error: use of undeclared identifier 'CAN_FLAG_INR'; did you mean 'CAN_FLAG_IWS'?
-    if (can_flag_get(CANX, CAN_FLAG_INR) != SET) {
-                           ^~~~~~~~~~~~
-                           CAN_FLAG_IWS
-../Firmware/GD32F4xx_standard_peripheral/Include\gd32f4xx_can.h:343:5: note: 'CAN_FLAG_IWS' declared here
-    CAN_FLAG_IWS      = CAN_REGIDX_BIT(STAT_REG_OFFSET, 0U),            /*!< initial working state */
-    ^
-./../Hardware/src/can.c:182:32: error: use of undeclared identifier 'CAN_FLAG_INR'; did you mean 'CAN_FLAG_IWS'?
-        if (can_flag_get(CANX, CAN_FLAG_INR) != SET) {
-                               ^~~~~~~~~~~~
-                               CAN_FLAG_IWS
-../Firmware/GD32F4xx_standard_peripheral/Include\gd32f4xx_can.h:343:5: note: 'CAN_FLAG_IWS' declared here
-    CAN_FLAG_IWS      = CAN_REGIDX_BIT(STAT_REG_OFFSET, 0U),            /*!< initial working state */
-    ^
+./../App/src/command_parsing.c:13:36: error: passing 'float' to parameter of incompatible type 'uint8_t *' (aka 'unsigned char *')
+                debug_send_it_data(Vbus_Val, sizeof(Vbus_Val));
+                                   ^~~~~~~~
+../User\../Hardware/inc/debug_uart.h:39:34: note: passing argument to parameter 'buffer' here
+void debug_send_it_data(uint8_t *buffer, uint8_t length); // 发送数据
+                                 ^
+./../App/src/command_parsing.c:20:36: error: passing 'float' to parameter of incompatible type 'uint8_t *' (aka 'unsigned char *')
+                debug_send_it_data(Curr_Val, sizeof(Curr_Val));
+                                   ^~~~~~~~
+../User\../Hardware/inc/debug_uart.h:39:34: note: passing argument to parameter 'buffer' here
+void debug_send_it_data(uint8_t *buffer, uint8_t length); // 发送数据
+                                 ^
 2 errors generated.
 
-[2025-07-26 16:38:54]	[info] incremental build: 1 source files changed
+[2025-09-05 11:49:09]	[info] incremental build: 1 source files changed
 These source files will be recompiled
 ---
-'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\can.c': object (.o) file not exist
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': object (.o) file not exist
 
-[2025-07-26 16:38:54]	compilation failed at : "g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\can.c", exit code: 1
-command: 
-  "D:\Keil MDK\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc -std=c99 -I../Firmware/GD32F4xx_standard_peripheral/Include -I../Firmware/CMSIS -I../Firmware/CMSIS/GD/GD32F4xx/Include -I../User -I../Hardware/inc -I../App/inc -I.cmsis/include -IRTE/_GD_Template-F4xx -D"USE_STDPERIPH_DRIVER" -D"GD32F470" -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -D__MICROLIB -O2 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/GD_Template-F4xx/.obj/__/Hardware/src/can.o -MMD ./../Hardware/src/can.c
-   at unify_builder.Program.Main(String[] args_)
----
-./../Hardware/src/can.c:182:32: error: use of undeclared identifier 'CAN_FLAG_INR'; did you mean 'CAN_FLAG_IWS'?
-        if (can_flag_get(CANX, CAN_FLAG_INR) != SET) {
-                               ^~~~~~~~~~~~
-                               CAN_FLAG_IWS
-../Firmware/GD32F4xx_standard_peripheral/Include\gd32f4xx_can.h:343:5: note: 'CAN_FLAG_IWS' declared here
-    CAN_FLAG_IWS      = CAN_REGIDX_BIT(STAT_REG_OFFSET, 0U),            /*!< initial working state */
-    ^
-1 error generated.
-
-[2025-07-26 16:39:13]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\can.c': object (.o) file not exist
-
-[2025-07-26 16:39:13]	[done]
+[2025-09-05 11:49:09]	[done]
 	build successfully !
 
-[2025-07-26 16:43:26]	[info] incremental build: 1 source files changed
+[2025-09-05 11:50:33]	[info] incremental build: 2 source files changed
 These source files will be recompiled
 ---
-'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\can.c': source file has been changed.
-
-[2025-07-26 16:43:27]	[done]
-	build successfully !
-
-[2025-07-26 17:01:22]	[info] incremental build: 3 source files changed
-These source files will be recompiled
----
-'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\can.c': source file has been changed.
-'g:\VscodeProject\GitProject\GD_Template-M4\User\gd32f4xx_it.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\..\Hardware\inc\can.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
 'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': source file has been changed.
 
-[2025-07-26 17:01:23]	compilation failed at : "g:\VscodeProject\GitProject\GD_Template-M4\User\main.c", exit code: 1
+[2025-09-05 11:50:34]	compilation failed at : "g:\VscodeProject\GitProject\GD_Template-M4\User\main.c", exit code: 1
 command: 
-  "D:\Keil MDK\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc -std=c99 -I../Firmware/GD32F4xx_standard_peripheral/Include -I../Firmware/CMSIS -I../Firmware/CMSIS/GD/GD32F4xx/Include -I../User -I../Hardware/inc -I../App/inc -I.cmsis/include -IRTE/_GD_Template-F4xx -D"USE_STDPERIPH_DRIVER" -D"GD32F470" -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -D__MICROLIB -O2 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/GD_Template-F4xx/.obj/__/User/main.o -MMD ./../User/main.c
+  "D:\Keil MDK\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc -std=c11 -I../Firmware/GD32F4xx_standard_peripheral/Include -I../Firmware/CMSIS -I../Firmware/CMSIS/GD/GD32F4xx/Include -I../User -I../Hardware/inc -I../App/inc -I.cmsis/include -IRTE/_GD_Template-F4xx -D"USE_STDPERIPH_DRIVER" -D"GD32F470" -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -D__MICROLIB -O2 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/GD_Template-F4xx/.obj/__/User/main.o -MMD ./../User/main.c
    at unify_builder.Program.Main(String[] args_)
 ---
-./../User/main.c:246:5: warning: implicit declaration of function 'gd_eval_led_toggle' is invalid in C99 [-Wimplicit-function-declaration]
-    gd_eval_led_toggle(LED2);
+./../User/main.c:14:22: warning: passing 'char [13]' to parameter of type 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+  debug_send_it_data("system is ok",strlen("system is ok"))                                                                   // W25Q128 SPI<C5><E4><D6><C3>
+                     ^~~~~~~~~~~~~~
+../User\../Hardware/inc/debug_uart.h:39:34: note: passing argument to parameter 'buffer' here
+void debug_send_it_data(uint8_t *buffer, uint8_t length); // 发送数据
+                                 ^
+./../User/main.c:14:60: error: expected ';' after expression
+  debug_send_it_data("system is ok",strlen("system is ok"))                                                                   // W25Q128 SPI<C5><E4><D6><C3>
+                                                           ^
+                                                           ;
+./../User/main.c:22:5: warning: implicit declaration of function 'command_parsing' is invalid in C99 [-Wimplicit-function-declaration]
+    command_parsing();
     ^
-./../User/main.c:246:24: error: use of undeclared identifier 'LED2'
-    gd_eval_led_toggle(LED2);
-                       ^
-./../User/main.c:328:5: warning: implicit declaration of function 'gd_eval_led_init' is invalid in C99 [-Wimplicit-function-declaration]
-    gd_eval_led_init(LED1);
-    ^
-./../User/main.c:328:22: error: use of undeclared identifier 'LED1'
-    gd_eval_led_init(LED1);
-                     ^
-./../User/main.c:329:22: error: use of undeclared identifier 'LED2'
-    gd_eval_led_init(LED2);
-                     ^
-2 warnings and 3 errors generated.
+2 warnings and 1 error generated.
 
-[2025-07-26 17:01:34]	[info] incremental build: 1 source files changed
+[2025-09-05 11:50:38]	[info] incremental build: 1 source files changed
 These source files will be recompiled
 ---
 'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': object (.o) file not exist
 
-[2025-07-26 17:01:34]	compilation failed at : "g:\VscodeProject\GitProject\GD_Template-M4\User\main.c", exit code: 1
+[2025-09-05 11:50:39]	[done]
+	build successfully !
+
+[2025-09-05 11:51:18]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': source file has been changed.
+
+[2025-09-05 11:51:19]	[done]
+	build successfully !
+
+[2025-09-05 11:51:49]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': source file has been changed.
+
+[2025-09-05 11:51:49]	[done]
+	build successfully !
+
+[2025-09-05 11:52:14]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': source file has been changed.
+
+[2025-09-05 11:52:15]	[done]
+	build successfully !
+
+[2025-09-05 13:29:56]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\User\gd32f4xx_it.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\main.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': source file has been changed.
+
+[2025-09-05 13:29:57]	[done]
+	build successfully !
+
+[2025-09-05 13:31:58]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': source file has been changed.
+
+[2025-09-05 13:31:59]	[done]
+	build successfully !
+
+[2025-09-05 13:51:24]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+
+[2025-09-05 13:51:25]	[done]
+	build successfully !
+
+[2025-09-05 14:03:48]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+
+[2025-09-05 14:03:48]	compilation failed at : "g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c", exit code: 1
 command: 
-  "D:\Keil MDK\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc -std=c99 -I../Firmware/GD32F4xx_standard_peripheral/Include -I../Firmware/CMSIS -I../Firmware/CMSIS/GD/GD32F4xx/Include -I../User -I../Hardware/inc -I../App/inc -I.cmsis/include -IRTE/_GD_Template-F4xx -D"USE_STDPERIPH_DRIVER" -D"GD32F470" -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -D__MICROLIB -O2 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/GD_Template-F4xx/.obj/__/User/main.o -MMD ./../User/main.c
+  "D:\Keil MDK\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc -std=c11 -I../Firmware/GD32F4xx_standard_peripheral/Include -I../Firmware/CMSIS -I../Firmware/CMSIS/GD/GD32F4xx/Include -I../User -I../Hardware/inc -I../App/inc -I.cmsis/include -IRTE/_GD_Template-F4xx -D"USE_STDPERIPH_DRIVER" -D"GD32F470" -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -D__MICROLIB -O2 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/GD_Template-F4xx/.obj/__/App/src/command_parsing.o -MMD ./../App/src/command_parsing.c
    at unify_builder.Program.Main(String[] args_)
 ---
-./../User/main.c:327:5: warning: implicit declaration of function 'gd_eval_led_init' is invalid in C99 [-Wimplicit-function-declaration]
-    gd_eval_led_init(LED1);
-    ^
-./../User/main.c:327:22: error: use of undeclared identifier 'LED1'
-    gd_eval_led_init(LED1);
-                     ^
-./../User/main.c:328:22: error: use of undeclared identifier 'LED2'
-    gd_eval_led_init(LED2);
-                     ^
-1 warning and 2 errors generated.
+./../App/src/command_parsing.c:15:47: error: passing 'float' to parameter of incompatible type 'const char *'
+                sprintf("Vbus_Val=%0.4f\r\n", Vbus_Val);
+                                              ^~~~~~~~
+D:\Keil MDK\ARM\ARMCLANG\bin\..\include\stdio.h:417:87: note: passing argument to parameter here
+extern _ARMABI int sprintf(char * __restrict /*s*/, const char * __restrict /*format*/, ...) __attribute__((__nonnull__(1,2)));
+                                                                                      ^
+./../App/src/command_parsing.c:16:64: warning: passing 'uint8_t [16]' to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+                debug_send_data((uint8_t *)send_buffer, strlen(send_buffer));
+                                                               ^~~~~~~~~~~
+D:\Keil MDK\ARM\ARMCLANG\bin\..\include\string.h:335:48: note: passing argument to parameter here
+extern _ARMABI size_t strlen(const char * /*s*/) __attribute__((__nonnull__(1)));
+                                               ^
+./../App/src/command_parsing.c:22:47: error: passing 'float' to parameter of incompatible type 'const char *'
+                sprintf("Curr_Val=%0.4f\r\n", Curr_Val);
+                                              ^~~~~~~~
+D:\Keil MDK\ARM\ARMCLANG\bin\..\include\stdio.h:417:87: note: passing argument to parameter here
+extern _ARMABI int sprintf(char * __restrict /*s*/, const char * __restrict /*format*/, ...) __attribute__((__nonnull__(1,2)));
+                                                                                      ^
+./../App/src/command_parsing.c:23:64: warning: passing 'uint8_t [16]' to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+                debug_send_data((uint8_t *)send_buffer, strlen(send_buffer));
+                                                               ^~~~~~~~~~~
+D:\Keil MDK\ARM\ARMCLANG\bin\..\include\string.h:335:48: note: passing argument to parameter here
+extern _ARMABI size_t strlen(const char * /*s*/) __attribute__((__nonnull__(1)));
+                                               ^
+2 warnings and 2 errors generated.
 
-[2025-07-26 17:01:52]	[info] incremental build: 1 source files changed
+[2025-09-05 14:04:54]	[info] incremental build: 1 source files changed
 These source files will be recompiled
 ---
-'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': object (.o) file not exist
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': object (.o) file not exist
 
-[2025-07-26 17:01:52]	link failed !, exit code: 1
+[2025-09-05 14:04:55]	[done]
+	build successfully !
+
+[2025-09-05 14:05:45]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+
+[2025-09-05 14:05:46]	[done]
+	build successfully !
+
+[2025-09-05 14:06:36]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+
+[2025-09-05 14:06:37]	[done]
+	build successfully !
+
+[2025-09-05 14:08:06]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+
+[2025-09-05 14:08:07]	[done]
+	build successfully !
+
+[2025-09-05 14:10:49]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+
+[2025-09-05 14:10:50]	[done]
+	build successfully !
+
+[2025-09-05 14:12:30]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+
+[2025-09-05 14:12:31]	[done]
+	build successfully !
+
+[2025-09-05 14:16:16]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+
+[2025-09-05 14:16:16]	compilation failed at : "g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c", exit code: 1
+command: 
+  "D:\Keil MDK\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc -std=c11 -I../Firmware/GD32F4xx_standard_peripheral/Include -I../Firmware/CMSIS -I../Firmware/CMSIS/GD/GD32F4xx/Include -I../User -I../Hardware/inc -I../App/inc -I.cmsis/include -IRTE/_GD_Template-F4xx -D"USE_STDPERIPH_DRIVER" -D"GD32F470" -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -D__MICROLIB -O2 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/GD_Template-F4xx/.obj/__/App/src/command_parsing.o -MMD ./../App/src/command_parsing.c
    at unify_builder.Program.Main(String[] args_)
 ---
-Error: L6200E: Symbol transmit_number multiply defined (by main.o and can.o).
-Error: L6200E: Symbol receive_flag multiply defined (by main.o and can.o).
-Error: L6200E: Symbol transmit_message multiply defined (by main.o and can.o).
-Not enough information to list image symbols.
-Not enough information to list the image map.
-Finished: 2 information, 0 warning and 3 error messages.
+./../App/src/command_parsing.c:4:8: error: unknown type name 'bool'
+static bool send_idx = 0;
+       ^
+./../App/src/command_parsing.c:15:17: warning: 'sprintf' will always overflow; destination buffer has size 16, but format string expands to at least 18 [-Wfortify-source]
+                sprintf((char *)send_buffer, "Vbus_Val=%0.4f\r\n", Vbus_Val);
+                ^
+./../App/src/command_parsing.c:21:17: warning: 'sprintf' will always overflow; destination buffer has size 16, but format string expands to at least 18 [-Wfortify-source]
+                sprintf((char *)send_buffer, "Curr_Val=%0.4f\r\n", Curr_Val);
+                ^
+2 warnings and 1 error generated.
 
-
-[2025-07-26 17:03:29]	[info] incremental build: 1 source files changed
+[2025-09-05 14:16:33]	[info] incremental build: 3 source files changed
 These source files will be recompiled
 ---
-'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': source file has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': object (.o) file not exist
+'g:\VscodeProject\GitProject\GD_Template-M4\User\gd32f4xx_it.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\..\App\inc\command_parsing.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\..\App\inc\command_parsing.h' has been changed.
 
-[2025-07-26 17:03:29]	[done]
+[2025-09-05 14:16:34]	[done]
 	build successfully !
 
-[2025-07-26 17:03:40]	[info] incremental build: 1 source files changed
+[2025-09-05 14:17:54]	[info] incremental build: 1 source files changed
 These source files will be recompiled
 ---
-'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': source file has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
 
-[2025-07-26 17:03:40]	[done]
+[2025-09-05 14:17:55]	[done]
 	build successfully !
 
-[2025-08-22 11:18:01]	[info] incremental build: 2 source files changed
+[2025-09-05 14:20:17]	[info] incremental build: 1 source files changed
 These source files will be recompiled
 ---
-'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\CMSIS\GD\GD32F4xx\Source\ARM\startup_gd32f450_470.s': compiler options has been changed.
-'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': source file has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
 
-[2025-08-22 11:18:03]	[done]
+[2025-09-05 14:20:18]	[done]
 	build successfully !
 
-[2025-08-22 11:20:34]	[info] incremental build: 2 source files changed
+[2025-09-05 14:21:19]	[info] incremental build: 1 source files changed
 These source files will be recompiled
 ---
-'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\bsp_led.c': source file has been changed.
-'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': source file has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
 
-[2025-08-22 11:20:35]	[done]
+[2025-09-05 14:21:20]	[done]
 	build successfully !
 
-[2025-08-22 11:20:41]	[done]
-	build successfully !
-
-[2025-08-22 11:24:29]	[info] incremental build: 3 source files changed
+[2025-09-05 14:21:46]	[info] incremental build: 1 source files changed
 These source files will be recompiled
 ---
-'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\bitband.c': source file has been changed.
-'g:\VscodeProject\GitProject\GD_Template-M4\User\gd32f4xx_it.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\..\Hardware\inc\bitband.h' has been changed.
-'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': source file has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
 
-[2025-08-22 11:24:30]	[done]
+[2025-09-05 14:21:47]	[done]
 	build successfully !
 
-[2025-08-22 11:49:27]	[info] incremental build: 4 source files changed
+[2025-09-05 14:22:00]	[info] incremental build: 1 source files changed
 These source files will be recompiled
 ---
-'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\bitband.c': source file has been changed.
-'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\soft_i2c.c': source file has been changed.
-'g:\VscodeProject\GitProject\GD_Template-M4\User\gd32f4xx_it.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\..\Hardware\inc\bitband.h' has been changed.
-'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': source file has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
 
-[2025-08-22 11:49:29]	[done]
+[2025-09-05 14:22:01]	[done]
 	build successfully !
 
-[2025-08-22 11:49:53]	[info] incremental build: 1 source files changed
+[2025-09-05 14:24:47]	[info] incremental build: 1 source files changed
 These source files will be recompiled
 ---
-'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': source file has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
 
-[2025-08-22 11:49:54]	[done]
+[2025-09-05 14:24:48]	[done]
 	build successfully !
 
-[2025-08-22 11:50:28]	[info] incremental build: 1 source files changed
+[2025-09-05 14:24:54]	[done]
+	build successfully !
+
+[2025-09-05 14:32:45]	[info] incremental build: 1 source files changed
 These source files will be recompiled
 ---
-'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\bitband.c': source file has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\ina226.c': source file has been changed.
 
-[2025-08-22 11:50:29]	[done]
+[2025-09-05 14:32:46]	[done]
 	build successfully !
 
-[2025-08-22 15:31:23]	[info] incremental build: 1 source files changed
+[2025-09-05 14:33:16]	[info] incremental build: 1 source files changed
 These source files will be recompiled
 ---
-'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\bitband.c': source file has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\ina226.c': source file has been changed.
 
-[2025-08-22 15:31:23]	[done]
+[2025-09-05 14:33:17]	[done]
 	build successfully !
 
-[2025-08-22 15:32:06]	[info] incremental build: 1 source files changed
+[2025-09-05 14:34:42]	[info] incremental build: 1 source files changed
 These source files will be recompiled
 ---
-'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\bitband.c': source file has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\ina226.c': source file has been changed.
 
-[2025-08-22 15:32:07]	[done]
+[2025-09-05 14:34:43]	[done]
 	build successfully !
 
-[2025-08-22 15:36:37]	[info] incremental build: 2 source files changed
+[2025-09-05 14:37:17]	[info] incremental build: 1 source files changed
 These source files will be recompiled
 ---
-'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\bsp_led.c': source file has been changed.
-'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': source file has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\ina226.c': source file has been changed.
 
-[2025-08-22 15:36:38]	[done]
+[2025-09-05 14:37:18]	[done]
 	build successfully !
 
-[2025-08-22 15:36:50]	[info] incremental build: 1 source files changed
+[2025-09-05 14:39:26]	[info] incremental build: 1 source files changed
 These source files will be recompiled
 ---
-'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': source file has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\ina226.c': source file has been changed.
 
-[2025-08-22 15:36:50]	[done]
+[2025-09-05 14:39:27]	[done]
 	build successfully !
 
-[2025-09-04 16:10:14]	[info] incremental build: 4 source files changed
+[2025-09-05 15:02:54]	[info] incremental build: 2 source files changed
 These source files will be recompiled
 ---
-'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\bitband.c': source file has been changed.
-'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\rs485.c': source file has been changed.
-'g:\VscodeProject\GitProject\GD_Template-M4\User\gd32f4xx_it.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\..\Hardware\inc\bitband.h' has been changed.
-'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': source file has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\ina226.c': source file has been changed.
 
-[2025-09-04 16:10:16]	[done]
+[2025-09-05 15:02:56]	[done]
 	build successfully !
 
-[2025-09-04 16:10:43]	[done]
-	build successfully !
-
-[2025-09-04 16:12:39]	[info] incremental build: 1 source files changed
+[2025-09-05 15:13:03]	[info] incremental build: 1 source files changed
 These source files will be recompiled
 ---
-'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': source file has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
 
-[2025-09-04 16:12:40]	[done]
-	build successfully !
-
-[2025-09-04 16:12:44]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': source file has been changed.
-
-[2025-09-04 16:12:45]	[done]
-	build successfully !
-
-[2025-09-04 16:14:06]	[info] incremental build: 2 source files changed
-These source files will be recompiled
----
-'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\debug_uart.c': source file has been changed.
-'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\rs485.c': source file has been changed.
-
-[2025-09-04 16:14:07]	[done]
-	build successfully !
-
-[2025-09-04 16:14:36]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\debug_uart.c': source file has been changed.
-
-[2025-09-04 16:14:37]	[done]
-	build successfully !
-
-[2025-09-04 16:28:55]	[info] incremental build: 4 source files changed
-These source files will be recompiled
----
-'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\debug_uart.c': source file has been changed.
-'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\key.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\..\Hardware\inc\debug_uart.h' has been changed.
-'g:\VscodeProject\GitProject\GD_Template-M4\User\gd32f4xx_it.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\..\Hardware\inc\debug_uart.h' has been changed.
-'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\..\Hardware\inc\debug_uart.h' has been changed.
-
-[2025-09-04 16:28:56]	[done]
-	build successfully !
-
-[2025-09-04 16:29:31]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': source file has been changed.
-
-[2025-09-04 16:29:32]	[done]
+[2025-09-05 15:13:04]	[done]
 	build successfully !
 
