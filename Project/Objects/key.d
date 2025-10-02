@@ -1,7 +1,7 @@
 ./objects/key.o: ..\Hardware\src\key.c ..\User\..\Hardware\inc\key.h \
   ..\Firmware\CMSIS\GD\GD32F4xx\Include\gd32f4xx.h \
   ..\Firmware\CMSIS\core_cm4.h \
-  D:\KELE5\ MDK\ARM\ARMCLANG\Bin\..\include\stdint.h \
+  D:\Keil\ MDK\ARM\ARMCLANG\Bin\..\include\stdint.h \
   ..\Firmware\CMSIS\core_cmInstr.h ..\Firmware\CMSIS\core_cmFunc.h \
   ..\Firmware\CMSIS\core_cm4_simd.h \
   ..\Firmware\CMSIS\GD\GD32F4xx\Include\system_gd32f4xx.h \
@@ -32,11 +32,11 @@
   ..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_wwdgt.h \
   ..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_misc.h \
   ..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_enet.h \
-  D:\KELE5\ MDK\ARM\ARMCLANG\Bin\..\include\stdlib.h \
+  D:\Keil\ MDK\ARM\ARMCLANG\Bin\..\include\stdlib.h \
   ..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_exmc.h \
   ..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_ipa.h \
   ..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_tli.h \
   ..\User\systick.h ..\User\..\Hardware\inc\bsp_led.h \
   ..\User\..\Hardware\inc\debug_uart.h \
-  D:\KELE5\ MDK\ARM\ARMCLANG\Bin\..\include\stdio.h \
-  D:\KELE5\ MDK\ARM\ARMCLANG\Bin\..\include\string.h
+  D:\Keil\ MDK\ARM\ARMCLANG\Bin\..\include\stdio.h \
+  D:\Keil\ MDK\ARM\ARMCLANG\Bin\..\include\string.h

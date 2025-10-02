@@ -1,7 +1,7 @@
 ./objects/systick.o: ..\User\systick.c \
   ..\Firmware\CMSIS\GD\GD32F4xx\Include\gd32f4xx.h \
   ..\Firmware\CMSIS\core_cm4.h \
-  D:\KELE5\ MDK\ARM\ARMCLANG\Bin\..\include\stdint.h \
+  D:\Keil\ MDK\ARM\ARMCLANG\Bin\..\include\stdint.h \
   ..\Firmware\CMSIS\core_cmInstr.h ..\Firmware\CMSIS\core_cmFunc.h \
   ..\Firmware\CMSIS\core_cm4_simd.h \
   ..\Firmware\CMSIS\GD\GD32F4xx\Include\system_gd32f4xx.h \
@@ -32,7 +32,7 @@
   ..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_wwdgt.h \
   ..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_misc.h \
   ..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_enet.h \
-  D:\KELE5\ MDK\ARM\ARMCLANG\Bin\..\include\stdlib.h \
+  D:\Keil\ MDK\ARM\ARMCLANG\Bin\..\include\stdlib.h \
   ..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_exmc.h \
   ..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_ipa.h \
   ..\Firmware\GD32F4xx_standard_peripheral\Include\gd32f4xx_tli.h \

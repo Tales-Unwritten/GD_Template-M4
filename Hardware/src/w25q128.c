@@ -1,5 +1,7 @@
 #include "../Hardware/inc/w25q128.h"
 
+
+
 static void w25q128_gpio_init(void)
 {
 	rcu_periph_clock_enable(W25Qxx_RCU_GPIO);

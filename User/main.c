@@ -10,8 +10,8 @@ static void systick_task_config(void)
   Rs485_Init_config(115200);                                                               // RS485串口初始化
   INA226_Device_Info.CHG_Ina226_Unlock_Alert();                                            // 解锁INA226的警报功能
   Key_Configuration();                                                                     // 按键初始化
-  w25qxx_spi_config();  
-  printf("system is ok\r\n");                                                              // W25Q128 SPI配置
+  w25qxx_spi_config();
+  printf("system is ok\r\n"); // W25Q128 SPI配置
 }
 
 int main(void)
@@ -19,6 +19,6 @@ int main(void)
   systick_task_config(); // 初始化所有外设
   while (1)
   {
-    command_parsing();
+   App_Task();
   }
 }

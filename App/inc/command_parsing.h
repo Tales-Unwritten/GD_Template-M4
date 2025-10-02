@@ -12,12 +12,9 @@ typedef struct
     char *rese_mess;
     char *send_mess;
 } ChannelCmdDef;
-static const ChannelCmdDef channel_allstates[2] = {
+static const ChannelCmdDef channel_cmd[34] = {
     {"Channel_all_open\r\n", "Channel_is_all_open\r\n"},
     {"Channel_all_close\r\n", "Channel_is_all_close\r\n"},
-};
-
-static const ChannelCmdDef channel_open[16] = {
     {"Channel01_open\r\n", "Channel01_is_open\r\n"},
     {"Channel02_open\r\n", "Channel02_is_open\r\n"},
     {"Channel03_open\r\n", "Channel03_is_open\r\n"},
@@ -33,9 +30,7 @@ static const ChannelCmdDef channel_open[16] = {
     {"Channel13_open\r\n", "Channel13_is_open\r\n"},
     {"Channel14_open\r\n", "Channel14_is_open\r\n"},
     {"Channel15_open\r\n", "Channel15_is_open\r\n"},
-    {"Channel16_open\r\n", "Channel16_is_open\r\n"}};
-
-static const ChannelCmdDef channel_close[16] = {
+    {"Channel16_open\r\n", "Channel16_is_open\r\n"},
     {"Channel01_close\r\n", "Channel01_is_close\r\n"},
     {"Channel02_close\r\n", "Channel02_is_close\r\n"},
     {"Channel03_close\r\n", "Channel03_is_close\r\n"},
@@ -53,4 +48,4 @@ static const ChannelCmdDef channel_close[16] = {
     {"Channel15_close\r\n", "Channel15_is_close\r\n"},
     {"Channel16_close\r\n", "Channel16_is_close\r\n"}};
 
-void command_parsing(void);
+void App_Task(void);

@@ -1,7 +1,13 @@
 >>> cc
 
-
+./../App/src/command_parsing.c:108:29: warning: incompatible pointer types passing 'uint16_t [16]' to parameter of type 'char *' [-Wincompatible-pointer-types]
+                    sprintf(send_buffer, channel_cmd[j].send_mess, strlen(channel_cmd[j].send_mess));
+                            ^~~~~~~~~~~
+D:\Keil MDK\ARM\ARMCLANG\bin\..\include\stdio.h:417:51: note: passing argument to parameter here
+extern _ARMABI int sprintf(char * __restrict /*s*/, const char * __restrict /*format*/, ...) __attribute__((__nonnull__(1,2)));
+                                                  ^
+1 warning generated.
 
 >>> ld
 
-Program Size: Code=12412 RO-data=616 RW-data=28 ZI-data=5908  
+Program Size: Code=12616 RO-data=2188 RW-data=28 ZI-data=5908  

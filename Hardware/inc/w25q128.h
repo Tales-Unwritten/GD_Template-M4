@@ -2,6 +2,8 @@
 #include <stdint.h>
 #include "gd32f4xx.h"
 #include "systick.h"
+#include <string.h>
+#include <stdio.h>
 
 // W25Q128 命令定义
 #define Write_Enable             0x06

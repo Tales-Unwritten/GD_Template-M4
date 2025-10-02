@@ -158,21 +158,6 @@ void USART0_IRQHandler(void)
 					Debug_Receive_Buffer[i].Buffer_Length = Temp_Recevice_Count;
 					memcpy(Debug_Receive_Buffer[i].Buffer, Temp_Recevice_Buffer, Temp_Recevice_Count);
 					Debug_Receive_Buffer[i].Buffer_Status = 1; // 标记为已接收
-					// if (Debug_Receive_Buffer[i].Buffer_Status = 1)
-					// {
-					// 	if (memcmp(Debug_Receive_Buffer[i].Buffer, "MEAS12VVOLT\r\n", Debug_Receive_Buffer[i].Buffer_Length) == 0)
-					// 	{
-					// 		led_on(3);
-					// 		Debug_Receive_Buffer[i].Buffer_Status = 0;
-					// 		Debug_Receive_Buffer[i].Buffer_Length=0;
-					// 	}
-					// 	else if (memcmp(Debug_Receive_Buffer[i].Buffer, "Read12VCURR\r\n", Debug_Receive_Buffer[i].Buffer_Length) == 0)
-					// 	{
-					// 		led_off(3);
-					// 		Debug_Receive_Buffer[i].Buffer_Status = 0;
-					// 		Debug_Receive_Buffer[i].Buffer_Length=0;
-					// 	}
-					// }
 					break;
 				}
 			}

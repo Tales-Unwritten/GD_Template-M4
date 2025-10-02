@@ -1,4 +1,6 @@
 --cpu=Cortex-M4.fp.sp
+".\objects\command_parsing.o"
+".\objects\pc_task.o"
 ".\objects\system_gd32f4xx.o"
 ".\objects\startup_gd32f450_470.o"
 ".\objects\bsp_led.o"
@@ -11,6 +13,8 @@
 ".\objects\ina226.o"
 ".\objects\key.o"
 ".\objects\soft_i2c.o"
+".\objects\eeprom.o"
+".\objects\w25q128.o"
 ".\objects\gd32f4xx_gpio.o"
 ".\objects\gd32f4xx_rcu.o"
 ".\objects\gd32f4xx_adc.o"

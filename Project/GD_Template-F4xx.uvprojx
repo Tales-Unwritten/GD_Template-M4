@@ -339,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER,GD32F470</Define>
               <Undefine></Undefine>
-              <IncludePath>..\Firmware\GD32F4xx_standard_peripheral\Include;..\Firmware\CMSIS;..\Firmware\CMSIS\GD\GD32F4xx\Include;..\User;..\Hardware\inc;..\App\inc;..\Firmware\GD32F4xx_standard_peripheral\Include;..\Hardware\inc</IncludePath>
+              <IncludePath>..\Firmware\GD32F4xx_standard_peripheral\Include;..\Firmware\CMSIS;..\Firmware\CMSIS\GD\GD32F4xx\Include;..\User;..\Firmware\GD32F4xx_standard_peripheral\Include;..\Hardware\inc;..\App\inc;..\Hardware\inc</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -382,6 +382,18 @@
       <Groups>
         <Group>
           <GroupName>App</GroupName>
+          <Files>
+            <File>
+              <FileName>command_parsing.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\App\src\command_parsing.c</FilePath>
+            </File>
+            <File>
+              <FileName>pc_task.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\App\src\pc_task.c</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>CMSIS</GroupName>
@@ -450,6 +462,16 @@
               <FileName>soft_i2c.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Hardware\src\soft_i2c.c</FilePath>
+            </File>
+            <File>
+              <FileName>eeprom.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Hardware\src\eeprom.c</FilePath>
+            </File>
+            <File>
+              <FileName>w25q128.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Hardware\src\w25q128.c</FilePath>
             </File>
           </Files>
         </Group>

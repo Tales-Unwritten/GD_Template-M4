@@ -647,3 +647,308 @@ These source files will be recompiled
 [2025-09-05 15:13:04]	[done]
 	build successfully !
 
+[2025-10-02 13:56:58]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': source file has been changed.
+
+[2025-10-02 13:56:59]	[done]
+	build successfully !
+
+[2025-10-02 14:26:47]	[info] incremental build: 4 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\w25q128.c': source file has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\User\gd32f4xx_it.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\..\App\inc\command_parsing.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': source file has been changed.
+
+[2025-10-02 14:26:47]	[done]
+	build successfully !
+
+[2025-10-02 14:27:38]	[info] incremental build: 36 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': compiler options has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\pc_task.c': compiler options has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\CMSIS\GD\GD32F4xx\Source\system_gd32f4xx.c': compiler options has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_adc.c': compiler options has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_can.c': compiler options has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_dbg.c': compiler options has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_dma.c': compiler options has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_exti.c': compiler options has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_gpio.c': compiler options has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_i2c.c': compiler options has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_misc.c': compiler options has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_rcu.c': compiler options has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_rtc.c': compiler options has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_sdio.c': compiler options has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_spi.c': compiler options has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_syscfg.c': compiler options has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_timer.c': compiler options has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_tli.c': compiler options has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_trng.c': compiler options has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_usart.c': compiler options has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_wwdgt.c': compiler options has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\bitband.c': compiler options has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\bmp280.c': compiler options has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\bsp_led.c': compiler options has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\can.c': compiler options has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\debug_uart.c': compiler options has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\dip_switch.c': compiler options has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\eeprom.c': compiler options has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\ina226.c': compiler options has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\key.c': compiler options has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\rs485.c': compiler options has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\soft_i2c.c': compiler options has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\w25q128.c': compiler options has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\User\gd32f4xx_it.c': compiler options has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': compiler options has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\User\systick.c': compiler options has been changed.
+
+[2025-10-02 14:27:39]	[done]
+	build successfully !
+
+[2025-10-02 14:28:05]	[info] incremental build: 3 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\w25q128.c': source file has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\User\gd32f4xx_it.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\..\Hardware\inc\w25q128.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\..\Hardware\inc\w25q128.h' has been changed.
+
+[2025-10-02 14:28:06]	[done]
+	build successfully !
+
+[2025-10-02 14:28:24]	[info] incremental build: 3 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\w25q128.c': source file has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\User\gd32f4xx_it.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\..\Hardware\inc\w25q128.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\..\Hardware\inc\w25q128.h' has been changed.
+
+[2025-10-02 14:28:25]	[done]
+	build successfully !
+
+[2025-10-02 15:09:08]	[info] incremental build: 5 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\debug_uart.c': source file has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\w25q128.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\..\Hardware\inc\w25q128.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\User\gd32f4xx_it.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\..\Hardware\inc\w25q128.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': source file has been changed.
+
+[2025-10-02 15:09:08]	compilation failed at : "g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c", exit code: 1
+command: 
+  "D:\Keil MDK\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc -std=c99 -I../Firmware/GD32F4xx_standard_peripheral/Include -I../Firmware/CMSIS -I../Firmware/CMSIS/GD/GD32F4xx/Include -I../User -I../Hardware/inc -I../App/inc -I.cmsis/include -IRTE/_GD_Template-F4xx -D"USE_STDPERIPH_DRIVER" -D"GD32F470" -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -D__MICROLIB -O2 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/GD_Template-F4xx/.obj/__/App/src/command_parsing.o -MMD ./../App/src/command_parsing.c
+   at unify_builder.Program.Main(String[] args_)
+---
+./../App/src/command_parsing.c:95:17: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+    if (par_idx = 1)
+        ~~~~~~~~^~~
+./../App/src/command_parsing.c:95:17: note: place parentheses around the assignment to silence this warning
+    if (par_idx = 1)
+                ^
+        (          )
+./../App/src/command_parsing.c:95:17: note: use '==' to turn this assignment into an equality comparison
+    if (par_idx = 1)
+                ^
+                ==
+./../App/src/command_parsing.c:103:128: error: unexpected ';' before ')'
+                    if (memcmp(Debug_Receive_Buffer[i].Buffer, channel_cmd[j].rese_mess, Debug_Receive_Buffer[i].Buffer_Length);)
+                                                                                                                               ^
+./../App/src/command_parsing.c:113:56: error: use of undeclared identifier 'j'
+                sprintf(send_buffer, "%s", channel_cmd[j].send_mess);
+                                                       ^
+1 warning and 2 errors generated.
+
+[2025-10-02 15:09:45]	[info] incremental build: 5 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': object (.o) file not exist
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\debug_uart.c': source file has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\w25q128.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\..\Hardware\inc\w25q128.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\User\gd32f4xx_it.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\..\Hardware\inc\w25q128.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': source file has been changed.
+
+[2025-10-02 15:09:45]	compilation failed at : "g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c", exit code: 1
+command: 
+  "D:\Keil MDK\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc -std=c99 -I../Firmware/GD32F4xx_standard_peripheral/Include -I../Firmware/CMSIS -I../Firmware/CMSIS/GD/GD32F4xx/Include -I../User -I../Hardware/inc -I../App/inc -I.cmsis/include -IRTE/_GD_Template-F4xx -D"USE_STDPERIPH_DRIVER" -D"GD32F470" -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -D__MICROLIB -O2 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/GD_Template-F4xx/.obj/__/App/src/command_parsing.o -MMD ./../App/src/command_parsing.c
+   at unify_builder.Program.Main(String[] args_)
+---
+./../App/src/command_parsing.c:95:17: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+    if (par_idx = 1)
+        ~~~~~~~~^~~
+./../App/src/command_parsing.c:95:17: note: place parentheses around the assignment to silence this warning
+    if (par_idx = 1)
+                ^
+        (          )
+./../App/src/command_parsing.c:95:17: note: use '==' to turn this assignment into an equality comparison
+    if (par_idx = 1)
+                ^
+                ==
+./../App/src/command_parsing.c:103:128: error: unexpected ';' before ')'
+                    if (memcmp(Debug_Receive_Buffer[i].Buffer, channel_cmd[j].rese_mess, Debug_Receive_Buffer[i].Buffer_Length);)
+                                                                                                                               ^
+./../App/src/command_parsing.c:106:33: warning: incompatible pointer types passing 'uint16_t [16]' to parameter of type 'char *' [-Wincompatible-pointer-types]
+                        sprintf(send_buffer, "%s", channel_cmd[j].send_mess);
+                                ^~~~~~~~~~~
+D:\Keil MDK\ARM\ARMCLANG\bin\..\include\stdio.h:417:51: note: passing argument to parameter here
+extern _ARMABI int sprintf(char * __restrict /*s*/, const char * __restrict /*format*/, ...) __attribute__((__nonnull__(1,2)));
+                                                  ^
+2 warnings and 1 error generated.
+
+[2025-10-02 15:09:59]	[info] incremental build: 5 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': object (.o) file not exist
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\debug_uart.c': source file has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\w25q128.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\..\Hardware\inc\w25q128.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\User\gd32f4xx_it.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\..\Hardware\inc\w25q128.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': source file has been changed.
+
+[2025-10-02 15:10:00]	[done]
+	build successfully !
+
+[2025-10-02 15:12:17]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+
+[2025-10-02 15:12:18]	[done]
+	build successfully !
+
+[2025-10-02 15:13:42]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+
+[2025-10-02 15:13:42]	[done]
+	build successfully !
+
+[2025-10-02 15:15:07]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+
+[2025-10-02 15:15:07]	[done]
+	build successfully !
+
+[2025-10-02 15:15:57]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+
+[2025-10-02 15:15:57]	compilation failed at : "g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c", exit code: 1
+command: 
+  "D:\Keil MDK\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc -std=c99 -I../Firmware/GD32F4xx_standard_peripheral/Include -I../Firmware/CMSIS -I../Firmware/CMSIS/GD/GD32F4xx/Include -I../User -I../Hardware/inc -I../App/inc -I.cmsis/include -IRTE/_GD_Template-F4xx -D"USE_STDPERIPH_DRIVER" -D"GD32F470" -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -D__MICROLIB -O2 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/GD_Template-F4xx/.obj/__/App/src/command_parsing.o -MMD ./../App/src/command_parsing.c
+   at unify_builder.Program.Main(String[] args_)
+---
+./../App/src/command_parsing.c:96:17: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+    if (par_idx = 1)
+        ~~~~~~~~^~~
+./../App/src/command_parsing.c:96:17: note: place parentheses around the assignment to silence this warning
+    if (par_idx = 1)
+                ^
+        (          )
+./../App/src/command_parsing.c:96:17: note: use '==' to turn this assignment into an equality comparison
+    if (par_idx = 1)
+                ^
+                ==
+./../App/src/command_parsing.c:106:33: warning: incompatible pointer types passing 'uint16_t [16]' to parameter of type 'char *' [-Wincompatible-pointer-types]
+                        sprintf(send_buffer, "%s", channel_cmd[j].send_mess,strlen(channel_cmd[j].send_mess));
+                                ^~~~~~~~~~~
+D:\Keil MDK\ARM\ARMCLANG\bin\..\include\stdio.h:417:51: note: passing argument to parameter here
+extern _ARMABI int sprintf(char * __restrict /*s*/, const char * __restrict /*format*/, ...) __attribute__((__nonnull__(1,2)));
+                                                  ^
+./../App/src/command_parsing.c:106:77: warning: data argument not used by format string [-Wformat-extra-args]
+                        sprintf(send_buffer, "%s", channel_cmd[j].send_mess,strlen(channel_cmd[j].send_mess));
+                                             ~~~~                           ^
+./../App/src/command_parsing.c:121:49: error: use of undeclared identifier 'i'
+                    memset(Debug_Receive_Buffer[i].Buffer, 0, sizeof(Debug_Receive_Buffer[i].Buffer));
+                                                ^
+./../App/src/command_parsing.c:121:91: error: use of undeclared identifier 'i'
+                    memset(Debug_Receive_Buffer[i].Buffer, 0, sizeof(Debug_Receive_Buffer[i].Buffer));
+                                                                                          ^
+./../App/src/command_parsing.c:122:34: error: use of undeclared identifier 'i'
+            Debug_Receive_Buffer[i].Buffer_Status = 0;
+                                 ^
+./../App/src/command_parsing.c:123:34: error: use of undeclared identifier 'i'
+            Debug_Receive_Buffer[i].Buffer_Length = 0;
+                                 ^
+3 warnings and 4 errors generated.
+
+[2025-10-02 15:16:28]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': object (.o) file not exist
+
+[2025-10-02 15:16:28]	[done]
+	build successfully !
+
+[2025-10-02 15:16:59]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+
+[2025-10-02 15:16:59]	[done]
+	build successfully !
+
+[2025-10-02 15:17:58]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+
+[2025-10-02 15:17:59]	[done]
+	build successfully !
+
+[2025-10-02 15:21:12]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+
+[2025-10-02 15:21:13]	[done]
+	build successfully !
+
+[2025-10-02 15:22:36]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': source file has been changed.
+
+[2025-10-02 15:22:36]	[done]
+	build successfully !
+
+[2025-10-02 15:23:58]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+
+[2025-10-02 15:23:58]	[done]
+	build successfully !
+
+[2025-10-02 15:24:46]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+
+[2025-10-02 15:24:46]	[done]
+	build successfully !
+
+[2025-10-02 15:26:47]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+
+[2025-10-02 15:26:47]	[done]
+	build successfully !
+
+[2025-10-02 15:30:01]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+
+[2025-10-02 15:30:02]	[done]
+	build successfully !
+
