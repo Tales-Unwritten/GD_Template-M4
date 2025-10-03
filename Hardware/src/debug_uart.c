@@ -134,6 +134,7 @@ void USART0_IRQHandler(void)
 	/* 接收缓冲区非空中断 */
 	if (usart_interrupt_flag_get(DEBUG_USART, USART_INT_FLAG_RBNE) == SET)
 	{
+		
 		if (Temp_Recevice_Count < (sizeof(Temp_Recevice_Buffer) - 1))
 		{
 			Temp_Recevice_Buffer[Temp_Recevice_Count++] = usart_data_receive(DEBUG_USART);
@@ -153,6 +154,7 @@ void USART0_IRQHandler(void)
 			/* 查找空闲缓冲区并存储数据 */
 			for (size_t i = 0; i < CHCHE_COUNT; i++)
 			{
+				led_toggle(1); // 切换LED1状态
 				if (Debug_Receive_Buffer[i].Buffer_Status == 0)
 				{
 					Debug_Receive_Buffer[i].Buffer_Length = Temp_Recevice_Count;
@@ -190,6 +192,7 @@ void USART0_IRQHandler(void)
 		usart_interrupt_disable(DEBUG_USART, USART_INT_TC); // 禁止发送完成中断
 		Debug_IT_Secd_Buffer.Finish_Flag = SET;				// 设置完成标志
 		Send_Count = 0;										// 重置发送计数器
+		
 	}
 }
 

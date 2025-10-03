@@ -1,8 +1,6 @@
 #include "../App/inc/command_parsing.h"
 
-static uint16_t send_buffer[16] = {0};
-static bool send_idx = 0;
-static bool par_idx = 0;
+static char send_buffer[128] = {0}; // Increased buffer size to 128 bytes
 
 // 命令处理函数类型
 typedef void (*cmd_handler_t)(void);
@@ -64,59 +62,49 @@ static const struct
     {"get_manufacturer_id\r\n", handle_manufacturer_id},
     {"get_die_id\r\n", handle_die_id}};
 
-static void Ina226_command_parsing(void)
+static void command_parsing(void)
 {
     for (size_t i = 0; i < CHCHE_COUNT; i++)
     {
         if (Debug_Receive_Buffer[i].Buffer_Status == 1)
         {
-            // 查找匹配的命令
-            for (size_t j = 0; j < sizeof(cmd_table) / sizeof(cmd_table[0]); j++)
+            bool command_found = false;
+
+            // 查找 INA226 命令
+            for (size_t j = 0; j < 7; j++)
             {
                 if (memcmp(Debug_Receive_Buffer[i].Buffer, cmd_table[j].cmd, Debug_Receive_Buffer[i].Buffer_Length) == 0)
                 {
                     cmd_table[j].handler();
-                    send_idx = 1;
+                    command_found = true;
                     break;
                 }
             }
-        }
 
-        if (send_idx == 1)
-        {
-            debug_send_it_data((uint8_t *)send_buffer, strlen((const char *)send_buffer));
-            send_idx = 0;
-            memset(send_buffer, 0, sizeof(send_buffer));
-            memset(Debug_Receive_Buffer[i].Buffer, 0, sizeof(Debug_Receive_Buffer[i].Buffer));
-            Debug_Receive_Buffer[i].Buffer_Status = 0;
-            Debug_Receive_Buffer[i].Buffer_Length = 0;
-        }
-    }
-}
-
-static void Relay_command_parsing(void)
-{
-
-    for (size_t i = 0; i < CHCHE_COUNT; i++)
-    {
-        if (Debug_Receive_Buffer[i].Buffer_Status == 1)
-        {
-            for (size_t j = 0; j < 34; j++)
+            // 查找 Relay 命令
+            if (!command_found)
             {
-                if (memcmp(Debug_Receive_Buffer[i].Buffer, channel_cmd[j].rese_mess, Debug_Receive_Buffer[i].Buffer_Length) == 0)
+                for (size_t j = 0; j < 34; j++)
                 {
-                    sprintf(send_buffer, channel_cmd[j].send_mess, strlen(channel_cmd[j].send_mess));
-                    par_idx = 1;
-                    break;
+                    if (memcmp(Debug_Receive_Buffer[i].Buffer, channel_cmd[j].rese_mess, Debug_Receive_Buffer[i].Buffer_Length) == 0)
+                    {
+                        sprintf((char *)send_buffer, channel_cmd[j].send_mess, strlen(channel_cmd[j].send_mess));
+                        command_found = true;
+                        break;
+                    }
                 }
             }
-        }
-        if (par_idx == 1)
-        {
+
+            // 未找到匹配命令
+            if (!command_found)
+            {
+                sprintf((char*)send_buffer, "Error_Command\r\n");
+            }
+
+            // 发送数据并清理缓冲区
             debug_send_it_data((uint8_t *)send_buffer, strlen((const char *)send_buffer));
-            memset(send_buffer, 0, sizeof(send_buffer));
-            par_idx = 0;
             memset(Debug_Receive_Buffer[i].Buffer, 0, sizeof(Debug_Receive_Buffer[i].Buffer));
+            memset(send_buffer, 0, sizeof(send_buffer));
             Debug_Receive_Buffer[i].Buffer_Status = 0;
             Debug_Receive_Buffer[i].Buffer_Length = 0;
         }
@@ -125,6 +113,5 @@ static void Relay_command_parsing(void)
 
 void App_Task(void)
 {
-    Ina226_command_parsing();
-    Relay_command_parsing();
+    command_parsing();
 }

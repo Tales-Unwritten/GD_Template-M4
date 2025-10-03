@@ -3,7 +3,7 @@
     "target": "GD_Template-F4xx",
     "toolchain": "AC6",
     "toolchainLocation": "D:\\Keil MDK\\ARM\\ARMCLANG",
-    "toolchainCfgFile": "c:\\Users\\Administrator\\.vscode\\extensions\\cl.eide-3.25.6\\res\\data\\models/arm.v6.model.json",
+    "toolchainCfgFile": "c:\\Users\\Administrator\\.vscode\\extensions\\cl.eide-3.26.0\\res\\data\\models/arm.v6.model.json",
     "buildMode": "fast|multhread",
     "showRepathOnLog": true,
     "threadNum": 12,
@@ -75,16 +75,27 @@
     "sourceParams": {},
     "options": {
         "version": 3,
-        "beforeBuildTasks": [],
         "afterBuildTasks": [
             {
                 "name": "axf to elf",
                 "command": "axf2elf -d \"${ToolchainRoot}\" -i \"${OutDir}/${ProjectName}.axf\" -o \"${OutDir}/${ProjectName}.elf\" > \"${OutDir}/axf2elf.log\""
             }
         ],
+        "asm-compiler": {
+            "$use": "asm-auto"
+        },
+        "beforeBuildTasks": [],
+        "c/cpp-compiler": {
+            "language-c": "c99",
+            "language-cpp": "c++11",
+            "one-elf-section-per-function": true,
+            "optimization": "level-2",
+            "short-enums#wchar": true,
+            "warnings": "ac5-like-warnings"
+        },
         "global": {
-            "use-microLIB": true,
             "output-debug-info": "enable",
+            "use-microLIB": true,
             "microcontroller-cpu": "cortex-m4-sp",
             "microcontroller-fpu": "cortex-m4-sp",
             "microcontroller-float": "cortex-m4-sp",
@@ -92,20 +103,9 @@
             "$clang-arch-extensions": "",
             "$armlink-arch-extensions": ""
         },
-        "c/cpp-compiler": {
-            "optimization": "level-2",
-            "language-c": "c99",
-            "language-cpp": "c++11",
-            "one-elf-section-per-function": true,
-            "short-enums#wchar": true,
-            "warnings": "ac5-like-warnings"
-        },
-        "asm-compiler": {
-            "$use": "asm-auto"
-        },
         "linker": {
-            "output-format": "elf",
             "misc-controls": "--diag_suppress=L6329",
+            "output-format": "elf",
             "ro-base": "0x08000000",
             "rw-base": "0x20000000",
             "link-scatter": [
@@ -133,7 +133,7 @@
         "SYS_PathSep": ";",
         "SYS_PathSeparator": ";",
         "SYS_EOL": "\r\n",
-        "EIDE_BUILDER_DIR": "c:\\Users\\Administrator\\.vscode\\extensions\\cl.eide-3.25.6\\res\\tools\\win32\\unify_builder",
+        "EIDE_BUILDER_DIR": "c:\\Users\\Administrator\\.vscode\\extensions\\cl.eide-3.26.0\\res\\tools\\win32\\unify_builder",
         "EIDE_BINARIES_VER": "12.1.1",
         "EIDE_MSYS": "C:\\Users\\Administrator\\.eide\\bin\\builder\\msys\\bin",
         "EIDE_PY3_CMD": "C:\\Users\\Administrator\\.eide\\bin\\python36\\python3.exe",

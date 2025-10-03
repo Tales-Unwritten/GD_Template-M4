@@ -952,3 +952,182 @@ These source files will be recompiled
 [2025-10-02 15:30:02]	[done]
 	build successfully !
 
+[2025-10-03 09:58:44]	[info] incremental build: 7 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\bitband.c': source file has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\debug_uart.c': source file has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\key.c': source file has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\w25q128.c': source file has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\User\gd32f4xx_it.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\..\App\inc\command_parsing.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': source file has been changed.
+
+[2025-10-03 09:58:45]	[done]
+	build successfully !
+
+[2025-10-03 10:02:35]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\debug_uart.c': source file has been changed.
+
+[2025-10-03 10:02:35]	[done]
+	build successfully !
+
+[2025-10-03 10:05:39]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+
+[2025-10-03 10:05:39]	[done]
+	build successfully !
+
+[2025-10-03 10:08:09]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\debug_uart.c': source file has been changed.
+
+[2025-10-03 10:08:10]	[done]
+	build successfully !
+
+[2025-10-03 10:09:00]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\debug_uart.c': source file has been changed.
+
+[2025-10-03 10:09:00]	[done]
+	build successfully !
+
+[2025-10-03 10:09:06]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+
+[2025-10-03 10:09:07]	[done]
+	build successfully !
+
+[2025-10-03 10:10:26]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\debug_uart.c': source file has been changed.
+
+[2025-10-03 10:10:27]	[done]
+	build successfully !
+
+[2025-10-03 10:11:29]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\debug_uart.c': source file has been changed.
+
+[2025-10-03 10:11:29]	[done]
+	build successfully !
+
+[2025-10-03 10:36:33]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+
+[2025-10-03 10:36:33]	[done]
+	build successfully !
+
+[2025-10-03 10:47:24]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+
+[2025-10-03 10:47:25]	[done]
+	build successfully !
+
+[2025-10-03 11:10:41]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+
+[2025-10-03 11:10:41]	[done]
+	build successfully !
+
+[2025-10-03 11:13:35]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+
+[2025-10-03 11:13:35]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Error: L6218E: Undefined symbol Ina226_command_parsing (referred from command_parsing.o).
+Error: L6218E: Undefined symbol Relay_command_parsing (referred from command_parsing.o).
+Not enough information to list image symbols.
+Finished: 1 information, 0 warning and 2 error messages.
+
+
+[2025-10-03 11:13:51]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Error: L6218E: Undefined symbol Ina226_command_parsing (referred from command_parsing.o).
+Error: L6218E: Undefined symbol Relay_command_parsing (referred from command_parsing.o).
+Not enough information to list image symbols.
+Finished: 1 information, 0 warning and 2 error messages.
+
+
+[2025-10-03 11:14:32]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+
+[2025-10-03 11:14:33]	[done]
+	build successfully !
+
+[2025-10-03 11:16:15]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+
+[2025-10-03 11:16:16]	[done]
+	build successfully !
+
+[2025-10-03 11:16:34]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+
+[2025-10-03 11:16:35]	[done]
+	build successfully !
+
+[2025-10-03 11:20:21]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+
+[2025-10-03 11:20:21]	[done]
+	build successfully !
+
+[2025-10-03 11:20:45]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+
+[2025-10-03 11:20:45]	[done]
+	build successfully !
+
+[2025-10-03 11:20:53]	[done]
+	build successfully !
+
+[2025-10-03 11:24:40]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+
+[2025-10-03 11:24:41]	[done]
+	build successfully !
+
+[2025-10-03 11:25:05]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+
+[2025-10-03 11:25:05]	[done]
+	build successfully !
+
