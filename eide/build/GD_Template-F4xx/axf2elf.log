@@ -1,4 +1,4 @@
-arm-none-eabi-objcopy --update-section ER_IROM1="C:\Users\Administrator\AppData\Local\Temp\\GD_Template-F4xx_JTrWmFT3.bin" "g:\VscodeProject\GitProject\GD_Template-M4\eide\build\GD_Template-F4xx/GD_Template-F4xx.axf" "g:\VscodeProject\GitProject\GD_Template-M4\eide\build\GD_Template-F4xx/GD_Template-F4xx.elf"
+arm-none-eabi-objcopy --update-section ER_IROM1="C:\Users\31184\AppData\Local\Temp\\GD_Template-F4xx_PVjOpNBF.bin" "g:\1-VscodeProject\GD-32\GD_Template-M4\eide\build\GD_Template-F4xx/GD_Template-F4xx.axf" "g:\1-VscodeProject\GD-32\GD_Template-M4\eide\build\GD_Template-F4xx/GD_Template-F4xx.elf"
 
-arm-none-eabi-objcopy: g:\VscodeProject\GitProject\GD_Template-M4\eide\build\GD_Template-F4xx/GD_Template-F4xx.elf: warning: allocated section `RW_IRAM1' not in segment
+arm-none-eabi-objcopy: g:\1-VscodeProject\GD-32\GD_Template-M4\eide\build\GD_Template-F4xx/GD_Template-F4xx.elf: warning: allocated section `RW_IRAM1' not in segment
 

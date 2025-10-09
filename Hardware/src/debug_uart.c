@@ -63,7 +63,7 @@ int fputc(int ch, FILE *f)
 		;
 
 	/* 发送字符 */
-	usart_data_transmit(DEBUG_USART, (uint8_t)ch);
+	usart_data_transmit(DEBUG_USART, (uint32_t)ch);
 
 	/* 等待发送完成 */
 	while (RESET == usart_flag_get(DEBUG_USART, USART_FLAG_TC))
@@ -166,7 +166,7 @@ void USART0_IRQHandler(void)
 		}
 		else
 		{
-			printf("data is error\r\n");
+			debug_send_it_data((uint8_t *)"data is error\r\n", 14);
 		}
 
 		/* 清空临时接收缓冲区 */

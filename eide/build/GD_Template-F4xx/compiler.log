@@ -1,7 +1,43 @@
 >>> cc
 
-
+./../Hardware/src/bitband.c:58:9: warning: implicitly declaring library function 'printf' with type 'int (const char *, ...)' [-Wimplicit-function-declaration]
+        printf("GPIOA Pin 5 Set: Passed\n");
+        ^
+./../Hardware/src/bitband.c:58:9: note: include the header <stdio.h> or explicitly provide a declaration for 'printf'
+1 warning generated.
+./../Hardware/src/dip_switch.c:91:2: warning: implicitly declaring library function 'printf' with type 'int (const char *, ...)' [-Wimplicit-function-declaration]
+        printf("DIP Switch Value: 0x%02X\n", switch_value);
+        ^
+./../Hardware/src/dip_switch.c:91:2: note: include the header <stdio.h> or explicitly provide a declaration for 'printf'
+1 warning generated.
+./../Hardware/src/debug_uart.c:93:39: warning: implicit conversion from enumeration type 'usart_flag_enum' to different enumeration type 'usart_interrupt_enum' [-Wenum-conversion]
+        usart_interrupt_disable(DEBUG_USART, USART_FLAG_TBE); // 禁止发送中断
+        ~~~~~~~~~~~~~~~~~~~~~~~              ^~~~~~~~~~~~~~
+./../Hardware/src/debug_uart.c:94:39: warning: implicit conversion from enumeration type 'usart_flag_enum' to different enumeration type 'usart_interrupt_enum' [-Wenum-conversion]
+        usart_interrupt_disable(DEBUG_USART, USART_FLAG_TC);  // 禁止发送完成中断
+        ~~~~~~~~~~~~~~~~~~~~~~~              ^~~~~~~~~~~~~
+./../Hardware/src/debug_uart.c:152:63: warning: multi-character character constant [-Wmultichar]
+                if (Temp_Recevice_Count > 0 && memchr(Temp_Recevice_Buffer, '\r\n', Temp_Recevice_Count) != NULL)
+                                                                            ^
+3 warnings generated.
+./../Hardware/src/rs485.c:97:39: warning: implicit conversion from enumeration type 'usart_flag_enum' to different enumeration type 'usart_interrupt_enum' [-Wenum-conversion]
+        usart_interrupt_disable(RS485_USART, USART_FLAG_TBE); // 禁止发送中断
+        ~~~~~~~~~~~~~~~~~~~~~~~              ^~~~~~~~~~~~~~
+./../Hardware/src/rs485.c:98:39: warning: implicit conversion from enumeration type 'usart_flag_enum' to different enumeration type 'usart_interrupt_enum' [-Wenum-conversion]
+        usart_interrupt_disable(RS485_USART, USART_FLAG_TC);  // 禁止发送完成中断
+        ~~~~~~~~~~~~~~~~~~~~~~~              ^~~~~~~~~~~~~
+./../Hardware/src/rs485.c:163:63: warning: multi-character character constant [-Wmultichar]
+                if (Temp_Recevice_Count > 0 && memchr(Temp_Recevice_Buffer, '\r\n', Temp_Recevice_Count) != NULL)
+                                                                            ^
+3 warnings generated.
+./../Hardware/src/eeprom.c:123:25: warning: result of comparison of constant 256 with expression of type 'uint8_t' (aka 'unsigned char') is always true [-Wtautological-constant-out-of-range-compare]
+        for (uint8_t i = 10; i < sizeof(read_data); i++)
+                             ~ ^ ~~~~~~~~~~~~~~~~~
+./../Hardware/src/eeprom.c:165:24: warning: result of comparison of constant 256 with expression of type 'uint8_t' (aka 'unsigned char') is always true [-Wtautological-constant-out-of-range-compare]
+        for (uint8_t i = 0; i < sizeof(read_data); i++)
+                            ~ ^ ~~~~~~~~~~~~~~~~~
+2 warnings generated.
 
 >>> ld
 
-Program Size: Code=12588 RO-data=2188 RW-data=28 ZI-data=5996  
+Program Size: Code=11040 RO-data=2156 RW-data=4 ZI-data=5996  

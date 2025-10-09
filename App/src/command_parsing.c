@@ -32,8 +32,10 @@ static void handle_power(void)
 
 static void handle_unlock_alert(void)
 {
-    uint16_t val = INA226_Device_Info.CHG_Ina226_Get_Die_ID();
-    sprintf((char *)send_buffer, "Alert is Ulock=0x%04X\r\n", val);
+    // uint16_t val = INA226_Device_Info.CHG_Ina226_Get_Die_ID();
+    // sprintf((char *)send_buffer, "Alert is Ulock=0x%04X\r\n", val);
+    INA226_Device_Info.CHG_Ina226_Get_Die_ID();
+    sprintf((char *)send_buffer, "Alert is Ulock");
 }
 
 static void handle_manufacturer_id(void)

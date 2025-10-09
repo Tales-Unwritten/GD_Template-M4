@@ -188,13 +188,13 @@ void can_transmit_data(uint8_t *data, uint8_t len)
         FlagStatus tx_empty1 = can_flag_get(CANX, CAN_FLAG_TME1);
         FlagStatus tx_empty2 = can_flag_get(CANX, CAN_FLAG_TME2);
         
-        printf("TX Mailbox Empty Flags - 0:%d, 1:%d, 2:%d\n", 
+        printf("TX Mailbox Empty Flags - 0:%d, 1:%d, 2:%d\r\n", 
                tx_empty0, tx_empty1, tx_empty2);
         
         return;
     }
 
-    printf("Using mailbox %d for transmission\n", mailbox);
+    printf("Using mailbox %d for transmission\r\n", mailbox);
     
     // 等待发送完成
     uint32_t timeout = 0xFFFF;
@@ -227,12 +227,12 @@ static void CANx_RX_IRQHandler(void)
         // 检查FIFO溢出错误
         if (can_interrupt_flag_get(CANX, CAN_INT_FLAG_RFO1) == SET) {
             can_interrupt_flag_clear(CANX, CAN_INT_FLAG_RFO1);
-            printf("CAN FIFO1 overflow!\n");  // 可选：添加错误提示
+            printf("CAN FIFO1 overflow!\r\n");  // 可选：添加错误提示
         }
 
         // 检查错误警告标志
         if (can_flag_get(CANX, CAN_FLAG_WERR) == SET) {
-            printf("CAN warning error!\n");   // 可选：添加错误提示
+            printf("CAN warning error!\r\n");   // 可选：添加错误提示
         }
 
         can_interrupt_flag_clear(CANX, CAN_INT_FLAG_RFL1);
@@ -242,7 +242,7 @@ static void CANx_RX_IRQHandler(void)
     // 可选：添加其他中断标志检查
     if (can_interrupt_flag_get(CANX, CAN_INT_FLAG_BOERR) == SET) {
         can_interrupt_flag_clear(CANX, CAN_INT_FLAG_BOERR);
-        printf("CAN bus off!\n");
+        printf("CAN bus off!\r\n");
     }
 }
 

@@ -84,7 +84,7 @@ static float INA226_Get_Power(void)
 	static float Power = 0.00f;
 	int16_t Power_Register_Data = 0;
 	Power_Register_Data = Ina226_ReadRegister(&INA226_i2C,&INA226_Info, Cmd_Power_Register);
-	Power = Power_Register_Data * (INA226_Info.Current_LSB * 25);        // Convert to mW
+	Power = (Power_Register_Data * (INA226_Info.Current_LSB * 25));     // Convert to mW
 	return Power;														 // Return the power value in milliwatts
 }
 
