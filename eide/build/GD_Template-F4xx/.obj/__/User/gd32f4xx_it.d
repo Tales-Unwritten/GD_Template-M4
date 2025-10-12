@@ -43,5 +43,5 @@
   ..\User\..\Hardware\inc\can.h \
   ..\Firmware\CMSIS\GD\GD32F4xx\Include\GD32F4xx.h \
   ..\User\..\Hardware\inc\eeprom.h ..\User\..\Hardware\inc\w25q128.h \
-  ..\User\..\App\inc\command_parsing.h ..\User\..\Hardware\inc\rs485.h \
-  ..\User\..\Hardware\inc\ina226.h
+  ..\User\..\App\inc\pc_task.h ..\User\..\App\inc\command_parsing.h \
+  ..\User\..\Hardware\inc\rs485.h ..\User\..\Hardware\inc\ina226.h

@@ -1310,3 +1310,902 @@ These source files will be recompiled
 [2025-10-09 22:52:48]	[done]
 	build successfully !
 
+[2025-10-12 21:52:14]	[info] incremental build: 4 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\pc_task.c': source file has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\User\gd32f4xx_it.c': dependence 'g:\1-VscodeProject\GD-32\GD_Template-M4\eide\..\User\..\App\inc\command_parsing.h' has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\User\main.c': dependence 'g:\1-VscodeProject\GD-32\GD_Template-M4\eide\..\User\..\App\inc\command_parsing.h' has been changed.
+
+[2025-10-12 21:52:17]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Error: L6218E: Undefined symbol RS485_Receive_Buffer (referred from pc_task.o).
+Error: L6218E: Undefined symbol App_Task (referred from main.o).
+Not enough information to list image symbols.
+Finished: 1 information, 0 warning and 2 error messages.
+
+
+[2025-10-12 21:53:34]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\pc_task.c': source file has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\User\main.c': source file has been changed.
+
+[2025-10-12 21:53:35]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Error: L6218E: Undefined symbol RS485_Receive_Buffer (referred from pc_task.o).
+Not enough information to list image symbols.
+Finished: 1 information, 0 warning and 1 error messages.
+
+
+[2025-10-12 21:54:05]	[info] incremental build: 36 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\command_parsing.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\pc_task.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\CMSIS\GD\GD32F4xx\Source\system_gd32f4xx.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_adc.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_can.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_dbg.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_dma.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_exti.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_gpio.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_i2c.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_misc.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_rcu.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_rtc.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_sdio.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_spi.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_syscfg.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_timer.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_tli.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_trng.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_usart.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_wwdgt.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\bitband.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\bmp280.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\bsp_led.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\can.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\debug_uart.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\dip_switch.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\eeprom.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\ina226.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\key.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\rs485.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\soft_i2c.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\w25q128.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\User\gd32f4xx_it.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\User\main.c': compiler options has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\User\systick.c': compiler options has been changed.
+
+[2025-10-12 21:54:07]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Error: L6218E: Undefined symbol RS485_Receive_Buffer (referred from pc_task.o).
+Not enough information to list image symbols.
+Finished: 1 information, 0 warning and 1 error messages.
+
+
+[2025-10-12 21:54:30]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Error: L6218E: Undefined symbol RS485_Receive_Buffer (referred from pc_task.o).
+Not enough information to list image symbols.
+Finished: 1 information, 0 warning and 1 error messages.
+
+
+[2025-10-12 21:55:34]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\pc_task.c': dependence 'g:\1-VscodeProject\GD-32\GD_Template-M4\eide\..\User\..\App\inc\pc_task.h' has been changed.
+
+[2025-10-12 21:55:35]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Error: L6218E: Undefined symbol RS485_Receive_Buffer (referred from pc_task.o).
+Not enough information to list image symbols.
+Finished: 1 information, 0 warning and 1 error messages.
+
+
+[2025-10-12 21:55:44]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\pc_task.c': dependence 'g:\1-VscodeProject\GD-32\GD_Template-M4\eide\..\User\..\App\inc\pc_task.h' has been changed.
+
+[2025-10-12 21:55:45]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Error: L6218E: Undefined symbol RS485_Receive_Buffer (referred from pc_task.o).
+Not enough information to list image symbols.
+Finished: 1 information, 0 warning and 1 error messages.
+
+
+[2025-10-12 21:55:50]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\pc_task.c': dependence 'g:\1-VscodeProject\GD-32\GD_Template-M4\eide\..\User\..\App\inc\pc_task.h' has been changed.
+
+[2025-10-12 21:55:50]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Error: L6218E: Undefined symbol RS485_Receive_Buffer (referred from pc_task.o).
+Not enough information to list image symbols.
+Finished: 1 information, 0 warning and 1 error messages.
+
+
+[2025-10-12 21:56:06]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\pc_task.c': dependence 'g:\1-VscodeProject\GD-32\GD_Template-M4\eide\..\User\..\App\inc\pc_task.h' has been changed.
+
+[2025-10-12 21:56:07]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Error: L6218E: Undefined symbol RS485_Receive_Buffer (referred from pc_task.o).
+Error: L6218E: Undefined symbol rs485_send_it_data (referred from pc_task.o).
+Error: L6218E: Undefined symbol Rs485_Init_config (referred from main.o).
+Not enough information to list image symbols.
+Finished: 1 information, 0 warning and 3 error messages.
+
+
+[2025-10-12 21:56:26]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Error: L6218E: Undefined symbol RS485_Receive_Buffer (referred from pc_task.o).
+Not enough information to list image symbols.
+Finished: 1 information, 0 warning and 1 error messages.
+
+
+[2025-10-12 21:56:32]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Error: L6218E: Undefined symbol RS485_Receive_Buffer (referred from pc_task.o).
+Not enough information to list image symbols.
+Finished: 1 information, 0 warning and 1 error messages.
+
+
+[2025-10-12 21:57:11]	[info] incremental build: 5 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\command_parsing.c': dependence 'g:\1-VscodeProject\GD-32\GD_Template-M4\eide\..\User\..\Hardware\inc\rs485.h' has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\pc_task.c': dependence 'g:\1-VscodeProject\GD-32\GD_Template-M4\eide\..\User\..\Hardware\inc\rs485.h' has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\rs485.c': dependence 'g:\1-VscodeProject\GD-32\GD_Template-M4\eide\..\User\..\Hardware\inc\rs485.h' has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\User\gd32f4xx_it.c': dependence 'g:\1-VscodeProject\GD-32\GD_Template-M4\eide\..\User\..\Hardware\inc\rs485.h' has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\User\main.c': dependence 'g:\1-VscodeProject\GD-32\GD_Template-M4\eide\..\User\..\Hardware\inc\rs485.h' has been changed.
+
+[2025-10-12 21:57:11]	compilation failed at : "g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\pc_task.c", exit code: 1
+command: 
+  "D:\KELE5 MDK\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc -std=c99 -I../Firmware/GD32F4xx_standard_peripheral/Include -I../Firmware/CMSIS -I../Firmware/CMSIS/GD/GD32F4xx/Include -I../User -I../Hardware/inc -I../App/inc -I.cmsis/include -IRTE/_GD_Template-F4xx -D"USE_STDPERIPH_DRIVER" -D"GD32F470" -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -D__MICROLIB -O2 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/GD_Template-F4xx/.obj/__/App/src/pc_task.o -MMD ./../App/src/pc_task.c
+   at unify_builder.Program.Main(String[] args_)
+---
+./../App/src/pc_task.c:7:13: error: use of undeclared identifier 'RS485_Receive_Buffer'; did you mean 'Rs485_Receive_Buffer'?
+        if (RS485_Receive_Buffer[i].Buffer_Status == 1)
+            ^~~~~~~~~~~~~~~~~~~~
+            Rs485_Receive_Buffer
+../User\../Hardware/inc/rs485.h:48:29: note: 'Rs485_Receive_Buffer' declared here
+extern PC_Transmit_Buffer_t Rs485_Receive_Buffer[CHCHE_COUNT_485];
+                            ^
+./../App/src/pc_task.c:9:17: error: use of undeclared identifier 'RS485_Receive_Buffer'; did you mean 'Rs485_Receive_Buffer'?
+            if (RS485_Receive_Buffer[i].Buffer_Length > 1)
+                ^~~~~~~~~~~~~~~~~~~~
+                Rs485_Receive_Buffer
+../User\../Hardware/inc/rs485.h:48:29: note: 'Rs485_Receive_Buffer' declared here
+extern PC_Transmit_Buffer_t Rs485_Receive_Buffer[CHCHE_COUNT_485];
+                            ^
+./../App/src/pc_task.c:12:25: error: use of undeclared identifier 'RS485_Receive_Buffer'; did you mean 'Rs485_Receive_Buffer'?
+                return &RS485_Receive_Buffer[i];
+                        ^~~~~~~~~~~~~~~~~~~~
+                        Rs485_Receive_Buffer
+../User\../Hardware/inc/rs485.h:48:29: note: 'Rs485_Receive_Buffer' declared here
+extern PC_Transmit_Buffer_t Rs485_Receive_Buffer[CHCHE_COUNT_485];
+                            ^
+./../App/src/pc_task.c:16:17: error: use of undeclared identifier 'RS485_Receive_Buffer'; did you mean 'Rs485_Receive_Buffer'?
+                RS485_Receive_Buffer[i].Buffer_Status = 0; // 重置状态
+                ^~~~~~~~~~~~~~~~~~~~
+                Rs485_Receive_Buffer
+../User\../Hardware/inc/rs485.h:48:29: note: 'Rs485_Receive_Buffer' declared here
+extern PC_Transmit_Buffer_t Rs485_Receive_Buffer[CHCHE_COUNT_485];
+                            ^
+4 errors generated.
+
+[2025-10-12 21:57:23]	[info] incremental build: 5 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\command_parsing.c': dependence 'g:\1-VscodeProject\GD-32\GD_Template-M4\eide\..\User\..\Hardware\inc\rs485.h' has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\pc_task.c': object (.o) file not exist
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\rs485.c': dependence 'g:\1-VscodeProject\GD-32\GD_Template-M4\eide\..\User\..\Hardware\inc\rs485.h' has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\User\gd32f4xx_it.c': dependence 'g:\1-VscodeProject\GD-32\GD_Template-M4\eide\..\User\..\Hardware\inc\rs485.h' has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\User\main.c': dependence 'g:\1-VscodeProject\GD-32\GD_Template-M4\eide\..\User\..\Hardware\inc\rs485.h' has been changed.
+
+[2025-10-12 21:57:24]	compilation failed at : "g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\pc_task.c", exit code: 1
+command: 
+  "D:\KELE5 MDK\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc -std=c99 -I../Firmware/GD32F4xx_standard_peripheral/Include -I../Firmware/CMSIS -I../Firmware/CMSIS/GD/GD32F4xx/Include -I../User -I../Hardware/inc -I../App/inc -I.cmsis/include -IRTE/_GD_Template-F4xx -D"USE_STDPERIPH_DRIVER" -D"GD32F470" -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -D__MICROLIB -O2 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/GD_Template-F4xx/.obj/__/App/src/pc_task.o -MMD ./../App/src/pc_task.c
+   at unify_builder.Program.Main(String[] args_)
+---
+./../App/src/pc_task.c:7:13: error: use of undeclared identifier 'RS485_Receive_Buffer'; did you mean 'Rs485_Receive_Buffer'?
+        if (RS485_Receive_Buffer[i].Buffer_Status == 1)
+            ^~~~~~~~~~~~~~~~~~~~
+            Rs485_Receive_Buffer
+../User\../Hardware/inc/rs485.h:48:29: note: 'Rs485_Receive_Buffer' declared here
+extern PC_Transmit_Buffer_t Rs485_Receive_Buffer[CHCHE_COUNT_485]   ; // RS485接收缓冲区
+                            ^
+./../App/src/pc_task.c:9:17: error: use of undeclared identifier 'RS485_Receive_Buffer'; did you mean 'Rs485_Receive_Buffer'?
+            if (RS485_Receive_Buffer[i].Buffer_Length > 1)
+                ^~~~~~~~~~~~~~~~~~~~
+                Rs485_Receive_Buffer
+../User\../Hardware/inc/rs485.h:48:29: note: 'Rs485_Receive_Buffer' declared here
+extern PC_Transmit_Buffer_t Rs485_Receive_Buffer[CHCHE_COUNT_485]   ; // RS485接收缓冲区
+                            ^
+./../App/src/pc_task.c:12:25: error: use of undeclared identifier 'RS485_Receive_Buffer'; did you mean 'Rs485_Receive_Buffer'?
+                return &RS485_Receive_Buffer[i];
+                        ^~~~~~~~~~~~~~~~~~~~
+                        Rs485_Receive_Buffer
+../User\../Hardware/inc/rs485.h:48:29: note: 'Rs485_Receive_Buffer' declared here
+extern PC_Transmit_Buffer_t Rs485_Receive_Buffer[CHCHE_COUNT_485]   ; // RS485接收缓冲区
+                            ^
+./../App/src/pc_task.c:16:17: error: use of undeclared identifier 'RS485_Receive_Buffer'; did you mean 'Rs485_Receive_Buffer'?
+                RS485_Receive_Buffer[i].Buffer_Status = 0; // 重置状态
+                ^~~~~~~~~~~~~~~~~~~~
+                Rs485_Receive_Buffer
+../User\../Hardware/inc/rs485.h:48:29: note: 'Rs485_Receive_Buffer' declared here
+extern PC_Transmit_Buffer_t Rs485_Receive_Buffer[CHCHE_COUNT_485]   ; // RS485接收缓冲区
+                            ^
+4 errors generated.
+
+[2025-10-12 21:57:32]	[info] incremental build: 5 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\command_parsing.c': dependence 'g:\1-VscodeProject\GD-32\GD_Template-M4\eide\..\User\..\Hardware\inc\rs485.h' has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\pc_task.c': object (.o) file not exist
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\rs485.c': dependence 'g:\1-VscodeProject\GD-32\GD_Template-M4\eide\..\User\..\Hardware\inc\rs485.h' has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\User\gd32f4xx_it.c': dependence 'g:\1-VscodeProject\GD-32\GD_Template-M4\eide\..\User\..\Hardware\inc\rs485.h' has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\User\main.c': dependence 'g:\1-VscodeProject\GD-32\GD_Template-M4\eide\..\User\..\Hardware\inc\rs485.h' has been changed.
+
+[2025-10-12 21:57:33]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Error: L6218E: Undefined symbol RS485_Receive_Buffer (referred from pc_task.o).
+Not enough information to list image symbols.
+Finished: 1 information, 0 warning and 1 error messages.
+
+
+[2025-10-12 21:57:38]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Error: L6218E: Undefined symbol RS485_Receive_Buffer (referred from pc_task.o).
+Not enough information to list image symbols.
+Finished: 1 information, 0 warning and 1 error messages.
+
+
+[2025-10-12 21:58:23]	[info] incremental build: 5 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\command_parsing.c': dependence 'g:\1-VscodeProject\GD-32\GD_Template-M4\eide\..\User\..\Hardware\inc\rs485.h' has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\pc_task.c': dependence 'g:\1-VscodeProject\GD-32\GD_Template-M4\eide\..\User\..\Hardware\inc\rs485.h' has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\rs485.c': dependence 'g:\1-VscodeProject\GD-32\GD_Template-M4\eide\..\User\..\Hardware\inc\rs485.h' has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\User\gd32f4xx_it.c': dependence 'g:\1-VscodeProject\GD-32\GD_Template-M4\eide\..\User\..\Hardware\inc\rs485.h' has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\User\main.c': dependence 'g:\1-VscodeProject\GD-32\GD_Template-M4\eide\..\User\..\Hardware\inc\rs485.h' has been changed.
+
+[2025-10-12 21:58:23]	compilation failed at : "g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\pc_task.c", exit code: 1
+command: 
+  "D:\KELE5 MDK\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc -std=c99 -I../Firmware/GD32F4xx_standard_peripheral/Include -I../Firmware/CMSIS -I../Firmware/CMSIS/GD/GD32F4xx/Include -I../User -I../Hardware/inc -I../App/inc -I.cmsis/include -IRTE/_GD_Template-F4xx -D"USE_STDPERIPH_DRIVER" -D"GD32F470" -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -D__MICROLIB -O2 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/GD_Template-F4xx/.obj/__/App/src/pc_task.o -MMD ./../App/src/pc_task.c
+   at unify_builder.Program.Main(String[] args_)
+---
+./../App/src/pc_task.c:7:13: error: use of undeclared identifier 'RS485_Receive_Buffer'; did you mean 'Rs485_Receive_Buffer'?
+        if (RS485_Receive_Buffer[i].Buffer_Status == 1)
+            ^~~~~~~~~~~~~~~~~~~~
+            Rs485_Receive_Buffer
+../User\../Hardware/inc/rs485.h:48:29: note: 'Rs485_Receive_Buffer' declared here
+extern PC_Transmit_Buffer_t Rs485_Receive_Buffer[CHCHE_COUNT_485];
+                            ^
+./../App/src/pc_task.c:9:17: error: use of undeclared identifier 'RS485_Receive_Buffer'; did you mean 'Rs485_Receive_Buffer'?
+            if (RS485_Receive_Buffer[i].Buffer_Length > 1)
+                ^~~~~~~~~~~~~~~~~~~~
+                Rs485_Receive_Buffer
+../User\../Hardware/inc/rs485.h:48:29: note: 'Rs485_Receive_Buffer' declared here
+extern PC_Transmit_Buffer_t Rs485_Receive_Buffer[CHCHE_COUNT_485];
+                            ^
+./../App/src/pc_task.c:12:25: error: use of undeclared identifier 'RS485_Receive_Buffer'; did you mean 'Rs485_Receive_Buffer'?
+                return &RS485_Receive_Buffer[i];
+                        ^~~~~~~~~~~~~~~~~~~~
+                        Rs485_Receive_Buffer
+../User\../Hardware/inc/rs485.h:48:29: note: 'Rs485_Receive_Buffer' declared here
+extern PC_Transmit_Buffer_t Rs485_Receive_Buffer[CHCHE_COUNT_485];
+                            ^
+./../App/src/pc_task.c:16:17: error: use of undeclared identifier 'RS485_Receive_Buffer'; did you mean 'Rs485_Receive_Buffer'?
+                RS485_Receive_Buffer[i].Buffer_Status = 0; // 重置状态
+                ^~~~~~~~~~~~~~~~~~~~
+                Rs485_Receive_Buffer
+../User\../Hardware/inc/rs485.h:48:29: note: 'Rs485_Receive_Buffer' declared here
+extern PC_Transmit_Buffer_t Rs485_Receive_Buffer[CHCHE_COUNT_485];
+                            ^
+4 errors generated.
+
+[2025-10-12 21:58:27]	[info] incremental build: 4 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\pc_task.c': object (.o) file not exist
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\rs485.c': dependence 'g:\1-VscodeProject\GD-32\GD_Template-M4\eide\..\User\..\Hardware\inc\rs485.h' has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\User\gd32f4xx_it.c': dependence 'g:\1-VscodeProject\GD-32\GD_Template-M4\eide\..\User\..\Hardware\inc\rs485.h' has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\User\main.c': dependence 'g:\1-VscodeProject\GD-32\GD_Template-M4\eide\..\User\..\Hardware\inc\rs485.h' has been changed.
+
+[2025-10-12 21:58:27]	compilation failed at : "g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\pc_task.c", exit code: 1
+command: 
+  "D:\KELE5 MDK\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc -std=c99 -I../Firmware/GD32F4xx_standard_peripheral/Include -I../Firmware/CMSIS -I../Firmware/CMSIS/GD/GD32F4xx/Include -I../User -I../Hardware/inc -I../App/inc -I.cmsis/include -IRTE/_GD_Template-F4xx -D"USE_STDPERIPH_DRIVER" -D"GD32F470" -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -D__MICROLIB -O2 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/GD_Template-F4xx/.obj/__/App/src/pc_task.o -MMD ./../App/src/pc_task.c
+   at unify_builder.Program.Main(String[] args_)
+---
+./../App/src/pc_task.c:7:13: error: use of undeclared identifier 'RS485_Receive_Buffer'; did you mean 'Rs485_Receive_Buffer'?
+        if (RS485_Receive_Buffer[i].Buffer_Status == 1)
+            ^~~~~~~~~~~~~~~~~~~~
+            Rs485_Receive_Buffer
+../User\../Hardware/inc/rs485.h:48:29: note: 'Rs485_Receive_Buffer' declared here
+extern PC_Transmit_Buffer_t Rs485_Receive_Buffer[CHCHE_COUNT_485];
+                            ^
+./../App/src/pc_task.c:9:17: error: use of undeclared identifier 'RS485_Receive_Buffer'; did you mean 'Rs485_Receive_Buffer'?
+            if (RS485_Receive_Buffer[i].Buffer_Length > 1)
+                ^~~~~~~~~~~~~~~~~~~~
+                Rs485_Receive_Buffer
+../User\../Hardware/inc/rs485.h:48:29: note: 'Rs485_Receive_Buffer' declared here
+extern PC_Transmit_Buffer_t Rs485_Receive_Buffer[CHCHE_COUNT_485];
+                            ^
+./../App/src/pc_task.c:12:25: error: use of undeclared identifier 'RS485_Receive_Buffer'; did you mean 'Rs485_Receive_Buffer'?
+                return &RS485_Receive_Buffer[i];
+                        ^~~~~~~~~~~~~~~~~~~~
+                        Rs485_Receive_Buffer
+../User\../Hardware/inc/rs485.h:48:29: note: 'Rs485_Receive_Buffer' declared here
+extern PC_Transmit_Buffer_t Rs485_Receive_Buffer[CHCHE_COUNT_485];
+                            ^
+./../App/src/pc_task.c:16:17: error: use of undeclared identifier 'RS485_Receive_Buffer'; did you mean 'Rs485_Receive_Buffer'?
+                RS485_Receive_Buffer[i].Buffer_Status = 0; // 重置状态
+                ^~~~~~~~~~~~~~~~~~~~
+                Rs485_Receive_Buffer
+../User\../Hardware/inc/rs485.h:48:29: note: 'Rs485_Receive_Buffer' declared here
+extern PC_Transmit_Buffer_t Rs485_Receive_Buffer[CHCHE_COUNT_485];
+                            ^
+4 errors generated.
+
+[2025-10-12 21:59:20]	[info] incremental build: 4 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\pc_task.c': object (.o) file not exist
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\rs485.c': dependence 'g:\1-VscodeProject\GD-32\GD_Template-M4\eide\..\User\..\Hardware\inc\rs485.h' has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\User\gd32f4xx_it.c': dependence 'g:\1-VscodeProject\GD-32\GD_Template-M4\eide\..\User\..\Hardware\inc\rs485.h' has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\User\main.c': dependence 'g:\1-VscodeProject\GD-32\GD_Template-M4\eide\..\User\..\Hardware\inc\rs485.h' has been changed.
+
+[2025-10-12 21:59:22]	[done]
+	build successfully !
+
+[2025-10-12 22:00:28]	[info] incremental build: 5 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\command_parsing.c': dependence 'g:\1-VscodeProject\GD-32\GD_Template-M4\eide\..\User\..\Hardware\inc\rs485.h' has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\pc_task.c': dependence 'g:\1-VscodeProject\GD-32\GD_Template-M4\eide\..\User\..\Hardware\inc\rs485.h' has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\rs485.c': source file has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\User\gd32f4xx_it.c': dependence 'g:\1-VscodeProject\GD-32\GD_Template-M4\eide\..\User\main.h' has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\User\main.c': source file has been changed.
+
+[2025-10-12 22:00:29]	compilation failed at : "g:\1-VscodeProject\GD-32\GD_Template-M4\User\gd32f4xx_it.c", exit code: 1
+command: 
+  "D:\KELE5 MDK\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc -std=c99 -I../Firmware/GD32F4xx_standard_peripheral/Include -I../Firmware/CMSIS -I../Firmware/CMSIS/GD/GD32F4xx/Include -I../User -I../Hardware/inc -I../App/inc -I.cmsis/include -IRTE/_GD_Template-F4xx -D"USE_STDPERIPH_DRIVER" -D"GD32F470" -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -D__MICROLIB -O2 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/GD_Template-F4xx/.obj/__/User/gd32f4xx_it.o -MMD ./../User/gd32f4xx_it.c
+   at unify_builder.Program.Main(String[] args_)
+---
+In file included from ./../User/gd32f4xx_it.c:39:
+In file included from ../User/main.h:19:
+In file included from ../User/../App/inc/pc_task.h:9:
+../User\../App/inc/command_parsing.h:14:3: error: typedef redefinition with different types ('struct ChannelCmdDef' vs 'struct ChannelCmdDef')
+} ChannelCmdDef;
+  ^
+../User/main.h:18:10: note: '../User\../App/inc/command_parsing.h' included multiple times, additional include site here
+#include "../App/inc/command_parsing.h"
+         ^
+../User/../App/inc/pc_task.h:9:10: note: '../User\../App/inc/command_parsing.h' included multiple times, additional include site here
+#include "../App/inc/command_parsing.h"
+         ^
+../User\../App/inc/command_parsing.h:14:3: note: unguarded header; consider using #ifdef guards or #pragma once
+} ChannelCmdDef;
+  ^
+In file included from ./../User/gd32f4xx_it.c:39:
+In file included from ../User/main.h:19:
+In file included from ../User/../App/inc/pc_task.h:9:
+../User\../App/inc/command_parsing.h:15:28: error: redefinition of 'channel_cmd'
+static const ChannelCmdDef channel_cmd[34] = {
+                           ^
+../User/main.h:18:10: note: '../User\../App/inc/command_parsing.h' included multiple times, additional include site here
+#include "../App/inc/command_parsing.h"
+         ^
+../User/../App/inc/pc_task.h:9:10: note: '../User\../App/inc/command_parsing.h' included multiple times, additional include site here
+#include "../App/inc/command_parsing.h"
+         ^
+../User\../App/inc/command_parsing.h:15:28: note: unguarded header; consider using #ifdef guards or #pragma once
+static const ChannelCmdDef channel_cmd[34] = {
+                           ^
+In file included from ./../User/gd32f4xx_it.c:39:
+In file included from ../User/main.h:20:
+../User\../App/inc/command_parsing.h:14:3: error: typedef redefinition with different types ('struct ChannelCmdDef' vs 'struct ChannelCmdDef')
+} ChannelCmdDef;
+  ^
+../User/main.h:18:10: note: '../User\../App/inc/command_parsing.h' included multiple times, additional include site here
+#include "../App/inc/command_parsing.h"
+         ^
+../User/main.h:20:10: note: '../User\../App/inc/command_parsing.h' included multiple times, additional include site here
+#include "../App/inc/command_parsing.h"
+         ^
+../User\../App/inc/command_parsing.h:14:3: note: unguarded header; consider using #ifdef guards or #pragma once
+} ChannelCmdDef;
+  ^
+In file included from ./../User/gd32f4xx_it.c:39:
+In file included from ../User/main.h:20:
+../User\../App/inc/command_parsing.h:15:28: error: redefinition of 'channel_cmd'
+static const ChannelCmdDef channel_cmd[34] = {
+                           ^
+../User/main.h:18:10: note: '../User\../App/inc/command_parsing.h' included multiple times, additional include site here
+#include "../App/inc/command_parsing.h"
+         ^
+../User/main.h:20:10: note: '../User\../App/inc/command_parsing.h' included multiple times, additional include site here
+#include "../App/inc/command_parsing.h"
+         ^
+../User\../App/inc/command_parsing.h:15:28: note: unguarded header; consider using #ifdef guards or #pragma once
+static const ChannelCmdDef channel_cmd[34] = {
+                           ^
+4 errors generated.
+
+[2025-10-12 22:00:43]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\User\gd32f4xx_it.c': object (.o) file not exist
+'g:\1-VscodeProject\GD-32\GD_Template-M4\User\main.c': source file has been changed.
+
+[2025-10-12 22:00:43]	compilation failed at : "g:\1-VscodeProject\GD-32\GD_Template-M4\User\gd32f4xx_it.c", exit code: 1
+command: 
+  "D:\KELE5 MDK\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc -std=c99 -I../Firmware/GD32F4xx_standard_peripheral/Include -I../Firmware/CMSIS -I../Firmware/CMSIS/GD/GD32F4xx/Include -I../User -I../Hardware/inc -I../App/inc -I.cmsis/include -IRTE/_GD_Template-F4xx -D"USE_STDPERIPH_DRIVER" -D"GD32F470" -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -D__MICROLIB -O2 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/GD_Template-F4xx/.obj/__/User/gd32f4xx_it.o -MMD ./../User/gd32f4xx_it.c
+   at unify_builder.Program.Main(String[] args_)
+---
+In file included from ./../User/gd32f4xx_it.c:39:
+In file included from ../User/main.h:19:
+In file included from ../User/../App/inc/pc_task.h:9:
+../User\../App/inc/command_parsing.h:14:3: error: typedef redefinition with different types ('struct ChannelCmdDef' vs 'struct ChannelCmdDef')
+} ChannelCmdDef;
+  ^
+../User/main.h:18:10: note: '../User\../App/inc/command_parsing.h' included multiple times, additional include site here
+#include "../App/inc/command_parsing.h"
+         ^
+../User/../App/inc/pc_task.h:9:10: note: '../User\../App/inc/command_parsing.h' included multiple times, additional include site here
+#include "../App/inc/command_parsing.h"
+         ^
+../User\../App/inc/command_parsing.h:14:3: note: unguarded header; consider using #ifdef guards or #pragma once
+} ChannelCmdDef;
+  ^
+In file included from ./../User/gd32f4xx_it.c:39:
+In file included from ../User/main.h:19:
+In file included from ../User/../App/inc/pc_task.h:9:
+../User\../App/inc/command_parsing.h:15:28: error: redefinition of 'channel_cmd'
+static const ChannelCmdDef channel_cmd[34] = {
+                           ^
+../User/main.h:18:10: note: '../User\../App/inc/command_parsing.h' included multiple times, additional include site here
+#include "../App/inc/command_parsing.h"
+         ^
+../User/../App/inc/pc_task.h:9:10: note: '../User\../App/inc/command_parsing.h' included multiple times, additional include site here
+#include "../App/inc/command_parsing.h"
+         ^
+../User\../App/inc/command_parsing.h:15:28: note: unguarded header; consider using #ifdef guards or #pragma once
+static const ChannelCmdDef channel_cmd[34] = {
+                           ^
+2 errors generated.
+
+[2025-10-12 22:01:04]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\User\gd32f4xx_it.c': object (.o) file not exist
+'g:\1-VscodeProject\GD-32\GD_Template-M4\User\main.c': source file has been changed.
+
+[2025-10-12 22:01:05]	[done]
+	build successfully !
+
+[2025-10-12 22:04:10]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+
+[2025-10-12 22:04:11]	[done]
+	build successfully !
+
+[2025-10-12 22:13:45]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\pc_task.c': source file has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\debug_uart.c': source file has been changed.
+
+[2025-10-12 22:13:46]	[done]
+	build successfully !
+
+[2025-10-12 22:13:57]	[done]
+	build successfully !
+
+[2025-10-12 22:14:25]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\debug_uart.c': source file has been changed.
+
+[2025-10-12 22:14:26]	[done]
+	build successfully !
+
+[2025-10-12 22:15:59]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\debug_uart.c': source file has been changed.
+
+[2025-10-12 22:16:00]	[done]
+	build successfully !
+
+[2025-10-12 22:16:24]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\debug_uart.c': source file has been changed.
+
+[2025-10-12 22:16:25]	[done]
+	build successfully !
+
+[2025-10-12 22:19:33]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\pc_task.c': source file has been changed.
+
+[2025-10-12 22:19:34]	[done]
+	build successfully !
+
+[2025-10-12 22:20:46]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\rs485.c': source file has been changed.
+
+[2025-10-12 22:20:46]	[done]
+	build successfully !
+
+[2025-10-12 22:21:02]	[done]
+	build successfully !
+
+[2025-10-12 22:21:47]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+
+[2025-10-12 22:21:48]	[done]
+	build successfully !
+
+[2025-10-12 22:28:44]	[info] incremental build: 4 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\pc_task.c': dependence 'g:\1-VscodeProject\GD-32\GD_Template-M4\eide\..\User\..\App\inc\command_parsing.h' has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\User\gd32f4xx_it.c': dependence 'g:\1-VscodeProject\GD-32\GD_Template-M4\eide\..\User\..\App\inc\command_parsing.h' has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\User\main.c': dependence 'g:\1-VscodeProject\GD-32\GD_Template-M4\eide\..\User\..\App\inc\command_parsing.h' has been changed.
+
+[2025-10-12 22:28:45]	[done]
+	build successfully !
+
+[2025-10-12 22:29:17]	[info] incremental build: 4 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\command_parsing.c': dependence 'g:\1-VscodeProject\GD-32\GD_Template-M4\eide\..\User\..\App\inc\command_parsing.h' has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\pc_task.c': dependence 'g:\1-VscodeProject\GD-32\GD_Template-M4\eide\..\User\..\App\inc\command_parsing.h' has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\User\gd32f4xx_it.c': dependence 'g:\1-VscodeProject\GD-32\GD_Template-M4\eide\..\User\..\App\inc\command_parsing.h' has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\User\main.c': dependence 'g:\1-VscodeProject\GD-32\GD_Template-M4\eide\..\User\..\App\inc\command_parsing.h' has been changed.
+
+[2025-10-12 22:29:18]	[done]
+	build successfully !
+
+[2025-10-12 22:30:42]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+
+[2025-10-12 22:30:43]	[done]
+	build successfully !
+
+[2025-10-12 22:31:55]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+
+[2025-10-12 22:31:56]	[done]
+	build successfully !
+
+[2025-10-12 22:33:17]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+
+[2025-10-12 22:33:18]	[done]
+	build successfully !
+
+[2025-10-12 22:33:26]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+
+[2025-10-12 22:33:27]	[done]
+	build successfully !
+
+[2025-10-12 22:34:05]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+
+[2025-10-12 22:34:06]	[done]
+	build successfully !
+
+[2025-10-12 22:35:41]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\pc_task.c': source file has been changed.
+
+[2025-10-12 22:35:42]	[done]
+	build successfully !
+
+[2025-10-12 22:37:04]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+
+[2025-10-12 22:37:05]	[done]
+	build successfully !
+
+[2025-10-12 22:44:08]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\pc_task.c': source file has been changed.
+
+[2025-10-12 22:44:09]	[done]
+	build successfully !
+
+[2025-10-12 22:44:32]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\pc_task.c': source file has been changed.
+
+[2025-10-12 22:44:33]	[done]
+	build successfully !
+
+[2025-10-12 22:44:48]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\pc_task.c': source file has been changed.
+
+[2025-10-12 22:44:49]	[done]
+	build successfully !
+
+[2025-10-12 22:54:49]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\pc_task.c': source file has been changed.
+
+[2025-10-12 22:54:50]	[done]
+	build successfully !
+
+[2025-10-12 22:55:29]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\pc_task.c': source file has been changed.
+
+[2025-10-12 22:55:30]	[done]
+	build successfully !
+
+[2025-10-12 22:56:16]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+
+[2025-10-12 22:56:17]	[done]
+	build successfully !
+
+[2025-10-12 22:58:24]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+
+[2025-10-12 22:58:24]	[done]
+	build successfully !
+
+[2025-10-12 22:58:28]	[done]
+	build successfully !
+
+[2025-10-12 23:06:14]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\pc_task.c': source file has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\debug_uart.c': source file has been changed.
+
+[2025-10-12 23:06:15]	compilation failed at : "g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\debug_uart.c", exit code: 1
+command: 
+  "D:\KELE5 MDK\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc -std=c99 -I../Firmware/GD32F4xx_standard_peripheral/Include -I../Firmware/CMSIS -I../Firmware/CMSIS/GD/GD32F4xx/Include -I../User -I../Hardware/inc -I../App/inc -I.cmsis/include -IRTE/_GD_Template-F4xx -D"USE_STDPERIPH_DRIVER" -D"GD32F470" -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -D__MICROLIB -O2 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/GD_Template-F4xx/.obj/__/Hardware/src/debug_uart.o -MMD ./../Hardware/src/debug_uart.c
+   at unify_builder.Program.Main(String[] args_)
+---
+./../Hardware/src/debug_uart.c:94:1: error: expected identifier or '('
+{
+^
+./../Hardware/src/debug_uart.c:156:63: warning: multi-character character constant [-Wmultichar]
+                if (Temp_Recevice_Count > 0 && memchr(Temp_Recevice_Buffer, '\r\n', Temp_Recevice_Count) != NULL)
+                                                                            ^
+1 warning and 1 error generated.
+
+[2025-10-12 23:06:30]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\debug_uart.c': object (.o) file not exist
+
+[2025-10-12 23:06:30]	[done]
+	build successfully !
+
+[2025-10-12 23:11:19]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\debug_uart.c': source file has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\User\main.c': source file has been changed.
+
+[2025-10-12 23:11:20]	[done]
+	build successfully !
+
+[2025-10-12 23:12:51]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\rs485.c': source file has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\User\main.c': source file has been changed.
+
+[2025-10-12 23:12:52]	[done]
+	build successfully !
+
+[2025-10-12 23:14:30]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\User\main.c': source file has been changed.
+
+[2025-10-12 23:14:31]	[done]
+	build successfully !
+
+[2025-10-12 23:38:42]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\pc_task.c': source file has been changed.
+
+[2025-10-12 23:38:43]	[done]
+	build successfully !
+
+[2025-10-12 23:46:32]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+
+[2025-10-12 23:46:33]	[done]
+	build successfully !
+
+[2025-10-13 00:12:50]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+
+[2025-10-13 00:12:50]	[done]
+	build successfully !
+
+[2025-10-13 00:13:46]	[info] incremental build: 4 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\pc_task.c': dependence 'g:\1-VscodeProject\GD-32\GD_Template-M4\eide\..\User\..\App\inc\command_parsing.h' has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\User\gd32f4xx_it.c': dependence 'g:\1-VscodeProject\GD-32\GD_Template-M4\eide\..\User\..\App\inc\command_parsing.h' has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\User\main.c': dependence 'g:\1-VscodeProject\GD-32\GD_Template-M4\eide\..\User\..\App\inc\command_parsing.h' has been changed.
+
+[2025-10-13 00:13:47]	[done]
+	build successfully !
+
+[2025-10-13 00:25:11]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\debug_uart.c': source file has been changed.
+
+[2025-10-13 00:25:12]	[done]
+	build successfully !
+
+[2025-10-13 00:27:01]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\debug_uart.c': source file has been changed.
+
+[2025-10-13 00:27:02]	[done]
+	build successfully !
+
+[2025-10-13 00:28:00]	[info] incremental build: 5 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\command_parsing.c': dependence 'g:\1-VscodeProject\GD-32\GD_Template-M4\eide\..\User\..\Hardware\inc\rs485.h' has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\pc_task.c': source file has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\rs485.c': dependence 'g:\1-VscodeProject\GD-32\GD_Template-M4\eide\..\User\..\Hardware\inc\rs485.h' has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\User\gd32f4xx_it.c': dependence 'g:\1-VscodeProject\GD-32\GD_Template-M4\eide\..\User\..\Hardware\inc\rs485.h' has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\User\main.c': dependence 'g:\1-VscodeProject\GD-32\GD_Template-M4\eide\..\User\..\Hardware\inc\rs485.h' has been changed.
+
+[2025-10-13 00:28:02]	[done]
+	build successfully !
+
+[2025-10-13 00:46:44]	[info] incremental build: 5 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\pc_task.c': source file has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\debug_uart.c': source file has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\User\gd32f4xx_it.c': dependence 'g:\1-VscodeProject\GD-32\GD_Template-M4\eide\..\User\..\App\inc\command_parsing.h' has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\User\main.c': dependence 'g:\1-VscodeProject\GD-32\GD_Template-M4\eide\..\User\..\App\inc\command_parsing.h' has been changed.
+
+[2025-10-13 00:46:45]	compilation failed at : "g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\command_parsing.c", exit code: 1
+command: 
+  "D:\KELE5 MDK\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc -std=c99 -I../Firmware/GD32F4xx_standard_peripheral/Include -I../Firmware/CMSIS -I../Firmware/CMSIS/GD/GD32F4xx/Include -I../User -I../Hardware/inc -I../App/inc -I.cmsis/include -IRTE/_GD_Template-F4xx -D"USE_STDPERIPH_DRIVER" -D"GD32F470" -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mlittle-endian -D__MICROLIB -O2 -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/GD_Template-F4xx/.obj/__/App/src/command_parsing.o -MMD ./../App/src/command_parsing.c
+   at unify_builder.Program.Main(String[] args_)
+---
+In file included from ./../App/src/command_parsing.c:1:
+../User\../App/inc/command_parsing.h:18:21: error: use of undeclared identifier 'send_buffer'
+    sprintf((char *)send_buffer, "Vbus_Val=%0.4f\r\n", val);
+                    ^
+../User\../App/inc/command_parsing.h:24:21: error: use of undeclared identifier 'send_buffer'
+    sprintf((char *)send_buffer, "Curr_Val=%0.4f\r\n", val);
+                    ^
+../User\../App/inc/command_parsing.h:30:21: error: use of undeclared identifier 'send_buffer'
+    sprintf((char *)send_buffer, "shunt_voltage=%0.4f\r\n", val);
+                    ^
+../User\../App/inc/command_parsing.h:36:21: error: use of undeclared identifier 'send_buffer'
+    sprintf((char *)send_buffer, "Power_Value=0x%04X\r\n", val);
+                    ^
+../User\../App/inc/command_parsing.h:44:21: error: use of undeclared identifier 'send_buffer'
+    sprintf((char *)send_buffer, "Alert is Ulock\r\n");
+                    ^
+../User\../App/inc/command_parsing.h:50:21: error: use of undeclared identifier 'send_buffer'
+    sprintf((char *)send_buffer, "Manufacturer_ID=0x%04X\r\n", val);
+                    ^
+../User\../App/inc/command_parsing.h:56:21: error: use of undeclared identifier 'send_buffer'
+    sprintf((char *)send_buffer, "Die_ID=0x%04X\r\n", val);
+                    ^
+7 errors generated.
+
+[2025-10-13 00:47:46]	[info] incremental build: 5 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\command_parsing.c': object (.o) file not exist
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\pc_task.c': source file has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\debug_uart.c': source file has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\User\gd32f4xx_it.c': dependence 'g:\1-VscodeProject\GD-32\GD_Template-M4\eide\..\User\..\App\inc\command_parsing.h' has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\User\main.c': dependence 'g:\1-VscodeProject\GD-32\GD_Template-M4\eide\..\User\..\App\inc\command_parsing.h' has been changed.
+
+[2025-10-13 00:47:48]	[done]
+	build successfully !
+
+[2025-10-13 00:48:45]	[info] incremental build: 4 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\pc_task.c': dependence 'g:\1-VscodeProject\GD-32\GD_Template-M4\eide\..\User\..\App\inc\command_parsing.h' has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\User\gd32f4xx_it.c': dependence 'g:\1-VscodeProject\GD-32\GD_Template-M4\eide\..\User\..\App\inc\command_parsing.h' has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\User\main.c': dependence 'g:\1-VscodeProject\GD-32\GD_Template-M4\eide\..\User\..\App\inc\command_parsing.h' has been changed.
+
+[2025-10-13 00:48:46]	[done]
+	build successfully !
+
+[2025-10-13 00:55:44]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\App\src\command_parsing.c': source file has been changed.
+
+[2025-10-13 00:55:45]	[done]
+	build successfully !
+
+[2025-10-13 01:11:50]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\debug_uart.c': source file has been changed.
+'g:\1-VscodeProject\GD-32\GD_Template-M4\Hardware\src\rs485.c': source file has been changed.
+
+[2025-10-13 01:11:51]	[done]
+	build successfully !
+

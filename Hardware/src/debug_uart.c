@@ -23,6 +23,8 @@ static void debug_recv_config(void)
 void debug_init_config(uint32_t band_rate)
 {
 	/* 开启时钟 */
+	Debug_IT_Secd_Buffer.Finish_Flag = SET; // 初始标志位置位，表示空闲
+	memset(Debug_IT_Secd_Buffer.Buffer, 0, sizeof(Debug_IT_Secd_Buffer));
 	rcu_periph_clock_enable(DEBUG_USART_TX_RCU); // 开启串口时钟
 	rcu_periph_clock_enable(DEBUG_USART_RX_RCU); // 开启端口时钟
 	rcu_periph_clock_enable(DEBUG_USART_RCU);	 // 开启端口时钟
@@ -74,15 +76,17 @@ int fputc(int ch, FILE *f)
 
 void debug_send_it_data(uint8_t *buffer, uint8_t length)
 {
+	while (Debug_IT_Secd_Buffer.Finish_Flag == RESET)
+	{
+		delay_ms(1); // 等待上次发送完成
+	}
 	if (length > sizeof(Debug_IT_Secd_Buffer.Buffer))
 	{
 		length = sizeof(Debug_IT_Secd_Buffer.Buffer); // 限制长度
 	}
-
 	Debug_IT_Secd_Buffer.Finish_Flag = RESET;			 // 重置完成标志
 	Debug_IT_Secd_Buffer.Buffer_Length = length;		 // 设置缓冲区长度
 	memcpy(Debug_IT_Secd_Buffer.Buffer, buffer, length); // 复制数据到缓冲区
-
 	usart_interrupt_enable(DEBUG_USART, USART_INT_TBE); // 使能发送中断
 	usart_interrupt_enable(DEBUG_USART, USART_INT_TC);	// 使能发送完成中断
 }
@@ -135,7 +139,7 @@ void USART0_IRQHandler(void)
 	if (usart_interrupt_flag_get(DEBUG_USART, USART_INT_FLAG_RBNE) == SET)
 	{
 		
-		if (Temp_Recevice_Count < (sizeof(Temp_Recevice_Buffer) - 1))
+		if (Temp_Recevice_Count < (sizeof(Temp_Recevice_Buffer) ))
 		{
 			Temp_Recevice_Buffer[Temp_Recevice_Count++] = usart_data_receive(DEBUG_USART);
 		}
@@ -154,7 +158,7 @@ void USART0_IRQHandler(void)
 			/* 查找空闲缓冲区并存储数据 */
 			for (size_t i = 0; i < CHCHE_COUNT; i++)
 			{
-				led_toggle(1); // 切换LED1状态
+				// led_toggle(1); // 切换LED1状态
 				if (Debug_Receive_Buffer[i].Buffer_Status == 0)
 				{
 					Debug_Receive_Buffer[i].Buffer_Length = Temp_Recevice_Count;

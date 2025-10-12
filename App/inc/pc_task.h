@@ -6,5 +6,6 @@
 #include <stdio.h>
 #include "../Hardware/inc/debug_uart.h"
 #include "../Hardware/inc/bsp_led.h"
-#include "../Hardware/inc/rs485.h"
 #include "../App/inc/command_parsing.h"
+
+void APP_PC_Task(void);

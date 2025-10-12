@@ -13,6 +13,8 @@ static struct
 static void Rs485_gpio_init(uint32_t band_rate)
 {
 	/* 开启时钟 */
+	Rs485_IT_Secd_Buffer.Finish_Flag = SET; // 初始标志位置位，表示空闲
+	memset(Rs485_IT_Secd_Buffer.Buffer, 0, sizeof(Rs485_IT_Secd_Buffer));
 	rcu_periph_clock_enable(RS485_USART_TX_RCU); 
 	rcu_periph_clock_enable(RS485_USART_RX_RCU); 
 	rcu_periph_clock_enable(RS485_USART_RCU);	 
@@ -75,7 +77,8 @@ static void set_rs485_en(uint8_t en)
 
 
 void rs485_send_it_data(uint8_t *buffer, uint8_t length)
-{	led_on(2); // 打开LED2指示发送状态
+{	
+	// led_on(2); // 打开LED2指示发送状态
 	set_rs485_en(1); // 使能RS485发送
 	if (length > sizeof(Rs485_IT_Secd_Buffer.Buffer))
 	{
@@ -167,11 +170,9 @@ void USART1_IRQHandler(void)
 			{
 				if (Rs485_Receive_Buffer[i].Buffer_Status == 0)
 				{
-					led_toggle(2); // 切换LED2状态
-
+					// led_toggle(2); // 切换LED2状态
 					Rs485_Receive_Buffer[i].Buffer_Length = Temp_Recevice_Count;
 					memcpy(Rs485_Receive_Buffer[i].Buffer, Temp_Recevice_Buffer, Temp_Recevice_Count);
-					// rs485_send_it_data(Rs485_Receive_Buffer[i].Buffer, Temp_Recevice_Count); // 回显数据
 					Rs485_Receive_Buffer[i].Buffer_Status = 1; // 标记为已接收
 					break;
 				}
@@ -203,6 +204,6 @@ void USART1_IRQHandler(void)
 		Rs485_IT_Secd_Buffer.Finish_Flag = SET;				// 设置完成标志
 		Send_Count = 0;										// 重置发送计数器
 		set_rs485_en(0);									// 禁用RS485发送和切换到接收模式
-		led_off(2); // 关闭LED2状态指示
+		// led_off(2); // 关闭LED2状态指示
 	}
 }

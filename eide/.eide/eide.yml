@@ -22,7 +22,6 @@ virtualFolder:
       files:
         - path: ../Hardware/src/bsp_led.c
         - path: ../Hardware/src/debug_uart.c
-        - path: ../Hardware/src/rs485.c
         - path: ../Hardware/src/soft_i2c.c
         - path: ../Hardware/src/ina226.c
         - path: ../Hardware/src/bmp280.c
@@ -32,6 +31,7 @@ virtualFolder:
         - path: ../Hardware/src/can.c
         - path: ../Hardware/src/eeprom.c
         - path: ../Hardware/src/w25q128.c
+        - path: ../Hardware/src/rs485.c
       folders: []
     - name: Firmware
       files:
@@ -100,7 +100,6 @@ targets:
           c/cpp-compiler:
             language-c: c99
             language-cpp: c++11
-            link-time-optimization: true
             one-elf-section-per-function: true
             optimization: level-2
             short-enums#wchar: true

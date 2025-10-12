@@ -91,8 +91,7 @@
             "one-elf-section-per-function": true,
             "optimization": "level-2",
             "short-enums#wchar": true,
-            "warnings": "ac5-like-warnings",
-            "link-time-optimization": true
+            "warnings": "ac5-like-warnings"
         },
         "global": {
             "output-debug-info": "enable",
@@ -109,7 +108,6 @@
             "output-format": "elf",
             "ro-base": "0x08000000",
             "rw-base": "0x20000000",
-            "link-time-optimization": true,
             "link-scatter": [
                 "g:/1-VscodeProject/GD-32/GD_Template-M4/eide/build/GD_Template-F4xx/GD_Template-F4xx.sct"
             ]
