@@ -2209,3 +2209,60 @@ These source files will be recompiled
 [2025-10-13 01:11:51]	[done]
 	build successfully !
 
+[2025-10-21 10:50:34]	[done]
+	build successfully !
+
+[2025-10-21 10:55:26]	[info] incremental build: 36 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\Firmware\CMSIS\GD\GD32F4xx\Include\gd32f4xx.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\pc_task.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\Firmware\CMSIS\GD\GD32F4xx\Include\gd32f4xx.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\CMSIS\GD\GD32F4xx\Source\system_gd32f4xx.c': source file has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_adc.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\Firmware\CMSIS\GD\GD32F4xx\Include\gd32f4xx.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_can.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\Firmware\CMSIS\GD\GD32F4xx\Include\gd32f4xx.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_dbg.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\Firmware\CMSIS\GD\GD32F4xx\Include\gd32f4xx.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_dma.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\Firmware\CMSIS\GD\GD32F4xx\Include\gd32f4xx.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_exti.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\Firmware\CMSIS\GD\GD32F4xx\Include\gd32f4xx.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_gpio.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\Firmware\CMSIS\GD\GD32F4xx\Include\gd32f4xx.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_i2c.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\Firmware\CMSIS\GD\GD32F4xx\Include\gd32f4xx.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_misc.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\Firmware\CMSIS\GD\GD32F4xx\Include\gd32f4xx.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_rcu.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\Firmware\CMSIS\GD\GD32F4xx\Include\gd32f4xx.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_rtc.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\Firmware\CMSIS\GD\GD32F4xx\Include\gd32f4xx.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_sdio.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\Firmware\CMSIS\GD\GD32F4xx\Include\gd32f4xx.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_spi.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\Firmware\CMSIS\GD\GD32F4xx\Include\gd32f4xx.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_syscfg.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\Firmware\CMSIS\GD\GD32F4xx\Include\gd32f4xx.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_timer.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\Firmware\CMSIS\GD\GD32F4xx\Include\gd32f4xx.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_tli.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\Firmware\CMSIS\GD\GD32F4xx\Include\gd32f4xx.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_trng.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\Firmware\CMSIS\GD\GD32F4xx\Include\gd32f4xx.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_usart.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\Firmware\CMSIS\GD\GD32F4xx\Include\gd32f4xx.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Firmware\GD32F4xx_standard_peripheral\Source\gd32f4xx_wwdgt.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\Firmware\CMSIS\GD\GD32F4xx\Include\gd32f4xx.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\bitband.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\Firmware\CMSIS\GD\GD32F4xx\Include\gd32f4xx.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\bmp280.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\Firmware\CMSIS\GD\GD32F4xx\Include\gd32f4xx.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\bsp_led.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\Firmware\CMSIS\GD\GD32F4xx\Include\gd32f4xx.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\can.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\Firmware\CMSIS\GD\GD32F4xx\Include\GD32F4xx.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\debug_uart.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\Firmware\CMSIS\GD\GD32F4xx\Include\gd32f4xx.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\dip_switch.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\Firmware\CMSIS\GD\GD32F4xx\Include\gd32f4xx.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\eeprom.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\Firmware\CMSIS\GD\GD32F4xx\Include\GD32F4xx.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\ina226.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\Firmware\CMSIS\GD\GD32F4xx\Include\gd32f4xx.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\key.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\Firmware\CMSIS\GD\GD32F4xx\Include\gd32f4xx.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\rs485.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\Firmware\CMSIS\GD\GD32F4xx\Include\gd32f4xx.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\soft_i2c.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\Firmware\CMSIS\GD\GD32F4xx\Include\gd32f4xx.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\Hardware\src\w25q128.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\Firmware\CMSIS\GD\GD32F4xx\Include\gd32f4xx.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\User\gd32f4xx_it.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\Firmware\CMSIS\GD\GD32F4xx\Include\gd32f4xx.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\Firmware\CMSIS\GD\GD32F4xx\Include\gd32f4xx.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\User\systick.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\Firmware\CMSIS\GD\GD32F4xx\Include\gd32f4xx.h' has been changed.
+
+[2025-10-21 10:55:28]	[done]
+	build successfully !
+
+[2025-10-21 11:02:25]	[info] incremental build: 4 source files changed
+These source files will be recompiled
+---
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\command_parsing.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\..\App\inc\command_parsing.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\App\src\pc_task.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\..\App\inc\command_parsing.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\User\gd32f4xx_it.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\..\App\inc\command_parsing.h' has been changed.
+'g:\VscodeProject\GitProject\GD_Template-M4\User\main.c': dependence 'g:\VscodeProject\GitProject\GD_Template-M4\eide\..\User\..\App\inc\command_parsing.h' has been changed.
+
+[2025-10-21 11:02:25]	[done]
+	build successfully !
+

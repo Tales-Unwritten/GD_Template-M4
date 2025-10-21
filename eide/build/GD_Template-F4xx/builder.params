@@ -1,13 +1,13 @@
 {
-    "name": "GD_Template-F4xx",
+    "name": "GD_Template-M4",
     "target": "GD_Template-F4xx",
     "toolchain": "AC6",
-    "toolchainLocation": "D:\\KELE5 MDK\\ARM\\ARMCLANG",
-    "toolchainCfgFile": "c:\\Users\\31184\\.vscode\\extensions\\cl.eide-3.26.1\\res\\data\\models/arm.v6.model.json",
+    "toolchainLocation": "D:\\Keil MDK\\ARM\\ARMCLANG",
+    "toolchainCfgFile": "c:\\Users\\Administrator\\.vscode\\extensions\\cl.eide-3.26.1\\res\\data\\models/arm.v6.model.json",
     "buildMode": "fast|multhread",
     "showRepathOnLog": true,
-    "threadNum": 16,
-    "rootDir": "g:\\1-VscodeProject\\GD-32\\GD_Template-M4\\eide",
+    "threadNum": 12,
+    "rootDir": "g:\\VscodeProject\\GitProject\\GD_Template-M4\\eide",
     "dumpPath": "build\\GD_Template-F4xx",
     "outDir": "build\\GD_Template-F4xx",
     "ram": 720896,
@@ -109,22 +109,22 @@
             "ro-base": "0x08000000",
             "rw-base": "0x20000000",
             "link-scatter": [
-                "g:/1-VscodeProject/GD-32/GD_Template-M4/eide/build/GD_Template-F4xx/GD_Template-F4xx.sct"
+                "g:/VscodeProject/GitProject/GD_Template-M4/eide/build/GD_Template-F4xx/GD_Template-M4.sct"
             ]
         }
     },
     "env": {
         "KEIL_OUTPUT_DIR": "Objects",
         "KEIL_OUTPUT_NAME": "GD32F450",
-        "workspaceFolder": "g:\\1-VscodeProject\\GD-32\\GD_Template-M4\\eide",
+        "workspaceFolder": "g:\\VscodeProject\\GitProject\\GD_Template-M4\\eide",
         "workspaceFolderBasename": "eide",
-        "OutDir": "g:\\1-VscodeProject\\GD-32\\GD_Template-M4\\eide\\build\\GD_Template-F4xx",
+        "OutDir": "g:\\VscodeProject\\GitProject\\GD_Template-M4\\eide\\build\\GD_Template-F4xx",
         "OutDirRoot": "build",
         "OutDirBase": "build\\GD_Template-F4xx",
-        "ProjectName": "GD_Template-F4xx",
+        "ProjectName": "GD_Template-M4",
         "ConfigName": "GD_Template-F4xx",
-        "ProjectRoot": "g:\\1-VscodeProject\\GD-32\\GD_Template-M4\\eide",
-        "ExecutableName": "g:\\1-VscodeProject\\GD-32\\GD_Template-M4\\eide\\build\\GD_Template-F4xx\\GD_Template-F4xx",
+        "ProjectRoot": "g:\\VscodeProject\\GitProject\\GD_Template-M4\\eide",
+        "ExecutableName": "g:\\VscodeProject\\GitProject\\GD_Template-M4\\eide\\build\\GD_Template-F4xx\\GD_Template-M4",
         "ChipPackDir": "",
         "ChipName": "",
         "SYS_Platform": "win32",
@@ -133,11 +133,11 @@
         "SYS_PathSep": ";",
         "SYS_PathSeparator": ";",
         "SYS_EOL": "\r\n",
-        "EIDE_BUILDER_DIR": "c:\\Users\\31184\\.vscode\\extensions\\cl.eide-3.26.1\\res\\tools\\win32\\unify_builder",
+        "EIDE_BUILDER_DIR": "c:\\Users\\Administrator\\.vscode\\extensions\\cl.eide-3.26.1\\res\\tools\\win32\\unify_builder",
         "EIDE_BINARIES_VER": "12.1.1",
-        "EIDE_MSYS": "C:\\Users\\31184\\.eide\\bin\\builder\\msys\\bin",
-        "EIDE_PY3_CMD": "C:\\Users\\31184\\.eide\\bin\\python36\\python3.exe",
-        "ToolchainRoot": "D:\\KELE5 MDK\\ARM\\ARMCLANG"
+        "EIDE_MSYS": "C:\\Users\\Administrator\\.eide\\bin\\builder\\msys\\bin",
+        "EIDE_PY3_CMD": "C:\\Users\\Administrator\\.eide\\bin\\python36\\python3.exe",
+        "ToolchainRoot": "D:\\Keil MDK\\ARM\\ARMCLANG"
     },
     "sysPaths": []
 }

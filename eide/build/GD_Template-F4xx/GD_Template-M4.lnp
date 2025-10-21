@@ -1,5 +1,5 @@
---cpu Cortex-M4.fp --library_type=microlib --scatter g:/VscodeProject/GitProject/GD_Template-M4/eide/build/GD_Template-F4xx/GD_Template-F4xx.sct --diag_suppress=L6329 --strict --summary_stderr --info summarysizes --map --xref --callgraph --symbols --info sizes --info totals --info unused --info veneers
---list ./build/GD_Template-F4xx/GD_Template-F4xx.map
+--cpu Cortex-M4.fp --library_type=microlib --scatter g:/VscodeProject/GitProject/GD_Template-M4/eide/build/GD_Template-F4xx/GD_Template-M4.sct --diag_suppress=L6329 --strict --summary_stderr --info summarysizes --map --xref --callgraph --symbols --info sizes --info totals --info unused --info veneers
+--list ./build/GD_Template-F4xx/GD_Template-M4.map
 ./build/GD_Template-F4xx/.obj/__/App/src/command_parsing.o
 ./build/GD_Template-F4xx/.obj/__/App/src/pc_task.o
 ./build/GD_Template-F4xx/.obj/__/Firmware/CMSIS/GD/GD32F4xx/Source/ARM/startup_gd32f450_470.o
@@ -36,4 +36,4 @@
 ./build/GD_Template-F4xx/.obj/__/Hardware/src/w25q128.o
 ./build/GD_Template-F4xx/.obj/__/User/gd32f4xx_it.o
 ./build/GD_Template-F4xx/.obj/__/User/main.o
-./build/GD_Template-F4xx/.obj/__/User/systick.o -o ./build/GD_Template-F4xx/GD_Template-F4xx.axf
+./build/GD_Template-F4xx/.obj/__/User/systick.o -o ./build/GD_Template-F4xx/GD_Template-M4.axf

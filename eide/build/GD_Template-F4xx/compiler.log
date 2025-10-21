@@ -1,31 +1,9 @@
 >>> cc
 
-./../Hardware/src/debug_uart.c:27:2: warning: 'memset' will always overflow; destination buffer has size 128, but size argument is 130 [-Wfortify-source]
-        memset(Debug_IT_Secd_Buffer.Buffer, 0, sizeof(Debug_IT_Secd_Buffer));
-        ^
-./../Hardware/src/debug_uart.c:97:39: warning: implicit conversion from enumeration type 'usart_flag_enum' to different enumeration type 'usart_interrupt_enum' [-Wenum-conversion]
-        usart_interrupt_disable(DEBUG_USART, USART_FLAG_TBE); // ½ûÖ¹·¢ËÍÖĞ¶Ï
-        ~~~~~~~~~~~~~~~~~~~~~~~              ^~~~~~~~~~~~~~
-./../Hardware/src/debug_uart.c:98:39: warning: implicit conversion from enumeration type 'usart_flag_enum' to different enumeration type 'usart_interrupt_enum' [-Wenum-conversion]
-        usart_interrupt_disable(DEBUG_USART, USART_FLAG_TC);  // ½ûÖ¹·¢ËÍÍê³ÉÖĞ¶Ï
-        ~~~~~~~~~~~~~~~~~~~~~~~              ^~~~~~~~~~~~~
-./../Hardware/src/debug_uart.c:156:63: warning: multi-character character constant [-Wmultichar]
-                if (Temp_Recevice_Count > 0 && memchr(Temp_Recevice_Buffer, '\r\n', Temp_Recevice_Count) != NULL)
-                                                                            ^
-4 warnings generated.
-./../Hardware/src/rs485.c:17:2: warning: 'memset' will always overflow; destination buffer has size 128, but size argument is 130 [-Wfortify-source]
-        memset(Rs485_IT_Secd_Buffer.Buffer, 0, sizeof(Rs485_IT_Secd_Buffer));
-        ^
-./../Hardware/src/rs485.c:100:39: warning: implicit conversion from enumeration type 'usart_flag_enum' to different enumeration type 'usart_interrupt_enum' [-Wenum-conversion]
-        usart_interrupt_disable(RS485_USART, USART_FLAG_TBE); // ½ûÖ¹·¢ËÍÖĞ¶Ï
-        ~~~~~~~~~~~~~~~~~~~~~~~              ^~~~~~~~~~~~~~
-./../Hardware/src/rs485.c:101:39: warning: implicit conversion from enumeration type 'usart_flag_enum' to different enumeration type 'usart_interrupt_enum' [-Wenum-conversion]
-        usart_interrupt_disable(RS485_USART, USART_FLAG_TC);  // ½ûÖ¹·¢ËÍÍê³ÉÖĞ¶Ï
-        ~~~~~~~~~~~~~~~~~~~~~~~              ^~~~~~~~~~~~~
-./../Hardware/src/rs485.c:166:63: warning: multi-character character constant [-Wmultichar]
-                if (Temp_Recevice_Count > 0 && memchr(Temp_Recevice_Buffer, '\r\n', Temp_Recevice_Count) != NULL)
-                                                                            ^
-4 warnings generated.
+
+
+
+
 
 >>> ld
 
