@@ -1,13 +1,13 @@
 {
-    "name": "GD_Template-M4",
+    "name": "GD_Template-F4xx",
     "target": "GD_Template-F4xx",
     "toolchain": "AC6",
-    "toolchainLocation": "D:\\Keil MDK\\ARM\\ARMCLANG",
-    "toolchainCfgFile": "c:\\Users\\Administrator\\.vscode\\extensions\\cl.eide-3.26.1\\res\\data\\models/arm.v6.model.json",
+    "toolchainLocation": "D:\\KELE5 MDK\\ARM\\ARMCLANG",
+    "toolchainCfgFile": "c:\\Users\\31184\\.vscode\\extensions\\cl.eide-3.26.1\\res\\data\\models/arm.v6.model.json",
     "buildMode": "fast|multhread",
     "showRepathOnLog": true,
-    "threadNum": 12,
-    "rootDir": "g:\\VscodeProject\\GitProject\\GD_Template-M4\\eide",
+    "threadNum": 16,
+    "rootDir": "g:\\1-VscodeProject\\GD-32\\GD_Template-M4\\eide",
     "dumpPath": "build\\GD_Template-F4xx",
     "outDir": "build\\GD_Template-F4xx",
     "ram": 720896,
@@ -17,17 +17,12 @@
         "../Firmware/CMSIS",
         "../Firmware/CMSIS/GD/GD32F4xx/Include",
         "../User",
-        "../Hardware/inc",
         "../App/inc",
+        "../Hardware/inc",
         ".cmsis/include",
         "RTE/_GD_Template-F4xx"
     ],
-    "libDirs": [
-        "../Firmware/GD32F4xx_standard_peripheral/Source",
-        "../Firmware/GD32F4xx_standard_peripheral/Include",
-        "../Hardware/inc",
-        "../Hardware/src"
-    ],
+    "libDirs": [],
     "defines": [
         "USE_STDPERIPH_DRIVER",
         "GD32F470"
@@ -39,12 +34,23 @@
         "../Firmware/CMSIS/GD/GD32F4xx/Source/system_gd32f4xx.c",
         "../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_adc.c",
         "../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_can.c",
+        "../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_crc.c",
+        "../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_ctc.c",
+        "../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c",
         "../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c",
+        "../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_dci.c",
         "../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_dma.c",
+        "../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_enet.c",
+        "../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_exmc.c",
         "../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_exti.c",
+        "../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_fmc.c",
+        "../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_fwdgt.c",
         "../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_gpio.c",
         "../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_i2c.c",
+        "../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_ipa.c",
+        "../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_iref.c",
         "../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_misc.c",
+        "../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_pmu.c",
         "../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_rcu.c",
         "../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_rtc.c",
         "../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_sdio.c",
@@ -62,6 +68,7 @@
         "../Hardware/src/debug_uart.c",
         "../Hardware/src/dip_switch.c",
         "../Hardware/src/eeprom.c",
+        "../Hardware/src/gpio_bsp.c",
         "../Hardware/src/ina226.c",
         "../Hardware/src/key.c",
         "../Hardware/src/rs485.c",
@@ -82,14 +89,16 @@
             }
         ],
         "asm-compiler": {
-            "$use": "asm-auto"
+            "$use": "asm-auto",
+            "misc-controls": ""
         },
         "beforeBuildTasks": [],
         "c/cpp-compiler": {
             "language-c": "c99",
             "language-cpp": "c++11",
+            "link-time-optimization": false,
             "one-elf-section-per-function": true,
-            "optimization": "level-2",
+            "optimization": "level-1",
             "short-enums#wchar": true,
             "warnings": "ac5-like-warnings"
         },
@@ -104,27 +113,31 @@
             "$armlink-arch-extensions": ""
         },
         "linker": {
+            "$outputTaskExcludes": [
+                ".bin"
+            ],
             "misc-controls": "--diag_suppress=L6329",
             "output-format": "elf",
             "ro-base": "0x08000000",
             "rw-base": "0x20000000",
+            "xo-base": "",
             "link-scatter": [
-                "g:/VscodeProject/GitProject/GD_Template-M4/eide/build/GD_Template-F4xx/GD_Template-M4.sct"
+                "g:/1-VscodeProject/GD-32/GD_Template-M4/eide/build/GD_Template-F4xx/GD_Template-F4xx.sct"
             ]
         }
     },
     "env": {
         "KEIL_OUTPUT_DIR": "Objects",
         "KEIL_OUTPUT_NAME": "GD32F450",
-        "workspaceFolder": "g:\\VscodeProject\\GitProject\\GD_Template-M4\\eide",
+        "workspaceFolder": "g:\\1-VscodeProject\\GD-32\\GD_Template-M4\\eide",
         "workspaceFolderBasename": "eide",
-        "OutDir": "g:\\VscodeProject\\GitProject\\GD_Template-M4\\eide\\build\\GD_Template-F4xx",
+        "OutDir": "g:\\1-VscodeProject\\GD-32\\GD_Template-M4\\eide\\build\\GD_Template-F4xx",
         "OutDirRoot": "build",
         "OutDirBase": "build\\GD_Template-F4xx",
-        "ProjectName": "GD_Template-M4",
+        "ProjectName": "GD_Template-F4xx",
         "ConfigName": "GD_Template-F4xx",
-        "ProjectRoot": "g:\\VscodeProject\\GitProject\\GD_Template-M4\\eide",
-        "ExecutableName": "g:\\VscodeProject\\GitProject\\GD_Template-M4\\eide\\build\\GD_Template-F4xx\\GD_Template-M4",
+        "ProjectRoot": "g:\\1-VscodeProject\\GD-32\\GD_Template-M4\\eide",
+        "ExecutableName": "g:\\1-VscodeProject\\GD-32\\GD_Template-M4\\eide\\build\\GD_Template-F4xx\\GD_Template-F4xx",
         "ChipPackDir": "",
         "ChipName": "",
         "SYS_Platform": "win32",
@@ -133,11 +146,11 @@
         "SYS_PathSep": ";",
         "SYS_PathSeparator": ";",
         "SYS_EOL": "\r\n",
-        "EIDE_BUILDER_DIR": "c:\\Users\\Administrator\\.vscode\\extensions\\cl.eide-3.26.1\\res\\tools\\win32\\unify_builder",
+        "EIDE_BUILDER_DIR": "c:\\Users\\31184\\.vscode\\extensions\\cl.eide-3.26.1\\res\\tools\\win32\\unify_builder",
         "EIDE_BINARIES_VER": "12.1.1",
-        "EIDE_MSYS": "C:\\Users\\Administrator\\.eide\\bin\\builder\\msys\\bin",
-        "EIDE_PY3_CMD": "C:\\Users\\Administrator\\.eide\\bin\\python36\\python3.exe",
-        "ToolchainRoot": "D:\\Keil MDK\\ARM\\ARMCLANG"
+        "EIDE_MSYS": "C:\\Users\\31184\\.eide\\bin\\builder\\msys\\bin",
+        "EIDE_PY3_CMD": "C:\\Users\\31184\\.eide\\bin\\python36\\python3.exe",
+        "ToolchainRoot": "D:\\KELE5 MDK\\ARM\\ARMCLANG"
     },
     "sysPaths": []
 }

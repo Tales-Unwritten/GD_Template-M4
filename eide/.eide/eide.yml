@@ -1,5 +1,5 @@
 version: "4.1"
-name: GD_Template-M4
+name: GD_Template-F4xx
 type: ARM
 deviceName: null
 packDir: null
@@ -22,16 +22,17 @@ virtualFolder:
       files:
         - path: ../Hardware/src/bsp_led.c
         - path: ../Hardware/src/debug_uart.c
-        - path: ../Hardware/src/soft_i2c.c
-        - path: ../Hardware/src/ina226.c
-        - path: ../Hardware/src/bmp280.c
-        - path: ../Hardware/src/key.c
+        - path: ../Hardware/src/rs485.c
         - path: ../Hardware/src/bitband.c
-        - path: ../Hardware/src/dip_switch.c
+        - path: ../Hardware/src/bmp280.c
         - path: ../Hardware/src/can.c
+        - path: ../Hardware/src/dip_switch.c
+        - path: ../Hardware/src/ina226.c
+        - path: ../Hardware/src/key.c
+        - path: ../Hardware/src/soft_i2c.c
         - path: ../Hardware/src/eeprom.c
         - path: ../Hardware/src/w25q128.c
-        - path: ../Hardware/src/rs485.c
+        - path: ../Hardware/src/gpio_bsp.c
       folders: []
     - name: Firmware
       files:
@@ -39,10 +40,22 @@ virtualFolder:
         - path: ../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_rcu.c
         - path: ../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_adc.c
         - path: ../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_can.c
+        - path: ../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_crc.c
+        - path: ../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_ctc.c
+        - path: ../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_dac.c
+        - path: ../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c
+        - path: ../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_dci.c
         - path: ../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_dma.c
+        - path: ../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_enet.c
+        - path: ../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_exmc.c
         - path: ../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_exti.c
+        - path: ../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_fmc.c
+        - path: ../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_fwdgt.c
         - path: ../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_i2c.c
+        - path: ../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_ipa.c
+        - path: ../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_iref.c
         - path: ../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_misc.c
+        - path: ../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_pmu.c
         - path: ../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_rtc.c
         - path: ../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_sdio.c
         - path: ../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_spi.c
@@ -52,7 +65,6 @@ virtualFolder:
         - path: ../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_trng.c
         - path: ../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_usart.c
         - path: ../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_wwdgt.c
-        - path: ../Firmware/GD32F4xx_standard_peripheral/Source/gd32f4xx_dbg.c
       folders: []
     - name: User
       files:
@@ -63,7 +75,7 @@ virtualFolder:
 dependenceList: []
 outDir: build
 miscInfo:
-  uid: 8cb8d67e70a73821ffd713a0d88e4240
+  uid: e1c2d4d65f3c117dbdff58ebfef9f39b
 targets:
   GD_Template-F4xx:
     cppPreprocessAttrs:
@@ -75,15 +87,11 @@ targets:
         - ../Firmware/CMSIS
         - ../Firmware/CMSIS/GD/GD32F4xx/Include
         - ../User
-        - ../Hardware/inc
         - ../App/inc
+        - ../Hardware/inc
         - .cmsis/include
         - RTE/_GD_Template-F4xx
-      libList:
-        - ../Firmware/GD32F4xx_standard_peripheral/Source
-        - ../Firmware/GD32F4xx_standard_peripheral/Include
-        - ../Hardware/inc
-        - ../Hardware/src
+      libList: []
     excludeList: []
     toolchain: AC6
     toolchainConfigMap:
@@ -96,22 +104,27 @@ targets:
           afterBuildTasks: []
           asm-compiler:
             $use: asm-auto
+            misc-controls: ""
           beforeBuildTasks: []
           c/cpp-compiler:
             language-c: c99
             language-cpp: c++11
+            link-time-optimization: false
             one-elf-section-per-function: true
-            optimization: level-2
+            optimization: level-1
             short-enums#wchar: true
             warnings: ac5-like-warnings
           global:
             output-debug-info: enable
             use-microLIB: true
           linker:
+            $outputTaskExcludes:
+              - .bin
             misc-controls: --diag_suppress=L6329
             output-format: elf
             ro-base: "0x08000000"
             rw-base: "0x20000000"
+            xo-base: ""
         scatterFilePath: ""
         storageLayout:
           RAM:
@@ -192,14 +205,9 @@ targets:
         baseAddr: ""
         bin: ""
         cpuInfo:
-          cpuName: GD32F470ZIT6
-          vendor: GigaDevice
+          cpuName: "null"
+          vendor: "null"
         otherCmds: ""
         proType: 1
         speed: 8000
-      OpenOCD:
-        baseAddr: "0x08000000"
-        bin: ""
-        interface: cmsis-dap
-        target: stm32f4x
-    uploader: OpenOCD
+    uploader: JLink

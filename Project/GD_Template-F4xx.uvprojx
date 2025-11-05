@@ -339,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER,GD32F470</Define>
               <Undefine></Undefine>
-              <IncludePath>..\Firmware\GD32F4xx_standard_peripheral\Include;..\Firmware\CMSIS;..\Firmware\CMSIS\GD\GD32F4xx\Include;..\User;..\Firmware\GD32F4xx_standard_peripheral\Include;..\Hardware\inc;..\App\inc;..\Hardware\inc</IncludePath>
+              <IncludePath>..\Firmware\GD32F4xx_standard_peripheral\Include;..\Firmware\CMSIS;..\Firmware\CMSIS\GD\GD32F4xx\Include;..\User;..\Firmware\GD32F4xx_standard_peripheral\Include;..\App\inc;..\Hardware\inc</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -472,6 +472,11 @@
               <FileName>w25q128.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Hardware\src\w25q128.c</FilePath>
+            </File>
+            <File>
+              <FileName>gpio_bsp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Hardware\src\gpio_bsp.c</FilePath>
             </File>
           </Files>
         </Group>

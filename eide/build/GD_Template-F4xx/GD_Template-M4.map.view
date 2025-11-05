@@ -1,6 +1,0 @@
-tool: AC6
-fileName: 'GD_Template-M4.map'
-elfName: 'GD_Template-M4.axf'
-compilerName: 'ARM Compiler'
-compilerFullName: 'Component: ARM Compiler 6.16'
-compilerPath: 'D:\Keil MDK\ARM\ARMCLANG\bin\armclang.exe'
