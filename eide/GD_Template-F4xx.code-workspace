@@ -2,6 +2,18 @@
     "folders": [
         {
             "path": "."
+        },
+        {
+            "path": "../App"
+        },
+        {
+            "path": "../Firmware"
+        },
+        {
+            "path": "../Hardware"
+        },
+        {
+            "path": "../User"
         }
     ],
     "settings": {
