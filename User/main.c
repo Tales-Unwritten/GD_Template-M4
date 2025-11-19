@@ -10,6 +10,7 @@ static void systick_task_config(void)
   INA226_Device_Info.CHG_Ina226_Unlock_Alert();                                            // 解锁INA226的警报功能
   Key_Configuration();                                                                     // 按键初始化
   w25qxx_spi_config();
+  delay_ms(10);
   // can_config();                                                                            // CAN配置
   
 }
@@ -17,6 +18,7 @@ static void systick_task_config(void)
 int main(void)
 {
   systick_task_config(); // 初始化所有外设
+
   debug_send_it_data((uint8_t *)"System Init OK\r\n", 16);
   rs485_send_it_data((uint8_t *)"RS485 Init OK\r\n", 16);
   
@@ -26,6 +28,7 @@ int main(void)
   while (1)
   {
     APP_PC_Task(); // PC任务
+    // rs485_send_it_data((uint8_t *)"RS485 Init OK\r\n", 16);
   }
 }
 

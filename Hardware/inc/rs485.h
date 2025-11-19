@@ -8,6 +8,8 @@
 #include "string.h"
 
 #include "../Hardware/inc/bsp_led.h"
+#include "../Hardware/inc/debug_uart.h"
+#include "../Hardware/inc/bitband.h"
 #define RS485_USART_TX_RCU   RCU_GPIOA   // 串口TX的端口时钟
 #define RS485_USART_RX_RCU   RCU_GPIOA   // 串口RX的端口时钟
 #define RS485_USART_RCU      RCU_USART1  // 串口1的时钟
