@@ -74,7 +74,6 @@ static const cmd_struct cmd_table[] = {
     {"get_manufacturer_id\r\n", handle_manufacturer_id},
     {"get_die_id\r\n", handle_die_id}};
 
-static char send_buffer[128]; // Increased buffer size to 128 bytes
 
 typedef struct
 {

@@ -22,7 +22,6 @@ void led_gpio_config(void)
 
 }
 
-
 void led_on(uint8_t led_num)
 {
 	switch (led_num)
