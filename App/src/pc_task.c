@@ -49,21 +49,18 @@ void APP_PC_Task(void)
 		PC_Transmit_Buffer = Get_485_Data(&Usart_Send_Data);
 		if (PC_Transmit_Buffer != NULL)
 		{
-			// led_on(1);
+			led_on(1);
 			break;
 		}
 		PC_Transmit_Buffer = Get_Debug_Data(&Usart_Send_Data);
 		if (PC_Transmit_Buffer != NULL)
 		{
-			// led_on(2);
+			led_on(2);
 			break;
 		}
-		delay_ms(3); // 无数据时延时3ms
+		delay_ms(2); // 无数据时延时3ms
 	}
 	command_parsing(PC_Transmit_Buffer, Usart_Send_Data);
-	memset(PC_Transmit_Buffer->Buffer, 0, PC_Transmit_Buffer->Buffer_Length);
-	PC_Transmit_Buffer->Buffer_Status = 0; // 重置状态
-	PC_Transmit_Buffer->Buffer_Length = 0;
-	// led_off(1);
-	// led_off(2);
+	led_off(1);
+	led_off(2);
 }

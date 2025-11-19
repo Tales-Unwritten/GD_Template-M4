@@ -27,7 +27,7 @@ static void Rs485_gpio_init(uint32_t band_rate)
 	/* 配置TX为复用模式 上拉模式 */
 	gpio_mode_set(RS485_USART_TX_PORT, GPIO_MODE_AF, GPIO_PUPD_PULLUP, RS485_USART_TX_PIN);
 	/* 配置RX为复用模式 上拉模式 */
-	gpio_mode_set(RS485_USART_RX_PORT, GPIO_MODE_AF, GPIO_PUPD_PULLUP, RS485_USART_RX_PIN);
+	gpio_mode_set(RS485_USART_RX_PORT, GPIO_MODE_AF, GPIO_MODE_INPUT, RS485_USART_RX_PIN);
 
 	/* 配置TX为推挽输出 50MHZ */
 	gpio_output_options_set(RS485_USART_TX_PORT, GPIO_OTYPE_PP, GPIO_OSPEED_50MHZ, RS485_USART_TX_PIN);
