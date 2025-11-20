@@ -2,12 +2,10 @@
 
 I2C_Info INA228_i2C;
 
-
 static void INA228_Init(uint32_t GPIOx, uint16_t SCL_Pin, uint16_t SDA_Pin, uint16_t Addr)
 {   
 	Soft_I2C_Init(&INA228_i2C, GPIOx, SCL_Pin, SDA_Pin, Addr);                                                                                                                                             
 }
-
 
 static void Ina228_WriteRegister(I2C_Info *i2c, uint16_t Device_Add, uint16_t RegAdd, uint16_t Data)
 {
