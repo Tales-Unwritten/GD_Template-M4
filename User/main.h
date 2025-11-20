@@ -7,6 +7,7 @@
 #include "../Hardware/inc/rs485.h"
 #include "../Hardware/inc/bsp_led.h"
 #include "../Hardware/inc/ina226.h"
+#include "../Hardware/inc/ina228.h"
 
 #include "../Hardware/inc/bmp280.h"
 #include "../Hardware/inc/key.h"
@@ -18,3 +19,4 @@
 // #include "../App/inc/command_parsing.h"
 #include "../App/inc/pc_task.h"
 #include "../Hardware/inc/gpio_bsp.h"
+

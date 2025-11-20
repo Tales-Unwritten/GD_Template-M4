@@ -33,6 +33,7 @@ virtualFolder:
         - path: ../Hardware/src/eeprom.c
         - path: ../Hardware/src/w25q128.c
         - path: ../Hardware/src/gpio_bsp.c
+        - path: ../Hardware/src/ina228.c
       folders: []
     - name: Firmware
       files:
