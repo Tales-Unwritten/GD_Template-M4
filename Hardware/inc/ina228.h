@@ -4,8 +4,7 @@
 #include "systick.h"
 #include "../Hardware/inc/soft_i2c.h"
 
-void INA228_Config(uint32_t GPIOx, uint16_t SCL_Pin, uint16_t SDA_Pin, uint16_t Addr);
-void text_online_INA228(void);
+
 
 typedef enum
 {
@@ -17,15 +16,15 @@ typedef enum
 
 typedef enum
 {
-	Cmd_Config_Register                                        = 0x00,    // Configuration register (Read_Write) 配置寄存器
+	Cmd_Config_Register1                                       = 0x00,    // Configuration register (Read_Write) 配置寄存器
 	Cmd_ADC_Config_Register                                    = 0x01,    // ADC configuration register (Read_Write) ADC配置寄存器
 	Cmd_Shunt_Calibration_Register                             = 0x02,    // Shunt calibration register (Read_Write) 分流校准寄存器
 	Cmd_Shunt_Temperature_Coefficient_Register                 = 0x03,    // Shunt temperature coefficient register (Read_Write) 分流温度系数寄存器
 	Cmd_Voltage_Shunt_Register                                 = 0x04,    // Shunt voltage register (Only Read) 分流电压寄存器
-	Cmd_Bus_Voltage_Register                                   = 0x05,    // Bus voltage register (Only Read) 总线电压寄存器
+	Cmd_Bus_Voltage_Register1                                  = 0x05,    // Bus voltage register (Only Read) 总线电压寄存器
 	Cmd_Temperature_Register                                   = 0x06,    // Temperature register (Only Read) 温度寄存器
-	Cmd_Current_Register                                       = 0x07,    // Current register (Only Read) 电流寄存器
-	Cmd_Power_Register                                         = 0x08,    // Power register (Only Read) 功率寄存器
+	Cmd_Current_Register1                                      = 0x07,    // Current register (Only Read) 电流寄存器
+	Cmd_Power_Register1                                        = 0x08,    // Power register (Only Read) 功率寄存器
 	Cmd_Energt_Register                                        = 0x09,    // Energy register (Read_Write) 能量寄存器
 	Cmde_Charge_Register                                       = 0x0A,    // Charge register (Read_Write) 电荷寄存器
 	Cmd_Diagnostic_Alert_Register                              = 0x0B,    // Diagnostic alert register (Read_Write) 诊断报警寄存器
@@ -84,9 +83,9 @@ typedef enum
 // bit 3-0
 typedef enum
 {
-	Reserved_Big = 0x00 // Reserved. Always reads 0
+	Reserved_Config_Bit = 0x00 // Reserved. Always reads 0
 
-} INA228_Reserved_enum;
+} INA228_Config_Reserved_enum;
 
 //=====================================================================================================================================
 
@@ -171,7 +170,7 @@ typedef enum
 
 
 
-//Diagnostic Flags and Alert (DIAG_ALRT) Register=====================================================================================
+//Diagnostic Flags and Alert (DIAG_ALERT) Register=====================================================================================
 
 // Config_Alert_Clock, bit 15
 typedef enum
@@ -201,4 +200,162 @@ typedef enum
 	Alert_Active_High                  = 0x01     // Inverted (active-high, open-drain ) - 反相模式(高电平有效,开漏)
 } INA228_Alert_Polarity_Config_enum;              // INA228报警极性配置枚举
 
+
+
+
+//This bit indicates the health of the ENERGY register.
+//If the 40 bit ENERGY register has overflowed this bit is set to 1.
+//Clears when the ENERGY register is read.bit 11
+//only read.bit 11
+typedef enum 
+{
+    Energy_Normal=0x00,    // Normal operation
+    Energy_Overflowed=0x01 // Energy register overflowed
+
+}INA228_Eenrgy_Status_enum;
+
+
+//This bit indicates the health of the CHARGE register.
+//If the 40 bit CHARGE register has overflowed this bit is set to 1
+//Clears when the CHARGE register is read.bit 10
+typedef enum 
+{
+    Charge_Normal=0x00,    // Normal operation
+    Charge_Overflowed=0x01 // Charge register overflowed
+}INA228_Charge_Status_enum;
+
+//This bit is set to 1 if an arithmetic operation resulted in an overflow error.
+//It indicates that current and power data may be invalid.
+//Must be manually cleared by triggering another conversion or by
+//clearing the accumulators with the RSTACC bit.bit 9
+typedef enum
+{
+    Arithmetic_Normal=0x00,    // Normal operation
+    Arithmetic_Overflowed=0x01 // Arithmetic overflow occurred
+
+}INA228_Arithmetic_Overflow_enum;
+
+// Reserved bit 8
+typedef enum
+{
+	Reserved_Bit=0x00, // Reserved. Always reads 0
+}INA228_Reserved_Bit_enum;
+
+//This bit is set to 1 if the temperature measurement exceeds the
+//threshold limit in the temperature over-limit register. bit 7
+typedef enum
+{
+	Temp_Over_Normal=0x00,    // Normal operation
+	Temp_Over_Limit=0x01 // Temperature over-limit occurred	
+}INA228_Temperature_Over_Limit_enum;
+
+//This bit is set to 1 if the shunt voltage measurement exceeds the
+//threshold limit in the shunt over-limit register.
+//When ALATCH =1 this bit is cleared by reading this register.bit 6
+typedef enum
+{
+	Shunt_Voltage_Over_Normal = 0x00,    // Normal operation
+	Shunt_Voltage_Over_Limit = 0x01 // Shunt voltage over-limit occurred
+}INA228_Shunt_Voltage_Over_Limit_enum;
+
+//This bit is set to 1 if the shunt voltage measurement falls below the
+//threshold limit in the shunt under-limit register.
+//When ALATCH =1 this bit is cleared by reading this register. bit 5
+typedef enum
+{
+	Shunt_Voltage_Under_Normal=0x00,    // Normal operation
+	Shunt_Voltage_Under_Limit=0x01 // Shunt voltage under-limit occurred
+}INA228_Shunt_Voltage_Under_Limit_enum;
+
+//This bit is set to 1 if the bus voltage measurement exceeds the
+//threshold limit in the bus over-limit register.
+//When ALATCH =1 this bit is cleared by reading this register. bit 4
+typedef enum
+{
+	Bus_Voltage_Over_Normal=0x00,    // Normal operation
+	Bus_Voltage_Over_Limit=0x01 // Bus voltage over-limit occurred
+}INA228_Bus_Voltage_Over_Limit_enum;
+
+//This bit is set to 1 if the bus voltage measurement falls below the
+//threshold limit in the bus under-limit register.
+//When ALATCH =1 this bit is cleared by reading this register. bit 3
+typedef enum
+{
+	Bus_Voltage_Under_Normal=0x00,    // Normal operation
+	Bus_Voltage_Under_Limit=0x01 // Bus voltage under-limit occurred
+}INA228_Bus_Voltage_Under_Limit_enum;
+
+
+//This bit is set to 1 if the power measurement exceeds the threshold
+//limit in the power limit register.
+//When ALATCH =1 this bit is cleared by reading this register. bit 2
+typedef enum
+{
+	Power_Normal=0x00,    // Normal operation
+	Power_Over_Limit=0x01 // Power over-limit occurred
+}INA228_Power_Over_Limit_enum;
+
+//This bit is set to 1 if the conversion is completed.
+//When ALATCH =1 this bit is cleared by reading this register or
+//starting a new triggered conversion. bit 1
+typedef enum
+{
+	Conversion_Not_Ready=0x00,    // Conversion not complete
+	Conversion_Ready=0x01 // Conversion complete
+}INA228_Conversion_Ready_enum;
+
+//This bit is set to 0 if a checksum error is detected in the device trim
+//memory space. bit 0
+typedef enum
+{
+	Checksum_Error=0x00,     // Memory Checksum Error
+	Checksum_Normal=0x01    // Normal Operation
+}INA228_Checksum_Status_enum;
+
 //====================================================================================================================================
+typedef struct
+{
+	INA228_Config_Reset_enum                   Config_Reset;                   // Reset bit
+	INA228_Config_ResACC_enum                  Config_ResACC;                  // Reserved for ACC bit
+	INA228_Config_Init_Delay_Conver_enum       Config_Init_Delay_Conver;       // Initial ADC conversion delay bits
+	INA228_Config_Temperature_enum             Config_Temperature;             // Shunt Temperature Compensation bit
+	INA228_Config_Range_enum                   Config_Range;                   // Shunt full scale range selection bits
+	INA228_Config_Reserved_enum                Config_Reserved;                       // Reserved bits
+
+} INA228_Config_Info_t;         // INA228句柄结构体
+
+
+typedef struct ina228
+{
+	INA228_ADC_Mode_Config_enum		    ADC_Mode_Config;        // ADC operating mode bits
+	INA228_ADC_Vbus_Conv_Time_enum	    ADC_Vbus_Conv_Time;     // Bus voltage conversion time bits
+	INA228_ADC_Vshunt_Conv_Time_enum	ADC_Vshunt_Conv_Time;   // Shunt voltage conversion time bits
+	INA228_ADC_Temp_Conv_Time_enum	    ADC_Temp_Conv_Time;     // Temperature conversion time bits
+	INA228_ADC_Avg_Sample_enum		    ADC_Avg_Sample;         // Sample averaging mode bits
+
+}INA228_ADC_Config_Info_t;     // INA228 ADC配置结构体
+
+typedef struct
+{
+	INA228_Alert_Clock_Config_enum          Alert_Clock_Config;          // Alert Clock configuration bit
+	INA228_Alert_Ready_Flag_Config_enum     Alert_Ready_Flag_Config;     // Conversion Ready Flag configuration bit
+	INA228_Alert_Asserted_Config_enum       Alert_Asserted_Config;       // Alert Asserted configuration bit
+	INA228_Alert_Polarity_Config_enum       Alert_Polarity_Config;       // Alert Polarity configuration bit
+	INA228_Eenrgy_Status_enum               Eenrgy_Status;               // Energy register status bit
+	INA228_Charge_Status_enum               Charge_Status;               // Charge register status bit
+	INA228_Arithmetic_Overflow_enum         Arithmetic_Overflow;         // Arithmetic overflow status bit
+	INA228_Reserved_Bit_enum                Reserved_Bit;                // Reserved bit
+	INA228_Temperature_Over_Limit_enum      Temperature_Over_Limit;      // Temperature over-limit status bit
+	INA228_Shunt_Voltage_Over_Limit_enum    Shunt_Voltage_Over_Limit;    // Shunt voltage over-limit status bit
+	INA228_Shunt_Voltage_Under_Limit_enum   Shunt_Voltage_Under_Limit;   // Shunt voltage under-limit status bit
+	INA228_Bus_Voltage_Over_Limit_enum      Bus_Voltage_Over_Limit;      // Bus voltage over-limit status bit
+	INA228_Bus_Voltage_Under_Limit_enum     Bus_Voltage_Under_Limit;     // Bus voltage under-limit status bit
+	INA228_Power_Over_Limit_enum            Power_Over_Limit;            // Power over-limit status bit
+	INA228_Conversion_Ready_enum            Conversion_Ready;            // Conversion ready status bit
+	INA228_Checksum_Status_enum             Checksum_Status;             // Checksum status bit
+
+} INA228_Diag_Alert_Info_t;    // INA228诊断报警结构体
+
+
+void INA228_Config(uint32_t GPIOx, uint16_t SCL_Pin, uint16_t SDA_Pin, INA228_Addr_enum Addr);
+void text_online_INA228(void);
