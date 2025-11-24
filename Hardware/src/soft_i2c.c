@@ -5,19 +5,19 @@
 void Soft_W_SCL(I2C_Info *i2c, uint8_t BitValue)
 { // SCL write data
 	gpio_bit_write(i2c->GPIOx, i2c->SCL, (bit_status)BitValue);
-	delay_us(10);
+	delay_us(2);
 }
 
 void Soft_W_SDA(I2C_Info *i2c, uint8_t BitValue)
 { // SDA write data
 	gpio_bit_write(i2c->GPIOx, i2c->SDA, (bit_status)BitValue);
-	delay_us(10);
+	delay_us(2);
 }
 
 uint8_t Soft_R_SDA(I2C_Info *i2c)
 { // SDA read data
 	uint8_t BitValue = gpio_input_bit_get(i2c->GPIOx, i2c->SDA);
-	delay_us(10);
+	delay_us(2);
 	return BitValue;
 }
 
