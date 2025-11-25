@@ -28,11 +28,9 @@ int main(void)
   // WHT_GPIO_BSP.WHT_Set_Pin(PortA, Pin7, Low); 
   while (1)
   {
-    // APP_PC_Task(); // PC任务
+    APP_PC_Task(); // PC任务
 
-    INA228_Device_Func.CHG_INA228_Text_Online();
   
-  delay_ms(500);
 
     // rs485_send_it_data((uint8_t *)"RS485 Init OK\r\n", 16);
   }

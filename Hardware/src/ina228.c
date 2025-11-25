@@ -7,8 +7,6 @@ static void INA228_Init(uint32_t GPIOx, uint16_t SCL_Pin, uint16_t SDA_Pin, INA2
 	Soft_I2C_Init(&INA228_i2C, GPIOx, SCL_Pin, SDA_Pin, Addr);                                                                                                                                             
 }
 
-
-
 // 寄存器长度表（按 INA228 手册）
 static uint8_t INA228_RegLen(uint16_t reg)
 {
@@ -28,6 +26,21 @@ static uint8_t INA228_RegLen(uint16_t reg)
         return 2;   // default 16-bit registers
     }
 }
+
+static int32_t SignExtend24(uint32_t x)
+{
+    if (x & 0x800000)      // bit 23 = sign bit
+        x |= 0xFF000000;   // extend to 32-bit negative
+    return (int32_t)x;
+}
+
+static int64_t SignExtend40(uint64_t x)
+{
+    if (x & ((uint64_t)1 << 39))     // bit 39 = sign
+        x |= 0xFFFFFF0000000000ULL;  // extend to 64-bit negative
+    return (int64_t)x;
+}
+
 
 void Ina228_WriteRegister(I2C_Info *i2c, INA228_Addr_enum Device_Add, 
                           INA228_Cmd_enum RegAdd, uint64_t Data)
@@ -93,13 +106,13 @@ INA228_Config_Info_t INA228_Config_Info =
 {
 	.Config_Reset              = Reset_No_Reset,
 	.Config_ResACC             = Normal_Operation,
-	.Config_Init_Delay_Conver  = Init_Delay_Time_2ms,
+	.Config_Init_Delay_Conver  = Init_Delay_Time_0s,
 	.Config_Temperature        = Temper_Comperm_Enable,
-	.Config_Range              = Range_163_84mV,
+	.Config_Range              = Range_40_96mV,
 	.Config_Reserved           = Reserved_Config_Bit,
     .Calibration_Value         = 0x2000,          // Calibration register
     .Alert_Limit               = 0x0FA0,          // Alert Limit register
-    .Current_LSB               = 1.0f,            // Current LSB value
+    .Current_LSB               = MAX_EXPECTED_CURRENT / (1 << 19),            // Current LSB value
 
 };
 
@@ -107,9 +120,9 @@ INA228_ADC_Config_Info_t INA228_ADC_Config_Info =
 {
 	.ADC_Mode_Config           = Mode_Continuous_Shunt_Bus_Voltage,
 	.ADC_Vbus_Conv_Time        = Vbus_Conv_Time_280us,
-	.ADC_Vshunt_Conv_Time      = Vshunt_Conv_Time_540us,
+	.ADC_Vshunt_Conv_Time      = Vshunt_Conv_Time_280us,
 	.ADC_Temp_Conv_Time        = Temp_Conv_Time_280us,
-	.ADC_Avg_Sample            = Avg_Mode_64_Samples,	
+	.ADC_Avg_Sample            = Avg_Mode_256_Samples,	
 };
 
 INA228_Diag_Alert_Info_t INA228_Diag_Alert_Info=
@@ -123,9 +136,9 @@ INA228_Diag_Alert_Info_t INA228_Diag_Alert_Info=
 	.Arithmetic_Overflow       = Arithmetic_Normal,
 	.Reserved_Bit              = Reserved_Bit,
 	.Temperature_Over_Limit    = Temp_Over_Normal,
-	.Shunt_Voltage_Over_Limit  = Shunt_Voltage_Over_Normal,
+	.Shunt_Voltage_Over_Limit  = Shunt_Voltage_Over_Limit,
 	.Shunt_Voltage_Under_Limit = Shunt_Voltage_Under_Normal,
-	.Bus_Voltage_Over_Limit    = Bus_Voltage_Over_Normal,
+	.Bus_Voltage_Over_Limit    = Bus_Voltage_Over_Limit,
 	.Bus_Voltage_Under_Limit   = Bus_Voltage_Under_Normal,
 	.Power_Over_Limit          = Power_Normal,
 	.Conversion_Ready          = Conversion_Not_Ready,
@@ -192,49 +205,30 @@ static void INA228_BuildConfiguration(void)
 }
 
 
-
-
 static float INA228_Get_Shunt_Voltage(void)
 {
-    float raw = 0.00f;
-    int16_t shunt_val;
-    shunt_val = Ina228_ReadRegister(&INA228_i2C, Ina228_7bit_address0, Cmd_Voltage_Shunt_Register);
-    // Conversion factor: 312.5nV/LSB
-    raw = (float)shunt_val * 0.0000003125f;
-    return raw;
-}
+    uint32_t raw = Ina228_ReadRegister(&INA228_i2C,
+                                       Ina228_7bit_address0,
+                                       Cmd_Voltage_Shunt_Register);
 
-// static float INA228_Get_Bus_Voltage(void)
-// {
-//     float raw = 0.00f;
-//     uint32_t bus_val;
-//     bus_val = Ina228_ReadRegister(&INA228_i2C, Ina228_7bit_address0, Cmd_Bus_Voltage_Register1);
-//     printf("%llu\r\n", bus_val);
-//     // Extract upper 24 bits of valid data
-//     bus_val = (bus_val>>4) & 0xFFFFF;
-    
-//     // Conversion factor: 195.3125 µV/LSB (1 LSB = 195.3125 µV)
-//     raw = (float)bus_val * 0.0001953125f;
-    
-//     return raw;
-// }
+    raw >>= 4;
+    int32_t signedVal = SignExtend24(raw);
+    // LSB = 312.5 nV = 0.0000003125 V
+    return (float)signedVal * 0.0000003125f;
+}
 
 float INA228_Get_Bus_Voltage(void)
 {
-    uint32_t reg = Ina228_ReadRegister(&INA228_i2C,
+    uint32_t raw = Ina228_ReadRegister(&INA228_i2C,
                                        Ina228_7bit_address0,
                                        Cmd_Bus_Voltage_Register1);
 
-    // 移除低 4 位保留位
-    uint32_t val20 = reg >> 4;
+    raw >>= 4;           // 移除低4位保留位
+    // 因为手册写 Twos Complement → 必须符号扩展
+    int32_t signedVal = SignExtend24(raw);
 
-    // 20-bit 两补码符号扩展到 32bit
-    if (val20 & (1 << 19)) {
-        val20 |= 0xFFF00000;   // 111111111111 0000 0000 0000 0000 0000
-    }
-
-    // LSB = 195.3125 uV
-    return ((float)((int32_t)val20)) * 0.0001953125f;
+    // LSB = 195.3125 µV = 0.0001953125 V
+    return (float)signedVal * 0.0001953125f;
 }
 
 
@@ -252,41 +246,32 @@ static float INA228_Get_Temperature(void)
 
 static float INA228_Get_Bus_Current(void)
 {
-    float raw = 0.00f;
-    uint32_t curr_val;
-    curr_val = Ina228_ReadRegister(&INA228_i2C, Ina228_7bit_address0, Cmd_Current_Register1);
-    raw = curr_val>>4; // 取高20位有效数据
-    // Conversion factor: 19.073486µA /LSB (1 LSB = 19.073486µA)
-    if (raw & (1 << 19)) {
-        raw |= 0xFFF00000;   // 111111111111 0000 0000 0000 0000 0000
-    }
-    return ((float)((int32_t)raw)) * 0.000019073486f;
+
+    uint32_t raw = Ina228_ReadRegister(&INA228_i2C,Ina228_7bit_address0,Cmd_Current_Register1);
+    uint32_t val20=raw >>= 4;
+    int32_t signedVal = SignExtend24(val20);
+    int32_t val= (float)signedVal * INA228_Config_Info.Current_LSB;
+    return val;
 }
 
 
 //获取电能 电源 LSB x 16 = 976.5625µJ/LSB
 static float INA228_Get_Energy(void)
 {
-    float raw =0.00f;
-    uint64_t energy_val;
-    energy_val = Ina228_ReadRegister(&INA228_i2C, Ina228_7bit_address0, Cmd_Energt_Register);
-    // Conversion factor: 976.5625µJ/LSB
-    raw = (float)energy_val * 0.0009765625f;
-    return raw;
+    int32_t energy_val = Ina228_ReadRegister(&INA228_i2C, Ina228_7bit_address0, Cmd_Energt_Register);
+    int32_t signedVal = SignExtend40(energy_val);
+    float val = (float)signedVal * 0.0009765625f;
+    return val;
 }
 
-
-//获取电荷 电流 LSB = 19.073486µC/LSB
+// 获取电荷 电流 LSB = 19.073486µC/LSB
 static float INA228_Get_Charge(void)
 {
-    float raw =0.00f;
-    uint64_t charge_val;
-    charge_val = Ina228_ReadRegister(&INA228_i2C, Ina228_7bit_address0, Cmde_Charge_Register);
-    // Conversion factor: 19.073486µC/LSB
-    raw = (float)charge_val * 0.000019073486f;
-    return raw;
+    int32_t charge_val = Ina228_ReadRegister(&INA228_i2C, Ina228_7bit_address0, Cmde_Charge_Register);
+    int32_t signedVal = SignExtend40(charge_val);
+    float val = (float)signedVal * 0.000019073486f;
+    return val;
 }
-
 
 static float INA228_Get_Power(void)
 {
@@ -321,14 +306,37 @@ void INA228_Unlock_Alert(void)
 
 static void INA228_Text_Online(void)
 {
-    uint16_t Die_ID=INA228_Device_Func.CHG_INA228_Get_Device_ID();
-    uint16_t MANUFACTURER_ID=INA228_Device_Func.CHG_INA228_Get_Manufacturer_ID();
-    float Bus_Voltage=INA228_Device_Func.CHG_INA228_Get_Bus_Voltage();
-    float Bus_Current=INA228_Device_Func.CHG_INA228_Get_Current();
-    printf("INA228  Die_ID: 0x%04X\r\n", Die_ID);
-    printf("INA228  MANUFACTURER_ID: 0x%04X\r\n", MANUFACTURER_ID);
-    printf("INA228  Bus_Voltage: %.6f V\r\n", Bus_Voltage);
-    printf("INA228  Bus_Current: %.6f A\r\n", Bus_Current);
+    uint16_t Die_ID = INA228_Device_Func.CHG_INA228_Get_Device_ID();
+    uint16_t MANUFACTURER_ID = INA228_Device_Func.CHG_INA228_Get_Manufacturer_ID();
+    
+    // 延时2ms
+    
+    float Shunt_Voltage = INA228_Device_Func.CHG_INA228_Get_Shunt_Voltage();
+    
+    float Bus_Voltage = INA228_Device_Func.CHG_INA228_Get_Bus_Voltage();
+    
+    float Bus_Current = INA228_Device_Func.CHG_INA228_Get_Current();
+    
+    float Temperature = INA228_Device_Func.CHG_INA228_Get_Temperature();
+    
+    float Power = INA228_Device_Func.CHG_INA228_Get_Power();
+    
+    float Energy = INA228_Device_Func.CHG_INA228_Get_Energy();
+    
+    float Charge = INA228_Device_Func.CHG_INA228_Get_Charge();
+    delay_ms(2);
+    // 打印所有测试结果
+    printf("========== INA228 Test Results ==========\r\n");
+    printf("Bus_Voltage:     %.6f V\r\n", Bus_Voltage);
+    printf("Bus_Current:     %.6f A\r\n", Bus_Current);
+    printf("Shunt_Voltage:   %.6f mV\r\n", Shunt_Voltage * 1000);
+    printf("Temperature:     %.2f C\r\n", Temperature);
+    printf("Power:           %.6f W\r\n", Power);
+    printf("Energy:          %.6f J\r\n", Energy);
+    printf("Charge:          %.6f C\r\n", Charge);
+    printf("MANUFACTURER_ID: 0x%04X\r\n", MANUFACTURER_ID);
+    printf("Die_ID:          0x%04X\r\n", Die_ID);
+    printf("=========================================\r\n\r\n");
 }
 
 static void INA228_Config(uint32_t GPIOx, uint16_t SCL_Pin, uint16_t SDA_Pin, INA228_Addr_enum Addr)

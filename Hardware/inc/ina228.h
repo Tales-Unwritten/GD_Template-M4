@@ -5,6 +5,8 @@
 #include "../Hardware/inc/soft_i2c.h"
 
 
+#define MAX_EXPECTED_CURRENT  40.0f   // 最大预期电流，单位：A
+
 typedef enum
 {
 	Ina228_7bit_address0                                       = 0x40, // A1：0 A0：0 - 7位地址：01000000
@@ -359,8 +361,8 @@ typedef struct
 typedef struct  
 {
 	void  (*CHG_INA228_Config)(uint32_t GPIOx, uint16_t SCL_Pin, uint16_t SDA_Pin, INA228_Addr_enum Addr);
-	uint16_t  (*CHG_INA228_Get_Manufacturer_ID)(void);
-	uint16_t  (*CHG_INA228_Get_Device_ID)(void);
+	uint16_t (*CHG_INA228_Get_Manufacturer_ID)(void);
+	uint16_t (*CHG_INA228_Get_Device_ID)(void);
 	float (*CHG_INA228_Get_Shunt_Voltage)(void);
     float (*CHG_INA228_Get_Bus_Voltage)(void);
 	float (*CHG_INA228_Get_Temperature)(void);

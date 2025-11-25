@@ -7,7 +7,7 @@ void command_parsing(PC_Transmit_Buffer_t *PC_Transmit_Buffer, void (*Usart_Send
         if (PC_Transmit_Buffer[i].Buffer_Status == 1)
         {
             bool command_found = false;
-            for (size_t j = 0; j < 7; j++)
+            for (size_t j = 0; j < sizeof(cmd_table) / sizeof(cmd_table[0]); j++)
             {
                 if (memcmp((char *)PC_Transmit_Buffer[i].Buffer, cmd_table[j].cmd, strlen(cmd_table[j].cmd)) == 0)
                 {

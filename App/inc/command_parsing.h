@@ -6,6 +6,7 @@
 #include "../Hardware/inc/debug_uart.h"
 #include "../Hardware/inc/rs485.h"
 #include "../Hardware/inc/ina226.h"
+#include "../Hardware/inc/ina228.h"
 
 static char send_buffer[128]; // Define send_buffer with sufficient size
 
@@ -58,6 +59,74 @@ static void handle_die_id(void)
     sprintf((char *)send_buffer, "Die_ID=0x%04X\r\n", val);
 }
 
+
+//INA228指令
+
+static void handle_ina228_get_bus_voltage(void)
+{
+    float val = INA228_Device_Func.CHG_INA228_Get_Bus_Voltage();
+    sprintf((char *)send_buffer, "INA228_Vbus_Val=%0.6f\r\n", val);
+}
+
+static void handle_ina228_get_bus_current(void)
+{
+    float val=INA228_Device_Func.CHG_INA228_Get_Current();
+    sprintf((char *)send_buffer, "INA228_Curr_Val=%0.6f\r\n", val);
+}
+
+static void handle_ina228_get_shunt_voltage(void)
+{
+    float val=INA228_Device_Func.CHG_INA228_Get_Shunt_Voltage();
+    sprintf((char *)send_buffer, "INA228_shunt_voltage=%0.6f\r\n", val);
+}
+
+static void handle_ina228_get_power(void)
+{
+    float val=INA228_Device_Func.CHG_INA228_Get_Power();
+    sprintf((char *)send_buffer, "INA228_Power_Value=%0.6f\r\n", val);
+}
+
+static void handle_ina228_unlock_alert(void)
+{
+    INA228_Device_Func.CHG_INA228_Unlock_Alert();
+    sprintf((char *)send_buffer, "INA228_Alert is Ulock\r\n");
+}
+
+static void handle_ina228_get_manufacturer_id(void)
+{
+    uint16_t val = INA228_Device_Func.CHG_INA228_Get_Manufacturer_ID();
+    sprintf((char *)send_buffer, "INA228_Manufacturer_ID=0x%04X\r\n", val);
+}
+
+static void handle_ina228_get_device_id(void)
+{
+    uint16_t val = INA228_Device_Func.CHG_INA228_Get_Device_ID();
+    sprintf((char *)send_buffer, "INA228_Device_ID=0x%04X\r\n", val);
+}
+
+static void handle_ina228_get_temperature(void)
+{
+    float val=INA228_Device_Func.CHG_INA228_Get_Temperature();
+    sprintf((char *)send_buffer, "INA228_Temperature=%0.4f\r\n", val);
+}
+
+static void handle_ina228_text_online(void)
+{
+    INA228_Device_Func.CHG_INA228_Text_Online();
+}
+
+static void handle_ina228_get_energy(void)
+{
+    float val=INA228_Device_Func.CHG_INA228_Get_Energy();
+    sprintf((char *)send_buffer, "INA228_Energy=%0.6f\r\n", val);
+}
+
+static void handle_ina228_get_charge(void)
+{
+    float val=INA228_Device_Func.CHG_INA228_Get_Charge();
+    sprintf((char *)send_buffer, "INA228_Charge=%0.6f\r\n", val);
+}
+
 // 命令表
 typedef struct
 {
@@ -72,7 +141,19 @@ static const cmd_struct cmd_table[] = {
     {"get_power\r\n", handle_power},
     {"ulock_alert\r\n", handle_unlock_alert},
     {"get_manufacturer_id\r\n", handle_manufacturer_id},
-    {"get_die_id\r\n", handle_die_id}};
+    {"get_die_id\r\n", handle_die_id},
+    {"ina228_get_bus_voltage\r\n", handle_ina228_get_bus_voltage},
+    {"ina228_get_bus_current\r\n", handle_ina228_get_bus_current},
+    {"ina228_get_shunt_voltage\r\n", handle_ina228_get_shunt_voltage},
+    {"ina228_get_power\r\n", handle_ina228_get_power},
+    {"ina228_ulock_alert\r\n", handle_ina228_unlock_alert},
+    {"ina228_get_manufacturer_id\r\n", handle_ina228_get_manufacturer_id},
+    {"ina228_get_device_id\r\n", handle_ina228_get_device_id},
+    {"ina228_get_temperature\r\n", handle_ina228_get_temperature},
+    {"ina228_text_online\r\n", handle_ina228_text_online},
+    {"ina228_get_energy\r\n", handle_ina228_get_energy},
+    {"ina228_get_charge\r\n", handle_ina228_get_charge}
+};
 
 
 typedef struct
