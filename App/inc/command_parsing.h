@@ -71,7 +71,7 @@ static void handle_ina228_get_bus_voltage(void)
 static void handle_ina228_get_bus_current(void)
 {
     float val=INA228_Device_Func.CHG_INA228_Get_Current();
-    sprintf((char *)send_buffer, "INA228_Curr_Val=%0.1fmAf\r\n", val*1000);
+    sprintf((char *)send_buffer, "INA228_Curr_Val=%0.1fmA\r\n", val*1000);
 }
 
 static void handle_ina228_get_shunt_voltage(void)

@@ -44,23 +44,20 @@ void APP_PC_Task(void)
 {
 	PC_Transmit_Buffer_t *PC_Transmit_Buffer;
 	void (*Usart_Send_Data)(uint8_t *buf, uint8_t count);
-	for (;;)
+	PC_Transmit_Buffer = Get_485_Data(&Usart_Send_Data);
+	if (PC_Transmit_Buffer != NULL)
 	{
-		PC_Transmit_Buffer = Get_485_Data(&Usart_Send_Data);
-		if (PC_Transmit_Buffer != NULL)
-		{
-			led_on(1);
-			break;
-		}
-		PC_Transmit_Buffer = Get_Debug_Data(&Usart_Send_Data);
-		if (PC_Transmit_Buffer != NULL)
-		{
-			led_on(2);
-			break;
-		}
-		delay_ms(2); // 无数据时延时3ms
+		led_on(1);
+		command_parsing(PC_Transmit_Buffer, Usart_Send_Data);
+		led_off(1);
+		return;
 	}
-	command_parsing(PC_Transmit_Buffer, Usart_Send_Data);
-	led_off(1);
-	led_off(2);
+	PC_Transmit_Buffer = Get_Debug_Data(&Usart_Send_Data);
+	if (PC_Transmit_Buffer != NULL)
+	{
+		led_on(2);
+		command_parsing(PC_Transmit_Buffer, Usart_Send_Data);
+		led_off(2);
+		return;
+	}
 }
