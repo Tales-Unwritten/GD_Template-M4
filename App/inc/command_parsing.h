@@ -65,13 +65,13 @@ static void handle_die_id(void)
 static void handle_ina228_get_bus_voltage(void)
 {
     float val = INA228_Device_Func.CHG_INA228_Get_Bus_Voltage();
-    sprintf((char *)send_buffer, "INA228_Vbus_Val=%0.6f\r\n", val);
+    sprintf((char *)send_buffer, "INA228_Vbus_Val=%0.1fmV\r\n", val*1000);
 }
 
 static void handle_ina228_get_bus_current(void)
 {
     float val=INA228_Device_Func.CHG_INA228_Get_Current();
-    sprintf((char *)send_buffer, "INA228_Curr_Val=%0.6f\r\n", val);
+    sprintf((char *)send_buffer, "INA228_Curr_Val=%0.1fmAf\r\n", val*1000);
 }
 
 static void handle_ina228_get_shunt_voltage(void)

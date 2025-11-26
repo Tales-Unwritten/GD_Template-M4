@@ -319,7 +319,9 @@ typedef struct
 	INA228_Config_Range_enum                   Config_Range;                   // Shunt full scale range selection bits
 	INA228_Config_Reserved_enum                Config_Reserved;                // Reserved bits
 	uint16_t                                   Calibration_Value;			   // Calibration register
-	uint16_t                                   Alert_Limit;					   // Alert Limit register
+	uint16_t                                   Vbus_Alert_Limit;			   // Vbus Alert Limit register
+	uint16_t                                   Vshunt_Alert_Limit;			   // Vshunt Alert Limit register
+	uint16_t                                   Vtemp_Alert_Limit;			   // Vtemp Alert Limit register
 	float                                      Current_LSB;					   // Alert Limit register
 
 } INA228_Config_Info_t;         // INA228句柄结构体

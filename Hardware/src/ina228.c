@@ -27,10 +27,17 @@ static uint8_t INA228_RegLen(uint16_t reg)
     }
 }
 
+static int32_t SignExtend20(uint32_t x)
+{
+    if (x & (1 << 19))            // 20-bit sign bit
+        x |= 0xFFF00000;          // 扩展到32bit
+    return (int32_t)x;
+}
+
 static int32_t SignExtend24(uint32_t x)
 {
-    if (x & 0x800000)      // bit 23 = sign bit
-        x |= 0xFF000000;   // extend to 32-bit negative
+    if (x & (1 << 23))        // 24-bit sign bit
+        x |= 0xFF000000;      // extend to negative
     return (int32_t)x;
 }
 
@@ -110,8 +117,10 @@ INA228_Config_Info_t INA228_Config_Info =
 	.Config_Temperature        = Temper_Comperm_Enable,
 	.Config_Range              = Range_40_96mV,
 	.Config_Reserved           = Reserved_Config_Bit,
-    .Calibration_Value         = 0x2000,          // Calibration register
-    .Alert_Limit               = 0x0FA0,          // Alert Limit register
+    .Calibration_Value         = 0x0FBB,          // Calibration register
+    .Vbus_Alert_Limit          = 0x0EC0,          // Vbus Alert Limit register
+    .Vshunt_Alert_Limit        = 0x1F95,          // Vshunt Alert Limit register
+    .Vtemp_Alert_Limit         = 0x7FFF,          // Vtemp Alert Limit register
     .Current_LSB               = MAX_EXPECTED_CURRENT / (1 << 19),            // Current LSB value
 
 };
@@ -119,10 +128,10 @@ INA228_Config_Info_t INA228_Config_Info =
 INA228_ADC_Config_Info_t INA228_ADC_Config_Info =
 {
 	.ADC_Mode_Config           = Mode_Continuous_Shunt_Bus_Voltage,
-	.ADC_Vbus_Conv_Time        = Vbus_Conv_Time_280us,
-	.ADC_Vshunt_Conv_Time      = Vshunt_Conv_Time_280us,
+	.ADC_Vbus_Conv_Time        = Vbus_Conv_Time_1052us,
+	.ADC_Vshunt_Conv_Time      = Vshunt_Conv_Time_1052us,
 	.ADC_Temp_Conv_Time        = Temp_Conv_Time_280us,
-	.ADC_Avg_Sample            = Avg_Mode_256_Samples,	
+	.ADC_Avg_Sample            = Avg_Mode_128_Samples,	
 };
 
 INA228_Diag_Alert_Info_t INA228_Diag_Alert_Info=
@@ -137,9 +146,9 @@ INA228_Diag_Alert_Info_t INA228_Diag_Alert_Info=
 	.Reserved_Bit              = Reserved_Bit,
 	.Temperature_Over_Limit    = Temp_Over_Normal,
 	.Shunt_Voltage_Over_Limit  = Shunt_Voltage_Over_Limit,
-	.Shunt_Voltage_Under_Limit = Shunt_Voltage_Under_Normal,
+	.Shunt_Voltage_Under_Limit = Shunt_Voltage_Under_Limit,
 	.Bus_Voltage_Over_Limit    = Bus_Voltage_Over_Limit,
-	.Bus_Voltage_Under_Limit   = Bus_Voltage_Under_Normal,
+	.Bus_Voltage_Under_Limit   = Bus_Voltage_Under_Limit,
 	.Power_Over_Limit          = Power_Normal,
 	.Conversion_Ready          = Conversion_Not_Ready,
 	.Checksum_Status           = Checksum_Normal,
@@ -202,6 +211,12 @@ static void INA228_BuildConfiguration(void)
 
     uint16_t Alert_Reg = INA228_BuildAlertRegister(&INA228_Diag_Alert_Info);
     Ina228_WriteRegister(&INA228_i2C, Ina228_7bit_address0, Cmd_Diagnostic_Alert_Register, Alert_Reg);
+
+    Ina228_WriteRegister(&INA228_i2C, Ina228_7bit_address0, Cmd_Shunt_Calibration_Register, INA228_Config_Info.Calibration_Value);
+
+    Ina228_WriteRegister(&INA228_i2C, Ina228_7bit_address0, Cmd_Shunt_Overvoltage_Register, INA228_Config_Info.Vshunt_Alert_Limit);
+
+    // Ina228_WriteRegister(&INA228_i2C, Ina228_7bit_address0, Cmd_Bus_Overvoltage_Register, INA228_Config_Info.Vbus_Alert_Limit);
 }
 
 
@@ -212,7 +227,7 @@ static float INA228_Get_Shunt_Voltage(void)
                                        Cmd_Voltage_Shunt_Register);
 
     raw >>= 4;
-    int32_t signedVal = SignExtend24(raw);
+    int32_t signedVal = SignExtend20(raw);
     // LSB = 312.5 nV = 0.0000003125 V
     return (float)signedVal * 0.0000003125f;
 }
@@ -225,12 +240,32 @@ float INA228_Get_Bus_Voltage(void)
 
     raw >>= 4;           // 移除低4位保留位
     // 因为手册写 Twos Complement → 必须符号扩展
-    int32_t signedVal = SignExtend24(raw);
+    int32_t signedVal = SignExtend20(raw);
 
     // LSB = 195.3125 µV = 0.0001953125 V
     return (float)signedVal * 0.0001953125f;
 }
 
+
+float INA228_Get_Bus_Current(void)
+{
+    uint32_t raw = Ina228_ReadRegister(&INA228_i2C,
+                                       Ina228_7bit_address0,
+                                       Cmd_Current_Register1);
+
+    uint32_t val20 = (raw >> 4) & 0xFFFFF;   // 提取20bit有效数据
+    // uint32_t val20 = (raw >> 4);   // 提取20bit有效数据
+
+    // 20-bit two's complement 符号扩展
+    if (val20 & (1 << 19))
+        val20 |= 0xFFF00000;
+        
+    int32_t signedVal = (int32_t)val20;
+
+    float val = (float)signedVal * INA228_Config_Info.Current_LSB;
+
+    return val;
+}
 
 //获取温度 7.8125m°C/LSB
 static float INA228_Get_Temperature(void)
@@ -244,15 +279,8 @@ static float INA228_Get_Temperature(void)
 }
 
 
-static float INA228_Get_Bus_Current(void)
-{
 
-    uint32_t raw = Ina228_ReadRegister(&INA228_i2C,Ina228_7bit_address0,Cmd_Current_Register1);
-    uint32_t val20=raw >>= 4;
-    int32_t signedVal = SignExtend24(val20);
-    int32_t val= (float)signedVal * INA228_Config_Info.Current_LSB;
-    return val;
-}
+
 
 
 //获取电能 电源 LSB x 16 = 976.5625µJ/LSB
@@ -270,6 +298,7 @@ static float INA228_Get_Charge(void)
     int32_t charge_val = Ina228_ReadRegister(&INA228_i2C, Ina228_7bit_address0, Cmde_Charge_Register);
     int32_t signedVal = SignExtend40(charge_val);
     float val = (float)signedVal * 0.000019073486f;
+    // float val = (float)signedVal * INA228_Config_Info.Current_LSB;
     return val;
 }
 
@@ -306,6 +335,23 @@ void INA228_Unlock_Alert(void)
 
 static void INA228_Text_Online(void)
 {
+    // 读取所有寄存器原始数据
+
+    uint16_t raw_Config = Ina228_ReadRegister(&INA228_i2C, Ina228_7bit_address0, Cmd_Config_Register1);
+    uint16_t raw_ADC_Config = Ina228_ReadRegister(&INA228_i2C, Ina228_7bit_address0, Cmd_ADC_Config_Register);
+    uint16_t raw_Shunt_Calibration = Ina228_ReadRegister(&INA228_i2C, Ina228_7bit_address0, Cmd_Shunt_Calibration_Register);
+    uint16_t raw_Diag_Alert = Ina228_ReadRegister(&INA228_i2C, Ina228_7bit_address0, Cmd_Diagnostic_Alert_Register);
+    
+    uint32_t raw_Shunt_Voltage = Ina228_ReadRegister(&INA228_i2C, Ina228_7bit_address0, Cmd_Voltage_Shunt_Register);
+    uint32_t raw_Bus_Voltage = Ina228_ReadRegister(&INA228_i2C, Ina228_7bit_address0, Cmd_Bus_Voltage_Register1);    
+    uint16_t raw_Temperature = Ina228_ReadRegister(&INA228_i2C, Ina228_7bit_address0, Cmd_Temperature_Register);
+    uint32_t raw_Current = Ina228_ReadRegister(&INA228_i2C, Ina228_7bit_address0, Cmd_Current_Register1);
+    uint16_t raw_Power = Ina228_ReadRegister(&INA228_i2C, Ina228_7bit_address0, Cmd_Power_Register1);
+    uint64_t raw_Energy = Ina228_ReadRegister(&INA228_i2C, Ina228_7bit_address0, Cmd_Energt_Register);
+    uint64_t raw_Charge = Ina228_ReadRegister(&INA228_i2C, Ina228_7bit_address0, Cmde_Charge_Register);
+
+    // 延时2ms
+
     uint16_t Die_ID = INA228_Device_Func.CHG_INA228_Get_Device_ID();
     uint16_t MANUFACTURER_ID = INA228_Device_Func.CHG_INA228_Get_Manufacturer_ID();
     
@@ -337,6 +383,26 @@ static void INA228_Text_Online(void)
     printf("MANUFACTURER_ID: 0x%04X\r\n", MANUFACTURER_ID);
     printf("Die_ID:          0x%04X\r\n", Die_ID);
     printf("=========================================\r\n\r\n");
+
+    // 延时2ms
+    delay_ms(2);
+    //打印原始寄存器数据
+    printf("========== INA228 Register Test Results ==========\r\n");
+    printf("Raw Config Register:          0x%04X\r\n", raw_Config);
+    printf("Raw ADC Config Register:      0x%04X\r\n", raw_ADC_Config);
+    printf("Raw Shunt Calibration Reg:    0x%04X\r\n", raw_Shunt_Calibration);
+    printf("Raw Diag Alert Register:      0x%04X\r\n", raw_Diag_Alert);
+    printf("---------------------------------------------------\r\n");
+
+    printf("Raw Shunt Voltage Register:   0x%06X\r\n", raw_Shunt_Voltage);
+    printf("Raw Bus Voltage Register:     0x%06X\r\n", raw_Bus_Voltage);
+    printf("Raw Temperature Register:     0x%04X\r\n", raw_Temperature);
+    printf("Raw Current Register:         0x%06X\r\n", raw_Current);
+    printf("Raw Power Register:           0x%04X\r\n", raw_Power);
+    printf("Raw Energy Register:          0x%010llX\r\n", raw_Energy);
+    printf("Raw Charge Register:          0x%010llX\r\n", raw_Charge);
+    printf("===================================================\r\n\r\n");
+
 }
 
 static void INA228_Config(uint32_t GPIOx, uint16_t SCL_Pin, uint16_t SDA_Pin, INA228_Addr_enum Addr)
