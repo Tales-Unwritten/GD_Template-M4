@@ -20,12 +20,6 @@ int main(void)
 {
   systick_task_config(); // 初始化所有外设
 
-  // debug_send_it_data((uint8_t *)"System Init OK\r\n", 16);
-  // rs485_send_it_data((uint8_t *)"RS485 Init OK\r\n", 16);
-  
-  // WHT_GPIO_BSP.WHT_Set_Pin(PortC, Pin4, Low); 
-  // WHT_GPIO_BSP.WHT_Set_Pin(PortC, Pin5, Low); 
-  // WHT_GPIO_BSP.WHT_Set_Pin(PortA, Pin7, Low); 
   while (1)
   {
     APP_PC_Task(); // PC任务

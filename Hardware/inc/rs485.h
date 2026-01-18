@@ -1,7 +1,5 @@
 #pragma once
 
-#define CHCHE_COUNT_485 8
-
 #include "gd32f4xx.h"
 #include "systick.h"
 #include "stdio.h"
@@ -47,4 +45,4 @@ void rs485_send_it_data(uint8_t *buffer, uint8_t length); // 发送数据（中�
 void rs485_send_data(uint8_t *buffer, uint8_t length); // 发送数据（轮询方式）
 
 
-extern PC_Transmit_Buffer_t Rs485_Receive_Buffer[CHCHE_COUNT_485];
+extern PC_Transmit_Buffer_t Rs485_Receive_Buffer[CHCHE_COUNT];

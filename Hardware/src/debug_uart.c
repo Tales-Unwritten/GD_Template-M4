@@ -6,7 +6,7 @@ static struct
 {
 	volatile FlagStatus Finish_Flag;
 	uint8_t Buffer_Length;
-	uint8_t Buffer[128];
+	uint8_t Buffer[sizeof(Debug_Receive_Buffer[0].Buffer)];
 } Debug_IT_Secd_Buffer;
 
 static void debug_recv_config(void)
@@ -15,16 +15,17 @@ static void debug_recv_config(void)
 	nvic_irq_enable(DEBUG_USART_IRQ, 0, 0);
 
 	/* 使能串口接收和空闲中断 */
-	usart_receive_config(DEBUG_USART, USART_RECEIVE_ENABLE);
 	usart_interrupt_enable(DEBUG_USART, USART_INT_RBNE);
 	usart_interrupt_enable(DEBUG_USART, USART_INT_IDLE);
+	usart_receive_config(DEBUG_USART, USART_RECEIVE_ENABLE); 
 }
 
 void debug_init_config(uint32_t band_rate)
 {
 	/* 开启时钟 */
 	Debug_IT_Secd_Buffer.Finish_Flag = SET; // 初始标志位置位，表示空闲
-	memset(Debug_IT_Secd_Buffer.Buffer, 0, sizeof(Debug_IT_Secd_Buffer));
+	Debug_IT_Secd_Buffer.Buffer_Length = 0;
+	memset(Debug_IT_Secd_Buffer.Buffer, 0, sizeof(Debug_IT_Secd_Buffer.Buffer));
 	rcu_periph_clock_enable(DEBUG_USART_TX_RCU); // 开启串口时钟
 	rcu_periph_clock_enable(DEBUG_USART_RX_RCU); // 开启端口时钟
 	rcu_periph_clock_enable(DEBUG_USART_RCU);	 // 开启端口时钟
@@ -50,9 +51,7 @@ void debug_init_config(uint32_t band_rate)
 	usart_parity_config(DEBUG_USART, USART_PM_NONE);   // 没有校验位
 	usart_word_length_set(DEBUG_USART, USART_WL_8BIT); // 8位数据位
 	usart_stop_bit_set(DEBUG_USART, USART_STB_1BIT);   // 1位停止位
-
-	debug_recv_config(); // 配置接收中断
-
+	debug_recv_config();							   // 配置接收中断
 	/* 使能串口 */
 	usart_enable(DEBUG_USART);								   // 使能串口
 	usart_transmit_config(DEBUG_USART, USART_TRANSMIT_ENABLE); // 使能串口发送
@@ -87,18 +86,15 @@ void debug_send_it_data(uint8_t *buffer, uint8_t length)
 	Debug_IT_Secd_Buffer.Finish_Flag = RESET;			 // 重置完成标志
 	Debug_IT_Secd_Buffer.Buffer_Length = length;		 // 设置缓冲区长度
 	memcpy(Debug_IT_Secd_Buffer.Buffer, buffer, length); // 复制数据到缓冲区
-	usart_interrupt_enable(DEBUG_USART, USART_INT_TBE); // 使能发送中断
-	usart_interrupt_enable(DEBUG_USART, USART_INT_TC);	// 使能发送完成中断
+	usart_interrupt_enable(DEBUG_USART, USART_INT_TBE);	 // 使能发送中断
+	usart_interrupt_enable(DEBUG_USART, USART_INT_TC);	 // 使能发送完成中断
 }
 
 void debug_send_data(uint8_t *buffer, uint8_t length)
 {
 	uint32_t tx_count;
-	usart_interrupt_disable(DEBUG_USART, USART_FLAG_TBE); // 禁止发送中断
-	usart_interrupt_disable(DEBUG_USART, USART_FLAG_TC);  // 禁止发送完成中断
-	usart_flag_clear(DEBUG_USART, USART_FLAG_TBE);		  // 清除发送数据缓冲区标志
-	usart_flag_clear(DEBUG_USART, USART_FLAG_TC);		  // 清除发送完成标志
-
+	usart_interrupt_disable(DEBUG_USART, USART_INT_TBE); // 禁止发送中断
+	usart_interrupt_disable(DEBUG_USART, USART_INT_TC);	 // 禁止发送完成中断
 	for (tx_count = 0; tx_count < length; tx_count++)
 	{
 		usart_data_transmit(DEBUG_USART, buffer[tx_count]);
@@ -106,9 +102,7 @@ void debug_send_data(uint8_t *buffer, uint8_t length)
 			; // 等待发送数据缓冲区标志置位
 	}
 	while (RESET == usart_flag_get(DEBUG_USART, USART_FLAG_TC))
-		; // 等待发送完成
-	{
-	}
+		;
 }
 
 void USART0_IRQHandler(void)
@@ -125,10 +119,8 @@ void USART0_IRQHandler(void)
 		usart_interrupt_flag_get(DEBUG_USART, USART_INT_FLAG_PERR))
 	{
 		/* 清除所有错误标志 */
-		usart_flag_clear(DEBUG_USART, USART_FLAG_ORERR | USART_FLAG_FERR |
-										  USART_FLAG_NERR | USART_FLAG_PERR);
-		usart_data_receive(DEBUG_USART); // 读取数据寄存器清除错误
-
+		usart_flag_clear(DEBUG_USART, USART_FLAG_ORERR | USART_FLAG_FERR |USART_FLAG_NERR | USART_FLAG_PERR);
+		usart_data_receive(DEBUG_USART); // 读取数据寄存器清除错误标志
 		/* 错误发生时重置接收状态 */
 		memset(Temp_Recevice_Buffer, 0, sizeof(Temp_Recevice_Buffer));
 		Temp_Recevice_Count = 0;
@@ -138,8 +130,8 @@ void USART0_IRQHandler(void)
 	/* 接收缓冲区非空中断 */
 	if (usart_interrupt_flag_get(DEBUG_USART, USART_INT_FLAG_RBNE) == SET)
 	{
-		
-		if (Temp_Recevice_Count < (sizeof(Temp_Recevice_Buffer) ))
+
+		if (Temp_Recevice_Count < (sizeof(Temp_Recevice_Buffer)))
 		{
 			Temp_Recevice_Buffer[Temp_Recevice_Count++] = usart_data_receive(DEBUG_USART);
 		}
@@ -148,31 +140,22 @@ void USART0_IRQHandler(void)
 			usart_data_receive(DEBUG_USART); // 丢弃数据
 		}
 	}
-
 	/* 空闲中断 - 接收完成 */
 	else if (usart_interrupt_flag_get(DEBUG_USART, USART_INT_FLAG_IDLE) == SET)
 	{
 		usart_data_receive(DEBUG_USART); // 清除空闲标志
-		if (Temp_Recevice_Count > 0 && memchr(Temp_Recevice_Buffer, '\r\n', Temp_Recevice_Count) != NULL)
+		/* 查找空闲缓冲区并存储数据 */
+		for (size_t i = 0; i < CHCHE_COUNT; i++)
 		{
-			/* 查找空闲缓冲区并存储数据 */
-			for (size_t i = 0; i < CHCHE_COUNT; i++)
+			// led_toggle(1); // 切换LED1状态
+			if (Debug_Receive_Buffer[i].Buffer_Status == 0)
 			{
-				// led_toggle(1); // 切换LED1状态
-				if (Debug_Receive_Buffer[i].Buffer_Status == 0)
-				{
-					Debug_Receive_Buffer[i].Buffer_Length = Temp_Recevice_Count;
-					memcpy(Debug_Receive_Buffer[i].Buffer, Temp_Recevice_Buffer, Temp_Recevice_Count);
-					Debug_Receive_Buffer[i].Buffer_Status = 1; // 标记为已接收
-					break;
-				}
+				Debug_Receive_Buffer[i].Buffer_Length = Temp_Recevice_Count;
+				memcpy(Debug_Receive_Buffer[i].Buffer, Temp_Recevice_Buffer, Temp_Recevice_Count);
+				Debug_Receive_Buffer[i].Buffer_Status = 1; // 标记为已接收
+				break;
 			}
 		}
-		else
-		{
-			debug_send_it_data((uint8_t *)"data is error\r\n", 14);
-		}
-
 		/* 清空临时接收缓冲区 */
 		memset(Temp_Recevice_Buffer, 0, sizeof(Temp_Recevice_Buffer));
 		Temp_Recevice_Count = 0;
@@ -196,7 +179,5 @@ void USART0_IRQHandler(void)
 		usart_interrupt_disable(DEBUG_USART, USART_INT_TC); // 禁止发送完成中断
 		Debug_IT_Secd_Buffer.Finish_Flag = SET;				// 设置完成标志
 		Send_Count = 0;										// 重置发送计数器
-		
 	}
 }
-

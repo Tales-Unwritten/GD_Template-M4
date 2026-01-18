@@ -1,19 +1,20 @@
 #include "../Hardware/inc/rs485.h"
 
-PC_Transmit_Buffer_t Rs485_Receive_Buffer[CHCHE_COUNT_485];
+PC_Transmit_Buffer_t Rs485_Receive_Buffer[CHCHE_COUNT];
 
 static struct
 {
 	volatile FlagStatus Finish_Flag;
 	uint8_t Buffer_Length;
-	uint8_t Buffer[128];
+	uint8_t Buffer[sizeof(Rs485_Receive_Buffer[0].Buffer)];
 } Rs485_IT_Secd_Buffer;
 
 static void Rs485_gpio_init(uint32_t band_rate)
 {
 	/* 开启时钟 */
 	Rs485_IT_Secd_Buffer.Finish_Flag = SET; // 初始标志位置位，表示空闲
-	memset(Rs485_IT_Secd_Buffer.Buffer, 0, sizeof(Rs485_IT_Secd_Buffer));
+	Rs485_IT_Secd_Buffer.Buffer_Length = 0;
+	memset(Rs485_IT_Secd_Buffer.Buffer, 0, sizeof(Rs485_IT_Secd_Buffer.Buffer));
 	rcu_periph_clock_enable(RS485_USART_TX_RCU);
 	rcu_periph_clock_enable(RS485_USART_RX_RCU);
 	rcu_periph_clock_enable(RS485_USART_RCU);
@@ -25,8 +26,8 @@ static void Rs485_gpio_init(uint32_t band_rate)
 	/* 配置GPIO的模式 */
 	/* 配置TX为复用模式 上拉模式 */
 	gpio_mode_set(RS485_USART_TX_PORT, GPIO_MODE_AF, GPIO_PUPD_PULLUP, RS485_USART_TX_PIN);
-	/* 配置RX为复用模式 上拉模式 */
-	gpio_mode_set(RS485_USART_RX_PORT, GPIO_MODE_AF, GPIO_PUPD_PULLUP, RS485_USART_RX_PIN);
+	/* 配置RX为复用模式 下拉模式 */
+	gpio_mode_set(RS485_USART_RX_PORT, GPIO_MODE_AF, GPIO_PUPD_PULLDOWN, RS485_USART_RX_PIN);
 
 	/* 配置TX为推挽输出 50MHZ */
 	gpio_output_options_set(RS485_USART_TX_PORT, GPIO_OTYPE_PP, GPIO_OSPEED_50MHZ, RS485_USART_TX_PIN);
@@ -52,11 +53,9 @@ static void Rs485_en_gpio_init(void)
 {
 	/* 开启GPIOG时钟 */
 	rcu_periph_clock_enable(RS485_USART_EN_RCU);
-
 	/* 配置GPIOG13为推挽输出 */
 	gpio_mode_set(RS485_EN_PORT, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, RS485_EN_PIN);
 	gpio_output_options_set(RS485_EN_PORT, GPIO_OTYPE_PP, GPIO_OSPEED_MAX, RS485_EN_PIN);
-
 	/* 使能RS485 */
 	gpio_bit_set(RS485_EN_PORT, RS485_EN_PIN); // 设置为高电平使能
 }
@@ -75,7 +74,6 @@ static void set_rs485_en(uint8_t en)
 
 void rs485_send_it_data(uint8_t *buffer, uint8_t length)
 {
-	// led_on(2); // 打开LED2指示发送状态
 	set_rs485_en(1); // 使能RS485发送
 	if (length > sizeof(Rs485_IT_Secd_Buffer.Buffer))
 	{
@@ -94,11 +92,8 @@ void rs485_send_data(uint8_t *buffer, uint8_t length)
 {
 	set_rs485_en(1); // 使能RS485发送
 	uint32_t tx_count;
-	usart_interrupt_disable(RS485_USART, USART_FLAG_TBE); // 禁止发送中断
-	usart_interrupt_disable(RS485_USART, USART_FLAG_TC);  // 禁止发送完成中断
-	usart_flag_clear(RS485_USART, USART_FLAG_TBE);		  // 清除发送数据缓冲区标志
-	usart_flag_clear(RS485_USART, USART_FLAG_TC);		  // 清除发送完成标志
-
+	usart_interrupt_disable(RS485_USART, USART_INT_TBE); // 禁止发送中断
+	usart_interrupt_disable(RS485_USART, USART_INT_TC);	 // 禁止发送完成中断
 	for (tx_count = 0; tx_count < length; tx_count++)
 	{
 		usart_data_transmit(RS485_USART, buffer[tx_count]);
@@ -106,10 +101,7 @@ void rs485_send_data(uint8_t *buffer, uint8_t length)
 			; // 等待发送数据缓冲区标志置位
 	}
 	while (RESET == usart_flag_get(RS485_USART, USART_FLAG_TC))
-		; // 等待发送完成
-	{
-		/* code */
-	}
+		;
 	set_rs485_en(0); // 禁用RS485发送和切换到接收模式
 }
 
@@ -134,7 +126,7 @@ void USART1_IRQHandler(void)
 		/* 清除所有错误标志 */
 		usart_flag_clear(RS485_USART, USART_FLAG_ORERR | USART_FLAG_FERR |
 										  USART_FLAG_NERR | USART_FLAG_PERR);
-		usart_data_receive(RS485_USART); // 读取数据寄存器清除错误
+		usart_data_receive(RS485_USART); // 读取数据寄存器清除错误标志
 
 		/* 错误发生时重置接收状态 */
 		memset(Temp_Recevice_Buffer, 0, sizeof(Temp_Recevice_Buffer));
@@ -160,10 +152,10 @@ void USART1_IRQHandler(void)
 	{
 		usart_data_receive(RS485_USART); // 清除空闲标志
 
-		if (Temp_Recevice_Count > 0 && memchr(Temp_Recevice_Buffer, '\r\n', Temp_Recevice_Count) != NULL)
+		if (Temp_Recevice_Count > 0)
 		{
 			/* 查找空闲缓冲区并存储数据 */
-			for (size_t i = 0; i < CHCHE_COUNT_485; i++)
+			for (size_t i = 0; i < CHCHE_COUNT; i++)
 			{
 				if (Rs485_Receive_Buffer[i].Buffer_Status == 0)
 				{
@@ -175,12 +167,6 @@ void USART1_IRQHandler(void)
 				}
 			}
 		}
-
-		else
-		{
-			rs485_send_it_data((uint8_t *)"485data is error\r\n", 17);
-		}
-
 		/* 清空临时接收缓冲区 */
 		memset(Temp_Recevice_Buffer, 0, sizeof(Temp_Recevice_Buffer));
 		Temp_Recevice_Count = 0;

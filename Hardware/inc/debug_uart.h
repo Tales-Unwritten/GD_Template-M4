@@ -10,7 +10,7 @@
 
 
 
-#define CHCHE_COUNT 8
+#define CHCHE_COUNT 3
 
 #define DEBUG_USART_TX_RCU RCU_GPIOA // 串口TX的端口时钟
 #define DEBUG_USART_RX_RCU RCU_GPIOA // 串口RX的端口时钟

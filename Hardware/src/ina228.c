@@ -370,7 +370,7 @@ static void INA228_Text_Online(void)
     float Energy = INA228_Device_Func.CHG_INA228_Get_Energy();
     
     float Charge = INA228_Device_Func.CHG_INA228_Get_Charge();
-    delay_ms(2);
+    // delay_ms(2);
     // 打印所有测试结果
     printf("========== INA228 Test Results ==========\r\n");
     printf("Bus_Voltage:     %.6f V\r\n", Bus_Voltage);
@@ -385,7 +385,7 @@ static void INA228_Text_Online(void)
     printf("=========================================\r\n\r\n");
 
     // 延时2ms
-    delay_ms(2);
+    // delay_ms(2);
     //打印原始寄存器数据
     printf("========== INA228 Register Test Results ==========\r\n");
     printf("Raw Config Register:          0x%04X\r\n", raw_Config);
