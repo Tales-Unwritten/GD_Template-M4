@@ -98,10 +98,10 @@ void usartx_send_data(uint8_t *buffer, uint8_t length)
 	set_usartx_en(0); 												   // 禁用USARTx发送和切换到接收模式
 }
 
-void usartx_Init_config(uint32_t band_rate)
+void usartx_config(uint32_t band_rate)
 {
 	usartx_gpio_init(band_rate); 										// 初始化串口GPIO
-	usartx_en_gpio_init();		 										// 初始化USARTx使能GPIO
+	USARTx_en_gpio_init();		 										// 初始化USARTx使能GPIO
 }
 
 void USARTx_IRQHandler(void)
@@ -175,6 +175,6 @@ void USARTx_IRQHandler(void)
 		usart_interrupt_disable(USARTx_USART, USART_INT_TC); // 禁止发送完成中断
 		USARTx_IT_Secd_Buffer.Finish_Flag = SET;			 // 设置完成标志
 		Send_Count = 0;										 // 重置发送计数器
-		set_USARTx_en(0);									 // 禁用USARTx发送和切换到接收模式
+		set_usartx_en(0);									 // 禁用USARTx发送和切换到接收模式
 	}
 }

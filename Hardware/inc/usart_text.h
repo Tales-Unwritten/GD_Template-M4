@@ -41,7 +41,7 @@ typedef struct
 #endif // !__PC_Transmit_Buffer_t__
 
 
-void usartx_Init_config(uint32_t band_rate);                 // 初始化USARTx串口
+void usartx_config(uint32_t band_rate);                 // 初始化USARTx串口
 void usartx_send_it_data(uint8_t *buffer, uint8_t length);   // 发送数据（中断方式）
 void usartx_send_data(uint8_t *buffer, uint8_t length);      // 发送数据（轮询方式）
 

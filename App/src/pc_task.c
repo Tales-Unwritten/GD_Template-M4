@@ -26,7 +26,7 @@ static PC_Transmit_Buffer_t *Get_PC_Data(void (**usart_send_data)(uint8_t *buffe
             led_on (3);
             led_off(1);
             led_off(2);
-			*usart_send_data = USARTx_send_it_data;
+			*usart_send_data = usartx_send_it_data;
 			return &USARTx_Receive_Buffer[i];
 		}
 		
