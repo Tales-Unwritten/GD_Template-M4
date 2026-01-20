@@ -158,13 +158,13 @@ static void WHT_GPIO_BSP_Register_Bit_Input(WHT_GPIO_Port_enum portx, WHT_GPIO_P
 /*全局常量*/
 const WHT_GPIO_BSP_t WHT_GPIO_BSP =
 {
-    .WHT_Set_Clock = WHT_GPIO_BSP_Set_Clock,
-    .WHT_Set_Mode  = WHT_GPIO_BSP_Set_Mode,
-    .WHT_Set_AFIO  = WHT_GPIO_BSP_Set_AFIO,
-    .WHT_Get_Pin   = WHT_GPIO_BSP_Get_State,
-    .WHT_Set_Pin   = WHT_GPIO_BSP_Set_State,
-    .WHT_Get_Prot  = WHT_GPIO_BSP_Get_Prot_Value,
-    .WHT_Set_Prot  = WHT_GPIO_BSP_Set_Port_Value,
+    .WHT_Set_Clock           = WHT_GPIO_BSP_Set_Clock,
+    .WHT_Set_Mode            = WHT_GPIO_BSP_Set_Mode,
+    .WHT_Set_AFIO            = WHT_GPIO_BSP_Set_AFIO,
+    .WHT_Get_Pin             = WHT_GPIO_BSP_Get_State,
+    .WHT_Set_Pin             = WHT_GPIO_BSP_Set_State,
+    .WHT_Get_Prot            = WHT_GPIO_BSP_Get_Prot_Value,
+    .WHT_Set_Prot            = WHT_GPIO_BSP_Set_Port_Value,
     .WHT_Register_Bit_Output = WHT_GPIO_BSP_Register_Bit_Output,
     .WHT_Register_Bit_Input  = WHT_GPIO_BSP_Register_Bit_Input,
 };

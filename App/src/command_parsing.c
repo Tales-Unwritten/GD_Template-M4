@@ -39,6 +39,7 @@ void command_parsing(PC_Transmit_Buffer_t *PC_Transmit_Buffer, void (*Usart_Send
             if (!command_found)
             {
                 Usart_Send_Data((uint8_t *)"Unknown command\r\n", strlen("Unknown command\r\n"));
+                break;
             }
         }
     }

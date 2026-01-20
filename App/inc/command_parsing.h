@@ -7,6 +7,7 @@
 #include "../Hardware/inc/rs485.h"
 #include "../Hardware/inc/ina226.h"
 #include "../Hardware/inc/ina228.h"
+#include "../Hardware/inc/usart_text.h"
 
 static char send_buffer[128]; // Define send_buffer with sufficient size
 

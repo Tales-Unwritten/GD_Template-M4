@@ -119,8 +119,8 @@ void USART1_IRQHandler(void)
 
 	/* 处理错误中断 - 优先处理错误 */
 	if (usart_interrupt_flag_get(RS485_USART, USART_INT_FLAG_ERR_ORERR) ||
-		usart_interrupt_flag_get(RS485_USART, USART_INT_FLAG_ERR_FERR) ||
-		usart_interrupt_flag_get(RS485_USART, USART_INT_FLAG_ERR_NERR) ||
+		usart_interrupt_flag_get(RS485_USART, USART_INT_FLAG_ERR_FERR)  ||
+		usart_interrupt_flag_get(RS485_USART, USART_INT_FLAG_ERR_NERR)  ||
 		usart_interrupt_flag_get(RS485_USART, USART_INT_FLAG_PERR))
 	{
 		/* 清除所有错误标志 */
@@ -133,7 +133,6 @@ void USART1_IRQHandler(void)
 		Temp_Recevice_Count = 0;
 		return; // 错误处理后直接返回
 	}
-
 	/* 接收缓冲区非空中断 */
 	if (usart_interrupt_flag_get(RS485_USART, USART_INT_FLAG_RBNE) == SET)
 	{
@@ -146,7 +145,6 @@ void USART1_IRQHandler(void)
 			usart_data_receive(RS485_USART); // 丢弃数据
 		}
 	}
-
 	/* 空闲中断 - 接收完成 */
 	else if (usart_interrupt_flag_get(RS485_USART, USART_INT_FLAG_IDLE) == SET)
 	{
@@ -171,9 +169,8 @@ void USART1_IRQHandler(void)
 		memset(Temp_Recevice_Buffer, 0, sizeof(Temp_Recevice_Buffer));
 		Temp_Recevice_Count = 0;
 	}
-
-	/* 发送缓冲区空中断 */
-	if (usart_interrupt_flag_get(RS485_USART, USART_INT_FLAG_TBE) == SET)
+	
+	if (usart_interrupt_flag_get(RS485_USART, USART_INT_FLAG_TBE) == SET) /* 发送缓冲区空中断 */
 	{
 		if (Rs485_IT_Secd_Buffer.Finish_Flag == RESET && Send_Count < Rs485_IT_Secd_Buffer.Buffer_Length)
 		{
@@ -184,7 +181,6 @@ void USART1_IRQHandler(void)
 			usart_interrupt_disable(RS485_USART, USART_INT_TBE); // 禁止发送中断
 		}
 	}
-
 	/* 发送完成中断 */
 	if (usart_interrupt_flag_get(RS485_USART, USART_INT_FLAG_TC) == SET)
 	{
@@ -192,6 +188,5 @@ void USART1_IRQHandler(void)
 		Rs485_IT_Secd_Buffer.Finish_Flag = SET;				// 设置完成标志
 		Send_Count = 0;										// 重置发送计数器
 		set_rs485_en(0);									// 禁用RS485发送和切换到接收模式
-															// led_off(2); // 关闭LED2状态指示
 	}
 }

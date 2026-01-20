@@ -11,10 +11,7 @@ static struct
 
 static void debug_recv_config(void)
 {
-	/* 配置NVIC */
-	nvic_irq_enable(DEBUG_USART_IRQ, 0, 0);
-
-	/* 使能串口接收和空闲中断 */
+	nvic_irq_enable(DEBUG_USART_IRQ, 0, 0);	/* 使能串口接收和空闲中断 */
 	usart_interrupt_enable(DEBUG_USART, USART_INT_RBNE);
 	usart_interrupt_enable(DEBUG_USART, USART_INT_IDLE);
 	usart_receive_config(DEBUG_USART, USART_RECEIVE_ENABLE); 
@@ -60,16 +57,11 @@ void debug_init_config(uint32_t band_rate)
 int fputc(int ch, FILE *f)
 {
 	/* 等待发送缓冲区空 */
-	while (RESET == usart_flag_get(DEBUG_USART, USART_FLAG_TBE))
-		;
-
+	while (RESET == usart_flag_get(DEBUG_USART, USART_FLAG_TBE));
 	/* 发送字符 */
 	usart_data_transmit(DEBUG_USART, (uint32_t)ch);
-
 	/* 等待发送完成 */
-	while (RESET == usart_flag_get(DEBUG_USART, USART_FLAG_TC))
-		;
-
+	while (RESET == usart_flag_get(DEBUG_USART, USART_FLAG_TC));
 	return ch;
 }
 
@@ -107,11 +99,9 @@ void debug_send_data(uint8_t *buffer, uint8_t length)
 
 void USART0_IRQHandler(void)
 {
-
 	static uint8_t Temp_Recevice_Buffer[sizeof(Debug_Receive_Buffer[0].Buffer)];
 	static uint16_t Temp_Recevice_Count = 0;
 	static uint8_t Send_Count = 0;
-
 	/* 处理错误中断 - 优先处理错误 */
 	if (usart_interrupt_flag_get(DEBUG_USART, USART_INT_FLAG_ERR_ORERR) ||
 		usart_interrupt_flag_get(DEBUG_USART, USART_INT_FLAG_ERR_FERR) ||
@@ -126,7 +116,6 @@ void USART0_IRQHandler(void)
 		Temp_Recevice_Count = 0;
 		return; // 错误处理后直接返回
 	}
-
 	/* 接收缓冲区非空中断 */
 	if (usart_interrupt_flag_get(DEBUG_USART, USART_INT_FLAG_RBNE) == SET)
 	{
@@ -147,7 +136,6 @@ void USART0_IRQHandler(void)
 		/* 查找空闲缓冲区并存储数据 */
 		for (size_t i = 0; i < CHCHE_COUNT; i++)
 		{
-			// led_toggle(1); // 切换LED1状态
 			if (Debug_Receive_Buffer[i].Buffer_Status == 0)
 			{
 				Debug_Receive_Buffer[i].Buffer_Length = Temp_Recevice_Count;
@@ -156,8 +144,7 @@ void USART0_IRQHandler(void)
 				break;
 			}
 		}
-		/* 清空临时接收缓冲区 */
-		memset(Temp_Recevice_Buffer, 0, sizeof(Temp_Recevice_Buffer));
+		memset(Temp_Recevice_Buffer, 0, sizeof(Temp_Recevice_Buffer));   /* 清空临时接收缓冲区 */
 		Temp_Recevice_Count = 0;
 	}
 	/* 发送缓冲区空中断 */
@@ -172,7 +159,6 @@ void USART0_IRQHandler(void)
 			usart_interrupt_disable(DEBUG_USART, USART_INT_TBE); // 禁止发送中断
 		}
 	}
-
 	/* 发送完成中断 */
 	if (usart_interrupt_flag_get(DEBUG_USART, USART_INT_FLAG_TC) == SET)
 	{

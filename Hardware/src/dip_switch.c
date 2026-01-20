@@ -80,7 +80,6 @@ uint8_t dip_switch_read(void)
 	return val; // 返回地址，4位最大0x0F，8位最大0xFF
 }
 
-
 void verify_dip_switch(void)
 {
 	dip_switch_init(); // 初始化拨码开关
