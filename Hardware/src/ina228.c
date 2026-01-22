@@ -128,10 +128,10 @@ INA228_Config_Info_t INA228_Config_Info =
 INA228_ADC_Config_Info_t INA228_ADC_Config_Info =
 {
 	.ADC_Mode_Config           = Mode_Continuous_Shunt_Bus_Voltage,
-	.ADC_Vbus_Conv_Time        = Vbus_Conv_Time_1052us,
+	.ADC_Vbus_Conv_Time        = Vbus_Conv_Time_2074us,
 	.ADC_Vshunt_Conv_Time      = Vshunt_Conv_Time_1052us,
 	.ADC_Temp_Conv_Time        = Temp_Conv_Time_280us,
-	.ADC_Avg_Sample            = Avg_Mode_128_Samples,	
+	.ADC_Avg_Sample            = Avg_Mode_256_Samples,	
 };
 
 INA228_Diag_Alert_Info_t INA228_Diag_Alert_Info=

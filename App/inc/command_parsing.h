@@ -19,13 +19,13 @@ typedef void (*cmd_handler_t)(void);
 static void handle_bus_voltage(void)
 {
     float val = INA226_Device_Info.CHG_Ina226_Get_Bus_Voltage();
-    sprintf((char *)send_buffer, "Vbus_Val=%0.4f\r\n", val);
+    sprintf((char *)send_buffer, "Vbus_Val=%0.6f\r\n", val);
 }
 
 static void handle_current(void)
 {
     float val = INA226_Device_Info.CHG_Ina226_Get_Current();
-    sprintf((char *)send_buffer, "Curr_Val=%0.4f\r\n", val);
+    sprintf((char *)send_buffer, "Curr_Val=%0.6f\r\n", val);
 }
 
 static void handle_shunt_voltage(void)
@@ -66,13 +66,13 @@ static void handle_die_id(void)
 static void handle_ina228_get_bus_voltage(void)
 {
     float val = INA228_Device_Func.CHG_INA228_Get_Bus_Voltage();
-    sprintf((char *)send_buffer, "INA228_Vbus_Val=%0.1fmV\r\n", val*1000);
+    sprintf((char *)send_buffer, "INA228_Vbus_Val=%0.3fmV\r\n", val*1000);
 }
 
 static void handle_ina228_get_bus_current(void)
 {
     float val=INA228_Device_Func.CHG_INA228_Get_Current();
-    sprintf((char *)send_buffer, "INA228_Curr_Val=%0.1fmA\r\n", val*1000);
+    sprintf((char *)send_buffer, "INA228_Curr_Val=%0.3fmA\r\n", val*1000);
 }
 
 static void handle_ina228_get_shunt_voltage(void)

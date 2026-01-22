@@ -69,7 +69,7 @@ static void set_usartx_en(uint8_t en)
 	}
 }
 
-void usartx_send_it_data(uint8_t *buffer, uint8_t length)
+void usartx_send_it_data(uint8_t *buffer, uint8_t length)/
 {
 	set_usartx_en(1); // 使能USARTx发送
 	if (length > sizeof(USARTx_IT_Secd_Buffer.Buffer))
