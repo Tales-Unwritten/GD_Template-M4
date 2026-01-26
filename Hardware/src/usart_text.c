@@ -69,7 +69,7 @@ static void set_usartx_en(uint8_t en)
 	}
 }
 
-void usartx_send_it_data(uint8_t *buffer, uint8_t length)/
+void usartx_send_it_data(uint8_t *buffer, uint8_t length)
 {
 	set_usartx_en(1); // 使能USARTx发送
 	if (length > sizeof(USARTx_IT_Secd_Buffer.Buffer))
@@ -149,6 +149,7 @@ void USARTx_IRQHandler(void)
 				{
 					USARTx_Receive_Buffer[i].Buffer_Length = Temp_Recevice_Count;
 					memcpy(USARTx_Receive_Buffer[i].Buffer, Temp_Recevice_Buffer, Temp_Recevice_Count);
+					// usartx_send_it_data(USARTx_Receive_Buffer[i].Buffer, USARTx_Receive_Buffer[i].Buffer_Length);
 					USARTx_Receive_Buffer[i].Buffer_Status = 1; // 标记为已接收
 					break;
 				}

@@ -160,6 +160,7 @@ void USART1_IRQHandler(void)
 					// led_toggle(2); // 切换LED2状态
 					Rs485_Receive_Buffer[i].Buffer_Length = Temp_Recevice_Count;
 					memcpy(Rs485_Receive_Buffer[i].Buffer, Temp_Recevice_Buffer, Temp_Recevice_Count);
+					// rs485_send_it_data(Rs485_Receive_Buffer[i].Buffer, Rs485_Receive_Buffer[i].Buffer_Length);
 					Rs485_Receive_Buffer[i].Buffer_Status = 1; // 标记为已接收
 					break;
 				}
