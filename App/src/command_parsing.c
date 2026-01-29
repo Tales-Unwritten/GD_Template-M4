@@ -5,7 +5,7 @@ void command_parsing(PC_Transmit_Buffer_t *PC_Transmit_Buffer, void (*Usart_Send
     for (size_t i = 0; i < CHCHE_COUNT; i++)
     {
 
-        if (PC_Transmit_Buffer[i].Buffer_Status == 1&&PC_Transmit_Buffer[i].Buffer_Length>3)
+        if (PC_Transmit_Buffer[i].Buffer_Status == 1 && PC_Transmit_Buffer[i].Buffer_Length > 3)
         {
             // if (strchr((char *)PC_Transmit_Buffer[i].Buffer, '\r') == NULL && strchr((char *)PC_Transmit_Buffer[i].Buffer, '\n') == NULL)
             // {

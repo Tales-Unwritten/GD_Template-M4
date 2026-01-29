@@ -18,9 +18,9 @@
 #define PIN_LED2 		GPIO_PIN_4  // GPIOA的引脚
 #define PIN_LED3 		GPIO_PIN_7  // GPIOA的引脚
 
-void led_gpio_config(void); 	  // led gpio引脚配置
-void led_on(uint8_t led_num);   // 点亮LED
-void led_off(uint8_t led_num);  // 熄灭LED
-void led_toggle(uint8_t led_num); // 切换LED状态
+void led_gpio_config(void); 	    // led gpio引脚配置
+void led_on(uint8_t led_num);       // 点亮LED
+void led_off(uint8_t led_num);      // 熄灭LED
+void led_toggle(uint8_t led_num);   // 切换LED状态
 
 #endif /* BSP_LED_H */

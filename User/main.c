@@ -15,9 +15,9 @@ static void systick_task_config(void)
   usartx_config(but);                                                                    // USARTx串口初始化
   eeprom_config(GPIOB, GPIO_PIN_6, GPIO_PIN_7);                                              // EEPROM配置
   // INA226_Device_Info.CHG_Ina226_Unlock_Alert();                                           // 解锁INA226的警报功能
-  Key_Configuration(); // 按键初始化
   w25qxx_spi_config();
   INA228_Device_Func.CHG_INA228_Config(GPIOE, GPIO_PIN_2, GPIO_PIN_3, Ina228_7bit_address0); // INA228配置
+  configure_key_init();                                                                  // 按键定时器初始化
   // delay_ms(10);
   // can_config();                                                                           // CAN配置
 }
@@ -28,6 +28,7 @@ int main(void)
 
   while (1)
   {
-    APP_PC_Task(); // PC任务
+    key_logic_handle(); // 按键逻辑处理
+    // APP_PC_Task(); // PC任务
   }
 }
