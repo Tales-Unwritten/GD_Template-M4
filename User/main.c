@@ -17,7 +17,7 @@ static void systick_task_config(void)
   // INA226_Device_Info.CHG_Ina226_Unlock_Alert();                                           // 解锁INA226的警报功能
   w25qxx_spi_config();
   INA228_Device_Func.CHG_INA228_Config(GPIOE, GPIO_PIN_2, GPIO_PIN_3, Ina228_7bit_address0); // INA228配置
-  configure_key_init();                                                                  // 按键定时器初始化
+  Key_BSP_Init();                                                                 // 按键定时器初始化
   // delay_ms(10);
   // can_config();                                                                           // CAN配置
 }
@@ -28,7 +28,7 @@ int main(void)
 
   while (1)
   {
-    key_logic_handle(); // 按键逻辑处理
-    // APP_PC_Task(); // PC任务
+    example_usage(); // 按键逻辑处理
+    APP_PC_Task(); // PC任务
   }
 }

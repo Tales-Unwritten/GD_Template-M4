@@ -1,135 +1,225 @@
 #include "../Hardware/inc/key.h"
 
-key_struct_t  key_struct; // 定义按键状态结构体
-static uint16_t key1;
-static uint16_t key2;
-/**
- * @brief       基本定时器TIMER6定时中断初始化
- * @note
- *              基本定时器的时钟来自APB1,当PPRE1 ≥ 2分频的时候
- *              基本定时器的时钟为APB1时钟的2倍, 而APB1为60M, 所以定时器TIMER6时钟 = 120Mhz
- *              定时器溢出时间计算方法: Tout = ((arr + 1) * (psc + 1)) / Ft us.
- *              Ft=定时器工作频率,单位:Mhz
- *
- * @param       arr: 自动重装值
- * @param       psc: 时钟预分频数
- * @retval      无
- */
+ /**
+  * @brief       基本定时器TIMER6定时中断初始化
+  * @note
+  *              基本定时器的时钟来自APB1,当PPRE1 ≥ 2分频的时候
+  *              基本定时器的时钟为APB1时钟的2倍, 而APB1为60M, 所以定时器TIMER6时钟 = 120Mhz
+  *              定时器溢出时间计算方法: Tout = ((arr + 1) * (psc + 1)) / Ft us.
+  *              Ft=定时器工作频率,单位:Mhz
+  *
+  * @param       arr: 自动重装值
+  * @param       psc: 时钟预分频数
+  * @retval      无
+  **/
+
+/* ===================== 按键对象 ===================== */
+
+Key_t g_key1;
+Key_t g_key2;
+
+/* ===================== 底层初始化 ===================== */
+
 static void timer6_int_init(uint16_t arr, uint16_t psc)
 {
-	timer_parameter_struct timer_initpara;               /* timer_initpara用于存放定时器的参数 */
+    timer_parameter_struct timer_initpara;
 
-	/* 使能RCU相关时钟 */ 
-	rcu_periph_clock_enable(RCU_TIMER6);                 /* 使能TIMER6的时钟 */
+    rcu_periph_clock_enable(RCU_TIMER6);
+    timer_deinit(TIMER6);
+    timer_struct_para_init(&timer_initpara);
 
-	/* 复位TIMER6 */
-	timer_deinit(TIMER6);                                /* 复位TIMER6 */
-	timer_struct_para_init(&timer_initpara);             /* 初始化timer_initpara为默认值 */
+    timer_initpara.prescaler = psc;
+    timer_initpara.counterdirection = TIMER_COUNTER_UP;
+    timer_initpara.period = arr;
+    timer_initpara.clockdivision = TIMER_CKDIV_DIV1;
 
-	/* 配置TIMER6 */
-	timer_initpara.prescaler         = psc;              /* 设置预分频值 */
-	timer_initpara.counterdirection  = TIMER_COUNTER_UP; /* 设置向上计数模式 */
-	timer_initpara.period            = arr;              /* 设置自动重装载值 */
-	timer_initpara.clockdivision     = TIMER_CKDIV_DIV1; /* 设置时钟分频因子 */
-	timer_init(TIMER6, &timer_initpara);                 /* 根据参数初始化定时器 */
+    timer_init(TIMER6, &timer_initpara);
 
-	/* 使能定时器及其中断 */
-	timer_interrupt_enable(TIMER6, TIMER_INT_UP);        /* 使能定时器的更新中断 */
-	nvic_irq_enable(TIMER6_IRQn, 1, 3);                  /* 配置NVIC设置优先级，抢占优先级1，响应优先级3 */
-	timer_enable(TIMER6);                                /* 使能定时器TIMER6 */
+    timer_interrupt_enable(TIMER6, TIMER_INT_UP);
+    nvic_irq_enable(TIMER6_IRQn, 1, 3);
+    timer_enable(TIMER6);
 }
 
 static void Key_GPIO_Init(void)
 {
-	rcu_periph_clock_enable(KEY1_RCU); // Enable GPIOA clock
-	rcu_periph_clock_enable(KEY2_RCU); // Enable GPIOC clock
-	gpio_mode_set(KEY1_PORT, GPIO_MODE_INPUT, GPIO_PUPD_PULLDOWN, KEY1_PIN); // Set PA0 as input with pull-down
-	gpio_mode_set(KEY2_PORT, GPIO_MODE_INPUT, GPIO_PUPD_PULLUP, KEY2_PIN);   // Set PC13 as input with pull-up
-}
+    rcu_periph_clock_enable(RCU_GPIOA);
+    rcu_periph_clock_enable(RCU_GPIOC);
 
-uint16_t key1_get_status(void)
-{
-	static uint16_t status = 0;
-	status = gpio_input_bit_get(KEY1_PORT, KEY1_PIN); // Check if KEY1 is pressed
-	return status;
-}
-
-uint16_t key2_get_status(void)
-{
-	static uint16_t status = 0;
-	status = gpio_input_bit_get(KEY2_PORT, KEY2_PIN); // Check if KEY1 is pressed
-	return !status;
+    gpio_mode_set(GPIOA, GPIO_MODE_INPUT, GPIO_PUPD_PULLDOWN, GPIO_PIN_0);
+    gpio_mode_set(GPIOC, GPIO_MODE_INPUT, GPIO_PUPD_PULLUP,   GPIO_PIN_13);
 }
 
 
-void key_logic_handle(void)
+
+/* ===================== 硬件读取 ===================== */
+
+uint8_t key1_get_status(void)
 {
-	// Handle Key1 logic
-	if (key_struct.Key1_Status == 0xFFFF)
+    return gpio_input_bit_get(GPIOA, GPIO_PIN_0);
+}
+
+uint8_t key2_get_status(void)
+{
+    return !gpio_input_bit_get(GPIOC, GPIO_PIN_13);
+}
+
+/* ===================== 驱动核心 ===================== */
+
+void Key_Init(Key_t *key)
+{
+    key->history = 0;
+    key->press_cnt = 0;
+    key->release_cnt = 0;
+    key->double_cnt = 0;
+    key->long_repeat_cnt = 0;
+    key->stable_level = 0;
+    key->long_reported = 0;
+    key->state = KEY_STATE_IDLE;
+    key->event = KEY_EVENT_NONE;
+}
+
+/* 1ms 调用一次 */
+void Key_Scan(Key_t *key, uint8_t level)
+{
+	key->event = KEY_EVENT_NONE;                                /* 初始化事件为无事件 */
+	// key->history = (key->history << 1) | (level & 0x01);        /* 移位保存按键历史状态 */
+	key->history = (key->history << 1) | 0x01;        /* 移位保存按键历史状态 */
+
+	if (key->history == 0xFFFFFFFF) key->stable_level = 1;       /* 按键按下稳定 */
+	if (key->history == 0x00000000) key->stable_level = 0;       /* 按键释放稳定 */
+
+	switch (key->state)
 	{
-		if (key_struct.Key1_Count >= 258 && key_struct.Key1_Status == 0xFFFF)
+	case KEY_STATE_IDLE:                                         /* 空闲状态 */
+		if (key->history == 0xFFFFFFFF)
 		{
-			key_struct.Key1_State = key_long_press;
-			led_on(3);
-			key_struct.Key1_Count = 0;
+			key->state = KEY_STATE_PRESSED;                      /* 转换为按下状态 */
+			key->press_cnt = 0;                                  /* 重置按下计时器 */
+			key->long_reported = 0;                              /* 重置长按标志 */
 		}
-		else
+		break;
+
+	case KEY_STATE_PRESSED:                                      /* 按下状态 */
+		key->press_cnt++;                                        /* 按下计数增加 */
+
+		if (key->press_cnt >= KEY_LONG_TIME && !key->long_reported)
 		{
-			key_struct.Key1_State = key_single_click;
-			led_on(1);
+			key->state = KEY_STATE_LONG;                         /* 转换为长按状态 */
+			key->event = KEY_EVENT_LONG_PRESS;                   /* 设置长按事件 */
+			key->long_reported = 1;                              /* 标记长按已上报 */
+			key->long_repeat_cnt = 0;                            /* 重置长按重复计数 */
 		}
-	}
-	else
-	{
-		key_struct.Key1_State = key_none;
-		led_off(1);
-	}
 
-	// Handle Key2 logic
-	if (key_struct.Key2_Status == 0xFFFF)
-	{
-		key_struct.Key2_State = key_single_click;
-		led_on(2);
-	}
-	else
-	{
-		key_struct.Key2_State = key_none;
-		led_off(2);
+		if (key->history == 0x00000000)
+		{
+			key->state = KEY_STATE_WAIT_SECOND;                  /* 转换为等待第二次按下状态 */
+			key->double_cnt = 0;                                 /* 重置双击计时器 */
+			key->release_cnt = 0;                                /* 重置释放计数 */
+		}
+		break;
+
+	case KEY_STATE_LONG:                                         /* 长按状态 */
+		key->long_repeat_cnt++;                                  /* 长按重复计数增加 */
+
+		if (key->long_repeat_cnt >= KEY_LONG_REPEAT_PERIOD)
+		{
+			key->long_repeat_cnt = 0;                            /* 重置长按重复计数 */
+			key->event = KEY_EVENT_LONG_REPEAT;                  /* 设置长按重复事件 */
+		}
+
+		if (key->history == 0x00000000)
+		{
+			key->state = KEY_STATE_IDLE;                         /* 转换为空闲状态 */
+			key->long_repeat_cnt = 0;                            /* 重置长按重复计数 */
+		}
+		break;
+
+	case KEY_STATE_WAIT_SECOND:                                  /* 等待第二次按下状态 */
+		key->double_cnt++;                                       /* 双击计时器增加 */
+
+		if (key->history == 0x00000000)
+			key->release_cnt++;                                  /* 释放计数增加 */
+
+		if (key->double_cnt >= KEY_DOUBLE_TIME)
+		{
+			key->state = KEY_STATE_IDLE;                         /* 转换为空闲状态 */
+			key->event = KEY_EVENT_SINGLE_CLICK;                 /* 设置单击事件 */
+		}
+
+		if (key->history == 0xFFFFFFFF &&
+			key->release_cnt >= KEY_RELEASE_COUNT)
+		{
+			key->state = KEY_STATE_SECOND_PRESSED;               /* 转换为第二次按下状态 */
+		}
+		break;
+
+	case KEY_STATE_SECOND_PRESSED:                               /* 第二次按下状态 */
+		if (key->history == 0x00000000)
+		{
+			key->state = KEY_STATE_IDLE;                         /* 转换为空闲状态 */
+			key->event = KEY_EVENT_DOUBLE_CLICK;                 /* 设置双击事件 */
+		}
+		break;
 	}
 }
 
-/**
- * @brief       配置1ms定时器中断
- * @note        定时器时钟为120MHz，5ms定时器中断需要计算arr和psc
- * @retval      无
- */
-void configure_key_init(void)
+KeyEvent_t Key_GetEvent(Key_t *key)
 {
-	uint16_t psc = 120   - 1;   // 预分频器将时钟分频到1MHz (120MHz / 120 = 1MHz)
-	uint16_t arr = 5000  - 1;   // 自动重装载值设置为1000 (1MHz / 5000 = 200Hz = 5ms)
-	timer6_int_init(arr, psc);
-	Key_GPIO_Init();
+    KeyEvent_t evt = key->event;
+    key->event = KEY_EVENT_NONE;
+    return evt;
 }
 
-/**
- * @brief       基本定时器TIMER6中断服务函数
- * @param       无
- * @retval      无
- */
+/* ===================== 初始化接口 ===================== */
+
+static void Key_TimerInit(void)
+{
+    timer6_int_init(50000 - 1, 120 - 1);   // 1ms
+}
+
+void Key_BSP_Init(void)
+{
+    Key_GPIO_Init();
+    Key_Init(&g_key1);
+    Key_Init(&g_key2);
+	Key_TimerInit();
+}
+
+/* ===================== 定时器中断 ===================== */
+
 void TIMER6_IRQHandler(void)
 {
-	if (timer_interrupt_flag_get(TIMER6, TIMER_INT_FLAG_UP) == SET) /* 判断定时器更新中断是否发生 */
+    if (timer_interrupt_flag_get(TIMER6, TIMER_INT_FLAG_UP) == SET)
+    {
+        Key_Scan(&g_key1, key1_get_status());
+        Key_Scan(&g_key2, key2_get_status());
+		printf("Key1 Stable Level: %d\r\n", g_key1.history);
+        timer_interrupt_flag_clear(TIMER6, TIMER_INT_FLAG_UP);
+    }
+}
+
+void example_usage(void)
+{
+	KeyEvent_t evt = Key_GetEvent(&g_key1);
+
+	switch (evt)
 	{
-		key_struct.Key1_Count++;
-		if (key_struct.Key1_Count > 400)
-		{
-			key_struct.Key1_Count=0;
-		}
-		
-		key1 = key1_get_status(); // 获取按键1状态
-		key_struct.Key1_Status = (key_struct.Key1_Status << 1) | key1;
-		key2 = key2_get_status(); // 获取按键2状态
-		key_struct.Key2_Status = (key_struct.Key2_Status << 1) | key2;
-		timer_interrupt_flag_clear(TIMER6, TIMER_INT_FLAG_UP); /* 清除定时器更新中断标志 */
+	case KEY_EVENT_SINGLE_CLICK:
+		led_on(1);
+		break;
+
+	case KEY_EVENT_DOUBLE_CLICK:
+		led_off(1);
+		break;
+
+	case KEY_EVENT_LONG_PRESS:
+		led_on(2);
+		break;
+
+	case KEY_EVENT_LONG_REPEAT:
+		break;
+
+	default:
+		break;
 	}
 }
