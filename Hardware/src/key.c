@@ -81,9 +81,11 @@ void Key_Init(Key_t *key)
 /* 1ms 调用一次 */
 void Key_Scan(Key_t *key, uint8_t level)
 {
-	key->event = KEY_EVENT_NONE;                                /* 初始化事件为无事件 */
+	key->event = KEY_EVENT_NONE;                                   /* 初始化事件为无事件 */
 	// key->history = (key->history << 1) | (level & 0x01);        /* 移位保存按键历史状态 */
-	key->history = (key->history << 1) | 0x01;        /* 移位保存按键历史状态 */
+	key->history = (key->history << 1) | level;                    /* 移位保存按键历史状态 */
+	key->history &= 0xFFFFFFFF;                                    /* 限制历史状态在有效范围内 */
+	
 
 	if (key->history == 0xFFFFFFFF) key->stable_level = 1;       /* 按键按下稳定 */
 	if (key->history == 0x00000000) key->stable_level = 0;       /* 按键释放稳定 */
@@ -106,14 +108,14 @@ void Key_Scan(Key_t *key, uint8_t level)
 		{
 			key->state = KEY_STATE_LONG;                         /* 转换为长按状态 */
 			key->event = KEY_EVENT_LONG_PRESS;                   /* 设置长按事件 */
-			key->long_reported = 1;                              /* 标记长按已上报 */
+			key->long_reported   = 1;                            /* 标记长按已上报 */
 			key->long_repeat_cnt = 0;                            /* 重置长按重复计数 */
 		}
 
 		if (key->history == 0x00000000)
 		{
 			key->state = KEY_STATE_WAIT_SECOND;                  /* 转换为等待第二次按下状态 */
-			key->double_cnt = 0;                                 /* 重置双击计时器 */
+			key->double_cnt  = 0;                                /* 重置双击计时器 */
 			key->release_cnt = 0;                                /* 重置释放计数 */
 		}
 		break;
@@ -174,7 +176,7 @@ KeyEvent_t Key_GetEvent(Key_t *key)
 
 static void Key_TimerInit(void)
 {
-    timer6_int_init(50000 - 1, 120 - 1);   // 1ms
+    timer6_int_init(1000 - 1, 120 - 1);   // 1ms
 }
 
 void Key_BSP_Init(void)
@@ -193,7 +195,8 @@ void TIMER6_IRQHandler(void)
     {
         Key_Scan(&g_key1, key1_get_status());
         Key_Scan(&g_key2, key2_get_status());
-		printf("Key1 Stable Level: %d\r\n", g_key1.history);
+		// printf("Key1 history Level: %x\r\n", g_key1.history);
+		// printf("Key2 history Level: %x\r\n", g_key2.history);
         timer_interrupt_flag_clear(TIMER6, TIMER_INT_FLAG_UP);
     }
 }
@@ -205,18 +208,25 @@ void example_usage(void)
 	switch (evt)
 	{
 	case KEY_EVENT_SINGLE_CLICK:
+	printf("Key1 Single Click Detected\r\n");
 		led_on(1);
 		break;
 
 	case KEY_EVENT_DOUBLE_CLICK:
+	printf("Key1 Double Click Detected\r\n");
 		led_off(1);
+		led_off(2);
+		led_off(3);
 		break;
 
 	case KEY_EVENT_LONG_PRESS:
+	printf("Key1 Long Press Detected\r\n");
 		led_on(2);
 		break;
 
 	case KEY_EVENT_LONG_REPEAT:
+	led_on(3);
+	printf("Key1 Long Repeat Detected\r\n");
 		break;
 
 	default:
