@@ -7,5 +7,6 @@
 #include "../Hardware/inc/debug_uart.h"
 #include "../Hardware/inc/bsp_led.h"
 #include "../App/inc/command_parsing.h"
+#include "../Hardware/inc/key.h"
 
 void APP_PC_Task(void);

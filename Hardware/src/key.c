@@ -203,33 +203,37 @@ void TIMER6_IRQHandler(void)
 
 void example_usage(void)
 {
-	KeyEvent_t evt = Key_GetEvent(&g_key1);
+	KeyEvent_t events[] = {Key_GetEvent(&g_key1), Key_GetEvent(&g_key2)};
+	const char *key_names[] = { "Key1", "Key2" };
 
-	switch (evt)
+	for (int i = 0; i < sizeof(events) / sizeof(events[0]); i++)
 	{
-	case KEY_EVENT_SINGLE_CLICK:
-	printf("Key1 Single Click Detected\r\n");
-		led_on(1);
-		break;
+		switch (events[i])
+		{
+		case KEY_EVENT_SINGLE_CLICK:
+			printf("%s Single Click Detected\r\n", key_names[i]);
+			led_on(i == 0 ? 1 : 3);
+			break;
 
-	case KEY_EVENT_DOUBLE_CLICK:
-	printf("Key1 Double Click Detected\r\n");
-		led_off(1);
-		led_off(2);
-		led_off(3);
-		break;
+		case KEY_EVENT_DOUBLE_CLICK:
+			printf("%s Double Click Detected\r\n", key_names[i]);
+			led_off(1);
+			led_off(2);
+			led_off(3);
+			break;
 
-	case KEY_EVENT_LONG_PRESS:
-	printf("Key1 Long Press Detected\r\n");
-		led_on(2);
-		break;
+		case KEY_EVENT_LONG_PRESS:
+			printf("%s Long Press Detected\r\n", key_names[i]);
+			led_on(2);
+			break;
 
-	case KEY_EVENT_LONG_REPEAT:
-	led_on(3);
-	printf("Key1 Long Repeat Detected\r\n");
-		break;
+		case KEY_EVENT_LONG_REPEAT:
+			printf("%s Long Repeat Detected\r\n", key_names[i]);
+			if (i == 0) led_on(3);
+			break;
 
-	default:
-		break;
+		default:
+			break;
+		}
 	}
 }

@@ -85,7 +85,7 @@
 #define KEY_FILTER_COUNT             32    // 连续32次确认
 #define KEY_RELEASE_COUNT            32
 
-#define KEY_LONG_TIME_MS             5000  // 长按时间阈值
+#define KEY_LONG_TIME_MS             3000  // 长按时间阈值
 #define KEY_DOUBLE_TIME_MS           100   // 双击时间阈值
 #define KEY_LONG_REPEAT_PERIOD_MS    100   // 连发周期
 

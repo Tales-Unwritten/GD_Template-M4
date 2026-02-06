@@ -1,9 +1,11 @@
 #include "main.h"
-#define but 1500000
+// #define but 1500000
+// #define but 1000000
 // #define but 512000
 // #define but 460800
-// #define but 2000000
+#define but 2000000
 // #define but 115200
+// #define but 256000
 // #define but 9600
 static void systick_task_config(void)
 {
@@ -28,7 +30,7 @@ int main(void)
 
   while (1)
   {
-    example_usage(); // 按键逻辑处理
+    
     APP_PC_Task(); // PC任务
   }
 }

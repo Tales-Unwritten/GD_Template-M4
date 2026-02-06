@@ -48,5 +48,6 @@ void APP_PC_Task(void)
         led_off(2);
         led_off(3);
     }
+    example_usage(); // 按键逻辑处理
 }
 
