@@ -7,12 +7,12 @@ void command_parsing(PC_Transmit_Buffer_t *PC_Transmit_Buffer, void (*Usart_Send
 
         if (PC_Transmit_Buffer[i].Buffer_Status == 1 && PC_Transmit_Buffer[i].Buffer_Length > 3)
         {
-            if (strchr((char *)PC_Transmit_Buffer[i].Buffer, '\r') == NULL && strchr((char *)PC_Transmit_Buffer[i].Buffer, '\n') == NULL)
-            {
-                // Usart_Send_Data((uint8_t *)"format_error\r\n", strlen("format_error\r\n"));
-                Usart_Send_Data((uint8_t *)"format_error\r\n",15);
-                break;
-            }
+            // if (strchr((char *)PC_Transmit_Buffer[i].Buffer, '\r') == NULL && strchr((char *)PC_Transmit_Buffer[i].Buffer, '\n') == NULL)
+            // {
+            //     // Usart_Send_Data((uint8_t *)"format_error\r\n", strlen("format_error\r\n"));
+            //     Usart_Send_Data((uint8_t *)"format_error\r\n",15);
+            //     break;
+            // }
             bool command_found = false;
             for (size_t j = 0; j < sizeof(cmd_table) / sizeof(cmd_table[0]); j++)
             {
@@ -37,12 +37,12 @@ void command_parsing(PC_Transmit_Buffer_t *PC_Transmit_Buffer, void (*Usart_Send
                 }
             }
             memset(send_buffer, 0, sizeof(send_buffer)); // 清空发送缓冲区
-            if (!command_found)
-            {
-                // Usart_Send_Data((uint8_t *)"unknown_command\r\n", strlen("unknown_command\r\n"));
-                Usart_Send_Data((uint8_t *)"unknown_command\r\n",18);
-                break;
-            }
+            // if (!command_found)
+            // {
+            //     // Usart_Send_Data((uint8_t *)"unknown_command\r\n", strlen("unknown_command\r\n"));
+            //     Usart_Send_Data((uint8_t *)"unknown_command\r\n",18);
+            //     break;
+            // }
         }
     }
 }
