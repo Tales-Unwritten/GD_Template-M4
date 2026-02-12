@@ -365,11 +365,11 @@ typedef struct
 	void  (*CHG_INA228_Config)(uint32_t GPIOx, uint16_t SCL_Pin, uint16_t SDA_Pin, INA228_Addr_enum Addr);
 	uint16_t (*CHG_INA228_Get_Manufacturer_ID)(void);
 	uint16_t (*CHG_INA228_Get_Device_ID)(void);
-	float (*CHG_INA228_Get_Shunt_Voltage)(void);
-    float (*CHG_INA228_Get_Bus_Voltage)(void);
+	int32_t (*CHG_INA228_Get_Shunt_Voltage)(void);
+    int32_t (*CHG_INA228_Get_Bus_Voltage)(void);
 	float (*CHG_INA228_Get_Temperature)(void);
 	void  (*CHG_INA228_Unlock_Alert)(void);
-	float (*CHG_INA228_Get_Current)(void);    
+	int32_t (*CHG_INA228_Get_Current)(void);    
 	float (*CHG_INA228_Get_Energy)(void);
 	float (*CHG_INA228_Get_Charge)(void);
 	float (*CHG_INA228_Get_Power)(void);

@@ -65,20 +65,21 @@ static void handle_die_id(void)
 
 static void handle_ina228_get_bus_voltage(void)
 {
-    float val = INA228_Device_Func.CHG_INA228_Get_Bus_Voltage();
-    sprintf((char *)send_buffer, "INA228_Vbus_Val=%0.3fmV\r\n", val*1000);
+    int32_t val = INA228_Device_Func.CHG_INA228_Get_Bus_Voltage();
+    printf("Raw Bus Voltage: %d (20-bit signed)\r\n", val);
+    sprintf((char *)send_buffer, "INA228_Vbus_Val=%04dmV\r\n", val/1000); // 转换为 mV，保留小数部分
 }
 
 static void handle_ina228_get_bus_current(void)
 {
-    float val=INA228_Device_Func.CHG_INA228_Get_Current();
-    sprintf((char *)send_buffer, "INA228_Curr_Val=%0.3fmA\r\n", val*1000);
+    int32_t val=INA228_Device_Func.CHG_INA228_Get_Current();
+    sprintf((char *)send_buffer, "INA228_Curr_Val=%04dmA\r\n", val/1000);
 }
 
 static void handle_ina228_get_shunt_voltage(void)
 {
-    float val=INA228_Device_Func.CHG_INA228_Get_Shunt_Voltage();
-    sprintf((char *)send_buffer, "INA228_shunt_voltage=%0.6f\r\n", val);
+    int32_t val=INA228_Device_Func.CHG_INA228_Get_Shunt_Voltage();
+    sprintf((char *)send_buffer, "INA228_shunt_voltage=%06d\r\n", val);
 }
 
 static void handle_ina228_get_power(void)

@@ -220,19 +220,60 @@ static void INA228_BuildConfiguration(void)
 }
 
 
-static float INA228_Get_Shunt_Voltage(void)
+static int32_t INA228_Get_Shunt_Voltage(void)
 {
     uint32_t raw = Ina228_ReadRegister(&INA228_i2C,
                                        Ina228_7bit_address0,
                                        Cmd_Voltage_Shunt_Register);
 
     raw >>= 4;
-    int32_t signedVal = SignExtend20(raw);
+    int64_t signedVal = SignExtend20(raw);
     // LSB = 312.5 nV = 0.0000003125 V
-    return (float)signedVal * 0.0000003125f;
+    signedVal=(signedVal * 3125)/1000;
+    return signedVal; // 单位：nV
 }
 
-float INA228_Get_Bus_Voltage(void)
+// static int32_t INA228_Get_Bus_Voltage(void)
+// {
+//     // uint32_t raw = Ina228_ReadRegister(
+//     //     &INA228_i2C,
+//     //     Ina228_7bit_address0,
+//     //     Cmd_Bus_Voltage_Register1
+//     // );
+
+//     // // 移除低4位保留位
+//     // raw >>= 4;
+
+//     // // 因为手册写 Twos Complement → 必须符号扩展
+//     // int32_t signedVal = SignExtend20(raw);
+
+//     // // 1 bit = 195.3125 uV = 1953125 / 10 uV
+//     // // 为了避免小数，放大 10 倍再除
+//     // int64_t uV_x10 = (int64_t)signedVal * 1953125;
+//     // return (int32_t)((uV_x10 + 5) / 10);
+
+//     uint32_t raw = Ina228_ReadRegister(
+//         &INA228_i2C,
+//         Ina228_7bit_address0,
+//         Cmd_Bus_Voltage_Register1);
+
+    
+//     raw >>= 4;// 去掉低 4 位保留位
+
+//     // 20-bit Two's Complement 符号扩展
+//     int32_t signedVal = SignExtend20(raw);
+
+//     // 1 bit = 195.3125 uV = 1953125 / 10 uV
+//     // 使用 int64 防止乘法溢出
+//     int64_t uV_x10 = (int64_t)signedVal * 1953125;
+
+//     // 转回 uV，带四舍五入
+//     int32_t uV = (int32_t)((uV_x10 + 5) / 10);
+
+//     return uV; // 单位：uV
+// }
+
+static int32_t INA228_Get_Bus_Voltage_uV(void)
 {
     uint32_t raw = Ina228_ReadRegister(&INA228_i2C,
                                        Ina228_7bit_address0,
@@ -240,14 +281,17 @@ float INA228_Get_Bus_Voltage(void)
 
     raw >>= 4;           // 移除低4位保留位
     // 因为手册写 Twos Complement → 必须符号扩展
-    int32_t signedVal = SignExtend20(raw);
+    int64_t signedVal = SignExtend20(raw);
+    // printf("Raw Bus Voltage: 0x%X, Signed: %ld\n", raw, signedVal);
 
     // LSB = 195.3125 µV = 0.0001953125 V
-    return (float)signedVal * 0.0001953125f;
+    // return (float)signedVal * 0.0001953125f;
+    signedVal= (signedVal * 1953125)/10000;
+    return signedVal; // 单位：uV
 }
 
 
-float INA228_Get_Bus_Current(void)
+static int32_t INA228_Get_Bus_Current(void)
 {
     uint32_t raw = Ina228_ReadRegister(&INA228_i2C,
                                        Ina228_7bit_address0,
@@ -416,7 +460,7 @@ const INA228_Device_Func_t INA228_Device_Func =
     .CHG_INA228_Get_Manufacturer_ID  = INA228_Get_Manufacturer_ID,
     .CHG_INA228_Get_Device_ID        = INA228_Get_Die_ID,
     .CHG_INA228_Get_Shunt_Voltage    = INA228_Get_Shunt_Voltage,
-    .CHG_INA228_Get_Bus_Voltage      = INA228_Get_Bus_Voltage,
+    .CHG_INA228_Get_Bus_Voltage      = INA228_Get_Bus_Voltage_uV,
     .CHG_INA228_Get_Temperature      = INA228_Get_Temperature,
     .CHG_INA228_Unlock_Alert         = INA228_Unlock_Alert,
     .CHG_INA228_Get_Current          = INA228_Get_Bus_Current,    
