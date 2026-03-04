@@ -44,14 +44,14 @@ uint32_t Load_BaudValue(void)
 {
     uint32_t baud = 0;
     uint8_t *p = (uint8_t *)&baud;
-    
     for(int i = 0; i < 4; i++) {
         p[i] = ee_Read_Byte(EEPROM_ADDR_BAUD_VAL + i);
     }
-    
     // 验证是否在合法范围内
-    for(int i = 0; i < sizeof(baud_table)/sizeof(baud_table[0]); i++) {
-        if (baud == baud_table[i]) {
+    for(int i = 0; i < sizeof(baud_table)/sizeof(baud_table[0]); i++) 
+    {
+        if (baud == baud_table[i]) 
+        {
             return baud;  // 合法
         }
     }

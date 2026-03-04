@@ -36,6 +36,34 @@ void command_parsing(PC_Transmit_Buffer_t *PC_Transmit_Buffer, void (*Usart_Send
                     }
                 }
             }
+            if (!command_found)
+            {
+                for (size_t j = 0; j < sizeof(baud_table) / sizeof(baud_table[0]); j++)
+                {
+                    size_t prefix_len = strlen(baud_table[j].cmd_prefix);
+                    // 1. 使用strncmp匹配命令前缀（非精确匹配整个字符串）
+                    if (strncmp((char *)PC_Transmit_Buffer[i].Buffer, baud_table[j].cmd_prefix, prefix_len) == 0)
+                    {
+                        const char *p = (char *)PC_Transmit_Buffer[i].Buffer + prefix_len; // 2. 从命令中动态解析波特率参数
+                        uint32_t baudrate = 0;
+                        // 跳过空格（增强兼容性）
+                        while (*p == ' ')
+                            p++;
+                        while (*p >= '0' && *p <= '9') // 解析数字直到非数字字符（如\r \n）
+                        {
+                            baudrate = baudrate * 10 + (*p - '0');
+                            p++;
+                        }
+                        if (baudrate > 0 && (*p == '\r' || *p == '\n')) // 3. 验证命令格式（应以\r\n结尾）
+                        {
+                            baud_table[j].handler(baudrate, baud_table[j].interface);     // 4. 调用处理函数：传入解析出的波特率 + 接口标识
+                            Usart_Send_Data((uint8_t *)send_buffer, strlen(send_buffer)); // 5. 发送响应
+                            command_found = true;
+                            break;
+                        }
+                    }
+                }
+            }
             memset(send_buffer, 0, sizeof(send_buffer)); // 清空发送缓冲区
             // if (!command_found)
             // {

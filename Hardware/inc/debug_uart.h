@@ -8,6 +8,8 @@
 
 #include "../Hardware/inc/bsp_led.h"
 
+#define DEBUG_BAUDRATE                    115200U    /*!< 默认通信波特率 */
+
 
 
 #define CHCHE_COUNT 8
@@ -37,7 +39,7 @@ typedef struct
 } PC_Transmit_Buffer_t;
 
 #endif // !__PC_Transmit_Buffer_t__
-void debug_init_config(uint32_t band_rate);				  // 配置串口
+void debug_init_config(uint32_t baudrate);				  // 配置串口
 void debug_send_it_data(uint8_t *buffer, uint8_t length); // 发送数据
 void debug_send_data(uint8_t *buffer, uint8_t length);	  // 发送数据
 

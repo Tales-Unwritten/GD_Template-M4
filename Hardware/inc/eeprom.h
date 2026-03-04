@@ -31,16 +31,10 @@ uint8_t ee_Read_Multi_Byte(uint16_t addr, uint8_t *data, uint16_t len);
 uint8_t ee_Write_Page_Byte(uint16_t page, uint8_t *data, uint16_t len);
 uint8_t ee_Read_Page_Byte(uint16_t page, uint8_t *data, uint16_t len);
 
-
-// uint8_t ee_Write_Multi_Byte(uint16_t addr, uint8_t *data, uint16_t len);
 uint8_t ee_Read_Multi_Byte(uint16_t addr, uint8_t *data, uint16_t len);
 
 void ee_erase_All(void);
 void ee_erase_Byte(uint16_t addr);
 void ee_erase_Page(uint16_t page);
-void ee_Test_Read_Write_Page(void);
 void ee_Test_Read_Multi_Byte(void);
-
-void ee_Test_Read_Write_Multi_Byte(void);
-
 uint8_t ee_Check_Device(void);

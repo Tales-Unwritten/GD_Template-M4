@@ -167,7 +167,7 @@ uint8_t Soft_I2C_ReadReg(I2C_Info *i2c,uint8_t RegAddress)
 	Soft_I2C_WriteByte(i2c, i2c->I2C_Add << 1 | 0x01); //|0x01将最低位置1，代表读操作
 	Soft_I2C_ReceiveAck(i2c);
 	Data = Soft_I2C_ReceiveByte(i2c);
+	Soft_I2C_WriteAck(i2c, 1); // 发送NACK，表示读取结束
 	Soft_I2C_Stop(i2c);
 	return Data;
 }
-

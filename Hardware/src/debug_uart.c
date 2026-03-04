@@ -1,5 +1,7 @@
 #include "debug_uart.h"
 
+
+uint32_t DEBUG_USART_BAUDRATE = DEBUG_BAUDRATE;
 PC_Transmit_Buffer_t Debug_Receive_Buffer[CHCHE_COUNT];
 
 static struct
@@ -17,7 +19,7 @@ static void debug_recv_config(void)
 	usart_receive_config(DEBUG_USART, USART_RECEIVE_ENABLE); 
 }
 
-void debug_init_config(uint32_t band_rate)
+void debug_init_config(uint32_t baudrate)
 {
 	/* 开启时钟 */
 	Debug_IT_Secd_Buffer.Finish_Flag = SET; // 初始标志位置位，表示空闲

@@ -1,5 +1,7 @@
 #include "../Hardware/inc/rs485.h"
 
+
+uint32_t RS485_USART_BAUDRATE = RS485_BAUDRATE;
 PC_Transmit_Buffer_t Rs485_Receive_Buffer[CHCHE_COUNT];
 
 static struct
@@ -9,7 +11,7 @@ static struct
 	uint8_t Buffer[sizeof(Rs485_Receive_Buffer[0].Buffer)];
 } Rs485_IT_Secd_Buffer;
 
-static void Rs485_gpio_init(uint32_t band_rate)
+static void Rs485_gpio_init(uint32_t baudrate)
 {
 	/* 开启时钟 */
 	Rs485_IT_Secd_Buffer.Finish_Flag = SET; // 初始标志位置位，表示空闲
@@ -36,7 +38,7 @@ static void Rs485_gpio_init(uint32_t band_rate)
 
 	/* 配置串口的参数 */
 	usart_deinit(RS485_USART);						   // 复位串口
-	usart_baudrate_set(RS485_USART, band_rate);		   // 设置波特率
+	usart_baudrate_set(RS485_USART, baudrate);		   // 设置波特率
 	usart_parity_config(RS485_USART, USART_PM_NONE);   // 没有校验位
 	usart_word_length_set(RS485_USART, USART_WL_8BIT); // 8位数据位
 	usart_stop_bit_set(RS485_USART, USART_STB_1BIT);   // 1位停止位
@@ -105,9 +107,9 @@ void rs485_send_data(uint8_t *buffer, uint8_t length)
 	set_rs485_en(0); // 禁用RS485发送和切换到接收模式
 }
 
-void Rs485_Init_config(uint32_t band_rate)
+void Rs485_Init_config(uint32_t baudrate)
 {
-	Rs485_gpio_init(band_rate); // 初始化串口GPIO
+	Rs485_gpio_init(baudrate); // 初始化串口GPIO
 	Rs485_en_gpio_init();		// 初始化RS485使能GPIO
 }
 

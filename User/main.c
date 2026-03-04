@@ -13,7 +13,7 @@ static void systick_task_config(void)
   led_gpio_config();                                                                         // led初始化
   debug_init_config(bt);                                                                // 串口初始化
   printf("Bt=%d\r\n",bt);
-  Rs485_Init_config(bt);                                                                // RS485串口初始化
+  Rs485_Init_config(RS485_USART_BAUDRATE);                                                                // RS485串口初始化
   usartx_config(bt);                                                                    // USARTx串口初始化
   // INA226_Device_Info.CHG_Ina226_Unlock_Alert();                                           // 解锁INA226的警报功能
   w25qxx_spi_config();
@@ -21,12 +21,15 @@ static void systick_task_config(void)
   Key_BSP_Init();                                                                 // 按键定时器初始化
   // delay_ms(10);
   // can_config();                                                                           // CAN配置
+  // ee_Test_Read_Multi_Byte();
 }
 
 
 int main(void)
 {
   systick_task_config(); // 初始化所有外设
+  ee_Test_Read_Multi_Byte();
+
   while (1)
   {
     APP_PC_Task(); // PC任务

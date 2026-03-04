@@ -7,7 +7,6 @@ void eeprom_config(uint32_t GPIOx, uint16_t SCL, uint16_t SDA)
 	Soft_I2C_Init(&eepron_info, GPIOx, SCL, SDA, EEPROM_ADDRESS_7bit_0);
 }
 
-
 uint8_t ee_Write_Byte(uint16_t addr, uint8_t data)
 {
 	Soft_I2C_WriteReg(&eepron_info, addr, data);
@@ -15,7 +14,6 @@ uint8_t ee_Write_Byte(uint16_t addr, uint8_t data)
 	// Soft_I2C_Start(&eepron_info);
 	return Soft_I2C_ReceiveAck(&eepron_info); // 返回ACK位，0表示写入成功，1表示写入失败
 }
-
 
 uint8_t ee_Read_Byte(uint16_t addr)
 {
@@ -25,7 +23,6 @@ uint8_t ee_Read_Byte(uint16_t addr)
 	return data;
 }
 
-
 uint8_t ee_Write_Page_Byte(uint16_t page, uint8_t *data, uint16_t len)
 {
 	if (page >= EEPROM_SIZE / EEPROM_PAGE_SIZE) // 检查页面是否超出范围
@@ -34,16 +31,14 @@ uint8_t ee_Write_Page_Byte(uint16_t page, uint8_t *data, uint16_t len)
 	}
 	else
 	{
-		
 		uint16_t addr = page * EEPROM_PAGE_SIZE; // 计算页面起始地址
-		if (len > EEPROM_PAGE_SIZE) // 检查写入长度是否超过页面大小
+		if (len > EEPROM_PAGE_SIZE)				 // 检查写入长度是否超过页面大小
 		{
 			return 1; // 返回1表示写入失败
 		}
 		for (uint16_t i = 0; i < len; i++)
 		{
 			ee_Write_Byte(addr + i, data[i]);
-
 		}
 		return 0; // 返回0表示写入成功
 	}
@@ -58,7 +53,7 @@ uint8_t ee_Read_Page_Byte(uint16_t page, uint8_t *data, uint16_t len)
 	else
 	{
 		uint16_t addr = page * EEPROM_PAGE_SIZE; // 计算页面起始地址
-		if (len > EEPROM_PAGE_SIZE) // 检查读取长度是否超过页面大小
+		if (len > EEPROM_PAGE_SIZE)				 // 检查读取长度是否超过页面大小
 		{
 			return 1; // 返回1表示读取失败
 		}
@@ -68,9 +63,7 @@ uint8_t ee_Read_Page_Byte(uint16_t page, uint8_t *data, uint16_t len)
 		}
 		return 0; // 返回0表示读取成功
 	}
-
 }
-
 
 uint8_t ee_Read_Multi_Byte(uint16_t addr, uint8_t *data, uint16_t len)
 {
@@ -86,7 +79,6 @@ uint8_t ee_Read_Multi_Byte(uint16_t addr, uint8_t *data, uint16_t len)
 	return 1; // 返回1表示读取成功
 }
 
-
 uint8_t ee_Write_Multi_Byte(uint16_t addr, uint8_t *data, uint16_t len)
 {
 	uint8_t ack = 0;
@@ -101,71 +93,24 @@ uint8_t ee_Write_Multi_Byte(uint16_t addr, uint8_t *data, uint16_t len)
 	return ack;
 }
 
-//编写一个测试读写多字节的函数，256全内存读写测试
-void ee_Test_Read_Write_Multi_Byte(void)
-{
-	uint8_t write_data[256];
-	uint8_t read_data[256];
-
-	// 初始化写入数据
-	for (uint16_t i = 10; i < sizeof(write_data); i++)
-	{
-		write_data[i] = i;
-	}
-
-	// 写入多字节数据
-	ee_Write_Multi_Byte(3, write_data, sizeof(write_data));
-
-	// 读取多字节数据
-	ee_Read_Multi_Byte(3, read_data, sizeof(read_data));
-
-	// 打印读取的数据
-	for (uint8_t i = 10; i < sizeof(read_data); i++)
-	{
-		printf("Data[%d]: 0x%02X\n", i, read_data[i]);
-		delay_ms(10); // 延时10ms
-	}
-}
-
-//编写一份测试页面读写的函数
-void ee_Test_Read_Write_Page(void)
-{
-	uint8_t write_data[EEPROM_PAGE_SIZE];
-	uint8_t read_data[EEPROM_PAGE_SIZE];
-
-	// 初始化写入数据
-	for (uint16_t i = 0; i < sizeof(write_data); i++)
-	{
-		write_data[i] = i;
-	}
-
-	// 写入页面数据
-	ee_Write_Page_Byte(0, write_data, sizeof(write_data));
-
-	// 读取页面数据
-	ee_Read_Page_Byte(0, read_data, sizeof(read_data));
-
-	// 打印读取的数据
-	for (uint8_t i = 0; i < sizeof(read_data); i++)
-	{
-		printf("Data[%d]: 0x%02X\n", i, read_data[i]);
-		delay_ms(10); // 延时10ms
-	}
-}
-
-//编写一个测试读多字节的函数，256全内存读操作
+// 编写一个测试读多字节的函数，256全内存读操作
 void ee_Test_Read_Multi_Byte(void)
 {
 	uint8_t read_data[256];
-
+	// 写入多字节
+	for (size_t i = 0; i < 256; i++)
+	{
+		read_data[i % 256] = i % 256; // 写入0-255循环的数据
+		ee_Write_Byte(i % 256, read_data[i % 256]);
+	}
 	// 读取多字节数据
 	ee_Read_Multi_Byte(0, read_data, sizeof(read_data));
 
 	// 打印读取的数据
-	for (uint8_t i = 0; i < sizeof(read_data); i++)
+	for (uint8_t i = 0; i < 256; i++)
 	{
 		printf("Data[%d]: 0x%02X\n", i, read_data[i]);
-		delay_ms(10); // 延时10ms
+		delay_ms(50); // 延时100ms
 	}
 }
 
@@ -184,7 +129,6 @@ void ee_erase_Page(uint16_t page)
 		ee_erase_Byte(addr); // 擦除每个字节
 	}
 }
-
 
 void ee_erase_All(void)
 {

@@ -8,6 +8,9 @@
 #include "../Hardware/inc/bsp_led.h"
 #include "../Hardware/inc/debug_uart.h"
 #include "../Hardware/inc/bitband.h"
+
+#define RS485_BAUDRATE                    115200U    /*!< 默认通信波特率 */
+
 #define RS485_USART_TX_RCU   RCU_GPIOA   // 串口TX的端口时钟
 #define RS485_USART_RX_RCU   RCU_GPIOA   // 串口RX的端口时钟
 #define RS485_USART_RCU      RCU_USART1  // 串口1的时钟
@@ -40,7 +43,7 @@ typedef struct
 #endif // !__PC_Transmit_Buffer_t__
 
 
-void Rs485_Init_config(uint32_t band_rate); // 初始化RS485串口
+void Rs485_Init_config(uint32_t baudrate); // 初始化RS485串口
 void rs485_send_it_data(uint8_t *buffer, uint8_t length); // 发送数据（中断方式）
 void rs485_send_data(uint8_t *buffer, uint8_t length); // 发送数据（轮询方式）
 
