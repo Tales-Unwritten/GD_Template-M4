@@ -66,7 +66,7 @@ static void handle_die_id(void)
 static void handle_ina228_get_bus_voltage(void)
 {
     int32_t val = INA228_Device_Func.CHG_INA228_Get_Bus_Voltage();
-    printf("Raw Bus Voltage: %d (20-bit signed)\r\n", val);
+    // printf("Raw Bus Voltage: %d (20-bit signed)\r\n", val);
     sprintf((char *)send_buffer, "INA228_Vbus_Val=%04dmV\r\n", val/1000); // 转换为 mV，保留小数部分
 }
 

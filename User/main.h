@@ -18,4 +18,5 @@
 #include "../Hardware/inc/w25q128.h"
 #include "../App/inc/pc_task.h"
 #include "../Hardware/inc/gpio_bsp.h"
+#include "../App/inc/pc_task.h"
 
