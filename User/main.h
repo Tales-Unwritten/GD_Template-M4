@@ -19,4 +19,5 @@
 #include "../App/inc/pc_task.h"
 #include "../Hardware/inc/gpio_bsp.h"
 #include "../App/inc/pc_task.h"
+#include "../App/inc/private.h"
 

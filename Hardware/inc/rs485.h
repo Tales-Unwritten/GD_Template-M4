@@ -47,5 +47,5 @@ void Rs485_Init_config(uint32_t baudrate); // 初始化RS485串口
 void rs485_send_it_data(uint8_t *buffer, uint8_t length); // 发送数据（中断方式）
 void rs485_send_data(uint8_t *buffer, uint8_t length); // 发送数据（轮询方式）
 
-
+extern uint32_t RS485_USART_BAUDRATE;
 extern PC_Transmit_Buffer_t Rs485_Receive_Buffer[CHCHE_COUNT];

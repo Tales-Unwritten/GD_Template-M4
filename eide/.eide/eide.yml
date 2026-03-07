@@ -12,6 +12,7 @@ virtualFolder:
       files:
         - path: ../App/src/command_parsing.c
         - path: ../App/src/pc_task.c
+        - path: ../App/src/private.c
       folders: []
     - name: CMSIS
       files:

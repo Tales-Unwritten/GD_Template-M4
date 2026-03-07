@@ -8,30 +8,20 @@
 #include "../Hardware/inc/ina226.h"
 #include "../Hardware/inc/ina228.h"
 #include "../Hardware/inc/usart_text.h"
-
+#include "../App/inc/private.h"
 static char send_buffer[128]; // Define send_buffer with sufficient size
 
-
-
-
-
-// 修改结构体定义：第三个字段改为接口标识（0=Debug, 1=RS485）
-typedef struct {
-    const char *cmd_prefix;   // 命令前缀（不含参数）
-    void (*handler)(uint32_t baudrate, uint8_t interface); // 处理函数
-    uint8_t interface;        // 接口类型标识
-} Baud_struct;
 
 // 波特率有效性检查（集中管理）
 static bool is_valid_baudrate(uint32_t baudrate)
 {
     static const uint32_t valid_baudrates[] = {
         9600, 14400, 19200, 38400, 56000, 57600, 115200, 128000, 230400, 256000,
-        460800, 500000, 512000, 600000, 750000, 912600, 1000000, 1500000, 2000000
-    };
-    
-    for (uint32_t i = 0; i < sizeof(valid_baudrates)/sizeof(valid_baudrates[0]); i++) {
-        if (baudrate == valid_baudrates[i]) 
+        460800, 500000, 512000, 600000, 750000, 912600, 1000000, 1500000, 2000000};
+
+    for (uint32_t i = 0; i < sizeof(valid_baudrates) / sizeof(valid_baudrates[0]); i++)
+    {
+        if (baudrate == valid_baudrates[i])
             return true;
     }
     return false;
@@ -40,31 +30,35 @@ static bool is_valid_baudrate(uint32_t baudrate)
 // 通用设置函数（通过interface参数区分接口）
 static void BaudrateSet(uint32_t baudrate, uint8_t interface)
 {
-    if (!is_valid_baudrate(baudrate)) {
+    if (!is_valid_baudrate(baudrate))
+    {
         snprintf(send_buffer, sizeof(send_buffer), "Error: Invalid baudrate %u\r\n", baudrate);
         return;
     }
-    
-    if (interface == 0) { // Debug
-        DEBUG_USART_BAUDRATE = baudrate;
-        debug_send_data(baudrate);
-        snprintf(send_buffer, sizeof(send_buffer), "Debug baudrate set to %u\r\n", baudrate);
-    } else { // RS485
-        RS485_USART_BAUDRATE = baudrate;
-        Rs485_Init_config(baudrate);  // 修复原代码语法错误
-        snprintf(send_buffer, sizeof(send_buffer), "RS485 baudrate set to %u\r\n", baudrate);
+
+    uint32_t BaudValue = 0;
+    config_baudrate(baudrate, 0);
+    BaudValue = Load_BaudValue(0);
+
+    switch (interface)
+    {
+    case 0: // Debug interface
+        debug_init_config(BaudValue);
+        snprintf(send_buffer, sizeof(send_buffer), "Debug baudrate set to %u\r\n", BaudValue);
+        break;
+    case 1: // RS485 interface
+        Rs485_Init_config(BaudValue);
+        snprintf(send_buffer, sizeof(send_buffer), "RS485 baudrate set to %u\r\n", BaudValue);
+        break;
+    case 2: // USART interface
+        usartx_config(BaudValue);
+        snprintf(send_buffer, sizeof(send_buffer), "USART baudrate set to %u\r\n", BaudValue);
+        break;
+    default:
+        snprintf(send_buffer, sizeof(send_buffer), "Error: Unknown interface %u\r\n", interface);
+        break;
     }
 }
-
-
-// 仅需2个表项
-static const Baud_struct baud_table[] = {
-    {"Set DebugBaud ", BaudrateSet, 0},  // Debug接口
-    {"Set Rs485Baud ",  BaudrateSet, 1}   // RS485接口
-};
-
-
-
 
 // 命令处理函数类型
 typedef void (*cmd_handler_t)(void);
@@ -182,6 +176,24 @@ static void handle_ina228_get_charge(void)
     float val=INA228_Device_Func.CHG_INA228_Get_Charge();
     sprintf((char *)send_buffer, "INA228_Charge=%0.6f\r\n", val);
 }
+
+
+// 修改结构体定义：第三个字段改为接口标识（0=Debug, 1=RS485）
+typedef struct
+{
+    const char *cmd_prefix;                                // 命令前缀（不含参数）
+    void (*handler)(uint32_t baudrate, uint8_t interface); // 处理函数
+    uint8_t interface;                                     // 接口类型标识
+} Baud_struct;
+
+
+// 仅需2个表项
+static const Baud_struct baud_table[] = {
+    {"Set DebugBaud ", BaudrateSet, 0},  // Debug接口
+    {"Set Rs485Baud ",  BaudrateSet, 1}   // RS485接口
+};
+
+
 
 // 命令表
 typedef struct

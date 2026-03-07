@@ -43,4 +43,5 @@ void debug_init_config(uint32_t baudrate);				  // 配置串口
 void debug_send_it_data(uint8_t *buffer, uint8_t length); // 发送数据
 void debug_send_data(uint8_t *buffer, uint8_t length);	  // 发送数据
 
+extern uint32_t DEBUG_USART_BAUDRATE;
 extern PC_Transmit_Buffer_t Debug_Receive_Buffer[CHCHE_COUNT];

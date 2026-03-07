@@ -46,7 +46,7 @@ void debug_init_config(uint32_t baudrate)
 
 	/* 配置串口的参数 */
 	usart_deinit(DEBUG_USART);						   // 复位串口
-	usart_baudrate_set(DEBUG_USART, band_rate);		   // 设置波特率
+	usart_baudrate_set(DEBUG_USART, baudrate);		   // 设置波特率
 	usart_parity_config(DEBUG_USART, USART_PM_NONE);   // 没有校验位
 	usart_word_length_set(DEBUG_USART, USART_WL_8BIT); // 8位数据位
 	usart_stop_bit_set(DEBUG_USART, USART_STB_1BIT);   // 1位停止位
