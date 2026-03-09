@@ -2,7 +2,7 @@
 
 
 uint32_t DEBUG_USART_BAUDRATE = DEBUG_BAUDRATE;
-PC_Transmit_Buffer_t Debug_Receive_Buffer[CHCHE_COUNT];
+PC_Receive_Buffer_t Debug_Receive_Buffer[CHCHE_COUNT];
 
 static struct
 {

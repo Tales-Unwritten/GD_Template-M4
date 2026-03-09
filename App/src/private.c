@@ -26,6 +26,8 @@ const uint32_t BaudValue[] = {
     2000000  // 22
 };
 
+const uint32_t BaudValue_Size = sizeof(BaudValue) / sizeof(BaudValue[0]);
+
 // 写入
 void Save_BaudValue(uint32_t baud, uint8_t interface)
 {
@@ -53,6 +55,8 @@ void Save_BaudValue(uint32_t baud, uint8_t interface)
         ee_Write_Byte(EEPROM_ADDR_BAUD_VAL + i, p[i]);
     }
 }
+
+
 
 // 读取 + 验证
 uint32_t Load_BaudValue(uint8_t interface)
@@ -82,20 +86,20 @@ uint32_t Load_BaudValue(uint8_t interface)
     }
 
     // 验证是否在合法范围内
-    for (int i = 0; i < sizeof(BaudValue) / sizeof(BaudValue[0]); i++)
+    // 使用统一的全局数组 BaudValue 校验
+    for (size_t i = 0; i < sizeof(BaudValue) / sizeof(BaudValue[0]); i++)
     {
         if (baud == BaudValue[i])
-        {
-            return baud; // 合法
-        }
+            return baud;
     }
-    return 115200; // 非法则返回默认值
+    return 115200; // 非法数据返回默认
 }
+
 
 void config_baudrate(uint32_t baud, uint8_t interface)
 {
-    baud =Load_BaudValue(interface);
     Save_BaudValue(baud,interface);
+    // baud =Load_BaudValue(interface);
 }
 
 void interface_init(uint8_t interface)

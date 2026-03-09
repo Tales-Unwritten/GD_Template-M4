@@ -29,20 +29,20 @@
 
 #define USARTx_USART            USART2            // 串口2
 
-#ifndef __PC_Transmit_Buffer_t__
-#define __PC_Transmit_Buffer_t__
+#ifndef __PC_Receive_Buffer_t__
+#define __PC_Receive_Buffer_t__
 typedef struct
 {
     uint8_t Buffer_Status; // 状态
     uint8_t Buffer_Length;  // 长度
     uint8_t Buffer[250];   // 缓存
-} PC_Transmit_Buffer_t;
+} PC_Receive_Buffer_t;
 
-#endif // !__PC_Transmit_Buffer_t__
+#endif // !__PC_Receive_Buffer_t__
 
 
-void usartx_config(uint32_t band_rate);                 // 初始化USARTx串口
-void usartx_send_it_data(uint8_t *buffer, uint8_t length);   // 发送数据（中断方式）
-void usartx_send_data(uint8_t *buffer, uint8_t length);      // 发送数据（轮询方式）
+extern void usartx_config(uint32_t band_rate);                 // 初始化USARTx串口
+extern void usartx_send_it_data(uint8_t *buffer, uint8_t length);   // 发送数据（中断方式）
+extern void usartx_send_data(uint8_t *buffer, uint8_t length);      // 发送数据（轮询方式）
 
-extern PC_Transmit_Buffer_t USARTx_Receive_Buffer[CHCHE_COUNT];
+extern PC_Receive_Buffer_t USARTx_Receive_Buffer[CHCHE_COUNT];

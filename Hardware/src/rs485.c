@@ -2,7 +2,7 @@
 
 
 uint32_t RS485_USART_BAUDRATE = RS485_BAUDRATE;
-PC_Transmit_Buffer_t Rs485_Receive_Buffer[CHCHE_COUNT];
+PC_Receive_Buffer_t Rs485_Receive_Buffer[CHCHE_COUNT];
 
 static struct
 {

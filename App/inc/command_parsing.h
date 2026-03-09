@@ -12,20 +12,16 @@
 static char send_buffer[128]; // Define send_buffer with sufficient size
 
 
-// 波特率有效性检查（集中管理）
+// 内部校验逻辑
 static bool is_valid_baudrate(uint32_t baudrate)
-{
-    static const uint32_t valid_baudrates[] = {
-        9600, 14400, 19200, 38400, 56000, 57600, 115200, 128000, 230400, 256000,
-        460800, 500000, 512000, 600000, 750000, 912600, 1000000, 1500000, 2000000};
-
-    for (uint32_t i = 0; i < sizeof(valid_baudrates) / sizeof(valid_baudrates[0]); i++)
-    {
-        if (baudrate == valid_baudrates[i])
-            return true;
+ {
+    for (uint32_t i = 0; i < BaudValue_Size; i++) {
+        if (baudrate == BaudValue[i]) return true;
     }
     return false;
 }
+
+
 
 // 通用设置函数（通过interface参数区分接口）
 static void BaudrateSet(uint32_t baudrate, uint8_t interface)
@@ -39,6 +35,8 @@ static void BaudrateSet(uint32_t baudrate, uint8_t interface)
     uint32_t BaudValue = 0;
     config_baudrate(baudrate, 0);
     BaudValue = Load_BaudValue(0);
+    // printf("BaudValue:%d\r\n",BaudValue);
+    // printf("baudrate:%d\r\n",baudrate);
 
     switch (interface)
     {
@@ -48,17 +46,59 @@ static void BaudrateSet(uint32_t baudrate, uint8_t interface)
         break;
     case 1: // RS485 interface
         Rs485_Init_config(BaudValue);
-        snprintf(send_buffer, sizeof(send_buffer), "RS485 baudrate set to %u\r\n", BaudValue);
+        // snprintf(send_buffer, sizeof(send_buffer), "RS485 baudrate set to %u\r\n", BaudValue);
         break;
     case 2: // USART interface
         usartx_config(BaudValue);
-        snprintf(send_buffer, sizeof(send_buffer), "USART baudrate set to %u\r\n", BaudValue);
+        // snprintf(send_buffer, sizeof(send_buffer), "USART baudrate set to %u\r\n", BaudValue);
         break;
     default:
         snprintf(send_buffer, sizeof(send_buffer), "Error: Unknown interface %u\r\n", interface);
         break;
     }
 }
+
+
+
+
+// // 波特率有效性检查（集中管理）
+// static bool is_valid_baudrate(uint32_t baudrate)
+// {
+//     static const uint32_t valid_baudrates[] = {
+//         9600, 14400, 19200, 38400, 56000, 57600, 115200, 128000, 230400, 256000,
+//         460800, 500000, 512000, 600000, 750000, 912600, 1000000, 1500000, 2000000};
+
+//     for (uint32_t i = 0; i < sizeof(valid_baudrates) / sizeof(valid_baudrates[0]); i++)
+//     {
+//         if (baudrate == valid_baudrates[i])
+//             return true;
+//     }
+//     return false;
+// }
+
+
+
+
+
+
+// static void BaudrateSet(uint32_t baudrate, uint8_t interface) {
+//     if (!is_valid_baudrate(baudrate)) {
+//         snprintf(send_buffer, sizeof(send_buffer), "Error: %u is not a standard baudrate\r\n", baudrate);
+//         return;
+//     }
+
+//     // 1. 准备应答（此时还在旧波特率下）
+//     snprintf(send_buffer, sizeof(send_buffer), "Baudrate changing to %u... Done\r\n", baudrate);
+    
+//     // 2. 写入 EEPROM 记录
+//     Save_BaudValue(baudrate, interface);
+
+//     // 3. 标记需要切换硬件（在 command_parsing 循环中处理）
+//     // 此处仅做标记，具体的硬件操作放在发送完消息之后
+// }
+
+
+
 
 // 命令处理函数类型
 typedef void (*cmd_handler_t)(void);
@@ -186,14 +226,12 @@ typedef struct
     uint8_t interface;                                     // 接口类型标识
 } Baud_struct;
 
-
 // 仅需2个表项
 static const Baud_struct baud_table[] = {
-    {"Set DebugBaud ", BaudrateSet, 0},  // Debug接口
-    {"Set Rs485Baud ",  BaudrateSet, 1}   // RS485接口
+    {"Set DebugBaud ", BaudrateSet, 0}, // Debug接口
+    {"Set Rs485Baud ", BaudrateSet, 1}, // Rs485接口
+    {"Set UartBaud ",  BaudrateSet, 2}, // Usart接口
 };
-
-
 
 // 命令表
 typedef struct
@@ -202,7 +240,8 @@ typedef struct
     cmd_handler_t handler;
 } cmd_struct;
 
-static const cmd_struct cmd_table[] = {
+static const cmd_struct cmd_table[] = 
+{
     {"get_bus_voltage\r\n", handle_bus_voltage},
     {"get_current\r\n", handle_current},
     {"get_shunt_voltage\r\n", handle_shunt_voltage},
@@ -223,47 +262,12 @@ static const cmd_struct cmd_table[] = {
     {"ina228_get_charge\r\n", handle_ina228_get_charge}
 };
 
-
-typedef struct
-{
-    char *rese_mess;
-    char *send_mess;
+typedef struct { 
+    const char *recv_cmd;  // receive command
+    const char *resp_cmd;  // response command
 } ChannelCmdDef;
-static const ChannelCmdDef channel_cmd[34] = {
-    {"Channel_all_open\r\n", "Channel_is_all_open\r\n"},
-    {"Channel_all_close\r\n", "Channel_is_all_close\r\n"},
-    {"Channel01_open\r\n", "Channel01_is_open\r\n"},
-    {"Channel02_open\r\n", "Channel02_is_open\r\n"},
-    {"Channel03_open\r\n", "Channel03_is_open\r\n"},
-    {"Channel04_open\r\n", "Channel04_is_open\r\n"},
-    {"Channel05_open\r\n", "Channel05_is_open\r\n"},
-    {"Channel06_open\r\n", "Channel06_is_open\r\n"},
-    {"Channel07_open\r\n", "Channel07_is_open\r\n"},
-    {"Channel08_open\r\n", "Channel08_is_open\r\n"},
-    {"Channel09_open\r\n", "Channel09_is_open\r\n"},
-    {"Channel10_open\r\n", "Channel10_is_open\r\n"},
-    {"Channel11_open\r\n", "Channel11_is_open\r\n"},
-    {"Channel12_open\r\n", "Channel12_is_open\r\n"},
-    {"Channel13_open\r\n", "Channel13_is_open\r\n"},
-    {"Channel14_open\r\n", "Channel14_is_open\r\n"},
-    {"Channel15_open\r\n", "Channel15_is_open\r\n"},
-    {"Channel16_open\r\n", "Channel16_is_open\r\n"},
-    {"Channel01_close\r\n", "Channel01_is_close\r\n"},
-    {"Channel02_close\r\n", "Channel02_is_close\r\n"},
-    {"Channel03_close\r\n", "Channel03_is_close\r\n"},
-    {"Channel04_close\r\n", "Channel04_is_close\r\n"},
-    {"Channel05_close\r\n", "Channel05_is_close\r\n"},
-    {"Channel06_close\r\n", "Channel06_is_close\r\n"},
-    {"Channel07_close\r\n", "Channel07_is_close\r\n"},
-    {"Channel08_close\r\n", "Channel08_is_close\r\n"},
-    {"Channel09_close\r\n", "Channel09_is_close\r\n"},
-    {"Channel10_close\r\n", "Channel10_is_close\r\n"},
-    {"Channel11_close\r\n", "Channel11_is_close\r\n"},
-    {"Channel12_close\r\n", "Channel12_is_close\r\n"},
-    {"Channel13_close\r\n", "Channel13_is_close\r\n"},
-    {"Channel14_close\r\n", "Channel14_is_close\r\n"},
-    {"Channel15_close\r\n", "Channel15_is_close\r\n"},
-    {"Channel16_close\r\n", "Channel16_is_close\r\n"}};
 
 
-void command_parsing(PC_Transmit_Buffer_t *PC_Transmit_Buffer, void (*Usart_Send_Data)(uint8_t *buf, uint8_t count));
+// bool is_valid_baudrate(uint32_t baudrate);
+// void BaudrateSet(uint32_t baudrate, uint8_t interface);
+void command_parsing(PC_Receive_Buffer_t *PC_Receive_Buffer, void (*Usart_Send_Data)(uint8_t *buf, uint8_t count));

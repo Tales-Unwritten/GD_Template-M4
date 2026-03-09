@@ -1,6 +1,6 @@
 #include "../Hardware/inc/usart_text.h"
 
-PC_Transmit_Buffer_t USARTx_Receive_Buffer[CHCHE_COUNT];
+PC_Receive_Buffer_t USARTx_Receive_Buffer[CHCHE_COUNT];
 
 static struct
 {

@@ -29,19 +29,26 @@
 
 #define DEBUG_IRQHandler         USART0_IRQHandler
 
-#ifndef __PC_Transmit_Buffer_t__
-#define __PC_Transmit_Buffer_t__
+#ifndef __PC_Receive_Buffer_t__
+#define __PC_Receive_Buffer_t__
+
+/**
+ * @brief Structure representing the PC transmit buffer.
+ * 
+ * This structure is used to manage the data buffer for PC transmission,
+ * including its status, length, and the actual data buffer.
+ */
 typedef struct
 {
-	uint8_t Buffer_Status;  // 状态
-	uint8_t Buffer_Length;  // 长度
-	uint8_t Buffer[250];    // 缓存
-} PC_Transmit_Buffer_t;
+	uint8_t Buffer_Status;  /** Status of the buffer.*/
+	uint8_t Buffer_Length;  /** Length of the data currently in the buffer. */
+	uint8_t Buffer[250];    /** Data buffer with a maximum capacity of 250 bytes. */
+} PC_Receive_Buffer_t;
 
-#endif // !__PC_Transmit_Buffer_t__
-void debug_init_config(uint32_t baudrate);				  // 配置串口
-void debug_send_it_data(uint8_t *buffer, uint8_t length); // 发送数据
-void debug_send_data(uint8_t *buffer, uint8_t length);	  // 发送数据
+#endif // !__PC_Receive_Buffer_t__
+extern void debug_init_config(uint32_t baudrate);				  // 配置串口
+extern void debug_send_it_data(uint8_t *buffer, uint8_t length); // 发送数据
+extern void debug_send_data(uint8_t *buffer, uint8_t length);	  // 发送数据
 
 extern uint32_t DEBUG_USART_BAUDRATE;
-extern PC_Transmit_Buffer_t Debug_Receive_Buffer[CHCHE_COUNT];
+extern PC_Receive_Buffer_t Debug_Receive_Buffer[CHCHE_COUNT];

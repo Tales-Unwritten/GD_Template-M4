@@ -31,21 +31,21 @@
 
 #define RS485_USART          USART1       // 串口1
 
-#ifndef __PC_Transmit_Buffer_t__
-#define __PC_Transmit_Buffer_t__
+#ifndef __PC_Receive_Buffer_t__
+#define __PC_Receive_Buffer_t__
 typedef struct
 {
     uint8_t Buffer_Status; // 状态
     uint8_t Buffer_Length;  // 长度
     uint8_t Buffer[250];   // 缓存
-} PC_Transmit_Buffer_t;
+} PC_Receive_Buffer_t;
 
-#endif // !__PC_Transmit_Buffer_t__
+#endif // !__PC_Receive_Buffer_t__
 
 
-void Rs485_Init_config(uint32_t baudrate); // 初始化RS485串口
-void rs485_send_it_data(uint8_t *buffer, uint8_t length); // 发送数据（中断方式）
-void rs485_send_data(uint8_t *buffer, uint8_t length); // 发送数据（轮询方式）
+extern void Rs485_Init_config(uint32_t baudrate); // 初始化RS485串口
+extern void rs485_send_it_data(uint8_t *buffer, uint8_t length); // 发送数据（中断方式）
+extern void rs485_send_data(uint8_t *buffer, uint8_t length); // 发送数据（轮询方式）
 
 extern uint32_t RS485_USART_BAUDRATE;
-extern PC_Transmit_Buffer_t Rs485_Receive_Buffer[CHCHE_COUNT];
+extern PC_Receive_Buffer_t Rs485_Receive_Buffer[CHCHE_COUNT];
