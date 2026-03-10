@@ -1,7 +1,5 @@
 #include "main.h"
 
-uint32_t bt;
-
 static void systick_task_config(void)
 {
   systick_config();                                                                          // 滴答定时器初始化
@@ -12,8 +10,6 @@ static void systick_task_config(void)
 
   // INA226_Device_Info.CHG_Ina226_Init(GPIOB, GPIO_PIN_14, GPIO_PIN_15, Ina226_7bit_address0); // 初始化INA226设备
   led_gpio_config();                                                                         // led初始化
-  bt= Load_BaudValue(0);                                                              // 串口初始化
-  printf("Bt=%d\r\n",bt);                                                         // RS485串口初始化
   // INA226_Device_Info.CHG_Ina226_Unlock_Alert();                                           // 解锁INA226的警报功能
   w25qxx_spi_config();
   INA228_Device_Func.CHG_INA228_Config(GPIOE, GPIO_PIN_2, GPIO_PIN_3, Ina228_7bit_address0); // INA228配置
@@ -27,7 +23,6 @@ static void systick_task_config(void)
 int main(void)
 {
   systick_task_config(); // 初始化所有外设
-
   while (1)
   {
     APP_PC_Task(); // PC任务
