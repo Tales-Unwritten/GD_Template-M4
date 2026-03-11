@@ -75,6 +75,13 @@ virtualFolder:
         - path: ../User/main.c
         - path: ../User/gd32f4xx_it.c
       folders: []
+    - name: modbus
+      files:
+        - path: ../Hardware/modbus/src/modbus.c
+        - path: ../Hardware/modbus/src/modbus_crc.c
+        - path: ../Hardware/modbus/src/modbus_map.c
+        - path: ../Hardware/modbus/src/modbus_port.c
+      folders: []
 dependenceList: []
 outDir: build
 miscInfo:
