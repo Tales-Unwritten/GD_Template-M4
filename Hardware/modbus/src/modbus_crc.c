@@ -1,4 +1,5 @@
 #include "../Hardware/modbus/inc/modbus_crc.h"
+#include <stddef.h>
 
 /** =========================================================================
  * CRC-8 (Maxim / DS18B20 风格)

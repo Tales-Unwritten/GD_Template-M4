@@ -22,7 +22,6 @@ typedef struct
 
 } modbus_block_t;
 
-
 modbus_block_t ModbusBlockTable[] =
     {
 
@@ -30,7 +29,7 @@ modbus_block_t ModbusBlockTable[] =
 
         {0x000A, 50, MODBUS_BLOCK_HOLDING, ControlBlock},
 
-        {0x0040, 50, MODBUS_BLOCK_INPUT,   StatusBlock},  
+        {0x0040, 50, MODBUS_BLOCK_INPUT, StatusBlock},
 
 };
 

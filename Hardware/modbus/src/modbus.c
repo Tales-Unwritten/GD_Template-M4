@@ -25,6 +25,10 @@
 
 modbus_t Modbus;
 
+static void Modbus_Function03(void);
+static void Modbus_Function04(void);
+static void Modbus_Function06(void);
+static void Modbus_Function16(void);
 
 void Modbus_Init(void)
 {
